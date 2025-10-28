@@ -1,0 +1,34 @@
+services:
+  BT_SERVICE_NAME6:
+    image: teamspeak:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${VOICE_PORT}:9987/udp
+      - ${SQ_RAW_PORT}:10011
+      - ${FILETRANSFER_PORT}:30033
+    environment:
+      TS3SERVER_DB_PLUGIN: ts3db_${DB_TYPE}
+      TS3SERVER_DB_SQLCREATEPATH: create_${DB_TYPE}
+      TS3SERVER_DB_WAITUNTILREADY: 30
+      TS3SERVER_LICENSE: accept
+      TS3SERVER_DB_HOST: ${MYSQL_HOST_IP}
+      TS3SERVER_DB_NAME: ${MYSQL_DATABASE}
+      TS3SERVER_DB_PORT: ${MYSQL_PORT}
+      TS3SERVER_DB_USER: ${MYSQL_USER}
+      TS3SERVER_DB_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ${APP_PATH}/data:/var/ts3server
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

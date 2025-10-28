@@ -1,0 +1,20 @@
+services:
+  BT_SERVICE_NAME6:
+    image: yisier1/nps:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    network_mode: "host"
+    restart: always
+    volumes:
+      - ${APP_PATH}/conf:/conf
+    labels:
+      createdBy: "bt_apps"
+
+
+
+
+     
+      

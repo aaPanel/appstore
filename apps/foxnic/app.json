@@ -1,0 +1,38 @@
+{
+    "appid": 174,
+    "appname": "foxnic",
+    "apptitle": "Foxnic",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"2","s_version":["9.1.5"]}
+    ],
+    "appdesc": "一个EAM固定资产设备管理系统,满足中小企业基本需求，对常用资产设备进行信息化管理",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 175,
+    "home": "",
+    "help": "https://gitee.com/lank/eam",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port1","name":"pc端管理端口","type":"number","default":8088,"suffix":"","unit":""},
+        {"attr":"web_http_port2","name":"移动端管理端口","type":"number","default":8091,"suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port1","type":"port","default":null,"desc":"web管理端口"},
+        {"key":"web_http_port2","type":"port","default":null,"desc":"api端口"},
+        {"key":"defaultUserName","type":"defaultUserName","default":"admin","desc":"用户名"},
+        {"key":"defaultPassWord","type":"defaultPassWord","default":"123456","desc":"默认密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {}
+}

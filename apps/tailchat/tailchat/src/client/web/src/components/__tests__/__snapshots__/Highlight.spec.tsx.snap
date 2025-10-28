@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Highlight render 1`] = `
+<div>
+  <span
+    class="highLight"
+  >
+    Any Text
+  </span>
+</div>
+`;

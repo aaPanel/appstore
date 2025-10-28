@@ -1,0 +1,19 @@
+services:
+  BT_SERVICE_NAME6:
+    image: bestoray/pgyvpn:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    restart: always
+    devices:
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    privileged: true
+    environment:
+      - PGY_USERNAME=${PGY_USERNAME}
+      - PGY_PASSWORD=${PGY_PASSWORD}
+    volumes:
+      - ${APP_PATH}/logs:/var/log/oray
+      - ${APP_PATH}/etc:/etc/oray/pgyvpn
+    labels:
+      createdBy: "bt_apps"
+    network_mode: host

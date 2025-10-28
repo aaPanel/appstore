@@ -1,0 +1,49 @@
+{
+    "appid": 21,
+    "appname": "minio",
+    "apptitle": "MinIO",
+    "apptype": "Storage",
+    "appTypeCN": "存储/网盘",
+    "appversion": [
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"RELEASE.2025-04-22T22-12-26Z","s_version":[]},
+        {"m_version":"RELEASE.2025-04-22T22-12-26Z-cpuv1","s_version":[]}
+    ],
+    "appdesc": "是一种高性能、S3 兼容的对象存储。它专为大规模 AI/ML、数据湖和数据库工作负载而构建，并且它是由软件定义的存储",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 22,
+    "home": "https://min.io/",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"web端口","type":"number","default":19001,"suffix":"建议设置1个域名","unit":""},
+        {"attr":"api_port","name":"api端口","type":"number","default":19000,"suffix":"如需外部使用api接口请勾选允许外部访问","unit":""},
+        {"attr":"minio_root_user","name":"管理员用户","type":"text","default":"minio","suffix":"","unit":""},
+        {"attr":"minio_root_password","name":"管理员密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"minio_browser_session_duration","name":"会话持续时间","type":"text","default":"12h","suffix":"以小时为单位,填写请数字加h,例如：12h/24h","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":33001,"desc":"web端口"},
+        {"key":"api_port","type":"port","default":33000,"desc":"api端口"},
+        {"key":"minio_root_user","type":"text","default":null,"desc":"管理员用户"},
+        {"key":"minio_root_password","type":"password","default":null,"desc":"管理员密码"},
+        {"key":"minio_browser_session_duration","type":"text","default":null,"desc":"会话持续时间"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "配置文件"}, "ssl": {"type": "path", "desc": "证书目录"}}
+}

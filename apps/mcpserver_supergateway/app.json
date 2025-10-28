@@ -1,0 +1,41 @@
+{
+    "appid": 222,
+    "appname": "mcpserver_supergateway",
+    "apptitle": "MCPServer-npx",
+    "apptype": "MCP",
+    "appTypeCN": "MCP服务",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "基于SuperGateway的SSE服务建立一个MCPServer。仅支持NPX所启动的服务(仅适用于宝塔9.6.0以上版本)",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 222,
+    "home": "",
+    "help": "https://github.com/supercorp-ai/supergateway",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1745225703,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"mcp_server_config","name":"MCPServer配置","type":"ace:json","default":"","suffix":"仅支持NPX启动的MCPServer <a href='https://www.bt.cn/bbs/forum.php?mod=viewthread&tid=145876' target='_blank' class='btlink'>使用帮助</a>","unit":""},
+        {"attr":"http_port","name":"服务端口","type":"number","default":8010,"suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"mcp_server_config","type":"string","default":null,"desc":"MCP配置"},
+        {"key":"http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {}
+}

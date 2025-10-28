@@ -1,0 +1,88 @@
+services:
+  contact-center:
+    image: cskefu/contact-center:develop
+    container_name: contact-center
+    restart: always
+    ports:
+      - "${HOST_IP}:${WEB_HTTP_PORT}:8035"
+      - "${HOST_IP}:${SOCKET_PORT}:8036"
+    volumes:
+      - "${APP_PATH}/data/contact-center/data:/data"
+      - "${APP_PATH}/data/contact-center/logs:/logs"
+    environment:
+      JAVA_OPTS: "JAVA_OPTS=-Xmx${CC_JAVA_XMX:-12288m} -Xms${CC_JAVA_XMS:-2048m} -XX:PermSize=256m -XX:MaxPermSize=1024m -Djava.net.preferIPv4Stack=true --add-opens java.base/jdk.internal.misc=ALL-UNNAMED -Dio.netty.tryReflectionSetAccessible=true --illegal-access=warn"
+      SERVER_PORT: 8035
+      SERVER_LOG_PATH: /logs
+      SERVER_LOG_LEVEL: ${LOG_LEVEL}
+      WEB_UPLOAD_PATH: /data
+      UK_IM_SERVER_PORT: 8036
+      UK_IM_SERVER_HOST: localhost
+      UK_IM_SERVER_THREADS: 10
+      CS_IM_SERVER_SSL_PORT: ${SOCKET_PORT}
+      SPRING_DATASOURCE_URL: jdbc:mysql://cskefu-mysql:3306/cosinee?useUnicode=true&characterEncoding=UTF-8
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWD:-123456}
+      SPRING_DATA_REDIS_HOST: cskefu-redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_PASSWORD: ${DB_PASSWD:-123456}
+      SPRING_ACTIVEMQ_BROKER_URL: tcp://cskefu-activemq:61616
+      CSKEFU_MODULE_CALLOUT: "false"
+      CSKEFU_MODULE_CONTACTS: "true"
+      CSKEFU_MODULE_CHATBOT: "true"
+      CACHE_SETUP_STRATEGY: ${CACHE_SETUP_STRATEGY:-create_by_force}
+      SKYPE_CHANNEL_CRM: ${SKYPE_CHANNEL_CRM:-placeholder}
+      BOT_THRESHOLD_FAQ_BEST_REPLY: ${BOT_THRESHOLD_FAQ_BEST_REPLY:-0.9}
+      BOT_THRESHOLD_FAQ_SUGG_REPLY: ${BOT_THRESHOLD_FAQ_SUGG_REPLY:-0.1}
+      CSKEFU_SETTINGS_WEBIM_VISITOR_SEPARATE: true
+      LICENSE_STORE_PROVIDER: ${LICENSE_STORE_PROVIDER:-https://store.chatopera.com}
+      TONGJI_BAIDU_SITEKEY: ${TONGJI_BAIDU_SITEKEY:-placeholder}
+      EXTRAS_LOGIN_BANNER: ${NOTICE_LOGIN_BANNER:-Purchase subscriptions for billing resources on https://store.chatopera.com/product/cskefu001}
+      EXTRAS_LOGIN_CHATBOX: ${EXTRAS_LOGIN_CHATBOX:-off}
+      EXTRAS_AUTH_SUPER_ADMIN_PASS: ${EXTRAS_AUTH_SUPER_ADMIN_PASS:-}
+      EXTRAS_LOG_REQUEST: ${EXTRAS_LOG_REQUEST:-off}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  cskefu-activemq:
+    image: cskefu/activemq:5.14.3
+    restart: always
+    environment:
+      ACTIVEMQ_ADMIN_LOGIN: admin
+      ACTIVEMQ_ADMIN_PASSWORD: ${DB_PASSWD:-123456}
+      ACTIVEMQ_ENABLED_SCHEDULER: "true"
+      ACTIVEMQ_MIN_MEMORY: 1024
+      ACTIVEMQ_MAX_MEMORY: 4096
+    volumes:
+      - "${APP_PATH}/data/activemq/data:/data"
+      - "${APP_PATH}/data/activemq/logs:/var/log/activemq"
+    networks:
+      - baota_net
+
+  cskefu-mysql:
+    image: cskefu/mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWD:-123456}
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: ${DB_PASSWD:-123456}
+    volumes:
+      - "${APP_PATH}/data/mysql:/var/lib/mysql"
+    command: --max_allowed_packet=32505856
+    networks:
+      - baota_net
+
+  cskefu-redis:
+    image: cskefu/redis:5.0.5
+    restart: always
+    environment:
+      REDIS_PASSWORD: ${DB_PASSWD:-123456}
+    volumes:
+      - "${APP_PATH}/data/redis:/data"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

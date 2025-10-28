@@ -1,0 +1,38 @@
+{
+    "appid": 255,
+    "appname": "trwebocr",
+    "apptitle": "TrWebOCR",
+    "apptype": "nas",
+    "appTypeCN": "Nas",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "开源易用的中文离线OCR，且提供了易用的web页面及web的接口，方便日常工作使用或者其他程序来调用。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 23,
+    "home": "https://github.com/alisen39/TrWebOCR",
+    "help": "https://github.com/alisen39/TrWebOCR",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1761123080,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port","name":"web端口","type":"number","default":8089,"suffix":"Web界面访问端口","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"web_http_port","type":"port","default":8089,"desc":"web端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
+}

@@ -1,0 +1,29 @@
+services:
+  BT_SERVICE_NAME6:
+    image: ollama/ollama:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+
+    restart: unless-stopped
+    tty: true
+    ports:
+      - ${HOST_IP}:${OLLAMA_PORT}:11434
+    volumes:
+      - ${APP_PATH}/data:/root/.ollama
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

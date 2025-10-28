@@ -1,0 +1,35 @@
+{
+    "appid": 144,
+    "appname": "pgyserver",
+    "apptitle": "PGYServer 服务端",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "贝锐向日葵组网工具，一键接入异地局域网，远程运维内网/无线设备",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 145,
+    "home": "",
+    "help": "https://service.oray.com/question/28570.html",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"pgy_username","name":"用户名","type":"text","default":"","suffix":"向日葵官网帐号 或 UID","unit":""},
+        {"attr":"pgy_password","name":"密码","type":"text","default":"","suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"pgy_username","type":"string","default":null,"desc":"用户名"},
+        {"key":"pgy_password","type":"string","default":null,"desc":"密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"}
+    ],
+    "volumes": {}
+}

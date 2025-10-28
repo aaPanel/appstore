@@ -1,0 +1,25 @@
+services:
+  BT_SERVICE_NAME6:
+    image: mongo:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${PASSWORD}
+    ports:
+      - ${HOST_IP}:${SERVICE_PORT}:27017
+    volumes:
+      - ${APP_PATH}/data:/data/db
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

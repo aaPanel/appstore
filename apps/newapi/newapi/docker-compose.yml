@@ -1,0 +1,57 @@
+services:
+  new-api:
+    image: calciumion/new-api:${VERSION}
+    restart: always
+    command: --log-dir /app/logs
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:3000
+    volumes:
+      - ${APP_PATH}/data:/data
+      - ${APP_PATH}/logs:/app/logs
+    environment:
+      - SQL_DSN=root:eZ1rW9jR6mU6uP4b@tcp(mysql:3306)/new-api  # Point to the mysql service
+      - REDIS_CONN_STRING=redis://redis
+      - SESSION_SECRET=${SESSION_SECRET}  # Change to a secure, random string
+      - TZ=Asia/Shanghai
+    #      - NODE_TYPE=slave  # Uncomment for slave node in multi-node deployment
+    #      - SYNC_FREQUENCY=60  # Uncomment if regular database syncing is needed
+    #      - FRONTEND_BASE_URL=https://openai.justsong.cn  # Uncomment for multi-node deployment with front-end URL
+
+    depends_on:
+      - redis
+      - mysql
+    healthcheck:
+      test: [ "CMD-SHELL", "wget -q -O - http://localhost:3000/api/status | grep -o '\"success\":\\s*true' | awk -F: '{print $2}'" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  redis:
+    image: redis:latest
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  mysql:
+    image: mysql:8.2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: eZ1rW9jR6mU6uP4b  # Ensure this matches the password in SQL_DSN
+      MYSQL_DATABASE: new-api
+    volumes:
+      - ${APP_PATH}/mysql_data:/var/lib/mysql
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
+      

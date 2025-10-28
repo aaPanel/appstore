@@ -1,0 +1,55 @@
+services:
+  app:
+    image: registry.cn-shanghai.aliyuncs.com/topthink/ai:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}    
+    pull_policy: always
+    restart: always
+    command:
+      - app:run
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:80
+    environment:
+      PHP_DB_HOST: ${SERVICE_NAME}_mysql
+      PHP_REDIS_HOST: ${SERVICE_NAME}_redis
+      PHP_LICENSE: ${API_KEY} #授权码 https://doc.topthink.com/@thinkai-deploy/apply.html
+    volumes:
+      - ${APP_PATH}/data/storage:/opt/htdocs/storage
+    depends_on:
+      - thinkai-mysql
+      - thinkai-redis
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+    
+  thinkai-redis:
+    image: registry.cn-shanghai.aliyuncs.com/topopen/redis:latest
+    restart: always
+    volumes:
+      - ${APP_PATH}/data/redis:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      baota_net:
+        aliases:
+          - ${SERVICE_NAME}_redis
+
+  thinkai-mysql:
+    image: registry.cn-shanghai.aliyuncs.com/topopen/mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ai
+    volumes:
+      - ${APP_PATH}/data/mysql:/var/lib/mysql
+    networks:
+      baota_net:
+        aliases:
+          - ${SERVICE_NAME}_mysql
+networks:
+  baota_net:
+    external: true

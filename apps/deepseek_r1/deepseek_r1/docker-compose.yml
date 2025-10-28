@@ -1,0 +1,44 @@
+services:
+  ollama:
+    image: ollama/ollama
+    #    container_name: ${CONTAINER_NAME}
+#    deploy:
+#      resources:
+#        reservations:
+#          devices:
+#            - driver: nvidia
+#              count: 1
+#              capabilities: [ gpu ]
+    restart: unless-stopped
+    tty: true
+    ports:
+      - ${HOST_IP}:${OLLAMA_PORT}:11434
+    volumes:
+      - ${APP_PATH}/data:/root/.ollama
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  open-webui:
+    image: dyrnq/open-webui:main
+    #    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    ports:
+      - ${HOST_IP}:${WEBUI_PORT}:8080
+    environment:
+      - ENABLE_OPENAI_API=false
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY}
+    volumes:
+      - ${APP_PATH}/openwebui_data:/app/backend/data
+    depends_on:
+      - ollama
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

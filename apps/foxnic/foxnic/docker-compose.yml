@@ -1,0 +1,142 @@
+services:
+  app_mysql:
+    image: registry.cn-hangzhou.aliyuncs.com/lank/mysql:fapp_db_${VERSION}
+    restart: always
+    volumes:
+      - ${APP_PATH}/app/docker/mysql/log:/var/log
+      - ${APP_PATH}/app/docker/mysql/data:/var/lib/mysql
+      - ${APP_PATH}/app/docker/mysql/conf.d:/etc/mysql/conf.d
+      - /etc/localtime:/etc/localtime:ro
+    command:
+      --max_connections=4096
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --lower_case_table_names=1
+      --max_allowed_packet=100M
+      --server-id=1
+      --log-bin=mysql-bin
+      --binlog_expire_logs_seconds=86400
+      --binlog-format=ROW
+      --binlog_cache_size=256m
+      --slow_query_log=1
+      --long_query_time=2
+      --slow_query_log_file=/var/lib/mysql/dev_app_mysql-slow.log
+      --innodb_buffer_pool_size=1G
+    environment:
+      APP_MODE: '["eam_sq"]'
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: 'P@ssw0rd123456'
+      MYSQL_DATABASE: 'app'
+      MYSQL_USER: 'app'
+      MYSQL_PASSWORD: 'P@ssw0rd123456'
+      TZ: 'Asia/Shanghai'
+    privileged: true
+    networks:
+      BT_SERVICE_NAME6_network:
+        ipv4_address: 16.88.88.89
+    labels:
+      createdBy: "bt_apps"    
+      
+  app_oss:
+    image: registry.cn-hangzhou.aliyuncs.com/lank/minio:20240803
+    restart: always
+    ports:
+      - "39000:9000"
+      - "39090:9090"
+    volumes:
+      - ${APP_PATH}/app/docker/oss/data:/data
+      - ${APP_PATH}/app/docker/oss/config:/root/.minio
+    command: server /data --console-address ":9000" --address ":9090"
+    environment:
+      MINIO_ACCESS_KEY: 'admin'
+      MINIO_SECRET_KEY: 'P@ssw0rd123456'
+      MINIO_BROWSER: 'on'
+    networks:
+      BT_SERVICE_NAME6_network:
+        ipv4_address: 16.88.88.99
+    labels:
+      createdBy: "bt_apps"    
+    
+  app_app:
+    image: registry.cn-hangzhou.aliyuncs.com/lank/app:fapp_app_${VERSION}
+    restart: always
+    ports:
+      - "8089:8089"
+    working_dir: /home
+    volumes:
+      - ${APP_PATH}/app/docker/app/home:/home
+      - ${APP_PATH}/app/docker/app/netdisk:/app/app/app/netdisk
+      - ${APP_PATH}/app/docker/app/upload:/app/app/app/upload
+    networks:
+      BT_SERVICE_NAME6_network:
+        ipv4_address: 16.88.88.88
+    environment:
+      REDIS_HOST_IP: 16.88.88.90
+      BPM_HOST_IP: 16.88.88.87
+      MYSQL_HOST_IP: 16.88.88.89
+      MYSQL_HOST_PORT: 3306
+      MYSQL_DATABASE: 'app'
+      MYSQL_USER: 'app'
+      MYSQL_PASSWORD: 'P@ssw0rd123456'
+      STORAGE_TYPE: 'minio'
+      MINIO_URL: 'http://16.88.88.99:9090'
+      MINIO_ACCESS_KEY: 'admin'
+      MINIO_SECRET_KEY: 'P@ssw0rd123456'
+      MINIO_ACCESS_KEY_YML: 'iLD9PcLSqv5Q0ELXpXQN'
+      MINIO_SECRET_KEY_YML: 'nTdOWm5rW54ZpyZ6iCJovEedOwUq5uXe9W6H4kHW'
+      TZ: 'Asia/Shanghai'
+    depends_on:
+      - app_mysql
+      - app_oss
+    labels:
+      createdBy: "bt_apps"
+      
+  app_bpm:
+    image: registry.cn-hangzhou.aliyuncs.com/lank/app:fapp_bpm_${VERSION}
+    restart: always
+    ports:
+      - "8099:8099"
+    working_dir: /home
+    user: root
+    privileged: true
+    volumes:
+      - ${APP_PATH}/app/docker/bpm/home:/home
+    networks:
+      BT_SERVICE_NAME6_network:
+        ipv4_address: 16.88.88.87
+    environment:
+      APP_HOST_IP: 16.88.88.88
+      MYSQL_HOST_IP: 16.88.88.89
+      MYSQL_HOST_PORT: 3306
+      MYSQL_DATABASE: 'app'
+      MYSQL_USER: 'app'
+      MYSQL_PASSWORD: 'P@ssw0rd123456'
+      TZ: 'Asia/Shanghai'
+    depends_on:
+      - app_mysql
+    labels:
+      createdBy: "bt_apps"
+      
+  BT_SERVICE_NAME6:
+    image: registry.cn-hangzhou.aliyuncs.com/lank/nginx:fapp_nginx_${VERSION}
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT1}:8088
+      - ${HOST_IP}:${WEB_HTTP_PORT2}:8091
+    volumes:
+      - ${APP_PATH}/app/docker/nginx/log:/var/log/nginx
+    user: root
+    privileged: true
+    networks:
+      BT_SERVICE_NAME6_network:
+        ipv4_address: 16.88.88.86
+    labels:
+      createdBy: "bt_apps"
+
+networks:
+  BT_SERVICE_NAME6_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 16.88.88.0/24

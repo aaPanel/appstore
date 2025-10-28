@@ -1,0 +1,96 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  overflow: hidden; // 在mac上禁用橡皮筋弹动效果，防止出现背景白底 https://stackoverflow.com/questions/29257538/disabling-rubber-band-scrolling-on-macs
+  font-size: inherit;
+}
+
+#tailchat-app {
+  @apply text-typography-light bg-content-light;
+
+  --tc-background-image: url(../../assets/images/bg.webp);
+  --tc-content-background-image: '';
+  --tc-content-background-image-opacity: 0.2;
+  --tc-content-background-color: rgba(243, 244, 246, 1); // copy from bg-content-light
+
+  .tc-background {
+    @apply bg-center bg-cover bg-no-repeat;
+    background-image: var(--tc-background-image);
+  }
+
+  .tc-content-background {
+    @apply absolute block inset-0 bg-contain bg-no-repeat bg-right-bottom pointer-events-none;
+    background-image: var(--tc-content-background-image);
+    opacity: var(--tc-content-background-image-opacity);
+  }
+
+  code {
+    // fork from antd: .ant-typography code
+    margin: 0 0.2em;
+    padding: 0.2em 0.4em 0.1em;
+    font-size: 85%;
+    background: rgba(150, 150, 150, 0.1);
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-radius: 3px;
+  }
+
+  /* 滚动条 */
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-black bg-opacity-10;
+    border-color: transparent;
+    background-clip: padding-box;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 8px;
+
+    &:hover {
+      @apply bg-black bg-opacity-20;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black bg-opacity-5;
+    border-color: transparent;
+    background-clip: padding-box;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 8px;
+  }
+
+  // 深色模式覆盖
+  &.dark {
+    @apply text-typography-dark bg-content-dark;
+    --tc-content-background-color: rgba(55, 65, 81, 1);; // copy from bg-content-light
+
+    h1,h2,h3,h4,h5,h6 {
+      @apply text-typography-dark;
+    }
+
+    ::-webkit-scrollbar-corner {
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #202225;
+
+      &:hover {
+        background-color: #202225;
+      }
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #2f3136;
+    }
+  }
+}

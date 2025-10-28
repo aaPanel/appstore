@@ -1,0 +1,79 @@
+services:
+  affine:
+    image: ghcr.io/toeverything/affine:stable
+    ports:
+      - "${HOST_IP}:${AFFINE_WEB_HTTP_PORT}:3010"
+    environment:
+      - REDIS_SERVER_HOST=affine-redis
+      - DATABASE_URL=postgresql://${DB_USERNAME}:${DB_PASSWORD}@affine-postgres:5432/${DB_DATABASE}
+      - AFFINE_INDEXER_ENABLED=false
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - ${APP_PATH}/data/storage:/root/.affine/storage
+      - ${APP_PATH}/data/config:/root/.affine/config
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  affine_migration:
+    image: ghcr.io/toeverything/affine:stable
+    container_name: affine_migration_job
+    command: ['sh', '-c', 'node ./scripts/self-host-predeploy.js']
+    environment:
+      - REDIS_SERVER_HOST=affine-redis
+      - DATABASE_URL=postgresql://${DB_USERNAME}:${DB_PASSWORD}@affine-postgres:5432/${DB_DATABASE}
+      - AFFINE_INDEXER_ENABLED=false
+    restart: always
+    volumes:
+      - ${APP_PATH}/data/storage:/root/.affine/storage
+      - ${APP_PATH}/data/config:/root/.affine/config
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+    depends_on:
+      affine-postgres:
+        condition: service_healthy
+      affine-redis:
+        condition: service_healthy
+
+  affine-redis:
+    image: redis
+    healthcheck:
+      test: ['CMD', 'redis-cli', '--raw', 'incr', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  affine-postgres:
+    image: pgvector/pgvector:pg16
+    volumes:
+      - ${APP_PATH}/data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_INITDB_ARGS: '--data-checksums'
+      POSTGRES_HOST_AUTH_METHOD: trust
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', "${DB_USERNAME}", '-d', "${DB_DATABASE}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

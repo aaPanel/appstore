@@ -1,0 +1,49 @@
+{
+    "appid": 150,
+    "appname": "certd",
+    "apptitle": "Certd",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "Certd是一个自动化证书管理工具",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 151,
+    "home": "",
+    "help": "https://github.com/certd/certd",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"http端口","type":"number","default":7001,"suffix":"","unit":""},
+        {"attr":"web_https_port","name":"https端口","type":"number","default":7002,"suffix":"","unit":""},
+        {"attr":"dns1","name":"DNS1","type":"text","default":"223.5.5.5","suffix":"","unit":""},
+        {"attr":"dns2","name":"DNS2","type":"text","default":"223.6.6.6","suffix":"","unit":""},
+        {"attr":"https_proxy","name":"https代理","type":"text","default":"","suffix":"非必填，不知道填什么请留空","unit":""},
+        {"attr":"http_proxy","name":"http代理","type":"text","default":"","suffix":"非必填，不知道填什么请留空","unit":""},
+        {"attr":"vite_app_icp_no","name":"备案号","type":"text","default":"","suffix":"非必填，不知道填什么请留空","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"http端口"},
+        {"key":"web_https_port","type":"port","default":null,"desc":"https端口"},
+        {"key":"dns1","type":"string","default":null,"desc":"DNS1"},
+        {"key":"dns2","type":"string","default":null,"desc":"DNS2"},
+        {"key":"https_proxy","type":"string","default":null,"desc":"https代理"},
+        {"key":"http_proxy","type":"string","default":null,"desc":"http代理"},
+        {"key":"vite_app_icp_no","type":"string","default":null,"desc":"备案号"},
+        {"key":"defaultUserName","type":"defaultUserName","default":"admin","desc":"用户名"},
+        {"key":"defaultPassWord","type":"defaultPassWord","default":"123456","desc":"默认密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}}
+}

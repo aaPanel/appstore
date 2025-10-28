@@ -1,0 +1,48 @@
+{
+    "appid": 225,
+    "appname": "rustdesk_pro",
+    "apptitle": "RustDesk-ServerPro",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "一个功能齐全的开源远程控制替代品",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 17,
+    "home": "https://rustdesk.com/index.html",
+    "help": "https://rustdesk.com/docs/en/self-host/rustdesk-server-pro/",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"rustdesk_port_web","name":"控制台端口","type":"number","default":21114,"suffix":"默认用户名：admin 默认密码：test1234","unit":""},
+        {"attr":"rustdesk_port_nat","name":"nat端口","type":"number","default":21115,"suffix":"","unit":""},
+        {"attr":"rustdesk_port_hbbs","name":"hbbs端口","type":"number","default":21116,"suffix":"","unit":""},
+        {"attr":"rustdesk_port_hbbr","name":"hbbr端口","type":"number","default":21117,"suffix":"","unit":""},
+        {"attr":"rustdesk_port_web_client_1","name":"web端口1","type":"number","default":21118,"suffix":"","unit":""},
+        {"attr":"rustdesk_port_web_client_2","name":"web端口2","type":"number","default":21119,"suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"rustdesk_port_web","type":"port","default":null,"desc":"nat端口"},
+        {"key":"rustdesk_port_nat","type":"port","default":null,"desc":"nat端口"},
+        {"key":"rustdesk_port_hbbs","type":"port","default":null,"desc":"hbbs端口"},
+        {"key":"rustdesk_port_hbbr","type":"port","default":null,"desc":"hbbr端口"},
+        {"key":"rustdesk_port_web_client_1","type":"port","default":null,"desc":"web端口1"},
+        {"key":"rustdesk_port_web_client_2","type":"port","default":null,"desc":"web端口2"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据库目录"}}
+}

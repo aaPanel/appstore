@@ -1,0 +1,28 @@
+services:
+  BT_SERVICE_NAME6:
+    image: sonarqube:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:9000
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${PGSQL_DATABASE}
+      SONAR_JDBC_USERNAME: ${PGSQL_USER}
+      SONAR_JDBC_PASSWORD: ${PGSQL_PASSWORD}
+    volumes:
+      - ${APP_PATH}/data:/opt/sonarqube/data
+      - ${APP_PATH}/extensions:/opt/sonarqube/extensions
+      - ${APP_PATH}/logs:/opt/sonarqube/logs
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

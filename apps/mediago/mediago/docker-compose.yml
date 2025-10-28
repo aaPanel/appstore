@@ -1,0 +1,21 @@
+services:
+  BT_SERVICE_NAME6:
+    image: registry.cn-beijing.aliyuncs.com/caorushizi/mediago:v3.0.0
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: unless-stopped
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8899
+    volumes:
+      - ${APP_PATH}/mediago:/root/mediago
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

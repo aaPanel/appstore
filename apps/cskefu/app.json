@@ -1,0 +1,42 @@
+{
+    "appid": 253,
+    "appname": "cskefu",
+    "apptitle": "CSKeFu",
+    "apptype": "nas",
+    "appTypeCN": "Nas",
+    "appversion": [
+        {"m_version":"develop","s_version":[]}
+    ],
+    "appdesc": "春松客服（CSKeFu）是开源智能客服系统，支持网页/APP 多渠道接入，提供坐席管理、客户画像、工单与智能机器人等功能，容器化部署即开即用。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 22,
+    "home": "https://gitee.com/cskefu/cskefu",
+    "help": "https://gitee.com/cskefu/cskefu",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1761123080,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port","name":"Web端口","type":"number","default":8035,"suffix":"","unit":""},
+        {"attr":"socket_port","name":"Socket端口","type":"number","default":8036,"suffix":"","unit":""},
+        {"attr":"EXTRAS_AUTH_SUPER_ADMIN_PASS","name":"超级管理员密码","type":"string","default":"admin@123","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"web_http_port","type":"port","default":8035,"desc":"Web端口"},
+        {"key":"socket_port","type":"port","default":8036,"desc":"Socket端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"},
+        {"key":"EXTRAS_AUTH_SUPER_ADMIN_PASS","type":"string","default":null,"desc":"超级管理员密码"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
+}

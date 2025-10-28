@@ -1,0 +1,125 @@
+services:
+  wukongim:  # 唐僧叨叨通讯服务（悟空IM）
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/wukongim:v2
+    restart: always
+    ports:
+      # - "5001:5001" # http api端口（业务端调用，仅限内网开放）
+      - "${IM_PORT_TCP}:5100"  # tcp长连接端口（外网开放）
+      - "${IM_PORT_WS}:5200" # websocket端口（外网开放）
+      - "5300" # 监控端口
+    volumes:
+      - ${APP_PATH}/data/wukongim:/root/wukongim
+    env_file:
+      - .env
+    environment:
+      - WK_EXTERNAL_IP=${EXTERNAL_IP}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+  tangsengdaodaoserver:  # 唐僧叨叨的业务服务
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/tangsengdaodaoserver:v1.5
+    restart: always
+    command: "api"
+    healthcheck:
+      test: "wget -q -Y off -O /dev/null http://localhost:8090/v1/ping > /dev/null 2>&1"
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    depends_on:
+       - redis
+       - mysql
+       - wukongim
+    ports:
+      - "${HTTP_PORT_SERVER}:8090"
+    volumes:
+      - ${APP_PATH}/tsdd:/home/tsdddata
+      - ${APP_PATH}/tsdd/configs:/home/configs  # 如果需要使用yaml配置，在当前目录下创建tsdd/configs目录，并新建tsdd.yaml配置文件（注意：配置生效优先级environment高于配置文件，如果你配置了environment将覆盖tsdd.yaml的配置项）
+    env_file:
+      - .env
+    environment:
+      - TS_DB_MYSQLADDR=root:${MYSQL_ROOT_PASSWORD}@tcp(mysql)/${MYSQL_DATABASE}?charset=utf8mb4&parseTime=true&loc=Local
+      - TS_EXTERNAL_IP=${EXTERNAL_IP}
+      - TS_EXTERNAL_BASEURL=http://${EXTERNAL_IP}:${HTTP_PORT_SERVER}
+      - TS_FILESERVICE=${TS_FILESERVICE}
+      - TS_MINIO_ACCESSKEYID=${MINIO_ROOT_USER}
+      - TS_MINIO_SECRETACCESSKEY=${MINIO_ROOT_PASSWORD}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+  tangsengdaodaoweb:  # 唐僧叨叨的web服务
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/tangsengdaodaoweb:latest
+    restart: always
+    environment:
+      - API_URL=http://tangsengdaodaoserver:8090/
+    ports:
+      - "${HTTP_PORT_BACK}:80"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+  tangsengdaodaomanager:  # 唐僧叨叨的后台管理系统
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/tangsengdaodaomanager:latest
+    restart: always
+    environment:
+      - API_URL=http://tangsengdaodaoserver:8090/
+    ports:
+      - "${HTTP_PORT_WEB}:80"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+  minio: # minio文件管理服务
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/minio:RELEASE.2023-07-18T17-49-40Z # minio/minio:RELEASE.2023-07-18T17-49-40Z
+    expose:
+      - "9000"
+      - "9001"
+    command: "server /data --console-address ':9001'"
+    ports:
+      - "${MINIO_PORT_SERVER}:9000"
+      - "9001"
+    environment:
+      - MINIO_ROOT_USER=${MINIO_ROOT_USER}
+      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    volumes:
+      - ${APP_PATH}/data/miniodata:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+  mysql:  # mysql数据库
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/mysql:8.0.33 # mysql:8.0.33
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+    volumes:
+      - ${APP_PATH}/data/mysqldata:/var/lib/mysql
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+  redis:  # redis
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/redis:7.2.3 # redis:7.2.3
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+networks:
+  baota_net:
+    external: true

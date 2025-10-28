@@ -1,0 +1,16 @@
+services:
+  genact:
+    image: svenstaro/genact
+    container_name: genact
+    restart: always
+    stdin_open: true
+    tty: true
+    command: ["-s", "5"]
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

@@ -1,0 +1,50 @@
+version: '3.7'
+
+services:
+  db:
+    image: mariadb:10.6
+    restart: always
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    volumes:
+      - ${DB_DATA_PATH:-/www/dk_project/dk_app/dk_nextcloud/mariadb/data}:/var/lib/mysql
+    networks:
+      - btnet
+    environment:
+      # mysql账号信息
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS:-btmdbrootpasswd123}
+      - MYSQL_PASSWORD=${DB_PASS:-btmdbpasswd123}
+      - MYSQL_DATABASE=${DB_NAME:-btmdb}
+      - MYSQL_USER=${DB_USER:-btmdbuser}
+
+  app:
+    image: nextcloud:fpm-alpine
+    restart: always
+    links:
+      - db
+    volumes:
+      - ${NEXTCLOUD_HTML_PATH:-/www/dk_project/dk_app/dk_nextcloud/html}:/var/www/html
+    networks:
+      - btnet
+    environment:
+      # mysql账号信息
+      - MYSQL_PASSWORD=${DB_PASS:-btmdbpasswd123}
+      - MYSQL_DATABASE=${DB_NAME:-btmdb}
+      - MYSQL_USER=${DB_USER:-btmdbuser}
+      - MYSQL_HOST=db
+
+  web:
+    image: nginx
+    restart: always
+    ports:
+      - ${NEXTCLOUD_PORT:-15380}:80
+    links:
+      - app
+    volumes:
+      - ./bt_nextcloud_nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${NEXTCLOUD_HTML_PATH:-/www/dk_project/dk_app/dk_nextcloud/html}:/var/www/html
+    networks:
+      - btnet
+
+networks:
+  btnet:
+    driver: bridge

@@ -1,0 +1,22 @@
+services:
+  BT_SERVICE_NAME6:
+    image: budtmo/docker-android:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    restart: always
+    environment:
+      EMULATOR_DEVICE: "Samsung Galaxy S10"
+      WEB_VNC: "true"
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:6080
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

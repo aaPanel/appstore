@@ -1,0 +1,74 @@
+# https://hertzbeat.apache.org/zh-cn/
+#浏览器访问 `localhost:1157` 即可开始，默认账号密码 `admin/hertzbeat`
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: compose-postgresql
+    hostname: postgresql
+    restart: always
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
+      TZ: Asia/Shanghai
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ${APP_PATH}/dbdata/pgdata:/var/lib/postgresql/data
+      - ${APP_PATH}/conf/sql:/docker-entrypoint-initdb.d/
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  victoria-metrics:
+    image: victoriametrics/victoria-metrics:v1.95.1
+    container_name: compose-victoria-metrics
+    hostname: victoria-metrics
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://victoria-metrics:8428/-/healthy"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
+      start_period: 30s
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ${APP_PATH}/dbdata/tsdbdata:/victoria-metrics-data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  BT_SERVICE_NAME6:
+    image: apache/hertzbeat:${VERSION}
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      LANG: zh_CN.UTF-8
+    depends_on:
+      postgres:
+        condition: service_healthy
+      victoria-metrics:
+        condition: service_healthy
+    volumes:
+      - ${APP_PATH}/conf/application.yml:/opt/hertzbeat/config/application.yml
+      - ${APP_PATH}/conf/sureness.yml:/opt/hertzbeat/config/sureness.yml
+      - ${APP_PATH}/logs:/opt/hertzbeat/logs
+      - ${APP_PATH}/ext-lib:/opt/hertzbeat/ext-lib
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:1157
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

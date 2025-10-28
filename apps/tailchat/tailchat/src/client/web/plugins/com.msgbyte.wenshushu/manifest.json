@@ -1,0 +1,11 @@
+{
+  "label": "wenshushu",
+  "name": "com.msgbyte.wenshushu",
+  "url": "/plugins/com.msgbyte.wenshushu/index.js",
+  "icon": "/plugins/com.msgbyte.wenshushu/assets/icon.png",
+  "version": "0.0.0",
+  "author": "moonrailgun",
+  "description": "Quickly open Wenshushu in the chat input box to support file transfer",
+  "description.zh-CN": "在聊天输入框快捷打开 文叔叔 以支持传输文件",
+  "requireRestart": true
+}

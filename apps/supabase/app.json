@@ -1,0 +1,49 @@
+{
+    "appid": 124,
+    "appname": "supabase",
+    "apptitle": "Supabase",
+    "apptype": "DevOps",
+    "appTypeCN": "DevOps",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "Supabase 是一个开源的 Firebase 替代品",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 125,
+    "home": "",
+    "help": "https://supabase.com/docs/guides/self-hosting/docker",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"kong_http_port","name":"HTTP端口","type":"number","default":8000,"suffix":"","unit":""},
+        {"attr":"kong_https_port","name":"HTTPS端口","type":"number","default":8443,"suffix":"","unit":""},
+        {"attr":"dashboard_username","name":"用户名","type":"text","default":"supabase","suffix":"","unit":""},
+        {"attr":"dashboard_password","name":"密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"postgres_password","name":"数据库密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"jwt_secret","name":"JWT密钥","type":"text","default":"","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"kong_http_port","type":"port","default":null,"desc":"HTTP端口"},
+        {"key":"kong_https_port","type":"port","default":null,"desc":"HTTPS端口"},
+        {"key":"dashboard_username","type":"string","default":null,"desc":"用户名"},
+        {"key":"dashboard_password","type":"password","default":null,"desc":"密码"},
+        {"key":"postgres_password","type":"password","default":null,"desc":"数据库密码"},
+        {"key":"jwt_secret","type":"string","default":null,"desc":"JWT密钥"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"db-config": {"type": "path", "desc": "数据库配置目录"}, "volumes": {"type": "path", "desc": "数据目录"}, "dev": {"type": "path", "desc": "开发目录"}}
+}

@@ -1,0 +1,24 @@
+services:
+  BT_SERVICE_NAME6:
+    image: kylemanna/openvpn:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    ports:
+      - ${HOST_IP}:${OPENVPN_UDP_PORT}:1194/udp
+    restart: always
+    volumes:
+      - ${APP_PATH}/openvpn:/etc/openvpn
+    labels:
+      createdBy: "bt_apps"
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

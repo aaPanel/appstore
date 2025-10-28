@@ -1,0 +1,51 @@
+{
+    "appid": 187,
+    "appname": "sparkai",
+    "apptitle": "SparkAi-ChatGPT-AiWbe",
+    "apptype": "AI",
+    "appTypeCN": "AI/大模型",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "支持微信扫码注册登录、会员功能、AI大模型提问（ GPT4 & 国内大模型）、AI绘画、TTS语音识别对话、AI智能体",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 188,
+    "home": "",
+    "help": "https://docs.sparkaigf.com/deploy/baota/process.html",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":9520,"suffix":"","unit":""},
+        {"attr":"mailer_host","name":"邮箱服务器","type":"text","default":"smtp.163.com","suffix":"","unit":""},
+        {"attr":"mailer_port","name":"邮箱端口","type":"number","default":465,"suffix":"","unit":""},
+        {"attr":"mailer_user","name":"邮箱用户","type":"text","default":"","suffix":"","unit":""},
+        {"attr":"mailer_pass","name":"邮箱发信密钥","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"mailer_from","name":"邮箱发件人","type":"text","default":"","suffix":"","unit":""},
+        {"attr":"jwt_secret","name":"jwt密钥","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"mailer_host","type":"text","default":null,"desc":"邮箱服务器"},
+        {"key":"mailer_port","type":"number","default":null,"desc":"邮箱端口"},
+        {"key":"mailer_user","type":"text","default":null,"desc":"邮箱用户"},
+        {"key":"mailer_pass","type":"password","default":null,"desc":"邮箱发信密钥"},
+        {"key":"mailer_from","type":"text","default":null,"desc":"邮箱发件人"},
+        {"key":"jwt_secret","type":"password","default":null,"desc":"jwt密钥"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {}
+}

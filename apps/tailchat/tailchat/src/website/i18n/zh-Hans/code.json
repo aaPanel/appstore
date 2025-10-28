@@ -1,0 +1,426 @@
+{
+  "Easy to use": {
+    "message": "易于使用"
+  },
+  "Easy to expand": {
+    "message": "易于拓展"
+  },
+  "Open source": {
+    "message": "面向开源"
+  },
+  "Try in Nightly version": {
+    "message": "进入 Nightly 版"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "页面已崩溃。",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "重试",
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  },
+  "theme.NotFound.title": {
+    "message": "找不到页面",
+    "description": "The title of the 404 page"
+  },
+  "theme.NotFound.p1": {
+    "message": "我们找不到您要找的页面。",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "请联系原始链接来源网站的所有者，并告知他们链接已损坏。",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.admonition.note": {
+    "message": "备注",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "提示",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.danger": {
+    "message": "危险",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "信息",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.caution": {
+    "message": "警告",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "回到顶部",
+    "description": "The ARIA label for the back to top button"
+  },
+  "theme.blog.archive.title": {
+    "message": "历史博文",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "历史博文",
+    "description": "The page & hero description of the blog archive page"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "博文列表分页导航",
+    "description": "The ARIA label for the blog pagination"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "较新的博文",
+    "description": "The label used to navigate to the newer blog posts page (previous page)"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "较旧的博文",
+    "description": "The label used to navigate to the older blog posts page (next page)"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "博文分页导航",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "较新一篇",
+    "description": "The blog post button label to navigate to the newer/previous post"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "较旧一篇",
+    "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.blog.post.plurals": {
+    "message": "{count} 篇博文",
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} 含有标签「{tagName}」",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "查看所有标签",
+    "description": "The label of the link targeting the tag list page"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "切换浅色/暗黑模式（当前为{mode}）",
+    "description": "The ARIA label for the navbar color mode toggle"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "暗黑模式",
+    "description": "The name for the dark color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "浅色模式",
+    "description": "The name for the light color mode"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "主页面",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "页面路径",
+    "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.docs.DocCard.categoryDescription": {
+    "message": "{count} 个项目",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "文档分页导航",
+    "description": "The ARIA label for the docs pagination"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "上一页",
+    "description": "The label used to navigate to the previous doc"
+  },
+  "theme.docs.paginator.next": {
+    "message": "下一页",
+    "description": "The label used to navigate to the next doc"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "{count} 篇文档带有标签",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged}「{tagName}」",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "版本：{versionLabel}"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "此为 {siteTitle} {versionLabel} 版尚未发行的文档。",
+    "description": "The label used to tell the user that he's browsing an unreleased doc version"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "此为 {siteTitle} {versionLabel} 版的文档，现已不再积极维护。",
+    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "最新的文档请参阅 {latestVersionLink} ({versionLabel})。",
+    "description": "The label used to tell the user to check the latest version"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "最新版本",
+    "description": "The label used for the latest version suggestion link label"
+  },
+  "theme.common.editThisPage": {
+    "message": "编辑此页",
+    "description": "The link label to edit the current page"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "标题的直接链接",
+    "description": "Title for link to heading"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": "于 {date} ",
+    "description": "The words used to describe on which date a page has been last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": "由 {user} ",
+    "description": "The words used to describe by who the page has been last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "最后{byUser}{atDate}更新",
+    "description": "The sentence used to display when a page has been last updated, and by who"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "选择版本",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "跳到主要内容",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "标签：",
+    "description": "The label alongside a tag list"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "关闭",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "最近博文导航",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "复制成功",
+    "description": "The copied button label on code blocks"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "复制代码到剪贴板",
+    "description": "The ARIA label for copy code blocks button"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "复制",
+    "description": "The copy button label on code blocks"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "切换自动换行",
+    "description": "The title attribute for toggle word wrapping button of code block lines"
+  },
+  "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
+    "message": "打开/收起侧边栏菜单「{label}」",
+    "description": "The ARIA label to toggle the collapsible sidebar category"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "选择语言",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "本页总览",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.blog.post.readMore": {
+    "message": "阅读更多",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "阅读 {title} 的全文",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "阅读需 {readingTime} 分钟",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "收起侧边栏",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "收起侧边栏",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← 回到主菜单",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "标签",
+    "description": "The title of the tag list page"
+  },
+  "Nightly version": {
+    "message": "Nightly 演示"
+  },
+  "Learn More": {
+    "message": "了解更多"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "主导航",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "文档侧边栏",
+    "description": "The ARIA label for the sidebar navigation"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "关闭导航栏",
+    "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "切换导航栏",
+    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  },
+  "Slack": {
+    "message": "Slack"
+  },
+  "Discord": {
+    "message": "Discord"
+  },
+  "Rocket.Chat": {
+    "message": "Rocket.Chat"
+  },
+  "Open Source, Open Platform": {
+    "message": "开放源码, 开放生态"
+  },
+  "Not only Another": {
+    "message": "不仅仅是另一个"
+  },
+  "What is noIM(not only IM)?": {
+    "message": "什么是noIM(not only IM)?"
+  },
+  "Join our Group": {
+    "message": "加入我们"
+  },
+  "Or direct visit Tailchat nightly version": {
+    "message": "或者直接体验 Tailchat 实验版"
+  },
+  "Feature Overview": {
+    "message": "功能概览"
+  },
+  "Messenger": {
+    "message": "消息"
+  },
+  "Basic message support, multi message type like text/link/mention/image/file etc. and support append reaction for anything you want with messages.": {
+    "message": "支持基本信息，支持如文本/链接/提及/图像/文件等多种信息类型，并支持对任何你想要的信息的附加反应。"
+  },
+  "You can join multiple groups, and discuss different topics, perhaps information and notifications, through multiple panels in the group. Not just a simple chat.": {
+    "message": "你可以加入多个小组，并通过小组中的多个面板讨论不同的主题，或是信息和通知。不仅仅是简单的聊天。"
+  },
+  "In the inbox, you can receive anything you need to know, such as mention or plugin notification. Or you can push anything on yourself.": {
+    "message": "在收件箱中，你可以收到任何你需要知道的东西，如提及或插件通知。或者你可以对自己推送任何东西."
+  },
+  "Plugin Center": {
+    "message": "插件中心"
+  },
+  "Tailchat has a complete plugin system. With plugins, you can integrate your apps and projects into your chat app in any form you want. Unlike VSCode, Tailchat has fewer restrictions on the form of expression. I think Tailchat is not only a chat app, but also a platform for integrating different applications. You can start a video conference, listen to music, use online tools and more in Tailchat.": {
+    "message": "Tailchat有一个完整的插件系统。通过插件，你可以把你的应用程序和项目以任何形式整合到你的聊天应用程序中。与VSCode不同，Tailchat对表达形式的限制较少。Tailchat不仅是一个聊天应用程序，也是一个整合不同应用程序的平台。你可以在Tailchat中开始视频会议，听音乐，使用在线工具等等所有你能够想象到的一切事物。"
+  },
+  "At the same time, through plugins, you can further improve the chat experience, such as topic panel, end-to-end encryption, rich text, message notification, online drawing, receiving push from third-party applications, etc.": {
+    "message": "同时，通过插件，您可以进一步改善聊天体验，如话题面板、端到端加密、富文本、消息通知、在线绘画、接收第三方应用推送等。"
+  },
+  "Group Roles": {
+    "message": "身份组管理"
+  },
+  "Tailchat has a builtin RBAC permission management system. Based on the combination of role assignment and permission points, various permission combinations can be matched. At the same time, permission points can be easily integrated by plugins, which are a very flexible design.": {
+    "message": "Tailchat 有一个内置的RBAC权限管理系统。基于角色分配和权限点的组合，可以匹配各种权限组合。同时，权限点可以通过插件轻松整合，这是一个非常灵活的设计。"
+  },
+  "Bot": {
+    "message": "机器人"
+  },
+  "Tailchat has a very simple way to integrate third-party applications with bot like most applications. A simple url request or add openapi app or even create a backend plugin. You can use anyway to connect anything, its free!": {
+    "message": "Tailchat 有一个非常简单的方法来整合第三方应用程序与机器人，就像像大多数拥有开放平台的流行软件一样。形式可以是一个简单的url请求或添加openapi应用程序，甚至创建一个后端插件。你可以使用任何方式来连接任何东西，它是完全自由的!"
+  },
+  "Multi-platform Support": {
+    "message": "多平台支持"
+  },
+  "Tailchat design on HTML, and fit any platform or os, but its still some native support cannot provide in web. So Tailchat also has client to provide os support like mobile notification , desktop screenshot and etc.": {
+    "message": "Tailchat 基于HTML技术开发，作为最流行的跨平台解决方案，Tailchat 天然适合任何平台或操作系统，但它仍然有一些原生支持不能在网络上提供。因此，Tailchat也有客户端，提供原生操作系统的支持，如移动端推送通知，桌面截图等。"
+  },
+  "in Alpha Test, Join us for Early Experience": {
+    "message": "早期测试中，加入我们以抢先体验"
+  },
+  "in Alpha Test": {
+    "message": "早期测试中"
+  },
+  "Join the community": {
+    "message": "加入社区"
+  },
+  "Engage with our ever-growing community to get the latest updates, product support, and more.": {
+    "message": "与我们不断增长的社区互动，以获得最新的更新、产品支持和更多。"
+  },
+  "Join Our Group": {
+    "message": "加入我们"
+  },
+  "Plugin": {
+    "message": "插件"
+  },
+  "Roles": {
+    "message": "身份组"
+  },
+  "Platform": {
+    "message": "开放平台"
+  },
+  "Mobile Apps": {
+    "message": "移动端"
+  },
+  "Use mobile app to visit Tailchat anywhere": {
+    "message": "使用移动App在任意地方访问 Tailchat"
+  },
+  "Design with react-native": {
+    "message": "使用 react-native 开发"
+  },
+  "Source Code": {
+    "message": "源代码"
+  },
+  "AI": {
+    "message": "AI"
+  },
+  "AI Assistant": {
+    "message": "AI 智能助手"
+  },
+  "Thanks for ChatGPT, Communicate with people will be easier and friendly.": {
+    "message": "感谢 ChatGPT，人与人交流将更轻松、更友好."
+  },
+  "View in Bilibili": {
+    "message": "在 Bilibili 观看"
+  },
+  "Communicate by AI, AI Assistant will help you improve your word, simplify your expression and even summary history messages.": {
+    "message": "使用AI交流，AI 智能助手助你改善用词，简化表达，甚至汇总历史消息."
+  },
+  "Desktop Client": {
+    "message": "桌面端"
+  },
+  "Use our cross-platform client for the best experience in Tailchat": {
+    "message": "使用我们的跨平台客户端获得 Tailchat 的最佳体验"
+  },
+  "Design with electron": {
+    "message": "使用 electron 技术开发"
+  },
+  "Current version": {
+    "message": "当前版本"
+  },
+  "release note": {
+    "message": "版本更新日志"
+  },
+  "Bot and Open Platform": {
+    "message": "机器人与开放平台"
+  }
+}

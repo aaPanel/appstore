@@ -1,0 +1,40 @@
+{
+    "appid": 171,
+    "appname": "ytheme",
+    "apptitle": "源主题",
+    "apptype": "BuildWebsite",
+    "appTypeCN": "建站",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "源主题是一个优秀且功能强大、速度极快，易于管理、现代化的虚拟资源商城主题",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 172,
+    "home": "",
+    "help": "https://doc.yfx.top/3ep4xqnz24/3.chuangjianbushuzhandian.html",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port1","name":"前端端口","type":"number","default":3333,"suffix":"","unit":""},
+        {"attr":"web_http_port2","name":"后端端口","type":"number","default":8888,"suffix":"","unit":""},
+        {"attr":"ytheme_url1","name":"ytheme前端url","type":"text","default":"http://","suffix":"如: http://ytheme.bt.cn，要部署ssl则改为https","unit":""},
+        {"attr":"ytheme_url2","name":"ytheme后端url","type":"text","default":"http://","suffix":"如: http://ytheme.bt.cn，要部署ssl则改为https","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port1","type":"port","default":null,"desc":"前端端口"},
+        {"key":"web_http_port2","type":"port","default":null,"desc":"后端端口"},
+        {"key":"ytheme_url1","type":"url","default":"http://","desc":"ytheme前端url"},
+        {"key":"ytheme_url2","type":"url","default":"http://","desc":"ytheme后端url"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {}
+}

@@ -1,0 +1,43 @@
+{
+    "appid": 39,
+    "appname": "srs",
+    "apptitle": "SRS",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "SRS 是一个功能强大的流媒体服务器",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 40,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如需外部连接此推流服务器，请勾选此项","unit":""},
+        {"attr":"web_http_port","name":"HTTP API端口","type":"number","default":26580,"suffix":"","unit":""},
+        {"attr":"rtmp_port","name":"RTMP端口","type":"number","default":1935,"suffix":"","unit":""},
+        {"attr":"flv_port","name":"FLV端口","type":"number","default":1985,"suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"HTTP API端口"},
+        {"key":"rtmp_port","type":"port","default":null,"desc":"RTMP端口"},
+        {"key":"flv_port","type":"port","default":null,"desc":"FLV端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"etc": {"type": "path", "desc": "etc目录"}, "var": {"type": "path", "desc": "var目录"}}
+}

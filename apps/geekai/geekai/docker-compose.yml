@@ -1,0 +1,127 @@
+services:
+  # mysql
+  geekai-mysql:
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    image: registry.cn-shenzhen.aliyuncs.com/geekmaster/mysql:8.0.33
+    container_name: geekai-mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=mhSCk0NheGhmtsha
+    #    ports:
+    #      - "3307:3306"
+    volumes:
+      - ${APP_PATH}/conf/mysql/my.cnf:/etc/mysql/my.cnf
+      - ${APP_PATH}/data/mysql/data:/var/lib/mysql
+      - ${APP_PATH}/logs/mysql:/var/log/mysql
+      - ${APP_PATH}/data/mysql/init.d:/docker-entrypoint-initdb.d/
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 5s
+      timeout: 10s
+      retries: 10
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  # redis
+  geekai-redis:
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    image: registry.cn-shenzhen.aliyuncs.com/geekmaster/redis:6.0.6
+    restart: always
+    container_name: geekai-redis
+    command: redis-server --requirepass mhSCk0NheGhmtsha
+    volumes:
+      - ${APP_PATH}/data/redis:/data
+    #    ports:
+    #      - "6380:6379"
+    healthcheck:
+      test: [ 'CMD', 'redis-cli', 'ping' ]
+      interval: 3s
+      timeout: 10s
+      retries: 5
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  tika:
+    image: registry.cn-shenzhen.aliyuncs.com/geekmaster/tika:latest
+    container_name: geekai-tika
+    restart: always
+#    ports:
+#      - '9999:9998'
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  # 后端 API 程序
+  geekai-api:
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    image: registry.cn-shenzhen.aliyuncs.com/geekmaster/geekai-api:v${VERSION}-amd64
+    container_name: geekai-api
+    restart: always
+    depends_on:
+      geekai-mysql:
+        condition: service_healthy
+      geekai-redis:
+        condition: service_healthy
+    environment:
+      - DEBUG=false
+      - LOG_LEVEL=info
+      - CONFIG_FILE=config.toml
+    #    ports:
+    #      - "5678:5678"
+    #      - "9999:9999"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_PATH}/conf/config.toml:/var/www/app/config.toml
+      - ${APP_PATH}/logs/app:/var/www/app/logs
+      - ${APP_PATH}/static:/var/www/app/static
+      - ${APP_PATH}/data/leveldb:/var/www/app/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  # 前端应用
+  BT_SERVICE_NAME6:
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    image: registry.cn-shenzhen.aliyuncs.com/geekmaster/geekai-web:v${VERSION}-amd64
+    container_name: geekai-web
+    restart: always
+    depends_on:
+      - geekai-api
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8080
+    volumes:
+      - ${APP_PATH}/logs/nginx:/var/log/nginx
+      - ${APP_PATH}/conf/nginx/conf.d:/etc/nginx/conf.d
+      - ${APP_PATH}/conf/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ${APP_PATH}/conf/nginx/ssl:/etc/nginx/ssl
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

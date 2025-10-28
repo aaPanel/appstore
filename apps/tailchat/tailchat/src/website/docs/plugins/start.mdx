@@ -1,0 +1,86 @@
+---
+sidebar_position: 1
+title: Start developing plugins
+---
+
+## Learn MiniStar
+
+`MiniStar` is a complete microkernel architecture development toolchain, and the plugin architecture of `Tailchat` is developed based on `MiniStar`.
+
+Learn more about `MiniStar`, you can check the official documentation of `MiniStar`: [https://ministar.moonrailgun.com/](https://ministar.moonrailgun.com/)
+
+## Create a base project
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="start">
+  <TabItem value="cli" label="Use the cli to quick start" default>
+
+> First, make sure you have installed `tailchat-cli`, for command line tools, please refer to: [tailchat-cli](../cli/tailchat-cli)
+
+Move to the project directory (can be a custom project):
+
+```bash
+tailchat create
+```
+
+Choose the template according to the actual situation
+
+![](/img/tutorial/plugin/1.png)
+
+  </TabItem>
+  <TabItem value="ministar" label="Use the native ministar to create a plugin project" default>
+
+
+First, create a basic npm project and install `MiniStar` globally
+
+```bash
+npm install --global mini-star
+```
+
+Execute: `ministar createPlugin` in the project to create a basic plugin
+
+Execute: `ministar buildPlugin` in the project to compile the plugin
+
+> It is worth mentioning that although `Tailchat` does not enforce the naming convention of plugins, it is still recommended to use `anti-domain name` naming method (similar to package naming in java), and then use `/` for the components in the plugin to split
+>
+> such as:
+>
+> Plugin name: `com.msgbyte.webview`
+>
+> Registration content: `com.msgbyte.webview/grouppanel`
+
+  </TabItem>
+</Tabs>
+
+## Install Plugin
+
+### Manually install plugin
+
+Without any presets, a general method is to construct a `manifest` configuration by yourself, and then paste the configuration file into the tab of `tailchat` to provide manual installation plug-ins for installation.
+
+The url path of the plugin can be proxied through methods such as `oss object storage service` / `static-server`
+
+An example `manifest.json` configuration is as follows:
+
+```json
+{
+  "label": "Web Panel Plugin",
+  "name": "com.msgbyte.webview",
+  "url": "/plugins/com.msgbyte.webview/index.js",
+  "version": "0.0.0",
+  "author": "msgbyte",
+  "description": "Provides groups with the ability to create web panels",
+  "requireRestart": false
+}
+```
+
+## other helpful resources
+
+- Plugin architecture kernel dependency library [MiniStar](https://ministar.moonrailgun.com/)
+- From the API provided by the base project: [API Documentation](./api/common)
+- Export interface source code
+  - [@capital/common](https://github.com/msgbyte/tailchat/blob/master/client/web/src/plugin/common/index.ts)
+  - [@capital/component](https://github.com/msgbyte/tailchat/blob/master/client/web/src/plugin/component/index.tsx)

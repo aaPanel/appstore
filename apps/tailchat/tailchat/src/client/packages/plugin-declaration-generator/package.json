@@ -1,0 +1,40 @@
+{
+  "name": "tailchat-plugin-declaration-generator",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepare": "tsc",
+    "test": "ts-node ./test/index.ts",
+    "test:parser": "ts-node ./test/parser.ts",
+    "test:parser:debug": "node -r ts-node/register --inspect-brk ./test/parser.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/generator": "^7.20.5",
+    "@babel/parser": "^7.20.5",
+    "@babel/template": "^7.18.10",
+    "@babel/traverse": "^7.20.5",
+    "fs-extra": "^10.1.0",
+    "glob": "^7.2.3",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4",
+    "ts-morph": "^16.0.0",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.20.5",
+    "@types/babel__generator": "^7.6.4",
+    "@types/babel__template": "^7.4.1",
+    "@types/babel__traverse": "^7.18.3",
+    "@types/fs-extra": "^9.0.13",
+    "@types/lodash": "^4.14.191",
+    "@types/mkdirp": "^1.0.2",
+    "@types/node": "^18.11.16",
+    "ts-node": "^10.9.1"
+  }
+}

@@ -1,0 +1,42 @@
+services:
+  broker:
+    image: docker.io/library/redis:7
+    restart: unless-stopped
+    volumes:
+      - ${APP_PATH}/redisdata:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+      
+  BT_SERVICE_NAME6:
+    image: paperlessngx/paperless-ngx:${VERSION}
+    restart: unless-stopped    
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}    
+    depends_on:
+      - broker
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8000
+    volumes:
+      - ${APP_PATH}/data:/usr/src/paperless/data
+      - ${APP_PATH}/media:/usr/src/paperless/media
+      - ${APP_PATH}/export:/usr/src/paperless/export
+      - ${APP_PATH}/consume:/usr/src/paperless/consume
+    environment:
+      PAPERLESS_REDIS: redis://broker:6379
+      PAPERLESS_ADMIN_USER: ${NGX_USER}    # 默认管理员用户名
+      PAPERLESS_ADMIN_PASSWORD: ${NGX_PWD}    # 默认管理员密码
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
+

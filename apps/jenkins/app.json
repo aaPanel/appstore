@@ -1,0 +1,41 @@
+{
+    "appid": 12,
+    "appname": "jenkins",
+    "apptitle": "Jenkins",
+    "apptype": "DevOps",
+    "appTypeCN": "DevOps",
+    "appversion": [
+        {"m_version":"2","s_version":["462.1","452.3"]}
+    ],
+    "appdesc": "领先的开源自动化服务器Jenkins提供数百个插件，支持构建、部署和自动化任何项目",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 13,
+    "home": "https://www.jenkins.io/zh/",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"jenkins_port","name":"web管理端口","type":"number","default":14808,"suffix":"jenkins的web管理端口","unit":""},
+        {"attr":"docker_binary","name":"docker二进制文件","type":"text","default":"/usr/bin/docker","suffix":"docker二进制文件,一般是/usr/bin/docker","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"jenkins_port","type":"port","default":null,"desc":"web管理端口"},
+        {"key":"docker_binary","type":"text","default":null,"desc":"docker二进制文件"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}}
+}

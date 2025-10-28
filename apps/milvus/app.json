@@ -1,0 +1,42 @@
+{
+    "appid": 234,
+    "appname": "milvus",
+    "apptitle": "Milvus",
+    "apptype": "Database",
+    "appTypeCN": "数据库",
+    "appversion": [
+        {"m_version":"v2.6.0-rc1","s_version":[]},
+        {"m_version":"v2.5.0-beta","s_version":[]}
+    ],
+    "appdesc": "Milvus 是一个专为处理和搜索大量向量数据而设计的强大向量数据库。它以高性能和可扩展性著称，非常适合机器学习、深度学习、相似性搜索任务和推荐系统。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 162,
+    "home": "",
+    "help": "https://milvus.io/docs/zh/install_standalone-docker.md",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"MILVUS_PORT","name":"服务端口","type":"number","default":19530,"suffix":"","unit":""},
+        {"attr":"HTTP_PORT","name":"管理端口","type":"number","default":9091,"suffix":"","unit":""},
+        {"attr":"MINIO_PORT","name":"Minio端口","type":"number","default":9000,"suffix":"","unit":""},
+        {"attr":"MINIO_HTTP_PORT","name":"MinioWEB端口","type":"number","default":9001,"suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"HTTP_PORT","type":"port","default":null,"desc":"管理端口"},
+        {"key":"MILVUS_PORT","type":"port","default":null,"desc":"服务端口"},
+        {"key":"MINIO_HTTP_PORT","type":"port","default":null,"desc":"MINIO管理端口"},
+        {"key":"MINIO_PORT","type":"port","default":null,"desc":"MINIO端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"volumes": {"type": "path", "desc": "数据目录"}}
+}

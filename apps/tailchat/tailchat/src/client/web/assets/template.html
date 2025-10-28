@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta charset="utf-8"/>
+    <meta name="keywords" content="im,chat,聊天,开源,即时通讯,Tailchat">
+    <meta name="description" content="Tailchat: Next generation noIM application in your own workspace, not only another Slack/Discord/Rocke.chat">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=100" />
+    <meta property="og:site_name" content="Tailchat">
+    <meta property="og:image" content="https://tailchat.msgbyte.com/img/logo.svg">
+    <link rel="manifest" href="/pwa.webmanifest">
+    <script>
+      // vConsole DEBUG
+      if(location.search.indexOf('vconsole') >= 0) {
+        // 开启vconsole
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/vconsole/dist/vconsole.min.js';
+        script.addEventListener('load', () => {
+          var vConsole = new window.VConsole({maxLogNumber: 1000});
+        })
+        document.head.appendChild(script)
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <div id="tailchat-loading">
+        <img style="display: block;margin: auto;" src="<%= htmlWebpackPlugin.options.preloadImage %>" />
+      </div>
+
+      <script>
+        setTimeout(() => {
+          const el = document.getElementById('tailchat-loading')
+          if(el) {
+            // 依旧在 loading
+            const tip = document.createElement('div')
+            tip.style.textAlign = 'center';
+            tip.style.fontSize = '18px';
+            tip.style.marginTop = '20px';
+            tip.style.color = 'gray';
+            tip.innerHTML = navigator.language === 'zh-CN'
+              ? '可能资源加载出现了一些问题，请手动<a style="color: rgb(9, 105, 218);" href="javascript:location.reload()">刷新</a>重试一下'
+              : 'There may be some problems with resource loading, please <a style="color: rgb(9, 105, 218);" href="javascript:location.reload()">refresh</a> manually and try again'
+            el.appendChild(tip)
+          }
+        }, 10000);
+      </script>
+    </div>
+  </body>
+</html>

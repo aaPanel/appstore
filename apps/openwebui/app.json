@@ -1,0 +1,42 @@
+{
+    "appid": 8,
+    "appname": "openwebui",
+    "apptitle": "OpenWebUI",
+    "apptype": "AI",
+    "appTypeCN": "AI/大模型",
+    "appversion": [
+        {"m_version":"main","s_version":[]}
+    ],
+    "appdesc": "一个可扩展,功能丰富且用户友好的自托管WebUI,完全离线操作,支持Ollama",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 8,
+    "home": "https://openwebui.com/",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"webui_port","name":"web端口","type":"number","default":3000,"suffix":"OpenWebUI的http端口","unit":""},
+        {"attr":"ollama_base_url","name":"ollama地址","type":"text","default":"","suffix":"ollama服务的地址，一般为: http://x.x.x.x:11434","unit":""},
+        {"attr":"webui_secret_key","name":"WebUI Secret Key","type":"password","default":"","suffix":"自动生成的WebUI Secret Key","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"webui_port","type":"port","default":null,"desc":"OpenWebUI端口"},
+        {"key":"ollama_base_url","type":"url","default":null,"desc":"ollama服务的地址"},
+        {"key":"webui_secret_key","type":"password","default":null,"desc":"自动生成的WebUI Secret Key"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"openwebui_data": {"type": "path", "desc": "openwebui数据目录"}}
+}

@@ -1,0 +1,41 @@
+{
+    "appid": 11,
+    "appname": "alist",
+    "apptitle": "Alist",
+    "apptype": "Storage",
+    "appTypeCN": "存储/网盘",
+    "appversion": [
+        {"m_version":"3","s_version":["42.0","41.0","40.0","39.4","36.0","35.0"]}
+    ],
+    "appdesc": "一个支持多存储的文件列表程序，使用Gin和Solidjs",
+    "appstatus": 0,
+    "icon": "",
+    "sort": 12,
+    "home": "https://alist.nn.ci",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"alist_web_port","name":"web管理端口","type":"number","default":15244,"suffix":"alist的web管理端口","unit":""},
+        {"attr":"s3_server_port","name":"s3服务端口","type":"number","default":5426,"suffix":"s3服务的端口","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"alist_web_port","type":"port","default":null,"desc":"web管理端口"},
+        {"key":"s3_server_port","type":"port","default":null,"desc":"alist服务端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}, "mnt": {"type": "path", "desc": "配置文件"}}
+}

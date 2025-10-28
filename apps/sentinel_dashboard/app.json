@@ -1,0 +1,40 @@
+{
+    "appid": 96,
+    "appname": "sentinel_dashboard",
+    "apptitle": "Sentinel Dashboard",
+    "apptype": "Middleware",
+    "appTypeCN": "中间件",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "阿里云分布式系统的流量防卫兵，是一个开源的流量控制和熔断降级系统",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 97,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":8858,"suffix":"","unit":""},
+        {"attr":"web_communication_port","name":"DNS端口","type":"number","default":8719,"suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"web_communication_port","type":"port","default":null,"desc":"DNS端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {}
+}

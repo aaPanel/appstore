@@ -1,0 +1,38 @@
+{
+    "appid": 159,
+    "appname": "teslamate",
+    "apptitle": "Teslamate",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "为特斯拉车主提供了一系列强大的功能，包括数据分析、监控、统计通知等",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 160,
+    "home": "",
+    "help": "https://docs.teslamate.com.cn/docs/installation/baota",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port2","name":"后台管理端口","type":"number","default":3000,"suffix":"","unit":""},
+        {"attr":"web_http_port1","name":"令牌管理端口","type":"number","default":4000,"suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port2","type":"port","default":null,"desc":"后台管理端口"},
+        {"key":"web_http_port1","type":"port","default":null,"desc":"令牌管理端口"},
+        {"key":"defaultUserName","type":"defaultUserName","default":"admin","desc":"用户名"},
+        {"key":"defaultPassWord","type":"defaultPassWord","default":"admin","desc":"默认密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"conf": {"type": "path", "desc": "配置目录"}, "data": {"type": "path", "desc": "数据目录"}, "grafana": {"type": "path", "desc": "grafana目录"}, "db_data": {"type": "path", "desc": "数据库目录"}, "import": {"type": "path", "desc": "导入目录"}}
+}

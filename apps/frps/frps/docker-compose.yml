@@ -1,0 +1,16 @@
+services:
+  BT_SERVICE_NAME6:
+    image: snowdreamtech/frps:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    network_mode: host
+    restart: always
+    volumes:
+      - ${APP_PATH}/data/frps.toml:/etc/frp/frps.toml
+      - ${APP_PATH}/data/ssl:/etc/frp/ssl
+    labels:
+      createdBy: "bt_apps"

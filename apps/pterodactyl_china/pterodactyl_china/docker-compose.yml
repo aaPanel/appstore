@@ -1,0 +1,96 @@
+version: '3.8'
+x-common:
+  database:
+    &db-environment
+    # 不要将下面行尾 "&db-password" 删除，这对面板功能很重要。
+    MYSQL_PASSWORD: &db-password "CHANGE_ME"
+    MYSQL_ROOT_PASSWORD: "CHANGE_ME_TOO"
+  panel:
+    &panel-environment
+    APP_URL: "http://127.0.0.1:80"
+    # 可以在这里找到有效时区列表：http://php.net/manual/zh/timezones.php
+    APP_TIMEZONE: "Asia/Shanghai"
+    APP_SERVICE_AUTHOR: "noreply@example.com"
+    # 如果您想使用 Let's Encrypt 为面板生成 SSL 证书，请取消下面的注释行并写入配置
+    # LE_EMAIL: ""
+  mail:
+    &mail-environment
+    MAIL_FROM: "noreply@example.com"
+    MAIL_DRIVER: "smtp"
+    MAIL_HOST: "mail"
+    MAIL_PORT: "1025"
+    MAIL_USERNAME: ""
+    MAIL_PASSWORD: ""
+    MAIL_ENCRYPTION: "true"
+
+#
+# ------------------------------------------------------------------------------------------
+# 下面的危险区域
+#
+# 该文件的其余部分可能不需要更改。 请仅在您了解自己在做什么的情况下进行以下修改。
+#
+services:
+  pterodactylchina-database:
+    image: mariadb:10.5
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - "${APP_PATH}/pterodactyl/database:/var/lib/mysql"
+    environment:
+      <<: *db-environment
+      MYSQL_DATABASE: "panel"
+      MYSQL_USER: "pterodactyl"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+  pterodactylchina-cache:
+    image: redis:alpine
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+  pterodactylchina:
+    image: pterodactylchina/panel:latest
+    restart: always
+    ports:
+      - ${HOST_IP}:${HTTP_PORT}:80
+#      - 443:443
+    links:
+      - pterodactylchina-database
+      - pterodactylchina-cache
+    volumes:
+      - "${APP_PATH}/pterodactyl/var/:/app/var/"
+      - "${APP_PATH}/pterodactyl/nginx/:/etc/nginx/http.d/"
+      - "${APP_PATH}/pterodactyl/certs/:/etc/letsencrypt/"
+      - "${APP_PATH}/pterodactyl/logs/:/app/storage/logs"
+    environment:
+      <<: [*panel-environment, *mail-environment]
+      DB_PASSWORD: *db-password
+      APP_ENV: "production"
+      APP_ENVIRONMENT_ONLY: "false"
+      CACHE_DRIVER: "redis"
+      SESSION_DRIVER: "redis"
+      QUEUE_DRIVER: "redis"
+#      MAIL_FROM: ${MAIL_FROM}
+      ADMIN_USER: ${ADMIN_USER}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      REDIS_HOST: "pterodactylchina-cache"
+      DB_HOST: "pterodactylchina-database"
+      DB_PORT: "3306"
+    command: >
+      /bin/sh -c "
+      if [ ! -f /app/var/init.pl ]; then
+        php artisan p:user:make --email=${MAIL_FROM} --username=${ADMIN_USER} --password=${ADMIN_PASSWORD} --admin=1 --name-first=admin --name-last=admin;
+        touch /app/var/init.pl;
+        echo ${ADMIN_USER},${ADMIN_PASSWORD},${MAIL_FROM} > /app/var/init.pl;
+      fi;
+      supervisord -n -c /etc/supervisord.conf"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+networks:
+  baota_net:
+    external: true

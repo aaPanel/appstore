@@ -1,0 +1,29 @@
+services:
+  BT_SERVICE_NAME6:
+    image: foxcpp/maddy:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${SMTP_PORT}:25
+      - ${HOST_IP}:${IMAP4_PORT}:143
+      - ${HOST_IP}:${SMTPS_PORT}:465
+      - ${HOST_IP}:${SMTPS_PORT2}:587
+      - ${HOST_IP}:${IMAP4_PORT2}:993
+    environment:
+      - MADDY_HOSTNAME=${MADDY_HOSTNAME}
+      - MADDY_DOMAIN=${MADDY_DOMAIN}
+    volumes:
+      - ${APP_PATH}/data:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

@@ -1,0 +1,37 @@
+{
+    "appid": 188,
+    "appname": "newapi",
+    "apptitle": "New-API",
+    "apptype": "AI",
+    "appTypeCN": "AI/大模型",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "AI模型接口管理与分发系统，支持将多种大模型转为OpenAI格式调用",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 189,
+    "home": "",
+    "help": "https://github.com/Calcium-Ion/new-api/blob/main/BT.md",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":3000,"suffix":"","unit":""},
+        {"attr":"session_secret","name":"密钥","type":"password","default":"","suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"session_secret","type":"password","default":null,"desc":"session_secret"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {}
+}

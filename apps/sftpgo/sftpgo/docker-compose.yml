@@ -1,0 +1,34 @@
+services:
+  BT_SERVICE_NAME6:
+    image: drakkan/sftpgo:v${VERSION}-alpine
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8080
+      - ${HOST_IP}:${SFTP_PORT}:${SFTP_PORT}
+      - ${HOST_IP}:${FTP_PORT}:${FTP_PORT}
+      - ${HOST_IP}:${PPORT_RSTART}-${PPORT_REND}:${PPORT_RSTART}-${PPORT_REND}
+      - ${HOST_IP}:${WEBDAV_PORT}:${WEBDAV_PORT}
+    environment:
+      SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP: ${FORCE_PASSIVE_IP}
+      SFTPGO_FTPD__BINDINGS__0__PORT: ${FTP_PORT}
+      SFTPGO_FTPD__PASSIVE_PORT_RANGE__END: ${PPORT_REND}
+      SFTPGO_FTPD__PASSIVE_PORT_RANGE__START: ${PPORT_RSTART}
+      SFTPGO_SFTPD__BINDINGS__0__PORT: ${SFTP_PORT}
+      SFTPGO_WEBDAVD__BINDINGS__0__PORT: ${WEBDAV_PORT}
+    volumes:
+      - ${APP_PATH}/data:/srv/sftpgo
+      - ${APP_PATH}/config:/var/lib/sftpgo
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

@@ -1,0 +1,37 @@
+services:
+  BT_SERVICE_NAME6:
+    image: dockurr/windows
+    #    container_name: ${CONTAINER_NAME}
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    environment:
+      VERSION: ${VERSION}
+      DISK_SIZE: ${DISK_SIZE}G
+      RAM_SIZE: ${RAM_SIZE}G
+      CPU_CORES: ${CPU_CORES}
+      USERNAME: ${USERNAME}
+      PASSWORD: ${PASSWORD}
+      LANGUAGE: ${LANGUAGE}
+    stop_grace_period: 2m
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8006
+      - ${HOST_IP}:${RDP_PORT}:3389/tcp
+      - ${HOST_IP}:${RDP_PORT}:3389/udp
+      - ${HOST_IP}:${BPORT1}:8888
+      - ${HOST_IP}:${BPORT2}:8080
+      - ${HOST_IP}:${BPORT3}:8081
+      - ${HOST_IP}:${BPORT4}:8082
+      - ${HOST_IP}:${BPORT5}:8083
+    volumes:
+      - ${APP_PATH}/data:/storage
+      - ${SHARED}:/shared
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

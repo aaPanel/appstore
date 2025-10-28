@@ -1,0 +1,25 @@
+services:
+  BT_SERVICE_NAME6:
+    image: eqalpha/keydb:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${KEYDB_PORT}:6379
+    command: keydb-server /etc/keydb/keydb.conf --requirepass ${PASSWORD}
+    volumes:
+      - ${APP_PATH}/data:/data
+      - ${APP_PATH}/keydb.conf:/etc/keydb/keydb.conf
+      - ${APP_PATH}/logs:/logs
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

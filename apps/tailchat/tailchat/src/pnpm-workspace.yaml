@@ -1,0 +1,13 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'client/web'
+  - 'client/shared'
+  - 'client/web/plugins/**'
+  - 'client/packages/**'
+  - 'server'
+  - 'server/admin'
+  - 'server/packages/**'
+  - 'server/plugins/**'
+  - 'server/test/demo/**'
+  - 'website'

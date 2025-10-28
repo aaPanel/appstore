@@ -1,0 +1,31 @@
+services:
+  BT_SERVICE_NAME6:
+    image: drupal:${VERSION}
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:80
+    volumes:
+      - /var/www/html/modules
+      - /var/www/html/profiles
+      - /var/www/html/themes
+      - /var/www/html/sites
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: drupaladmin
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
+      
+      

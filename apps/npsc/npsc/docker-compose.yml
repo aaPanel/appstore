@@ -1,0 +1,23 @@
+services:
+  BT_SERVICE_NAME6:
+    image: yisier1/npc:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    network_mode: "host"
+    restart: always
+    volumes:
+      - ${APP_PATH}/conf:/conf
+    # 如果使用了启动参数，则使用无配置模式
+    command: ["-server=${NPSC_SERVER}", "-vkey=${NPSC_KEY}","-type=${NPSC_TYPE}","-tls_enable=${TLS_ENABLE}"]
+
+    labels:
+      createdBy: "bt_apps"
+
+
+
+
+     
+      

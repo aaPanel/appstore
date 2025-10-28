@@ -1,0 +1,50 @@
+{
+    "appid": 33,
+    "appname": "mongo_express",
+    "apptitle": "Mongo-Express",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "Mongo-Express 是一个基于Web的MongoDB管理工具",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 34,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": [
+        {"appname":["mongodb"],"apptype":"Database","appTypeCN":"数据库服务","appDesc":"需要安装应用商店中的MongoDB","appversion":["7","6","5","4"]}
+    ],
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":38081,"suffix":"","unit":""},
+        {"attr":"mongodb_username","name":"管理员用户","type":"text","default":"","suffix":"请填写MongoDB的管理员用户名","unit":""},
+        {"attr":"mongodb_password","name":"管理员密码","type":"text","default":"","suffix":"请填写MongoDB的管理员密码","unit":""},
+        {"attr":"username","name":"web管理用户","type":"text","default":"","suffix":"Mongo-Express的管理员用户名","unit":""},
+        {"attr":"password","name":"web管理密码","type":"password","default":"","suffix":"Mongo-Express的管理员密码","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"mongodb_username","type":"text","default":"","desc":"管理员用户"},
+        {"key":"mongodb_password","type":"text","default":"","desc":"管理员密码"},
+        {"key":"username","type":"text","default":"","desc":"web管理用户"},
+        {"key":"password","type":"password","default":"","desc":"web管理密码"},
+        {"key":"mongodb_host","type":"db_host","default":null,"desc":"mongodb的IP/服务"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {}
+}

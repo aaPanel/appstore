@@ -1,0 +1,25 @@
+services:
+  BT_SERVICE_NAME6:
+    image: ossrs/oryx:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${HTTP_PORT}:2022
+      - ${HOST_IP}:${RTMP_PORT}:1935
+      - "${HOST_IP}:${RTC_PORT}:8000/udp"
+      - "${HOST_IP}:${SRT_PORT}:10080/udp"
+    volumes:
+      - ${APP_PATH}/data:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

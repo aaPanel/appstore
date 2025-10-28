@@ -1,0 +1,66 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Operations": {
+    "message": "运维操作",
+    "description": "The label for category Operations in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Advanced Usage": {
+    "message": "进阶使用",
+    "description": "The label for category Advanced Usage in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Cli": {
+    "message": "命令行终端",
+    "description": "The label for category Cli in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Video Conference": {
+    "message": "视频会议",
+    "description": "The label for category Video Conference in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Develop plugins": {
+    "message": "开发插件",
+    "description": "The label for category Develop plugins in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.API Interface": {
+    "message": "API 接口",
+    "description": "The label for category API Interface in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Plugin List": {
+    "message": "插件列表",
+    "description": "The label for category Plugin List in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Contribution": {
+    "message": "项目贡献",
+    "description": "The label for category Contribution in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Development Documentation": {
+    "message": "开发文档",
+    "description": "The label for category Development Documentation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Application Deployment": {
+    "message": "应用部署",
+    "description": "The label for category Application Deployment in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Plugin Document": {
+    "message": "插件文档",
+    "description": "The label for category Plugin Document in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Guide": {
+    "message": "指南",
+    "description": "The label for category Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Kubernetes": {
+    "message": "Kubernetes",
+    "description": "The label for category Kubernetes in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Benchmark": {
+    "message": "压力测试",
+    "description": "The label for category Benchmark in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Open App": {
+    "message": "开放平台应用",
+    "description": "The label for category Open App in sidebar tutorialSidebar"
+  }
+}

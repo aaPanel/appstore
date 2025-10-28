@@ -1,0 +1,105 @@
+services:
+  mysql:
+    image: mysql:8.4.2
+    hostname: maxkey-mysql
+    volumes:
+      - ${APP_PATH}/docker-mysql/data:/var/lib/mysql
+      - ${APP_PATH}/docker-mysql/logs:/var/log/mysql
+      - ${APP_PATH}/docker-mysql/conf.d:/etc/mysql/conf.d
+      - ${APP_PATH}/docker-mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=maxkey
+    restart: always
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-pmaxkey"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+    
+  maxkey-frontend:
+    image: maxkeytop/maxkey-frontend:latest
+    container_name: maxkey-frontend
+    environment:
+      - TZ=Asia/Shanghai
+    depends_on:
+      mysql:
+        condition: service_healthy
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+  maxkey:
+    image: maxkeytop/maxkey:latest
+    hostname: maxkey
+    environment:
+      - DATABASE_HOST=maxkey-mysql
+      - DATABASE_PORT=3306
+      - DATABASE_NAME=maxkey
+      - DATABASE_USER=root
+      - DATABASE_PWD=maxkey
+    depends_on:
+      mysql:
+        condition: service_healthy
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  maxkey-mgt:
+    image: maxkeytop/maxkey-mgt:latest
+    hostname: maxkey-mgt
+    environment:
+      - DATABASE_HOST=maxkey-mysql
+      - DATABASE_PORT=3306
+      - DATABASE_NAME=maxkey
+      - DATABASE_USER=root
+      - DATABASE_PWD=maxkey
+    depends_on:
+      mysql:
+        condition: service_healthy
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+  maxkey-mgt-frontend:
+    image: maxkeytop/maxkey-mgt-frontend:latest
+    hostname: maxkey-mgt-frontend
+    environment:
+      - TZ=Asia/Shanghai
+    depends_on:
+      mysql:
+        condition: service_healthy
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+  BT_SERVICE_NAME6:
+    image: nginx:${VERSION}
+    volumes:
+      - ${APP_PATH}/docker-nginx:/etc/nginx/conf.d
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:80
+    depends_on:
+      - maxkey
+      - maxkey-mgt
+      - maxkey-frontend
+      - maxkey-mgt-frontend
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
+      
+      

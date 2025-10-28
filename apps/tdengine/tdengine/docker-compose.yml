@@ -1,0 +1,28 @@
+services:
+  BT_SERVICE_NAME6:
+    image: tdengine/tdengine:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${TAOSC_PORT}:6030
+      - ${HOST_IP}:${REST_PORT}:6041
+      - ${HOST_IP}:${KEEPER_PORT}:6043
+      - 46044-46049:6044-6049
+      - 46044-46045:6044-6045/udp
+      - ${HOST_IP}:${EXPLORER_PORT}:6060
+    volumes:
+      - ${APP_PATH}/data:/var/lib/taos
+      - ${APP_PATH}/logs:/var/log/taos
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

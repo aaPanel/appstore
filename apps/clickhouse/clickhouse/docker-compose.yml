@@ -1,0 +1,28 @@
+services:
+  BT_SERVICE_NAME6:
+    image: clickhouse/clickhouse-server:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${API_PORT}:8123
+      - ${HOST_IP}:${TCP_PORT}:9000
+    volumes:
+      - ${APP_PATH}/clickhouse:/var/lib/clickhouse/
+      - ${APP_PATH}/clickhouse-server:/var/log/clickhouse-server/
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

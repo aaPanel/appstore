@@ -1,0 +1,156 @@
+services:
+  # jeepay-配置文件中心， 没有运行程序
+  jeepay-configs:
+    image: jeepay/jeepay-configs:${VERSION}
+    container_name: jeepay-configs
+    volumes:
+      - ${APP_PATH}/jeepayhomes/:/jeepayhomes
+    command: cp -r /jeepayConfigs /jeepayhomes
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+    
+  # 数据库
+  mysql:
+    image: mysql:8.0.25
+    container_name: mysql8
+    environment:
+      LANG: C.UTF-8
+      MYSQL_ROOT_PASSWORD: "jeepaydb123456"
+      MYSQL_DATABASE: "jeepaydb"
+    depends_on:
+      - jeepay-configs
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_PATH}/jeepayhomes/mysql/log:/var/log/mysql
+      - ${APP_PATH}/jeepayhomes/mysql/data:/var/lib/mysql
+      - ${APP_PATH}/jeepayhomes/mysql/mysql-files:/var/lib/mysql-files
+      - ${APP_PATH}/jeepayhomes/jeepayConfigs/db:/etc/mysql/conf.d
+      - ${APP_PATH}/jeepayhomes/jeepayConfigs/db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 20s
+      timeout: 20s
+      retries: 3  
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  # redis
+  redis:
+    image: redis:6.2.14
+    container_name: redis6
+    depends_on:
+      - jeepay-configs
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_PATH}/jeepayhomes/jeepayConfigs/redis/redis.conf:/etc/redis/redis.conf
+      - ${APP_PATH}/jeepayhomes/redis/data:/data
+    command: redis-server /etc/redis/redis.conf
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+
+  # MQ
+  activemq:
+    image: jeepay/activemq:5.15.16
+    container_name: activemq5
+    depends_on:
+      - jeepay-configs
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+
+  # jeepay管理平台API
+  jeepay-manager:
+    image: jeepay/jeepay-manager:${VERSION}
+    container_name: jeepaymanager
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_PATH}/jeepayhomes/service/logs:/jeepayhomes/service/logs
+      - ${APP_PATH}/jeepayhomes/service/uploads:/jeepayhomes/service/uploads
+      - ${APP_PATH}/jeepayhomes/jeepayConfigs/service/manager/application.yml:/jeepayhomes/service/app/application.yml
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+
+  # jeepay商户平台API    
+  jeepay-merchant:
+    image: jeepay/jeepay-merchant:${VERSION}
+    container_name: jeepaymerchant
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_PATH}/jeepayhomes/service/logs:/jeepayhomes/service/logs
+      - ${APP_PATH}/jeepayhomes/service/uploads:/jeepayhomes/service/uploads
+      - ${APP_PATH}/jeepayhomes/jeepayConfigs/service/merchant/application.yml:/jeepayhomes/service/app/application.yml
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  # jeepay支付网关API  
+  jeepay-payment:
+    image: jeepay/jeepay-payment:${VERSION}
+    container_name: jeepaypayment
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_PATH}/jeepayhomes/service/logs:/jeepayhomes/service/logs
+      - ${APP_PATH}/jeepayhomes/service/uploads:/jeepayhomes/service/uploads
+      - ${APP_PATH}/jeepayhomes/jeepayConfigs/service/payment/application.yml:/jeepayhomes/service/app/application.yml
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+
+  # nginx web服务器（需对外映射 19216，19217，19218 三个端口）
+  BT_SERVICE_NAME6:
+    image: nginx:1.18.0
+    container_name: nginx118
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    depends_on:
+      - jeepay-configs
+      - jeepay-payment
+      - jeepay-manager
+      - jeepay-merchant
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT1}:19216
+      - ${HOST_IP}:${WEB_HTTP_PORT2}:19217      
+      - ${HOST_IP}:${WEB_HTTP_PORT3}:19218      
+    volumes:
+      - /etc/localtime:/etc/localtime:ro \
+      - ${APP_PATH}/jeepayhomes/jeepayConfigs/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ${APP_PATH}/jeepayhomes/jeepayConfigs/nginx/conf.d:/etc/nginx/conf.d
+      - ${APP_PATH}/jeepayhomes/nginx/logs:/var/log/nginx
+      - ${APP_PATH}/jeepayhomes/jeepayConfigs/nginx/html:/usr/share/nginx/html
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

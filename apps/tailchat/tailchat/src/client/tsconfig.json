@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["DOM"],
+    "jsx": "react",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "importsNotUsedAsValues": "error",
+    "resolveJsonModule": true,
+    "typeRoots": ["./node_modules/@types", "../node_modules/@types", "./types"]
+  }
+}

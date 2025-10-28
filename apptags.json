@@ -1,0 +1,67 @@
+[
+  {
+    "sort": 1,
+    "type": "BuildWebsite",
+    "desc": "建站"
+  },
+  {
+    "sort": 2,
+    "type": "Database",
+    "desc": "数据库"
+  },
+  {
+    "sort": 5,
+    "type": "Storage",
+    "desc": "存储/网盘"
+  },
+  {
+    "sort": 6,
+    "type": "AI",
+    "desc": "AI/大模型"
+  },
+  {
+    "sort": 7,
+    "type": "Tools",
+    "desc": "实用工具"
+  },
+  {
+    "sort": 8,
+    "type": "nas",
+    "desc": "NAS"
+  },
+  {
+    "sort": 9,
+    "type": "Middleware",
+    "desc": "中间件"
+  },
+  {
+    "sort": 10,
+    "type": "DevOps",
+    "desc": "DevOps"
+  },
+  {
+    "sort": 11,
+    "type": "Media",
+    "desc": "多媒体"
+  },
+  {
+    "sort": 12,
+    "type": "Email",
+    "desc": "邮件/邮局"
+  },
+  {
+    "sort": 13,
+    "type": "System",
+    "desc": "系统"
+  },
+  {
+    "sort": 14,
+    "type": "MCP",
+    "desc": "MCP服务"
+  },
+  {
+    "sort": 15,
+    "type": "AppHub",
+    "desc": "外部应用"
+  }
+]

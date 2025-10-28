@@ -1,0 +1,28 @@
+services:
+  openlist:
+    image: openlistteam/openlist:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+    ports:
+      - ${HOST_IP}:${OPENLIST_WEB_PORT}:5244
+#      - ${HOST_IP}:${S3_SERVER_PORT}:5426
+    restart: always
+    volumes:
+      - ${APP_PATH}/data:/opt/openlist/data
+      - ${APP_PATH}/mnt:/mnt/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

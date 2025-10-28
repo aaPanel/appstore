@@ -1,0 +1,48 @@
+services:
+  ollama:
+    image: ollama/ollama
+    #    container_name: ${CONTAINER_NAME}
+#    deploy:
+#      resources:
+#        reservations:
+#          devices:
+#            - driver: nvidia
+#              count: 1
+#              capabilities: [ gpu ]
+    restart: unless-stopped
+    tty: true
+    ports:
+      - ${HOST_IP}:${OLLAMA_PORT}:11434
+    volumes:
+      - ${APP_PATH}/data:/root/.ollama
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  BT_SERVICE_NAME6:
+    image: aingdesk/aingdesk:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    working_dir: /aingdesk
+    volumes:
+      - ${APP_PATH}/data:/data
+      - ${APP_PATH}/uploads:/uploads
+      - ${APP_PATH}/logs:/logs
+      - ${APP_PATH}/bin:/aingdesk/bin
+      - ${APP_PATH}/sys_data:/sys_data
+    command: npm run start
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:7071
+    restart: always
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

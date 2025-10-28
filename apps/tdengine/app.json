@@ -1,0 +1,40 @@
+{
+    "appid": 212,
+    "appname": "tdengine",
+    "apptitle": "TDengine",
+    "apptype": "Database",
+    "appTypeCN": "数据库",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "是一款开源、高性能、云原生的时序数据库",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 213,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"taosc_port","name":"服务 端口","type":"number","default":16030,"suffix":"","unit":""},
+        {"attr":"rest_port","name":"REST 端口","type":"number","default":16041,"suffix":"","unit":""},
+        {"attr":"keeper_port","name":"taosKeeper 端口","type":"number","default":16043,"suffix":"","unit":""},
+        {"attr":"explorer_port","name":"taosExplorer 端口","type":"number","default":16060,"suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"taosc_port","type":"port","default":null,"desc":"服务端口"},
+        {"key":"rest_port","type":"port","default":null,"desc":"rest服务端口"},
+        {"key":"keeper_port","type":"port","default":null,"desc":"taosKeeper端口"},
+        {"key":"explorer_port","type":"port","default":null,"desc":"taosExplorer端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {}
+}

@@ -1,0 +1,87 @@
+services:
+  bind-mysql:
+    image: registry.cn-hangzhou.aliyuncs.com/darry/bind_mysql:${VERSION}
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ${APP_PATH}/mysql/:/var/lib/mysql
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  # bind配置
+  bind-bind9:
+    image: registry.cn-hangzhou.aliyuncs.com/darry/bind:v1
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ${APP_PATH}/bind:/usr/local/bind/etc
+    depends_on:
+      - bind-mysql
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  #前端使用的api接口服务
+  # 此服务名称不能更改，已写入相关配置中。
+  bind-backend:
+    image: registry.cn-hangzhou.aliyuncs.com/darry/bind_backend:${VERSION}
+    #privileged: true
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ${APP_PATH}/server:/opt/server/conf
+    depends_on:
+      - bind-mysql
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  #前端
+  bind-front:
+    image: registry.cn-hangzhou.aliyuncs.com/darry/bind_front:${VERSION}
+    restart: always
+    privileged: true
+    env_file:
+      - .env
+    depends_on:
+      - bind-mysql
+      - bind-backend
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  #前端
+  bind_webadmin_CXGy:
+    image: registry.cn-hangzhou.aliyuncs.com/darry/bind_proxy:${VERSION}
+    restart: always
+    privileged: true
+    env_file:
+      - .env
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:80
+      - 53:53/udp
+      - 53:53/tcp
+    volumes:
+      - ${APP_PATH}/cert/fullchain.pem:/etc/nginx/cert/fullchain.pem
+      - ${APP_PATH}/cert/privkey.pem:/etc/nginx/cert/privkey.pem
+      - ${APP_PATH}/cert/dhparams.pem:/etc/nginx/cert/dhparams.pem
+    depends_on:
+      - bind-backend
+      - bind-front
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+
+networks:
+  baota_net:
+    external: true

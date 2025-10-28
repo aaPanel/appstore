@@ -1,0 +1,21 @@
+services:
+  BT_SERVICE_NAME6:
+    image: memcached:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${SERVICE_PORT}:11211
+    command: memcached -m ${MEM_LIMIT}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

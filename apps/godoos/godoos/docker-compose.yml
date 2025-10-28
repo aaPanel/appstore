@@ -1,0 +1,21 @@
+services:
+  godoos:
+    image: godoos/godoos:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    volumes:
+      - ${APP_PATH}/godoos/os:/root/.godoos/os
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:56780
+    restart: unless-stopped
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

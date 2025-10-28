@@ -1,0 +1,49 @@
+{
+    "appid": 54,
+    "appname": "oceanbase",
+    "apptitle": "OceanBase",
+    "apptype": "Database",
+    "appTypeCN": "数据库",
+    "appversion": [
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"4","s_version":["2.1"]}
+    ],
+    "appdesc": "OceanBase 是一个开源的分布式关系型数据库管理系统",
+    "appstatus": 0,
+    "icon": "",
+    "sort": 54,
+    "home": "https://github.com/oceanbase/ob-operator",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"service_port","name":"端口","type":"number","default":2881,"suffix":"","unit":""},
+        {"attr":"ob_tenant_name","name":"租户名","type":"text","default":"oceanbase","suffix":"","unit":""},
+        {"attr":"ob_root_password","name":"sys租户密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"ob_memory_limit","name":"内存","type":"number","default":6,"suffix":"单位：GB","unit":""},
+        {"attr":"ob_datafile_size","name":"数据文件大小","type":"number","default":5,"suffix":"单位：GB","unit":""},
+        {"attr":"ob_log_disk_size","name":"日志文件大小","type":"number","default":5,"suffix":"单位：GB","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"service_port","type":"port","default":null,"desc":"端口"},
+        {"key":"ob_tenant_name","type":"text","default":"","desc":"租户名"},
+        {"key":"ob_root_password","type":"password","default":"","desc":"sys租户密码"},
+        {"key":"ob_memory_limit","type":"number","default":null,"desc":"内存(GB)"},
+        {"key":"ob_datafile_size","type":"number","default":null,"desc":"数据文件大小(GB)"},
+        {"key":"ob_log_disk_size","type":"number","default":null,"desc":"日志文件大小(GB)"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"ob": {"type": "path", "desc": "数据目录"}, "obd": {"type": "path", "desc": "数据目录"}}
+}

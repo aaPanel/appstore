@@ -1,0 +1,19 @@
+services:
+  mcsmanager_daemon:
+    image: githubyumao/mcsmanager-daemon:latest
+    restart: always
+    ports:
+      - "${HOST_IP}:${DAEMON_PORT}:24444/tcp"
+    environment:
+      - MCSM_DOCKER_WORKSPACE_PATH=${APP_PATH}/daemon/data/InstanceData
+    volumes:
+      - "${APP_PATH}/daemon/data:/opt/mcsmanager/daemon/data"
+      - "${APP_PATH}/daemon/logs:/opt/mcsmanager/daemon/logs"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

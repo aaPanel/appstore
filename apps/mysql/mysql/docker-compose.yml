@@ -1,0 +1,31 @@
+services:
+  BT_SERVICE_NAME6:
+    image: mysql:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - ${HOST_IP}:${MYSQL_PORT}:3306
+    volumes:
+      - ${APP_PATH}/data/:/var/lib/mysql
+      - ${APP_PATH}/my.cnf:/etc/my.cnf
+      - ${APP_PATH}/log:/var/log/mysql
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_PATH}/mysql-conf-d:/etc/mysql/mysql.conf.d:ro
+      - ${APP_PATH}/mysql-files:/var/lib/mysql-files
+    labels:
+      createdBy: "bt_apps"
+    command: ${COMMAND}
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

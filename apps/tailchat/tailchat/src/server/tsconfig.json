@@ -1,0 +1,19 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "importsNotUsedAsValues": "error",
+    "jsx": "react",
+    "strict": false, // 临时
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "paths": {
+      "tailchat-server-sdk": ["./packages/sdk/src"]
+    },
+    "outDir": "dist"
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules/**/*", "dist", "plugins/**/web/**", "packages/sdk/**", "admin/**"]
+}

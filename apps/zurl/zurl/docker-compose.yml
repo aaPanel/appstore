@@ -1,0 +1,16 @@
+services:
+  zurl:
+    image: helloz/zurl:latest
+    ports:
+      - ${HOST_IP}:${HTTP_PORT}:3080
+    restart: always
+    volumes:
+      - ${APP_PATH}/data:/opt/zurl/app/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

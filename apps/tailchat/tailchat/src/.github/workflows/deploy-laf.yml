@@ -1,0 +1,62 @@
+name: Deploy into laf
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/deploy-laf.yml"
+      - "client/web/**"
+      - "client/shared/**"
+      - "client/packages/design/**"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy Laf
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Needed for auth with Deno Deploy
+      contents: read # Needed to clone the repository
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: latest
+          run_install: false
+
+      - name: Install packages
+        run: pnpm install --frozen-lockfile
+
+      - name: Inject Analytics
+        run: node ./client/web/build/inject-analytics.js
+
+      - name: Build step
+        run: cd client/web && pnpm build
+        env:
+          SERVICE_URL: https://tailchat-nightly.moonrailgun.com
+
+      - name: Deploy to laf storage
+        uses: moonrailgun/laf-storage-deploy-action@v1.1
+        with:
+          laf-server: https://laf.dev
+          laf-pat: ${{ secrets.LAF_PAT }}
+          laf-appid: yyejoq
+          laf-bucket-name: yyejoq-tailchat-nightly
+          dist-path: client/web/dist

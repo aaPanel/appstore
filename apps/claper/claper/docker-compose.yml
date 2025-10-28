@@ -1,0 +1,46 @@
+services:
+  claper-db:
+    image: postgres:15
+    volumes:
+      - ${APP_PATH}/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+    restart: always
+      
+  claper-app:
+    image: ghcr.1ms.run/claperco/claper:latest
+    ports:
+      - "${HOST_IP}:${WEB_HTTP_PORT}:4000"
+    volumes:
+      - ${APP_PATH}/data/uploads:/app/uploads
+    env_file: .env
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - BASE_URL=http://:${WEB_HTTP_PORT}
+    depends_on:
+      - claper-db
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+    restart: always
+
+networks:
+  baota_net:
+    external: true

@@ -1,0 +1,23 @@
+services:
+  BT_SERVICE_NAME6:
+    image: jpomdocker/jpom:server-${VERSION}
+    restart: always        
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:2122
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+      args:
+        JPOM_VERSION: ${VERSION}
+    volumes:
+      - ${APP_PATH}/jpom-server-data:/usr/local/jpom-server/data
+      - ${APP_PATH}/jpom-server-logs:/usr/local/jpom-server/logs
+      - ${APP_PATH}/jpom-server-conf:/usr/local/jpom-server/conf
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

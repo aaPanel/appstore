@@ -1,0 +1,42 @@
+{
+    "appid": 250,
+    "appname": "photoprism",
+    "apptitle": "PhotoPrism",
+    "apptype": "nas",
+    "appTypeCN": "Nas",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "PhotoPrism 是一款基于 Go 和 TensorFlow 的开源相册管理系统，支持 AI 自动打标、人脸聚类、语义化搜索与 WebDAV 多端同步。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 22,
+    "home": "https://github.com/photoprism/photoprism",
+    "help": "https://docs.photoprism.app/",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port","name":"Web端口","type":"number","default":2342,"suffix":"","unit":""},
+        {"attr":"PHOTOPRISM_ADMIN_USER","name":"管理员用户名","type":"string","default":"admin","suffix":"","unit":""},
+        {"attr":"PHOTOPRISM_ADMIN_PASSWORD","name":"管理员密码","type":"string","default":"photoprism","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"web_http_port","type":"port","default":2342,"desc":"Web端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"},
+        {"key":"PHOTOPRISM_ADMIN_PASSWORD","type":"string","default":null,"desc":"管理员密码"},
+        {"key":"PHOTOPRISM_ADMIN_USER","type":"string","default":"admin","desc":"管理员用户名"}
+    ],
+    "volumes": {"storage": {"type": "path", "desc": "配置与索引存储目录"}, "originals": {"type": "path", "desc": "原始照片目录"}}
+}

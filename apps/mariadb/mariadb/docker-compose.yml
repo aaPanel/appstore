@@ -1,0 +1,27 @@
+services:
+  BT_SERVICE_NAME6:
+    image: mariadb:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    ports:
+      - ${HOST_IP}:${MARIADB_PORT}:3306
+    volumes:
+      - ${APP_PATH}/data/:/var/lib/mysql
+      - ${APP_PATH}/my.cnf:/etc/my.cnf
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

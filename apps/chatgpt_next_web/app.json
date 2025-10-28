@@ -1,0 +1,46 @@
+{
+    "appid": 17,
+    "appname": "chatgpt_next_web",
+    "apptitle": "ChatGPT-Next-Web",
+    "apptype": "AI",
+    "appTypeCN": "AI/大模型",
+    "appversion": [
+        {"m_version":"2","s_version":["14.1","14.0","13.1","12.4"]}
+    ],
+    "appdesc": "一键免费部署你的跨平台私人 ChatGPT 应用, 支持 GPT3, GPT4 & Gemini Pro 模型",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 18,
+    "home": "https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web",
+    "help": "https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port","name":"web端口","type":"number","default":23300,"suffix":"","unit":""},
+        {"attr":"api_key","name":"Open Api Key","type":"text","default":"","suffix":"必填,open api key,例如：sk-xxxxxxxxxxxxx","unit":""},
+        {"attr":"secret_key","name":"访问权限密钥","type":"text","default":"","suffix":"非必填,可为空","unit":""},
+        {"attr":"proxy_url","name":"代理地址","type":"url","default":"","suffix":"非必填,例如：http://127.0.0.1:7890 user password","unit":""},
+        {"attr":"api_base_url","name":"API接口地址","type":"url","default":"https://api.openai.com","suffix":"必填,一般为openai的接口地址","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"web端口"},
+        {"key":"api_key","type":"text","default":null,"desc":"Open Api Key"},
+        {"key":"secret_key","type":"text","default":null,"desc":"访问权限密钥"},
+        {"key":"proxy_url","type":"url","default":null,"desc":"代理地址"},
+        {"key":"api_base_url","type":"url","default":null,"desc":"API接口地址"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据库目录"}}
+}

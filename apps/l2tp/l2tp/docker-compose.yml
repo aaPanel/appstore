@@ -1,0 +1,37 @@
+services:
+  BT_SERVICE_NAME6:
+    image: teddysun/l2tp:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    environment:
+      - VPN_IPSEC_PSK=${VPN_IPSEC_PSK}
+      - VPN_USER=${VPN_USER}
+      - VPN_PASSWORD=${VPN_PASSWORD}
+      - VPN_PUBLIC_IP=${VPN_PUBLIC_IP}
+      - VPN_L2TP_NET=${VPN_L2TP_NET}
+      - VPN_L2TP_LOCAL=${VPN_L2TP_LOCAL}
+      - VPN_L2TP_REMOTE=${VPN_L2TP_REMOTE}
+      - VPN_XAUTH_NET=${VPN_XAUTH_NET}
+      - VPN_XAUTH_REMOTE=${VPN_XAUTH_REMOTE}
+      - VPN_DNS1=${VPN_DNS1}
+      - VPN_DNS2=${VPN_DNS2}
+      - VPN_SHA2_TRUNCBUG=${VPN_SHA2_TRUNCBUG}
+    ports:
+      - ${HOST_IP}:${UDP_PORT1}:500/udp
+      - ${HOST_IP}:${UDP_PORT2}:4500/udp
+    volumes:
+      - /lib/modules:/lib/modules
+    privileged: true
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

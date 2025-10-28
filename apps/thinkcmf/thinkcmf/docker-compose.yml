@@ -1,0 +1,90 @@
+services:
+  BT_SERVICE_NAME6:
+    image: nginx:alpine
+    restart: always
+    container_name: thinkcmf-nginx
+    ports:
+      - "8880:80"
+    volumes:
+      - ./www/thinkcmf/:/var/www/html/:rw
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  php-fpm:
+    image: thinkcmfpro/thinkcmf:${VERSION}
+    restart: always
+    container_name: thinkcmf-php-fpm
+    volumes:
+      - ./www/thinkcmf/:/var/www/html/:rw
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+    environment:
+      - DATABASE_HOSTNAME=mysql
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=thinkcmf
+      - DATABASE_DATABASE=thinkcmf
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+  mysql:
+    image: mysql:${VERSION}
+    restart: always
+    container_name: thinkcmf-mysql
+    volumes:
+      - ./mysql/data/:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=thinkcmf
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+  redis:
+    image: redis:alpine
+    restart: always
+    container_name: thinkcmf-redis
+    volumes:
+      - ./redis/data:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+  adminer:
+    image: adminer
+    container_name: thinkcmf-mysql-manage
+    environment:
+      - ADMINER_DEFAULT_SERVER=mysql
+      - ADMINER_DEFAULT_USER=root
+    depends_on:
+      - mysql
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  phpredisadmin:
+    image: erikdubbelboer/phpredisadmin
+    container_name: thinkcmf-redis-manage
+    environment:
+      - TZ=Asia/Shanghai
+      - REDIS_1_HOST=redis
+      - REDIS_1_PORT=6379
+      - ADMIN_USER=thinkcmf
+      - ADMIN_PASS=thinkcmf
+    depends_on:
+      - redis
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

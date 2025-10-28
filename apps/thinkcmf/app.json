@@ -1,0 +1,40 @@
+{
+    "appid": 213,
+    "appname": "thinkcmf",
+    "apptitle": "ThinkCMF",
+    "apptype": "BuildWebsite",
+    "appTypeCN": "建站",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "一款基于ThinkPHP+MySQL开发的中文内容管理框架",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 214,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"服务端口","type":"number","default":8880,"suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"服务端口"},
+        {"key":"sqlhost","type":"defaultUserName","default":"thinkcmf-mysql","desc":"数据库服务器"},
+        {"key":"sqlpwd","type":"defaultPassWord","default":"thinkcmf","desc":"数据库密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"nginx": {"type": "path", "desc": "存放nginx配置"}, "php": {"type": "path", "desc": "存放php配置 php.ini"}, "php-fpm": {"type": "path", "desc": "存放fpm服务的php镜像构建文件"}, "php-swoole": {"type": "path", "desc": "存放swoole服务的php镜像构建文件"}, "php-workerman": {"type": "path", "desc": "存放workerman服务的php镜像构建文件"}}
+}

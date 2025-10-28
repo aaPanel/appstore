@@ -1,0 +1,43 @@
+{
+    "appid": 64,
+    "appname": "lqbittorrent",
+    "apptitle": "LinuxServer qBittorrent",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "qBittorrent 是一个开源的BT下载工具，linuxserver 版的镜像",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 65,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":8080,"suffix":"","unit":""},
+        {"attr":"torrenting_port","name":"做种端口","type":"number","default":6881,"suffix":"","unit":""},
+        {"attr":"time_zone","name":"时区","type":"text","default":"Asia/Shanghai","suffix":"请设置有效时区，如果不清楚请保持默认","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"torrenting_port","type":"port","default":null,"desc":"做种端口"},
+        {"key":"time_zone","type":"timezone","default":null,"desc":"时区"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}, "config": {"type": "path", "desc": "配置文件目录"}}
+}

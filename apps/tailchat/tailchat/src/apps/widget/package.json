@@ -1,0 +1,20 @@
+{
+  "name": "tailchat-widget",
+  "version": "0.0.8",
+  "main": "lib/index.js",
+  "repository": "https://github.com/msgbyte/tailchat.git",
+  "author": "moonrailgun <moonrailgun@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "lib/index.js",
+    "lib/index.d.ts"
+  ],
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "tsc",
+    "release": "yarn publish --patch"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  }
+}

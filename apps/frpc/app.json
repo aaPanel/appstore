@@ -1,0 +1,47 @@
+{
+    "appid": 10,
+    "appname": "frpc",
+    "apptitle": "FRP 客户端",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"0","s_version":["60.0","59.0","58.1"]}
+    ],
+    "appdesc": "专注于内网穿透的高性能反向代理应用",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 11,
+    "home": "https://github.com/snowdreamtech/frp",
+    "help": "https://gofrp.org/zh-cn/docs/examples/",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"frps_server_ip","name":"frp服务端ip","type":"text","default":"127.0.0.1","suffix":"frp服务器的ip,例如：192.168.100.50","unit":""},
+        {"attr":"frps_server_port","name":"frp服务端端口","type":"number","default":7000,"suffix":"frp服务器的端口,一般为7000","unit":""},
+        {"attr":"frpc_web_port","name":"web端口","type":"number","default":7400,"suffix":"frp客户端的web管理端口","unit":""},
+        {"attr":"frpc_user","name":"用户","type":"text","default":"frpc_user","suffix":"frp客户端的用户名","unit":""},
+        {"attr":"frpc_password","name":"密码","type":"password","default":"","suffix":"frp客户端的密码","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"frps_server_ip","type":"text","default":null,"desc":"frp服务器的ip"},
+        {"key":"frps_server_port","type":"number","default":null,"desc":"frp服务器端口"},
+        {"key":"frpc_web_port","type":"port","default":null,"desc":"frp客户端web端口"},
+        {"key":"frpc_user","type":"text","default":null,"desc":"frp客户端用户名"},
+        {"key":"frpc_password","type":"password","default":null,"desc":"frp客户端密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}, "frpc.toml": {"type": "file", "desc": "配置文件"}}
+}

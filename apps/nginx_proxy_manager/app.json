@@ -1,0 +1,43 @@
+{
+    "appid": 14,
+    "appname": "nginx_proxy_manager",
+    "apptitle": "Nginx Proxy Manager",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"2","s_version":["11.3","11.2","11.1","11.0","10.4"]}
+    ],
+    "appdesc": "一个可视化的反向代理管理系统，基于Nginx",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 15,
+    "home": "https://nginxproxymanager.com/",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"ngpm_web_port","name":"web管理端口","type":"number","default":24181,"suffix":"nginx-proxy-manager的web管理端口","unit":""},
+        {"attr":"ngpm_http_port","name":"http端口","type":"number","default":24180,"suffix":"nginx-proxy-manager的管理器映射的http端口","unit":""},
+        {"attr":"ngpm_https_port","name":"https端口","type":"number","default":24443,"suffix":"nginx-proxy-manager的管理器映射的https端口","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"ngpm_web_port","type":"port","default":null,"desc":"web管理端口"},
+        {"key":"ngpm_http_port","type":"port","default":null,"desc":"http端口"},
+        {"key":"ngpm_https_port","type":"port","default":null,"desc":"https端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}, "ssl": {"type": "path", "desc": "ssl证书目录"}}
+}

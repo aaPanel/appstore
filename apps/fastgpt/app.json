@@ -1,0 +1,43 @@
+{
+    "appid": 233,
+    "appname": "fastgpt",
+    "apptitle": "FastGPT",
+    "apptype": "AI",
+    "appTypeCN": "AI/大模型",
+    "appversion": [
+        {"m_version":"4","s_version":["10.0"]}
+    ],
+    "appdesc": "FastGPT 是一个基于 LLM 大语言模型的知识库问答系统，将智能对话与可视化编排完美结合，让 AI 应用开发变得简单自然。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 162,
+    "home": "",
+    "help": "https://doc.tryfastgpt.ai/docs/development/docker/",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"HTTP_PORT","name":"端口","type":"number","default":3000,"suffix":"","unit":""},
+        {"attr":"DEFAULT_ROOT_PSW","name":"root用户登录密码","type":"string","default":"fastgptdocker","suffix":"","unit":""},
+        {"attr":"MCP_PORT","name":"MCP端口","type":"number","default":3005,"suffix":"","unit":""},
+        {"attr":"MINIO_PORT","name":"Minio端口","type":"number","default":9000,"suffix":"","unit":""},
+        {"attr":"MINIO_HTTP_PORT","name":"MinioWEB端口","type":"number","default":9001,"suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"HTTP_PORT","type":"port","default":null,"desc":"WEB端口"},
+        {"key":"MCP_PORT","type":"port","default":null,"desc":"MCP端口"},
+        {"key":"MINIO_HTTP_PORT","type":"port","default":null,"desc":"MINIO管理端口"},
+        {"key":"DEFAULT_ROOT_PSW","type":"string","default":null,"desc":"ROOT用户密码"},
+        {"key":"MINIO_PORT","type":"port","default":null,"desc":"MINIO端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}}
+}

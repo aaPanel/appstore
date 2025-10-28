@@ -1,0 +1,38 @@
+{
+    "appid": 25,
+    "appname": "mailserver",
+    "apptitle": "MailServer",
+    "apptype": "Email",
+    "appTypeCN": "邮件/邮局",
+    "appversion": [
+        {"m_version":"14","s_version":["0.0"]}
+    ],
+    "appdesc": "一个简单的Docker邮件服务器",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 26,
+    "home": "https://docker-mailserver.github.io/docker-mailserver/latest/examples/tutorials/basic-installation/",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"mail_hostname","name":"邮箱域名","type":"text","default":"","suffix":"请填写您的邮箱域名，例如：mail.example.com","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"mail_hostname","type":"text","default":null,"desc":"邮箱域名"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "配置文件"}}
+}

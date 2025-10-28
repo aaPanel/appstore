@@ -1,0 +1,22 @@
+services:
+  trwebocr:
+    image: mmmz/trwebocr:latest
+    container_name: trwebocr
+    restart: always
+    ports:
+      - "${HOST_IP}:${WEB_HTTP_PORT}:8089"
+    volumes:
+      - ${APP_PATH}/data/tr_data:/app/tr_web/data
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

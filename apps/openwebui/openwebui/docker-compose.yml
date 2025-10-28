@@ -1,0 +1,26 @@
+services:
+  BT_SERVICE_NAME6:
+    image: dyrnq/open-webui:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: unless-stopped
+    ports:
+      - ${HOST_IP}:${WEBUI_PORT}:8080
+    environment:
+      - ENABLE_OPENAI_API=false
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+      - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY}
+    volumes:
+      - ${APP_PATH}/openwebui_data:/app/backend/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

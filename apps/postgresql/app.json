@@ -1,0 +1,46 @@
+{
+    "appid": 15,
+    "appname": "postgresql",
+    "apptitle": "PostgreSQL",
+    "apptype": "Database",
+    "appTypeCN": "数据库",
+    "appversion": [
+        {"m_version":"16","s_version":["3"]},
+        {"m_version":"15","s_version":["7"]},
+        {"m_version":"14","s_version":["12"]},
+        {"m_version":"13","s_version":["15"]},
+        {"m_version":"12","s_version":["19"]}
+    ],
+    "appdesc": "一种特性非常齐全的自由软件的对象-关系型数据库管理系统（ORDBMS）",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 16,
+    "home": "https://www.postgresql.org/",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"postgres_port","name":"端口","type":"number","default":35432,"suffix":"postgresql服务端口","unit":""},
+        {"attr":"postgres_user","name":"用户","type":"text","default":"postgres","suffix":"postgresql的默认用户名","unit":""},
+        {"attr":"postgres_password","name":"密码","type":"password","default":"","suffix":"postgresql的默认密码","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"postgres_port","type":"port","default":null,"desc":"postgresql端口"},
+        {"key":"postgres_user","type":"password","default":null,"desc":"默认用户名"},
+        {"key":"postgres_password","type":"password","default":null,"desc":"默认密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据库目录"}}
+}

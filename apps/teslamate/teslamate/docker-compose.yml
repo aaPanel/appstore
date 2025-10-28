@@ -1,0 +1,74 @@
+services:
+  BT_SERVICE_NAME6:
+    image: ccr.ccs.tencentyun.com/dhuar/teslamate:${VERSION}
+    restart: always
+    environment:
+      - ENCRYPTION_KEY=123456
+      - DATABASE_USER=teslamate
+      - DATABASE_PASS=123456
+      - DATABASE_NAME=teslamate
+      - DATABASE_HOST=database
+      - MQTT_HOST=mosquitto
+      - TZ=Asia/Shanghai
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT1}:4000
+    volumes:
+      - ${APP_PATH}/import:/opt/app/import
+    cap_drop:
+      - all
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  database:
+    image: ccr.ccs.tencentyun.com/dhuar/postgres:15.4
+    restart: always
+    environment:
+      - POSTGRES_USER=teslamate
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=teslamate
+        #ports:
+      #  - 5432:5432
+    volumes:
+      - ${APP_PATH}/db_data:/var/lib/postgresql/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  grafana:
+    image: ccr.ccs.tencentyun.com/dhuar/grafana:${VERSION}
+    restart: always
+    environment:
+      - DATABASE_USER=teslamate
+      - DATABASE_PASS=123456
+      - DATABASE_NAME=teslamate
+      - DATABASE_HOST=database
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT2}:3000
+    volumes:
+      - ${APP_PATH}/grafana:/var/lib/grafana
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  mosquitto:
+    image: ccr.ccs.tencentyun.com/dhuar/eclipse-mosquitto:2
+    restart: always
+    command: mosquitto -c /mosquitto-no-auth.conf
+    # ports:
+    #   - 1883:1883
+    volumes:
+      - ${APP_PATH}/conf:/mosquitto/config
+      - ${APP_PATH}/data:/mosquitto/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+
+networks:
+  baota_net:
+    external: true

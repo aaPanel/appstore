@@ -1,0 +1,12 @@
+services:
+  BT_SERVICE_NAME6:
+    image: homeassistant/home-assistant:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ${APP_PATH}/data:/config
+      - /run/dbus:/run/dbus:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      createdBy: "bt_apps"

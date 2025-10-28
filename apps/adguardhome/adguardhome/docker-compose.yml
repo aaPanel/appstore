@@ -1,0 +1,30 @@
+services:
+  adguardhome:
+    image: adguard/adguardhome
+    container_name: adguardhome
+    restart: always
+    ports:
+      - "${HOST_IP}:${DNS_TCP_PORT}:53/tcp"
+      - "${HOST_IP}:${DNS_UDP_PORT}:53/udp"
+      - "${HOST_IP}:${DHCP_SERVER_PORT}:67/udp"
+      - "${HOST_IP}:${WEB_HTTP_PORT}:80/tcp"
+      - "${HOST_IP}:${WEB_HTTPS_TCP_PORT}:443/tcp"
+      - "${HOST_IP}:${WEB_HTTPS_UDP_PORT}:443/udp"
+      - "${HOST_IP}:${API_PORT}:3000/tcp"
+      - "${HOST_IP}:${DOT_TCP_PORT}:853/tcp"
+      - "${HOST_IP}:${DOT_UDP_PORT}:853/udp"
+      - "${HOST_IP}:${DOQ_UDP_PORT}:784/udp"
+      - "${HOST_IP}:${DOT_ALT_UDP_PORT}:8853/udp"
+      - "${HOST_IP}:${DNSCRYPT_TCP_PORT}:5443/tcp"
+      - "${HOST_IP}:${DNSCRYPT_UDP_PORT}:5443/udp"
+    volumes:
+      - "${APP_PATH}/adguard-home/work:/opt/adguardhome/work"
+      - "${APP_PATH}/adguard-home/confdir:/opt/adguardhome/conf"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

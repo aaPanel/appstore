@@ -1,0 +1,65 @@
+services:
+  chatnio-mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: chatnio
+      MYSQL_USER: chatnio
+      MYSQL_PASSWORD: chatnio123456!
+      TZ: Asia/Shanghai
+    volumes:
+      - ${APP_PATH}/db:/var/lib/mysql
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+
+  chatnio-redis:
+    image: redis:latest
+    restart: always
+    volumes:
+      - ${APP_PATH}/redis:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  BT_SERVICE_NAME6:
+      image: programzmh/chatnio:${VERSION}
+      restart: always
+      ports:
+        - ${HOST_IP}:${WEB_HTTP_PORT}:8094
+      depends_on:
+        - chatnio-mysql
+        - chatnio-redis
+      links:
+        - chatnio-mysql
+        - chatnio-redis
+      ulimits:
+        nofile:
+          soft: 65535
+          hard: 65535
+      environment:
+        MYSQL_HOST: chatnio-mysql
+        MYSQL_USER: chatnio
+        MYSQL_PASSWORD: chatnio123456!
+        MYSQL_DB: chatnio
+        REDIS_HOST: chatnio-redis
+        REDIS_PORT: 6379
+        REDIS_PASSWORD: ""
+        REDIS_DB: 0
+        SERVE_STATIC: "true"
+      volumes:
+        - ${APP_PATH}/config:/config
+        - ${APP_PATH}/logs:/logs
+        - ${APP_PATH}/storage:/storage
+      labels:
+        createdBy: "bt_apps"
+      networks:
+        - baota_net
+
+networks:
+  baota_net:
+    external: true

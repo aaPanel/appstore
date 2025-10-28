@@ -1,0 +1,41 @@
+{
+    "appid": 4,
+    "appname": "mariadb",
+    "apptitle": "MariaDB",
+    "apptype": "Database",
+    "appTypeCN": "数据库",
+    "appversion": [
+        {"m_version":"11","s_version":["4.2","2.4","1.5"]},
+        {"m_version":"10","s_version":["11.8","6.18","5.25","4.34"]}
+    ],
+    "appdesc": "mariadb多版本管理，支持同时运行多个相同版本号的mariadb版本",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 4,
+    "home": "https://mariadb.org",
+    "help": "https://www.bt.cn/bbs/thread-136894-1-1.html",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"mariadb_port","name":"端口","type":"number","default":23036,"suffix":"","unit":""},
+        {"attr":"mariadb_root_password","name":"root密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"mariadb_root_password","type":"password","default":null,"desc":"数据库root密码"},
+        {"key":"mariadb_port","type":"port","default":null,"desc":"mariadb端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据库目录"}, "my.cnf": {"type": "file", "desc": "配置文件"}}
+}

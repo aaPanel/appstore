@@ -1,0 +1,32 @@
+services:
+  BT_SERVICE_NAME6:
+    image: linuxserver/qbittorrent:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK_SET=022
+      - TZ=${TIME_ZONE:-Asia/Shanghai}
+      - WEBUI_PORT=${WEB_HTTP_PORT}
+      - TORRENTING_PORT=${TORRENTING_PORT}
+    ports:
+      - ${TORRENTING_PORT}:${TORRENTING_PORT}
+      - ${TORRENTING_PORT}:${TORRENTING_PORT}/udp
+      - ${WEB_HTTP_PORT}:${WEB_HTTP_PORT}
+    volumes:
+      - ${APP_PATH}/config:/config
+      - ${APP_PATH}/data:/downloads
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

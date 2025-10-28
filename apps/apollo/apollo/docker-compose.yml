@@ -1,0 +1,48 @@
+services:
+  BT_SERVICE_NAME6:
+    image: nobodyiam/apollo-quick-start:${VERSION}
+#    container_name: apollo-quick-start
+    depends_on:
+      apollo-db:
+        condition: service_healthy
+    ports:
+      - ${HOST_IP}:${WEB_CONN_PORT}:8080
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8070
+      - ${HOST_IP}:${WEB_META_PORT}:8090
+    links:
+      - apollo-db
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+#    environment:
+#      JAVA_OPTS: '-Xms100m -Xmx1000m -Xmn100m -Xss256k -XX:MetaspaceSize=10m -XX:MaxMetaspaceSize=250m'
+#      APOLLO_CONFIG_DB_USERNAME: 'root'
+#      APOLLO_CONFIG_DB_PASSWORD: 'apollo'
+#      APOLLO_PORTAL_DB_USERNAME: 'root'
+#      APOLLO_PORTAL_DB_PASSWORD: 'apollo'
+
+  apollo-db:
+    image: mysql:8.0.25
+#    container_name: apollo-db
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+#      MYSQL_ROOT_PASSWORD: 'apollo'
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 1s
+      retries: 10
+    volumes:
+      - ${APP_PATH}/sql:/docker-entrypoint-initdb.d
+      - ${APP_PATH}/mysql:/var/lib/mysql
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+
+networks:
+  baota_net:
+    external: true

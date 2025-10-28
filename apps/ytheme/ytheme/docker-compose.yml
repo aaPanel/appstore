@@ -1,0 +1,20 @@
+services:
+  BT_SERVICE_NAME6:
+    image: umil/ytheme:${VERSION}
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT1}:3000
+      - ${HOST_IP}:${WEB_HTTP_PORT2}:8000
+    environment:
+      FRONTEND_DOMAIN: ${YTHEME_URL1}
+      VITE_API_BASE_URL: ${YTHEME_URL2}
+    volumes:
+      - ${APP_PATH}/html:/var/www/html
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

@@ -1,0 +1,39 @@
+{
+    "appid": 238,
+    "appname": "coze-studio",
+    "apptitle": "Coze-Studio",
+    "apptype": "AI",
+    "appTypeCN": "AI/大模型",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "一站式 AI Agent 开发工具。提供各类最新大模型和工具、多种开发模式和框架，从开发到部署，为你提供最便捷的 AI Agent 开发环境。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 225,
+    "home": "https://github.com/coze-dev/coze-studio",
+    "help": "https://github.com/coze-dev/coze-studio/blob/main/README.zh_CN.md",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1743057856,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"HTTP_PORT","name":"WEB端口","type":"number","default":8888,"suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"HTTP_PORT","type":"port","default":null,"desc":"WEB端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "data目录"}, "volumes": {"type": "path", "desc": "data目录"}, "nginx": {"type": "path", "desc": "nginx目录"}, "conf": {"type": "path", "desc": "conf目录"}, "atlas": {"type": "path", "desc": "atlas目录"}}
+}

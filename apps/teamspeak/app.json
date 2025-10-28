@@ -1,0 +1,51 @@
+{
+    "appid": 77,
+    "appname": "teamspeak",
+    "apptitle": "TeamSpeak",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "TeamSpeak 是一个开源的语音通信软件",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 78,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": [
+        {"appname":["mariadb"],"apptype":"Database","appTypeCN":"数据库服务","appDesc":"需要安装应用商店中的MariaDB","appversion":["11","10"]}
+    ],
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"voice_port","name":"voice端口","type":"number","default":9987,"suffix":"","unit":""},
+        {"attr":"sq_raw_port","name":"raw端口","type":"number","default":10011,"suffix":"ServerQuery端口","unit":""},
+        {"attr":"filetransfer_port","name":"Filetransfer端口","type":"number","default":30033,"suffix":"","unit":""},
+        {"attr":"mysql_database","name":"数据库名","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"mysql_user","name":"数据库用户","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"mysql_password","name":"数据库密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"voice_port","type":"port","default":null,"desc":"voice端口"},
+        {"key":"sq_raw_port","type":"port","default":null,"desc":"raw端口"},
+        {"key":"filetransfer_port","type":"port","default":null,"desc":"Filetransfer端口"},
+        {"key":"mysql_database","type":"database","default":null,"desc":"数据库名"},
+        {"key":"mysql_user","type":"username","default":null,"desc":"数据库用户"},
+        {"key":"mysql_password","type":"mysql_password","default":null,"desc":"数据库密码"},
+        {"key":"mysql_host_ip","type":"db_host","default":null,"desc":"mysql的IP/服务"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}}
+}

@@ -1,0 +1,15 @@
+services:
+  BT_SERVICE_NAME6:
+    image: gdy666/lucky:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    network_mode: host
+    restart: always
+    volumes:
+      - ${APP_PATH}/data:/goodluck
+    labels:
+      createdBy: "bt_apps"

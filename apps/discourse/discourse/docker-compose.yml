@@ -1,0 +1,61 @@
+services:
+  BT_SERVICE_NAME6:
+    image: bitnami/discourse:${VERSION}
+#    container_name: ${CONTAINER_NAME}
+    restart: always
+    networks:
+      - baota_net
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:3000
+    volumes:
+      - ${APP_PATH}/discourse:/bitnami/discourse
+    environment:
+      DISCOURSE_HOST: ${DOMAIN_HOST}
+      DISCOURSE_USERNAME: ${DISCOURSE_USERNAME}
+      DISCOURSE_PASSWORD: ${DISCOURSE_PASSWORD}
+      DISCOURSE_EMAIL: ${DISCOURSE_EMAIL}
+      DISCOURSE_DATABASE_HOST: ${DATABASE_HOST}
+      DISCOURSE_DATABASE_PORT_NUMBER: ${DISCOURSE_DATABASE_PORT_NUMBER}
+      DISCOURSE_DATABASE_NAME: ${PGSQL_DATABASE}
+      DISCOURSE_DATABASE_USER: ${PGSQL_USER}
+      DISCOURSE_DATABASE_PASSWORD: ${PGSQL_PASSWORD}
+      POSTGRESQL_CLIENT_CREATE_DATABASE_NAME: ${PGSQL_DATABASE}
+      POSTGRESQL_CLIENT_POSTGRES_USER: ${PGSQL_USER}
+      POSTGRESQL_CLIENT_POSTGRES_PASSWORD: ${PGSQL_PASSWORD}
+      POSTGRESQL_CLIENT_CREATE_DATABASE_EXTENSIONS: hstore,pg_trgm
+      DISCOURSE_REDIS_HOST: ${CACHE_DB_HOST}
+      DISCOURSE_REDIS_PASSWORD: ${REDIS_PASSWORD}
+      DISCOURSE_SMTP_HOST: test
+      DISCOURSE_SMTP_PORT_NUMBER: 0
+      DISCOURSE_SMTP_USER: test
+      DISCOURSE_SMTP_PASSWORD: test
+      DISCOURSE_SMTP_PROTOCOL:
+    labels:
+      createdBy: "bt_apps"
+
+  sidekiq:
+    image: bitnami/discourse:${VERSION}
+#    container_name: ${CONTAINER_NAME}-sidekiq
+    restart: always
+    networks:
+      - baota_net
+    depends_on:
+      - BT_SERVICE_NAME6
+    volumes:
+      - ${APP_PATH}/sidekiq:/bitnami/discourse
+    command: /opt/bitnami/scripts/discourse-sidekiq/run.sh
+    environment:
+      DISCOURSE_HOST: ${DOMAIN_HOST}
+      DISCOURSE_DATABASE_HOST: ${DATABASE_HOST}
+      DISCOURSE_DATABASE_PORT_NUMBER: ${DISCOURSE_DATABASE_PORT_NUMBER}
+      DISCOURSE_DATABASE_NAME: ${PGSQL_DATABASE}
+      DISCOURSE_DATABASE_USER: ${PGSQL_USER}
+      DISCOURSE_DATABASE_PASSWORD: ${PGSQL_PASSWORD}
+      DISCOURSE_REDIS_HOST: ${CACHE_DB_HOST}
+      DISCOURSE_REDIS_PASSWORD: ${REDIS_PASSWORD}
+    labels:
+      createdBy: "bt_apps"
+
+networks:
+  baota_net:
+    external: true

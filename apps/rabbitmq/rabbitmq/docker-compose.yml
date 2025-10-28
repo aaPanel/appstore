@@ -1,0 +1,30 @@
+services:
+  BT_SERVICE_NAME6:
+    image: rabbitmq:${VERSION}-management-alpine
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    hostname: bt-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    ports:
+      - ${HOST_IP}:${RABBITMQ_PORT}:5672
+      - ${HOST_IP}:${RABBITMQ_WEB_PORT}:15672
+    volumes:
+      - ${APP_PATH}/data:/var/lib/rabbitmq
+      - ${APP_PATH}/logs:/var/log/rabbitmq
+      - ${APP_PATH}/plugin:/plugin
+    command: sh -c "cp /plugin/rabbitmq_delayed_message_exchange-3.13.0.ez /plugins/ && cd /plugins/ && rabbitmq-plugins enable rabbitmq_delayed_message_exchange && rabbitmq-server"
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

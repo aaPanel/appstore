@@ -1,0 +1,48 @@
+{
+    "appid": 56,
+    "appname": "nocodb",
+    "apptitle": "NocoDB",
+    "apptype": "Database",
+    "appTypeCN": "数据库",
+    "appversion": [
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"0","s_version":["252.0"]}
+    ],
+    "appdesc": "NocoDB 是一个开源的低代码开发平台",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 57,
+    "home": "https://www.nocodb.com/",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": [
+        {"appname":["mysql","mariadb","postgresql"],"apptype":"Database","appTypeCN":"数据库服务","appDesc":"需安装Docker应用的MySQL/MariaDB/PostgreSQL数据库服务","appversion":["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"]}
+    ],
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":8080,"suffix":"","unit":""},
+        {"attr":"db_name","name":"数据库名","type":"text","default":"nocodb","suffix":"输入需要创建的数据库名","unit":""},
+        {"attr":"db_username","name":"数据库用户","type":"text","default":"nocodb","suffix":"输入数据库用户名","unit":""},
+        {"attr":"db_password","name":"数据库密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"db_name","type":"text","default":"","desc":"数据库名"},
+        {"key":"db_username","type":"text","default":"","desc":"数据库用户"},
+        {"key":"db_password","type":"password","default":"","desc":"数据库密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}}
+}

@@ -1,0 +1,22 @@
+services:
+
+  BT_SERVICE_NAME6:
+    image: anqicms/anqicms:${VERSION}
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8001
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_HOST: ${MYSQL_HOST_IP}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PORT: ${MYSQL_PORT}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
+      
+      

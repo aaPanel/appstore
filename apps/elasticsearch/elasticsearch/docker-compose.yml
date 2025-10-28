@@ -1,0 +1,35 @@
+services:
+  BT_SERVICE_NAME6:
+    image: elasticsearch:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    ports:
+      - ${HOST_IP}:${ES_PORT}:9200
+    volumes:
+      - ${APP_PATH}/data:/usr/share/elasticsearch/data
+      - ${APP_PATH}/backup:/usr/share/elasticsearch/backup
+      - ${APP_PATH}/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    environment:
+      - discovery.type=single-node
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - xpack.security.enabled=${ELASTIC_SECURITY}
+      - ${ES_JAVA_OPTS}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

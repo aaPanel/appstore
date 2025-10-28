@@ -1,0 +1,23 @@
+services:
+  BT_SERVICE_NAME6:
+    command:
+      - --stdio
+      - ${COMMAND}
+      - --port
+      - ${HTTP_PORT}
+      - --ssePath
+      - ${SERVER_PATH}
+      - --messagePath
+      - /messages
+    image: supercorp/supergateway:latest
+    ports:
+      - ${HOST_IP}:${HTTP_PORT}:${HTTP_PORT}
+    restart: unless-stopped
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

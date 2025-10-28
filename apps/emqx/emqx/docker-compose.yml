@@ -1,0 +1,29 @@
+services:
+  BT_SERVICE_NAME6:
+    image: emqx/emqx:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    user: '0'
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:18083
+      - ${HOST_IP}:${MQTT_PORT}:1883
+      - ${HOST_IP}:${MQTT_SSL_PORT}:8883
+      - ${HOST_IP}:${WS_PORT}:8083
+      - ${HOST_IP}:${WSS_PORT}:8084
+    volumes:
+      - ${APP_PATH}/data:/opt/emqx/data
+      - ${APP_PATH}/logs:/opt/emqx/log
+    labels:
+      createdBy: "bt_apps"
+    command: ${COMMAND}
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

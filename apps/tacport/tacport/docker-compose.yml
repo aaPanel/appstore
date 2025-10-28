@@ -1,0 +1,58 @@
+services:
+  BT_SERVICE_NAME6:
+    image: tp4a/tacport:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT1}:52100
+      - ${HOST_IP}:${WEB_HTTP_PORT2}:52101
+    links:
+      - db-service
+      - redis-service
+    environment:
+      - TP_ALLOW_INIT=yes
+      - TP_NODE_ID=1
+      - TP_NODE_ADDR=${HOST_IP}
+      - TP_DB_ADDR=db-service:3306
+      - TP_DB_USER=tacport
+      - TP_DB_NAME=tacport
+      - TP_DB_PASS=Pa5sword!
+      - TP_SECRET_KEY=${TP_SECRET_KEY}
+      - TP_REDIS_ADDR=redis-service:6379
+      - TP_NODE_SERVICE=api,ssh
+      - TP_API_MAPPING_PORT=${WEB_HTTP_PORT1}
+      - TP_SSH_MAPPING_PORT=${WEB_HTTP_PORT2}
+    volumes:
+      - ${APP_PATH}/nfs-data/tacport-data:/opt/tacport/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+  db-service:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: Pa5sword!
+      MYSQL_DATABASE: tacport
+      MYSQL_USER: tacport
+      MYSQL_PASSWORD: Pa5sword!
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+
+  redis-service:
+    image: redis:latest
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+networks:
+  baota_net:
+    external: true

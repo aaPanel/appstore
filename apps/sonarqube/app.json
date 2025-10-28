@@ -1,0 +1,44 @@
+{
+    "appid": 109,
+    "appname": "sonarqube",
+    "apptitle": "SonarQube",
+    "apptype": "DevOps",
+    "appTypeCN": "DevOps",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "SonarQube 是一个开源的代码质量管理平台",
+    "appstatus": 0,
+    "icon": "",
+    "sort": 110,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": [
+        {"appname":["postgresql"],"apptype":"Database","appTypeCN":"数据库服务","appDesc":"需要安装应用商店中的PostgreSQL","appversion":["16","15","14","13","12"]}
+    ],
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":9000,"suffix":"","unit":""},
+        {"attr":"pgsql_database","name":"数据库名","type":"text","default":"sonarqube_db","suffix":"","unit":""},
+        {"attr":"pgsql_user","name":"数据库用户","type":"text","default":"sonarqube","suffix":"","unit":""},
+        {"attr":"pgsql_password","name":"数据库密码","type":"password","default":"","suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"pgsql_database","type":"database","default":"","desc":"数据库名"},
+        {"key":"pgsql_user","type":"username","default":"","desc":"数据库用户"},
+        {"key":"pgsql_password","type":"pgsql_password","default":"","desc":"数据库密码"},
+        {"key":"database_host","type":"db_host","default":null,"desc":"PostgreSQL的IP/服务"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}, "extensions": {"type": "path", "desc": "插件目录"}, "logs": {"type": "path", "desc": "日志目录"}}
+}

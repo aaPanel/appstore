@@ -1,0 +1,59 @@
+{
+  "name": "tailchat-design",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Tailchat frontend UI library",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "pnpm storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msgbyte/tailchat.git"
+  },
+  "keywords": [
+    "design",
+    "tailchat"
+  ],
+  "author": "moonrailgun <moonrailgun@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msgbyte/tailchat/issues"
+  },
+  "homepage": "https://github.com/msgbyte/tailchat#readme",
+  "dependencies": {
+    "@iconify/react": "^3.2.1",
+    "@remirror/pm": "^2.0.0",
+    "@remirror/react": "^2.0.9",
+    "ahooks": "^3.7.4",
+    "antd": "^4.24.13",
+    "clsx": "^1.1.1",
+    "lodash": "^4.17.21",
+    "react-fastify-form": "1.0.13",
+    "remirror": "^2.0.9",
+    "str2int": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/react": "^6.4.22",
+    "@storybook/testing-library": "^0.0.11",
+    "@types/lodash": "^4.14.170",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.6",
+    "babel-loader": "^8.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "^4.5.2",
+    "webpack": "^5.72.0"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

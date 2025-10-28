@@ -1,0 +1,11 @@
+moonrailgun:
+  name: moonrailgun
+  title: Founder of Tailchat
+  url: https://github.com/moonrailgun
+  image_url: https://avatars.githubusercontent.com/u/6964737?v=4
+  email: moonrailgun@gmail.com
+
+reacher:
+  name: Reacher
+  title: Tailchat Normal User
+  image_url: /img/avatar/reacher.png

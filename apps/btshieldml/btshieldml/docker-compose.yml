@@ -1,0 +1,15 @@
+services:
+  BT_SERVICE_NAME6:
+    image: btpanel/btshieldml:latest
+    ports:
+      - "${HOST_IP}:${HTTP_PORT}:6528"
+    restart: unless-stopped
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+    volumes:
+      - ${APP_PATH}/webshellJson.json:/data/webshellJson.json
+networks:
+  baota_net:
+    external: true

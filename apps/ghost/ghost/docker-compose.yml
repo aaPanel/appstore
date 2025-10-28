@@ -1,0 +1,28 @@
+services:
+  BT_SERVICE_NAME6:
+    image: ghost:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:2368
+    environment:
+      database__client: mysql
+      database__connection__host: ${MYSQL_HOST_IP}
+      database__connection__user: ${MYSQL_USER}
+      database__connection__password: ${MYSQL_PASSWORD}
+      database__connection__database: ${MYSQL_DATABASE}
+    volumes:
+      - ${APP_PATH}/data:/var/lib/ghost/content
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

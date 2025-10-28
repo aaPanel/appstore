@@ -1,0 +1,89 @@
+services:
+  BT_SERVICE_NAME6:
+    image: registry.cn-shanghai.aliyuncs.com/zimablue/sparkai-free:${VERSION}
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+
+      # mysql
+      DB_HOST: mysql-sparkai
+      DB_PORT: 3306
+      DB_DATABASE: sparkai
+      DB_USER: root
+      DB_PASS: sparkai
+
+      # Redis
+      REDIS_HOST: redis-sparkai
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: sparkai
+      REDIS_DB: 0
+
+      #  mailer 邮件服务
+      MAILER_HOST: ${MAILER_HOST}
+      MAILER_PORT: ${MAILER_PORT}
+      MAILER_USER: ${MAILER_USER}
+      MAILER_PASS: ${MAILER_PASS}
+      MAILER_FROM: ${MAILER_FROM}
+
+      # jwt token
+      JWT_SECRET: ${JWT_SECRET}
+      # jwt token 过期时间
+      JWT_EXPIRESIN: 7d
+      # 自定义端口
+      PORT: 9520
+
+      # https://api.weixin.qq.com/cgi-bin/token  微信api地址 如果需要替换 填写在此处 对比前面地址修改
+      WX_API_BASE: ${WX_API}
+      # https://open.weixin.qq.com/connect/oauth2/authorize 微信 OPENbase地址 如需替换 参考前方
+      WX_OPEN_API_BASE: ${WX_OPEN_API}
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:9520
+    volumes:
+      - ${APP_PATH}/files:/src/public/files
+      - ${APP_PATH}/core:/src/public/core
+    depends_on:
+      - mysql-sparkai
+      - redis-sparkai
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  mysql-sparkai:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: sparkai
+      MYSQL_ROOT_PASSWORD: sparkai
+      TZ: Asia/Shanghai
+    volumes:
+      - "/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro"
+      - ${APP_PATH}/mysql/data:/var/lib/mysql
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --sql-mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  redis-sparkai:
+    image: redis:7.0.11
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - "/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro"
+      - ${APP_PATH}/redis/data:/data
+    command: redis-server --requirepass "sparkai" --appendonly yes --protected-mode no --bind 0.0.0.0
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
+      
+

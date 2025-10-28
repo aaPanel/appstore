@@ -1,0 +1,17 @@
+{
+  "name": "@plugins/com.msgbyte.bbcode",
+  "main": "src/index.tsx",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@bbob/parser": "^2.7.0",
+    "highlight.js": "^11.5.1",
+    "react-highlight": "^0.14.0",
+    "url-regex": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react-highlight": "^0.12.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

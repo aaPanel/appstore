@@ -1,0 +1,64 @@
+.tailchat-markdown {
+  * {
+    user-select: text;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    word-break: break-all;
+    margin: 20px 0;
+    line-height: 1.2;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  code {
+    @apply px-2 py-1 bg-black bg-opacity-20 rounded;
+  }
+
+  p {
+    @apply my-2;
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+
+  ul,
+  ol {
+    list-style: initial;
+    padding-left: 2em;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  blockquote {
+    @apply px-2 text-gray-500 border-l-4 border-gray-500;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+
+    tr {
+      @apply border-t border-gray-200 bg-transparent;
+
+      &:nth-child(2n) {
+        @apply bg-gray-50 bg-opacity-10;
+      }
+
+      th, td {
+        @apply border border-gray-200 py-1 px-3;
+      }
+    }
+
+  }
+}

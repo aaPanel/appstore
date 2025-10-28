@@ -1,0 +1,40 @@
+{
+    "appid": 116,
+    "appname": "openvpn",
+    "apptitle": "OpenVPN",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "OpenVPN 是一个开源的VPN软件",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 117,
+    "home": "",
+    "help": "https://www.bt.cn/bbs/thread-139512-1-1.html",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"openvpn_udp_port","name":"VPN端口","type":"number","default":1194,"suffix":"","unit":""},
+        {"attr":"ovpn_server_url","name":"绑定的地址","type":"text","default":"","suffix":"可填写域名或IP，例如：vpn.example.com","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"openvpn_udp_port","type":"port","default":null,"desc":"VPN端口"},
+        {"key":"ovpn_server_url","type":"string","default":null,"desc":"绑定的地址"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"openvpn": {"type": "path", "desc": "OpenVPN数据目录"}}
+}

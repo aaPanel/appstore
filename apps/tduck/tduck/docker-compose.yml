@@ -1,0 +1,51 @@
+services:
+  mysql:
+    image: mysql:8.0.36
+    #    container_name: tduck-mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=tduck@mysql
+      - MYSQL_DATABASE=tduck
+      - MYSQL_ROOT_HOST=%
+      - TZ=Asia/Shanghai
+    volumes:
+      - ${APP_PATH}/mysql:/var/lib/mysql
+      - ${APP_PATH}/init-db:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=caching_sha2_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  BT_SERVICE_NAME6:
+    image: tduckcloud/tduck-platform:${VERSION}
+    #    container_name: tduck-platform
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8999
+    volumes:
+      - ${APP_PATH}/upload:/application/BOOT-INF/lib/upload
+    environment:
+      - "JAVA_OPTS=-Duser.language=zh -XX:+UseG1GC"
+      - "TZ=Asia/Shanghai"
+      - "spring.datasource.url=jdbc:mysql://mysql:3306/tduck?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&tinyInt1isBit=false&allowPublicKeyRetrieval=true"
+      - "spring.datasource.username=root"
+      - "spring.datasource.password=tduck@mysql"
+    links:
+      - mysql:mysql
+    depends_on:
+      mysql:
+        condition: service_healthy
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

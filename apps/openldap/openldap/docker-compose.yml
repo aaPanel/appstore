@@ -1,0 +1,26 @@
+services:
+  BT_SERVICE_NAME6:
+    image: bitnami/openldap:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${SERVICE_PORT}:1389
+    environment:
+      LDAP_ROOT: ${LDAP_ROOT}
+      LDAP_ADMIN_USERNAME: ${USERNAME}
+      LDAP_ADMIN_PASSWORD: ${PASSWORD}
+    volumes:
+      - ${APP_PATH}/data:/bitnami/openldap
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

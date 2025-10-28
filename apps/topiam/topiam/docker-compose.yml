@@ -1,0 +1,127 @@
+services:
+  volumes-permissions:
+    image: registry.cn-hangzhou.aliyuncs.com/topiam/os-shell:12
+    container_name: "init"
+    user: "0:0"
+    volumes:
+      - "${APP_PATH}/redis/data:/redis/data"
+      - "${APP_PATH}/mysql/data:/mysql/data"
+      - "${APP_PATH}/topiam/logs:/opt/topiam/logs"
+      - "${APP_PATH}/topiam/conf:/opt/topiam/conf"
+    entrypoint: [ "sh", "-c", "chown -R 1001:1001 /redis/data /mysql/data /opt/topiam/conf /opt/topiam/logs && chmod -R 750 /redis/data /mysql/data /opt/topiam/conf /opt/topiam/logs && tail -f /dev/null  " ]
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+  #redis
+  redis:
+    image: registry.cn-hangzhou.aliyuncs.com/topiam/redis:7.4
+    container_name: "topiam-redis-server"
+    deploy:
+      resources:
+        limits:
+          #限制内存使用量
+          memory: 1024M
+        reservations:
+          # 预留的内存使用量
+          memory: 256M
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+      - REDIS_IO_THREADS_DO_READS=yes
+    volumes:
+      - ${APP_PATH}/redis/data:/bitnami/redis/data
+    depends_on:
+      - volumes-permissions
+    restart: "unless-stopped"
+    logging:
+      driver: "json-file"
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "$REDIS_PASSWORD", "ping"]
+      interval: 15s
+      timeout: 5s
+      retries: 60
+      start_period: 15s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  #mysql
+  mysql:
+    image: registry.cn-hangzhou.aliyuncs.com/topiam/mysql:8.2
+    container_name: "topiam-mysql-server"
+    deploy:
+      resources:
+        limits:
+          #限制内存使用量
+          memory: 1536MB
+        reservations:
+          # 预留的内存使用量
+          memory: 256M
+    volumes:
+      - ${APP_PATH}/mysql/data:/bitnami/mysql/data
+    depends_on:
+      - volumes-permissions
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_CHARACTER_SET=utf8mb4
+      - MYSQL_USER=topiam
+      - MYSQL_PASSWORD=${MYSQL_TOPIAM_PASSWORD}
+      - MYSQL_DATABASE=topiam
+      - MYSQL_AUTHENTICATION_PLUGIN=caching_sha2_password
+    restart: "unless-stopped"
+    logging:
+      driver: "json-file"
+    healthcheck:
+      test: [ 'CMD', '/opt/bitnami/scripts/mysql/healthcheck.sh' ]
+      interval: 15s
+      timeout: 5s
+      retries: 60
+      start_period: 15s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  #管理端
+  BT_SERVICE_NAME6:
+    image: registry.cn-hangzhou.aliyuncs.com/topiam/topiam-ce:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: "unless-stopped"
+    environment:
+      - spring.datasource.url=jdbc:mysql://topiam-mysql-server:3306/topiam?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+      - spring.datasource.username=topiam
+      - spring.datasource.password=${MYSQL_TOPIAM_PASSWORD}
+      - spring.data.redis.host=topiam-redis-server
+      - spring.data.redis.port=6379
+      - spring.data.redis.password=${REDIS_PASSWORD}
+    volumes:
+      - ${APP_PATH}/topiam/conf:/opt/topiam/conf
+      - ${APP_PATH}/topiam/logs:/opt/topiam/logs
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    logging:
+      driver: "json-file"
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:1898
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:1898/actuator/health || exit 1" ]
+      interval: 20s
+      timeout: 10s
+      retries: 60
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

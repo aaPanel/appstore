@@ -1,0 +1,26 @@
+services:
+  BT_SERVICE_NAME6:
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    image: allinssl/allinssl:latest
+    ports:
+      - ${HOST_IP}:${HTTP_PORT}:8888
+    volumes:
+      - ${APP_PATH}/data:/www/allinssl/data
+      - ${APP_PATH}/logs:/www/allinssl/logs
+    environment:
+      - ALLINSSL_USER=${ALLINSSL_USER}
+      - ALLINSSL_PWD=${ALLINSSL_PWD}
+      - ALLINSSL_URL=${ALLINSSL_URL}
+    restart: unless-stopped
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

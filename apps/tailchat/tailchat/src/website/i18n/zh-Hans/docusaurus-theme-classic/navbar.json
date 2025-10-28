@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Tailchat",
+    "description": "The title in the navbar"
+  },
+  "item.label.Docs": {
+    "message": "文档",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Blog": {
+    "message": "博客",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.Downloads": {
+    "message": "下载",
+    "description": "Navbar item with label Downloads"
+  },
+  "logo.alt": {
+    "message": "Tailchat Logo",
+    "description": "The alt text of navbar logo"
+  }
+}

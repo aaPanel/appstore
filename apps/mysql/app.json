@@ -1,0 +1,42 @@
+{
+    "appid": 1,
+    "appname": "mysql",
+    "apptitle": "MySQL",
+    "apptype": "Database",
+    "appTypeCN": "数据库",
+    "appversion": [
+        {"m_version":"9","s_version":["0.1","0.0"]},
+        {"m_version":"8","s_version":["4.4","4.3","4.2","4.1","4.0","3.0","2.0","1.0","0.39","0.38","0.36","0.35","0.25","0.24","0.0"]},
+        {"m_version":"5","s_version":["7.44","7.43","6.51","5.62"]}
+    ],
+    "appdesc": "MySQL是一种关系数据库管理系统，安装后可在宝塔面板的数据库模块中管理",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 2,
+    "home": "https://www.mysql.com/",
+    "help": "https://www.bt.cn/bbs/thread-136894-1-1.html",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"mysql_port","name":"端口","type":"number","default":13306,"suffix":"","unit":""},
+        {"attr":"mysql_root_password","name":"root密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"mysql_root_password","type":"password","default":null,"desc":"数据库root密码"},
+        {"key":"mysql_port","type":"port","default":null,"desc":"mysql端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"log": {"type": "path", "desc": "日志目录"}, "data": {"type": "path", "desc": "数据库目录"}, "my.cnf": {"type": "file", "desc": "配置文件"}}
+}

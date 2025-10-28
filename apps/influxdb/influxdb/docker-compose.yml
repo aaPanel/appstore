@@ -1,0 +1,29 @@
+services:
+  BT_SERVICE_NAME6:
+    image: influxdb:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${SERVICE_PORT}:8086
+    volumes:
+      - ${APP_PATH}/data:/var/lib/influxdb2
+      - ${APP_PATH}/config:/etc/influxdb2
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=${USERNAME}
+      - DOCKER_INFLUXDB_INIT_PASSWORD=${PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${INIT_ORG}
+      - DOCKER_INFLUXDB_INIT_BUCKET=${INIT_BUCKET}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

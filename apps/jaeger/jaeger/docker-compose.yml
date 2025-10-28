@@ -1,0 +1,17 @@
+services:
+  jaeger:
+    image: jaegertracing/jaeger:${VERSION}
+    ports:
+      - "${HOST_IP}:${WEB_HTTP_PORT}:16686"
+      - "${GRPC_PORT}:4317"
+      - "${HOST_IP}:${HTTP_PORT}:4318"
+    environment:
+      - LOG_LEVEL=debug
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

@@ -1,0 +1,19 @@
+services:
+  BT_SERVICE_NAME6:
+    image: antonyleons/ward:${VERSION}
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:4000
+    environment:
+        - WARD_PORT=4000
+        - WARD_THEME=dark
+        - WARD_NAME=leons-server
+    privileged: true
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

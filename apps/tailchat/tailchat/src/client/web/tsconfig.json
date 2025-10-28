@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@test/*": ["./test/*"],
+      "@assets/*": ["./assets/*"],
+      "tailchat-design": ["../packages/design/components"]
+    },
+    "typeRoots": ["./node_modules/@types", "./types"]
+  },
+  "exclude": ["e2e", "plugins", "tailchat.d.ts"]
+}

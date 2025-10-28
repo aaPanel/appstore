@@ -1,0 +1,23 @@
+services:
+  BT_SERVICE_NAME6:
+    image: linuxserver/wireshark:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    cap_add:
+      - NET_ADMIN
+    security_opt:
+      - seccomp:unconfined 
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ${APP_PATH}/data:/config
+    network_mode: host
+    restart: always
+    labels:
+      createdBy: "bt_apps"

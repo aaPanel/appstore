@@ -1,0 +1,44 @@
+{
+    "appid": 7,
+    "appname": "rabbitmq",
+    "apptitle": "rabbitmq",
+    "apptype": "Middleware",
+    "appTypeCN": "中间件",
+    "appversion": [
+        {"m_version":"3","s_version":["13.6","12.14"]}
+    ],
+    "appdesc": "一款开源消息代理软件，它实现了高级消息队列协议(AMQP)",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 7,
+    "home": "https://www.rabbitmq.com/",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"rabbitmq_port","name":"服务端口","type":"number","default":5672,"suffix":"","unit":""},
+        {"attr":"rabbitmq_web_port","name":"web管理端口","type":"number","default":15670,"suffix":"","unit":""},
+        {"attr":"rabbitmq_user","name":"用户","type":"text","default":"rabbitmq","suffix":"","unit":""},
+        {"attr":"rabbitmq_password","name":"密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"rabbitmq_port","type":"port","default":null,"desc":"rabbitmq端口"},
+        {"key":"rabbitmq_web_port","type":"port","default":null,"desc":"rabbitmq web端口"},
+        {"key":"rabbitmq_user","type":"username","default":null,"desc":"rabbitmq的默认用户名"},
+        {"key":"rabbitmq_password","type":"password","default":null,"desc":"rabbitmq的默认密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}, "logs": {"type": "path", "desc": "数据目录"}, "plugin": {"type": "path", "desc": "插件目录"}}
+}

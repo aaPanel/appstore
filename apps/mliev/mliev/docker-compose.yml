@@ -1,0 +1,40 @@
+services:
+  dwz-server:
+    image: docker.cnb.cool/mliev/open/dwz-server:latest
+    restart: always
+    ports:
+      - "8080"  # 仅暴露给容器网络
+    environment:
+      - TZ=Asia/Shanghai
+      - GIN_MODE=release
+    volumes:
+      - ${APP_PATH}/data/config/:/app/config/
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  dwz-admin-webui:
+    image: docker.cnb.cool/mliev/open/dwz-admin-webui:latest
+    restart: always
+    ports:
+      - ${HOST_IP}:${HTTP_PORT}:80
+    environment:
+      - TZ=Asia/Shanghai
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:80/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    depends_on:
+      dwz-server:
+        condition: service_healthy
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

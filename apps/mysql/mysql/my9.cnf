@@ -1,0 +1,17 @@
+[mysqld]
+skip-name-resolve
+datadir=/var/lib/mysql
+socket=/tmp/mysql.sock
+secure-file-priv=/var/lib/mysql-files
+user=mysql
+slow_query_log=1
+slow-query-log-file=/var/lib/mysql/mysql-slow.log
+log_bin_trust_function_creators=1
+lower_case_table_names=1
+group_concat_max_len=1024000
+pid-file=/var/run/mysqld/mysqld.pid
+
+[client]
+socket=/tmp/mysql.sock
+
+!includedir /etc/mysql/conf.d/

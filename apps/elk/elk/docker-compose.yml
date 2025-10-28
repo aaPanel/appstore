@@ -1,0 +1,118 @@
+services:
+  setup:
+    profiles:
+      - setup
+    build:
+      context: setup/
+      args:
+        ELASTIC_VERSION: ${ELASTIC_VERSION}
+    init: true
+    volumes:
+      - ./setup/entrypoint.sh:/entrypoint.sh:ro,Z
+      - ./setup/lib.sh:/lib.sh:ro,Z
+      - ./setup/roles:/roles:ro,Z
+    environment:
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-}
+      LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
+      KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
+      METRICBEAT_INTERNAL_PASSWORD: ${METRICBEAT_INTERNAL_PASSWORD:-}
+      FILEBEAT_INTERNAL_PASSWORD: ${FILEBEAT_INTERNAL_PASSWORD:-}
+      HEARTBEAT_INTERNAL_PASSWORD: ${HEARTBEAT_INTERNAL_PASSWORD:-}
+      MONITORING_INTERNAL_PASSWORD: ${MONITORING_INTERNAL_PASSWORD:-}
+      BEATS_SYSTEM_PASSWORD: ${BEATS_SYSTEM_PASSWORD:-}
+      ELASTICSEARCH_DATA: ${APP_PATH}/elasticsearch/data
+      LOGSTASH_DATA: ${APP_PATH}/logstash
+    #   ES_XMS: ${ES_XMS:-}
+    #   LOG_XMS: ${LOG_XMS:-}
+      ELASTICSEARCH_PORT1: ${ELASTICSEARCH_PORT1:-}
+      ELASTICSEARCH_PORT2: ${ELASTICSEARCH_PORT2:-}
+      LOGSTASH_PORT1: ${LOGSTASH_PORT1:-}
+      LOGSTASH_PORT2: ${LOGSTASH_PORT2:-}
+      LOGSTASH_PORT3: ${LOGSTASH_PORT3:-}
+      KIBANA_PORT1: ${KIBANA_PORT1:-}
+    depends_on:
+      - elasticsearch
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  elasticsearch:
+    build:
+      context: elasticsearch/
+      args:
+        ELASTIC_VERSION: ${ELASTIC_VERSION}
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,Z
+      - ${APP_PATH}/elasticsearch/data:/usr/share/elasticsearch/data:Z
+    ports:
+      - ${ELASTICSEARCH_PORT1:-}:9200
+      - ${ELASTICSEARCH_PORT2:-}:9300
+    environment:
+      node.name: elasticsearch
+    #   ES_JAVA_OPTS: -Xms${ES_XMS:-} -Xmx${ES_XMS:-}
+      # Bootstrap password.
+      # Used to initialize the keystore during the initial startup of
+      # Elasticsearch. Ignored on subsequent runs.
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-}
+      # Use single node discovery in order to disable production mode and avoid bootstrap checks.
+      # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      discovery.type: single-node
+    restart: unless-stopped
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  logstash:
+    build:
+      context: logstash/
+      args:
+        ELASTIC_VERSION: ${ELASTIC_VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    volumes:
+      - ${APP_PATH}/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
+      - ${APP_PATH}/logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
+    ports:
+      - ${LOGSTASH_PORT1:-}:5044
+      - ${LOGSTASH_PORT2:-}:50000/tcp
+      - ${LOGSTASH_PORT2:-}:50000/udp
+      - ${LOGSTASH_PORT3:-}:9600
+    environment:
+    #   LS_JAVA_OPTS: -Xms${LOG_XMS:-} -Xmx${LOG_XMS:-}
+      LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  kibana:
+    build:
+      context: kibana/
+      args:
+        ELASTIC_VERSION: ${ELASTIC_VERSION}
+    volumes:
+      - ${APP_PATH}/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,Z
+    ports:
+      - ${KIBANA_PORT1:-}:5601
+    environment:
+      KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
+

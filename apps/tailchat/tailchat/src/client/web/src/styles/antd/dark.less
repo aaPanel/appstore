@@ -1,0 +1,500 @@
+.dark {
+  --antd-primary-border: #165996;
+  --antd-primary-color: #177ddc;
+  --antd-primary-color-hover: #095cb5;
+  --antd-primary-dangerous-color: #a61d24;
+  --antd-primary-dangerous-color-hover: #800f19;
+
+  // 按钮
+  .ant-btn {
+    color: rgba(255, 255, 255, 0.65);
+    border-color: #434343;
+    background: transparent;
+
+    &:hover,
+    &:focus {
+      color: var(--antd-primary-border);
+      border-color: var(--antd-primary-border);
+    }
+
+    &.ant-btn-primary {
+      color: #fff;
+      border-color: var(--antd-primary-color);
+      background: var(--antd-primary-color);
+
+      &:hover {
+        border-color: var(--antd-primary-color-hover);
+        background: var(--antd-primary-color-hover);
+      }
+
+      &.ant-btn-dangerous {
+        border-color: var(--antd-primary-dangerous-color);
+        background: var(--antd-primary-dangerous-color);
+
+        &:hover {
+          border-color: var(--antd-primary-dangerous-color-hover);
+          background: var(--antd-primary-dangerous-color-hover);
+        }
+      }
+
+      &[disabled],
+      &[disabled]:hover,
+      &[disabled]:focus,
+      &[disabled]:active {
+        color: rgba(255, 255, 255, 0.3);
+        border-color: #434343;
+        background: #555;
+      }
+    }
+
+    &.ant-btn-link {
+      border-color: transparent;
+
+      &[disabled] {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          color: rgba(255, 255, 255, 0.25);
+          border-color: transparent;
+          background-color: transparent;
+        }
+      }
+    }
+
+    &.ant-btn-text {
+      border-color: transparent;
+    }
+  }
+
+  .ant-switch {
+    &:focus {
+      box-shadow: none;
+    }
+
+    &.ant-switch-checked:focus {
+      box-shadow: none;
+    }
+  }
+
+  // 表单
+  .ant-form {
+    // 表单
+    .ant-form-item-label > label {
+      color: white;
+    }
+
+    // 表单错误
+    .ant-form-item-has-error {
+      .ant-input:not(.ant-input-disabled) {
+        background-color: transparent;
+        border-color: var(--antd-primary-dangerous-color);
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .ant-input-affix-wrapper-status-error:not(
+        .ant-input-affix-wrapper-disabled
+      ):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
+    .ant-input-affix-wrapper-status-error:not(
+        .ant-input-affix-wrapper-disabled
+      ):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover {
+      background: transparent;
+      border-color: var(--antd-primary-dangerous-color);
+    }
+  }
+
+  // 图标
+  .anticon {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  // 分割线
+  .ant-divider {
+    border-top-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .ant-dropdown-menu-item-divider,
+  .ant-dropdown-menu-submenu-title-divider {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
+  // 排版
+  .ant-typography {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  // 输入框
+  .ant-input {
+    color: rgba(255, 255, 255, 0.85);
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.12);
+
+    &:hover {
+      border-color: #165996;
+      border-right-width: 1px !important;
+    }
+
+    &:focus,
+    &.ant-input-focused {
+      border-color: #177ddc;
+      border-right-width: 1px !important;
+      box-shadow: 0 0 0 2px rgb(23 125 220 / 20%);
+    }
+
+    &.border-0 {
+      border-width: 0 !important;
+    }
+  }
+  // 输入框(带前后缀)
+  .ant-input-affix-wrapper {
+    color: rgba(255, 255, 255, 0.65);
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  // input group
+  .ant-input-group-addon {
+    background-color: transparent;
+
+    > .ant-btn {
+      border-color: rgba(255, 255, 255, 0.12);
+
+      &:hover,
+      &:focus {
+        color: var(--antd-primary-border);
+        border-color: var(--antd-primary-border);
+      }
+    }
+  }
+
+  // 文本框
+  .ant-input-textarea {
+    &.ant-input-textarea-show-count:after {
+      color: rgba(255, 255, 255, 0.45);
+    }
+  }
+
+  // 复选框
+  .ant-checkbox-wrapper {
+    color: white;
+  }
+
+  // 走马灯
+  .ant-carousel {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  // 下拉菜单
+  .ant-dropdown,
+  .ant-dropdown-menu-submenu {
+    color: rgba(255, 255, 255, 0.65);
+
+    .ant-dropdown-menu {
+      background-color: #1f1f1f;
+
+      .ant-dropdown-menu-item,
+      .ant-dropdown-menu-submenu-title {
+        color: rgba(255, 255, 255, 0.65);
+        background-color: transparent;
+
+        &:hover {
+          color: rgba(255, 255, 255, 0.85);
+          background-color: rgba(255, 255, 255, 0.08);
+
+          .ant-dropdown-menu-submenu-arrow-icon {
+            color: rgba(255, 255, 255, 0.85);
+          }
+        }
+
+        &.ant-dropdown-menu-item-danger {
+          color: #a61d24;
+
+          &:hover {
+            color: white;
+            background-color: #a61d24;
+          }
+        }
+
+        .ant-dropdown-menu-submenu-arrow-icon {
+          color: rgba(255, 255, 255, 0.65);
+        }
+      }
+
+      .ant-dropdown-menu-item-disabled,
+      .ant-dropdown-menu-submenu-title-disabled {
+        color: rgba(255, 255, 255, 0.25);
+
+        &:hover {
+          color: rgba(255, 255, 255, 0.25);
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  // 菜单
+  .ant-menu {
+    background-color: #222222;
+    color: rgba(255, 255, 255, 0.85);
+    border-right: 1px solid #333333;
+  }
+
+  // 树
+  .ant-tree {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.85);
+
+    .ant-tree-node-content-wrapper {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+    }
+  }
+
+  // badge
+  .ant-badge {
+    color: rgba(255, 255, 255, 0.65);
+
+    .ant-badge-count {
+      color: #fff;
+      background: var(--antd-primary-dangerous-color);
+      box-shadow: 0 0 0 1px #141414;
+    }
+  }
+
+  // 空状态
+  .ant-empty {
+    &.ant-empty-normal {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .ant-empty-img-default-ellipse {
+      fill: #fff;
+      fill-opacity: 0.08;
+    }
+
+    .ant-empty-img-default-path-1 {
+      fill: #262626;
+    }
+
+    .ant-empty-img-default-path-2 {
+      fill: url(#linearGradient-1);
+    }
+
+    .ant-empty-img-default-path-3 {
+      fill: #595959;
+    }
+
+    .ant-empty-img-default-path-4 {
+      fill: #434343;
+    }
+
+    .ant-empty-img-default-path-5 {
+      fill: #595959;
+    }
+
+    .ant-empty-img-default-g {
+      fill: #434343;
+    }
+
+    .ant-empty-img-simple-ellipse {
+      fill: #fff;
+      fill-opacity: 0.08;
+    }
+
+    .ant-empty-img-simple-g {
+      stroke: #434343;
+    }
+
+    .ant-empty-img-simple-path {
+      fill: #262626;
+      stroke: #434343;
+    }
+  }
+
+  // Modal
+  .ant-modal {
+    .ant-modal-content {
+      background-color: #222222;
+
+      .ant-modal-confirm-content {
+        @apply text-typography-dark;
+      }
+    }
+  }
+
+  // Result
+  .ant-result {
+    .ant-result-title {
+      color: #fff;
+    }
+  }
+
+  // Table
+  .ant-table {
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.2);
+
+    .ant-table-thead > tr > th {
+      background: rgba(0, 0, 0, 0.2);
+      color: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid #303030;
+    }
+
+    .ant-table-tbody {
+      & > tr > td {
+        border-bottom: 1px solid #303030;
+      }
+
+      & > tr.ant-table-placeholder:hover > td {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      tr.ant-table-row:hover > td,
+      tr > td.ant-table-cell-row-hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .ant-select {
+    .ant-select-selector {
+      background-color: transparent;
+      color: rgba(255, 255, 255, 0.85);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .ant-select-arrow {
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .ant-select-dropdown {
+    background-color: #1f1f1f;
+
+    .ant-select-item {
+      color: rgba(255, 255, 255, 0.85);
+      background-color: transparent;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 600;
+      background-color: #111b26;
+    }
+  }
+
+  // 分页器
+  .ant-pagination {
+    color: rgba(255, 255, 255, 0.85);
+
+    .ant-pagination-prev,
+    .ant-pagination-next {
+      .ant-pagination-item-link {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.85);
+
+        &:hover {
+          border-color: #177ddc;
+          color: #177ddc;
+        }
+      }
+    }
+
+    .ant-pagination-disabled {
+      .ant-pagination-item-link {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      &:hover .ant-pagination-item-link {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    .ant-pagination-item {
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        border-color: #177ddc;
+        color: #177ddc;
+      }
+
+      > a {
+        color: rgba(255, 255, 255, 0.85);
+      }
+    }
+
+    .ant-pagination-item-active {
+      border-color: #177ddc;
+    }
+  }
+
+  // Popover
+  .ant-popover {
+    .ant-popover-title {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .ant-popover-arrow > .ant-popover-arrow-content,
+    .ant-popover-arrow > .ant-popover-arrow-content::before,
+    .ant-popover-inner {
+      background-color: #1f1f1f;
+    }
+
+    .ant-popover-inner-content {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  // Tag
+  .ant-tag {
+    &.ant-tag-processing {
+      color: #177ddc;
+      background: #111b26;
+      border-color: #153450;
+    }
+  }
+
+  .ant-collapse {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.2);
+
+    > .ant-collapse-item {
+      border-color: rgba(255, 255, 255, 0.2);
+
+      .ant-collapse-header {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .ant-collapse-content {
+        color: rgba(255, 255, 255, 0.65);
+        background-color: transparent;
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  // Notification
+  .ant-notification {
+    .ant-notification-notice {
+      background-color: var(--tc-content-background-color, #1f1f1f);
+
+      .ant-notification-notice-message {
+        color: rgba(255, 255, 255, 0.65);
+      }
+    }
+  }
+}

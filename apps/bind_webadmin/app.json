@@ -1,0 +1,46 @@
+{
+    "appid": 145,
+    "appname": "bind_webadmin",
+    "apptitle": "Bind WebAdmin",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"v1","s_version":[]}
+    ],
+    "appdesc": "自由搭建和管理专业级智能DNS系统",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 146,
+    "home": "",
+    "help": "https://bind-webadmin.com/docs/docs/sider/guides/fast/docker",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,必填,需解析api.x到此服务器","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"HTTP端口","type":"number","default":19780,"suffix":"","unit":""},
+        {"attr":"icp","name":"ICP备案号","type":"text","default":"粤ICP备9999999999号(示例)","suffix":"","unit":""},
+        {"attr":"othercode","name":"其他备案号","type":"text","default":"粤公网安备88888888888888号(示例)","suffix":"","unit":""},
+        {"attr":"mobile","name":"页脚手机号","type":"text","default":"","suffix":"","unit":""},
+        {"attr":"email","name":"页脚邮箱","type":"text","default":"","suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"HTTP端口"},
+        {"key":"icp","type":"string","default":null,"desc":"ICP备案号"},
+        {"key":"othercode","type":"string","default":null,"desc":"其他备案号"},
+        {"key":"mobile","type":"string","default":null,"desc":"页脚手机号"},
+        {"key":"email","type":"string","default":null,"desc":"页脚邮箱"},
+        {"key":"defaultUserName","type":"defaultUserName","default":"admin","desc":"用户名"},
+        {"key":"defaultPassWord","type":"defaultPassWord","default":"admin1111mm","desc":"默认密码"},
+        {"key":"ns_domain","type":"domain_host","default":"","desc":"域名"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"certs": {"type": "path", "desc": "证书目录"}, "server": {"type": "path", "desc": "配置文件"}, "bind": {"type": "path", "desc": "数据目录"}, "mysql": {"type": "path", "desc": "数据库目录"}}
+}

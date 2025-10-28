@@ -1,0 +1,39 @@
+{
+    "appid": 236,
+    "appname": "mliev",
+    "apptitle": "木雷短网址",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "一个功能完善、高性能的企业级短链接服务平台，支持多域名、AB测试、用户管理、实时统计等功能。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 225,
+    "home": "https://cnb.cool/mliev/open/dwz-server",
+    "help": "https://www.mliev.com/docs/dwz#-%E6%94%AF%E6%8C%81%E4%B8%8E%E5%B8%AE%E5%8A%A9",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1743057856,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"HTTP_PORT","name":"WEB端口","type":"number","default":7979,"suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"HTTP_PORT","type":"port","default":null,"desc":"WEB端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "data目录"}}
+}

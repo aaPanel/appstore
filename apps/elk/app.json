@@ -1,0 +1,52 @@
+{
+    "appid": 208,
+    "appname": "elk",
+    "apptitle": "ELK",
+    "apptype": "System",
+    "appTypeCN": "系统",
+    "appversion": [
+        {"m_version":"8","s_version":["0.7"]}
+    ],
+    "appdesc": "日志分析系统,一个强大的开源日志分析解决方案",
+    "appstatus": 0,
+    "icon": "",
+    "sort": 209,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"kibana_port1","name":"Beats输入端口","type":"number","default":5601,"suffix":"用于HTTP协议访问kibana的端口号","unit":""},
+        {"attr":"kibana_system_password","name":"管理员密码","type":"password","default":"","suffix":"登录kibana的管理员密码","unit":""},
+        {"attr":"elasticsearch_port1","name":"ES HTTP端口","type":"number","default":9200,"suffix":"用于HTTP协议访问Elasticsearch的端口号","unit":""},
+        {"attr":"elasticsearch_port2","name":"ES TCP端口","type":"number","default":9300,"suffix":"用于TCP协议传输的Elasticsearch端口号","unit":""},
+        {"attr":"logstash_port1","name":"Beats输入端口","type":"number","default":5044,"suffix":"用于HTTP协议访问logstash的端口号","unit":""},
+        {"attr":"logstash_port2","name":"TCP输入端口","type":"number","default":50000,"suffix":"Logstash的TCP数据接入端口","unit":""},
+        {"attr":"logstash_port3","name":"监控API端口","type":"number","default":9600,"suffix":"Logstash monitoring API","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"kibana_port1","type":"port","default":null,"desc":"Beats输入端口"},
+        {"key":"kibana_system_password","type":"password","default":null,"desc":"登录kibana的管理员密码"},
+        {"key":"elasticsearch_port1","type":"port","default":null,"desc":"用于HTTP协议访问Elasticsearch的端口号"},
+        {"key":"elasticsearch_port2","type":"port","default":null,"desc":"用于TCP协议传输的Elasticsearch端口号"},
+        {"key":"logstash_port1","type":"port","default":null,"desc":"用于HTTP协议访问logstash的端口号"},
+        {"key":"logstash_port2","type":"port","default":null,"desc":"Logstash的TCP数据接入端口"},
+        {"key":"logstash_port3","type":"port","default":null,"desc":"监控API端口"},
+        {"key":"domain_host","type":"domain_host","default":"","desc":"域名"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"elasticsearch": {"type": "path", "desc": "elasticsearch目录"}, "extensions": {"type": "path", "desc": "extensions目录"}, "kibana": {"type": "path", "desc": "kibana目录"}, "logstash": {"type": "path", "desc": "logstash目录"}, "setup": {"type": "path", "desc": "setup目录"}}
+}

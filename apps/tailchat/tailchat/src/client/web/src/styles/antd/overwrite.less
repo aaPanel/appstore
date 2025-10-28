@@ -1,0 +1,78 @@
+/**
+ * 这里主要是
+ * - 处理tailwindcss与 antd 一起用的时候的兼容问题
+ * - 与重写部分antd的样式
+ */
+
+.ant-message .anticon {
+  vertical-align: text-top;
+}
+
+.ant-typography-expand, .ant-typography-copy {
+  vertical-align: text-bottom;
+}
+
+.ant-input:hover, .ant-input:focus, .ant-input-focused {
+  border-right-width: inherit !important;
+}
+
+.ant-tooltip {
+  .ant-tooltip-inner {
+    background-color: black;
+  }
+}
+
+.ant-image {
+  .ant-image-mask {
+    overflow: hidden;
+  }
+}
+
+.ant-image-preview-img {
+  display: inline;
+}
+
+.ant-dropdown-menu {
+  padding: 6px 8px;
+  min-width: 200px;
+  max-width: none;
+
+  .ant-dropdown-menu-item {
+    padding: 6px 8px;
+    min-height: 32px;
+  }
+}
+
+.ant-table{
+  .ant-table-content {
+    @apply overflow-auto;
+    .ant-table-tbody {
+      @apply select-text;
+    }
+  }
+}
+
+.ant-pagination {
+  .ant-pagination-item-link > .anticon {
+    vertical-align: text-top;
+  }
+}
+
+.ant-popover {
+  .ant-popover-inner-content {
+    background-color: inherit;
+  }
+}
+
+.ant-badge {
+  display: block;
+  width: fit-content;
+
+  .ant-badge-count.ant-badge-count-sm.ant-badge-multiple-words {
+    padding: 0 4px;
+  }
+}
+
+.ant-input-textarea-show-count::after {
+  font-size: 0.7rem;
+}

@@ -1,0 +1,30 @@
+#https://github.com/soulteary/docker-flare
+
+services:  
+  BT_SERVICE_NAME6:    
+    image: soulteary/flare:${VERSION}
+    restart: always    
+    # 默认无需添加任何参数，如有特殊需求    
+    # 可阅读文档 https://github.com/soulteary/docker-flare/blob/main/docs/advanced-startup.md
+    # 启用账号登陆模式    
+    command: flare --nologin=0
+    environment:      
+        # 如需开启用户登陆模式，需要先设置 `nologin` 启动参数为 `0`  
+        # 如开启 `nologin`，未设置 FLARE_USER，则默认用户为 `flare`      
+        - FLARE_USER=${FLARE_USER}
+        # 指定你自己的账号密码，如未设置 `FLARE_USER`，则会默认生成密码并展示在应用启动日志中      
+        - FLARE_PASS=${FLARE_PASS}
+        # 是否开启“使用向导”，访问 `/guide`
+        - FLARE_GUIDE=1    
+    ports:      
+        - ${HOST_IP}:${WEB_HTTP_PORT}:5005    
+    volumes:      
+        - ${APP_PATH}/app:/app
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

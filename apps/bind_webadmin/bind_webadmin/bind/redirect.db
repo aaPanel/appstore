@@ -1,0 +1,5 @@
+$TTL 300
+@ IN SOA example.com. hostmaster.example.com. 0 0 0 0 0
+@ IN NS nsexample.com.
+*. IN A 10.2.6.253
+*. IN AAAA 2001:ffff:ffff::10.2.6.253

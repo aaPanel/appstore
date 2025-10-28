@@ -1,0 +1,105 @@
+{
+	"servers": [
+		{
+			"username": "s01",
+			"name": "node1",
+			"type": "xen",
+			"host": "host1",
+			"location": "🇨🇳",
+			"password": "USER_DEFAULT_PASSWORD",
+			"monthstart": 1
+		},
+		{
+			"username": "s02",
+			"name": "node2",
+			"type": "vmware",
+			"host": "host2",
+			"location": "🇯🇵",
+			"password": "USER_DEFAULT_PASSWORD",
+			"monthstart": 1
+		},
+		{
+			"disabled": true,
+			"username": "s03",
+			"name": "node3",
+			"type": "hyper",
+			"host": "host3",
+			"location": "🇫🇷",
+			"password": "USER_DEFAULT_PASSWORD",
+			"monthstart": 1
+		},
+		{
+			"username": "s04",
+			"name": "node4",
+			"type": "kvm",
+			"host": "host4",
+			"location": "🇰🇷",
+			"password": "USER_DEFAULT_PASSWORD",
+			"monthstart": 1
+		}
+	],
+	"monitors": [
+		{
+			"name": "baidu",
+			"host": "https://www.baidu.com",
+			"interval": 1200,
+			"type": "https"
+		},
+		{
+			"name": "alidns",
+			"host": "223.5.5.5:53",
+			"interval": 1200,
+			"type": "tcp"
+		}
+	],
+	"watchdog": [
+		{
+			"name": "cpu high warning,exclude username s01",
+			"rule": "cpu>90&load_1>5&username!='s01'",
+			"interval": 600,
+			"callback": "https://yourSMSurl"
+		},
+		{
+			"name": "memory high warning, exclude less than 1GB vps",
+			"rule": "(memory_used/memory_total)*100>90&memory_total>1048576",
+			"interval": 300,
+			"callback": "https://yourSMSurl"
+		},
+		{
+			"name": "offline warning",
+			"rule": "online4=0&online6=0",
+			"interval": 600,
+			"callback": "https://yourSMSurl"
+		},
+		{
+			"name": "ddcc attack,limit type Oracle",
+			"rule": "tcp_count>600&type='Oracle'",
+			"interval": 300,
+			"callback": "https://yourSMSurl"
+		},
+		{
+			"name": "month 999GB traffic warning",
+			"rule": "(network_out-last_network_out)/1024/1024/1024>999",
+			"interval": 3600,
+			"callback": "https://yourSMSurl"
+		},
+		{
+			"name": "aliyun china free 18GB traffic warning",
+			"rule": "(network_out-last_network_out)/1024/1024/1024>18&(username='aliyun1'|username='aliyun2')",
+			"interval": 3600,
+			"callback": "https://yourSMSurl"
+		},
+		{
+			"name": "packet loss rate warning",
+			"rule": "(ping_10010>10|ping_189>10|ping_10086>10)&(host='sgp'|host='qqhk'|host='hk-21-x'|host='hk-31-x')",
+			"interval": 3600,
+			"callback": "https://yourSMSurl"
+		},
+		{
+			"name": "you can parse an expression combining any known field",
+			"rule": "load_5>3",
+			"interval": 900,
+			"callback": "https://yourSMSurl"
+		}
+	]
+}

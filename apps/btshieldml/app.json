@@ -1,0 +1,36 @@
+{
+    "appid": 228,
+    "appname": "btshieldml",
+    "apptitle": "bt-ShieldML",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "bt-ShieldML，基于机器学习的堡塔木马查杀引擎，针对Web服务器环境中的恶意代码文件进行检测",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 228,
+    "home": "https://github.com/aaPanel/btShieldML",
+    "help": "https://github.com/aaPanel/btShieldML",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1747635309,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"http_port","name":"端口","type":"number","default":6528,"suffix":"请通过 `http://ip:端口/shieldml_scan.html#` 访问","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"http_port","type":"port","default":null,"desc":"WEB端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"webshellJson.json": {"type": "file", "desc": "数据"}}
+}

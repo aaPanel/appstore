@@ -1,0 +1,17 @@
+services:
+  BT_SERVICE_NAME6:
+    image: finab/bark-server:${VERSION}
+    # container_name: bark-server
+    restart: always
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8080
+    volumes:
+      - ${APP_PATH}/data:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

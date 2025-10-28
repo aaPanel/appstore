@@ -1,0 +1,45 @@
+{
+    "appid": 113,
+    "appname": "maddy",
+    "apptitle": "Maddy Mail Server",
+    "apptype": "Email",
+    "appTypeCN": "邮件/邮局",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "Maddy 是一个开源的邮件服务器",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 114,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"maddy_hostname","name":"邮局MX主机名","type":"text","default":"","suffix":"例如: mail.example.com","unit":""},
+        {"attr":"maddy_domain","name":"邮局域名","type":"text","default":"","suffix":"例如: example.com","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"maddy_hostname","type":"string","default":null,"desc":"邮局MX主机名"},
+        {"key":"maddy_domain","type":"string","default":null,"desc":"邮局域名"},
+        {"key":"defaultSMTP","type":"defaultUserName","default":"25","desc":"SMTP发件端口"},
+        {"key":"defaultSMTP2","type":"defaultUserName","default":"465","desc":"SMTPS发件端口"},
+        {"key":"defaultSMTP3","type":"defaultUserName","default":"587","desc":"SMTPS发件端口"},
+        {"key":"defaultIMAP4","type":"defaultUserName","default":"143","desc":"IMAP端口"},
+        {"key":"defaultIMAPS","type":"defaultUserName","default":"993","desc":"IMAPS端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}}
+}

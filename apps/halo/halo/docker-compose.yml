@@ -1,0 +1,56 @@
+services:
+  BT_SERVICE_NAME6:
+    image: registry.fit2cloud.com/halo/halo:${VERSION}
+    restart: on-failure:3
+    depends_on:
+      halodb:
+        condition: service_healthy
+    volumes:
+      - ${APP_PATH}/data/halo2:/root/.halo2
+    ports:
+      - ${HOST_IP}:${HTTP_PORT}:8090
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8090/actuator/health/readiness"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    environment:
+      # JVM 参数，默认为 -Xmx256m -Xms256m，可以根据实际情况做调整，置空表示不添加 JVM 参数
+      - JVM_OPTS=-Xmx256m -Xms256m
+    command:
+      - --spring.r2dbc.url=r2dbc:pool:postgresql://halodb/halo
+      - --spring.r2dbc.username=halo
+      # PostgreSQL 的密码，请保证与下方 POSTGRES_PASSWORD 的变量值一致。
+      - --spring.r2dbc.password=openpostgresql
+      - --spring.sql.init.platform=postgresql
+      # 外部访问地址，请根据实际需要修改
+      - --halo.external-url=http://localhost:8090/
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  halodb:
+    image: postgres:15.4
+    restart: on-failure:3
+    volumes:
+      - ${APP_PATH}/data/db:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      - POSTGRES_PASSWORD=openpostgresql
+      - POSTGRES_USER=halo
+      - POSTGRES_DB=halo
+      - PGUSER=halo
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

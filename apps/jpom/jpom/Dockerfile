@@ -1,0 +1,56 @@
+#
+# Copyright (c) 2019 Of Him Code Technology Studio
+# Jpom is licensed under Mulan PSL v2.
+# You can use this software according to the terms and conditions of the Mulan PSL v2.
+# You may obtain a copy of Mulan PSL v2 at:
+# 			http://license.coscl.org.cn/MulanPSL2
+# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
+# See the Mulan PSL v2 for more details.
+#
+
+FROM maven:3.9.6-eclipse-temurin-8
+
+ARG BUILD_DATE
+LABEL build_info="dromara/Jpom build-date:- ${BUILD_DATE}"
+LABEL maintainer="bwcx-jzy <bwcx_jzy@163.com>"
+LABEL documentation="https://jpom.top"
+
+ENV JPOM_HOME	/usr/local/jpom-server
+ENV JPOM_PKG_VERSION	2.11.10
+ENV JPOM_PKG	server-${JPOM_PKG_VERSION}-release.tar.gz
+ENV SHA1_NAME server-${JPOM_PKG_VERSION}-release.tar.gz.sha1
+
+ENV JPOM_DATA_PATH ${JPOM_HOME}/data
+ENV JPOM_LOG_PATH ${JPOM_HOME}/logs
+# 数据目录
+ENV jpom.path ${JPOM_DATA_PATH}
+
+WORKDIR ${JPOM_HOME}
+
+RUN apt-get install -y git
+
+# 时区
+ENV TZ Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone
+
+RUN mkdir -p ${JPOM_HOME}
+#
+RUN curl -LfSo ${JPOM_HOME}/${JPOM_PKG} https://d.jpom.download/release/${JPOM_PKG_VERSION}/${JPOM_PKG}
+RUN curl -LfsSo ${JPOM_HOME}/${SHA1_NAME} https://d.jpom.download/release/${JPOM_PKG_VERSION}/${SHA1_NAME} && \
+    ESUM=`cat ${JPOM_HOME}/${SHA1_NAME}` && \
+    echo "${ESUM} ${JPOM_HOME}/${JPOM_PKG}" | sha1sum -c -;
+RUN tar -zxvf ${JPOM_HOME}/${JPOM_PKG} -C ${JPOM_HOME}
+RUN rm -rf ${JPOM_HOME}/${JPOM_PKG}
+
+# 将配置文件暂存默认目录，避免无法挂载
+RUN mv $JPOM_HOME/conf $JPOM_HOME/conf_default
+
+# 健康检查
+HEALTHCHECK CMD curl -X POST -f http://localhost:2122/check-system || exit 1
+
+EXPOSE 2122
+
+ENTRYPOINT ["/bin/bash", "./bin/BlockListener.sh"]
+
+
+

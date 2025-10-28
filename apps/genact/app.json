@@ -1,0 +1,37 @@
+{
+    "appid": 252,
+    "appname": "genact",
+    "apptitle": "Genact",
+    "apptype": "nas",
+    "appTypeCN": "Nas",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "Genact 是一款趣味命令行模拟器，“让你的电脑看来很忙”，可在屏幕上生成仿真的编译、系统更新、网络攻击等场景；支持 Web/Windows/macOS/Linux，全平台即开即用。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 22,
+    "home": "https://github.com/svenstaro/genact",
+    "help": "https://github.com/svenstaro/genact",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1761123080,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""},
+        {"attr":"tips","name":"使用说明","type":"text","default":"在终端输入：docker logs -f genact","suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+    ],
+    "volumes": {}
+}

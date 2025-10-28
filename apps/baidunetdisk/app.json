@@ -1,0 +1,40 @@
+{
+    "appid": 230,
+    "appname": "baidunetdisk",
+    "apptitle": "BaiduNetdisk",
+    "apptype": "Storage",
+    "appTypeCN": "存储/网盘",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "百度网盘客户端VNC版（baidunetdisk:4.17.7），可以帮助你在任何支持 Docker 的平台上运行",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 228,
+    "home": "https://github.com/gshang2017/docker/tree/master/baidunetdisk",
+    "help": "https://github.com/gshang2017/docker/tree/master/baidunetdisk",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1747635309,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"HTTP_PORT","name":"HTTP端口","type":"port","default":5800,"suffix":"","unit":""},
+        {"attr":"VNC_PORT","name":"VNC端口","type":"port","default":5900,"suffix":"","unit":""},
+        {"attr":"VNC_PASSWORD","name":"VNC登陆密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"HTTP_PORT","type":"port","default":null,"desc":"HTTP端口"},
+        {"key":"VNC_PORT","type":"port","default":null,"desc":"VNC端口"},
+        {"key":"VNC_PASSWORD","type":"text","default":null,"desc":"VNC登陆密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据"}}
+}

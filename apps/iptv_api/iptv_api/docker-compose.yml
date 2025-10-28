@@ -1,0 +1,22 @@
+services:
+  BT_SERVICE_NAME6:
+    image: guovern/iptv-api:${VERSION}
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}    
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8000
+    volumes:
+      - ${APP_PATH}/config:/iptv-api/config
+      - ${APP_PATH}/output:/iptv-api/output
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

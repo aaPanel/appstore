@@ -1,0 +1,27 @@
+services:
+  BT_SERVICE_NAME6:
+    image: docker.gitea.com/gitea:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    volumes:
+      - ${APP_PATH}/gitea:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - ${HOST_IP}:${HTTP_PORT}:3000
+      - ${HOST_IP}:${SSH_PORT}:22
+    restart: unless-stopped
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

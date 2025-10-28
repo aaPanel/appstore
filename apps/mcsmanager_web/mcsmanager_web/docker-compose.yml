@@ -1,0 +1,18 @@
+services:
+  mcsmanager_web:
+    image: githubyumao/mcsmanager-web:latest
+    restart: always
+    ports:
+      - "${HOST_IP}:${WEB_HTTP_PORT}:23333"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "${APP_PATH}/web/data:/opt/mcsmanager/web/data"
+      - "${APP_PATH}/web/logs:/opt/mcsmanager/web/logs"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

@@ -1,0 +1,40 @@
+{
+    "appid": 130,
+    "appname": "android",
+    "apptitle": "Android",
+    "apptype": "System",
+    "appTypeCN": "系统",
+    "appversion": [
+        {"m_version":"emulator_9.0","s_version":[]},
+        {"m_version":"emulator_10.0","s_version":[]},
+        {"m_version":"emulator_11.0","s_version":[]},
+        {"m_version":"emulator_12.0","s_version":[]},
+        {"m_version":"emulator_13.0","s_version":[]},
+        {"m_version":"emulator_14.0","s_version":[]},
+        {"m_version":"genymotion","s_version":[]}
+    ],
+    "appdesc": "Docker Android是一个Docker镜像，用于与Android相关的所有内容。它可用于应用程序开发和测试（原生、web和混合应用程序）",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 131,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":6080,"suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {}
+}

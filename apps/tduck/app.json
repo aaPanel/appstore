@@ -1,0 +1,37 @@
+{
+    "appid": 146,
+    "appname": "tduck",
+    "apptitle": "TDUCK 填鸭表单",
+    "apptype": "BuildWebsite",
+    "appTypeCN": "建站",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "一款功能强大的问卷表单收集工具",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 147,
+    "home": "",
+    "help": "https://doc.tduckcloud.com/openSource/deploy/dockerDeploy.html",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":8999,"suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"defaultUserName","type":"defaultUserName","default":"admin@tduckcloud.com","desc":"用户名"},
+        {"key":"defaultPassWord","type":"defaultPassWord","default":"123456","desc":"默认密码"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"mysql": {"type": "path", "desc": "数据库目录"}, "init-db": {"type": "path", "desc": "初始化数据库"}, "upload": {"type": "path", "desc": "上传目录"}}
+}

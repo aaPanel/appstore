@@ -1,0 +1,35 @@
+services:
+  BT_SERVICE_NAME6:
+    image: mailserver/docker-mailserver:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    hostname: ${MAIL_HOSTNAME}
+    ports:
+      - ${HOST_IP}:${SMTP_PORT}:25
+      - ${HOST_IP}:${SMTP_SSL_PORT}:465
+      - ${HOST_IP}:${NSMTP_SSL_PORT}:587
+      - ${HOST_IP}:${IMAP_PORT}:143
+      - ${HOST_IP}:${IMAP_SSL_PORT}:993
+    volumes:
+      - ${APP_PATH}/data/mail-data/:/var/mail/
+      - ${APP_PATH}/data/mail-state/:/var/mail-state/
+      - ${APP_PATH}/data/mail-logs/:/var/log/mail/
+      - ${APP_PATH}/data/config/:/tmp/docker-mailserver/
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    environment:
+      - ENABLE_RSPAMD=1
+      - ENABLE_CLAMAV=1
+      - ENABLE_FAIL2BAN=1
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

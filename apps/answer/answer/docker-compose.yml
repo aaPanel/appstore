@@ -1,0 +1,59 @@
+services:
+   BT_SERVICE_NAME6:
+    image: apache/answer:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:80
+    restart: on-failure
+    volumes:
+      - ${APP_PATH}/answer-data:/data
+    depends_on:
+      answer-mysql:
+        condition: service_healthy
+    environment:
+      - AUTO_INSTALL=true
+      - DB_TYPE=mysql
+      - DB_USERNAME=answer
+      - DB_PASSWORD=NjkvKZ4wUHM74Cg
+      - DB_HOST=answer-mysql
+      - DB_NAME=answer
+      - LANGUAGE=en_US
+      - SITE_NAME=${SITE_NAME}
+      - SITE_URL=${SITE_URL}
+      - CONTACT_EMAIL=${CONTACT_EMAIL}
+      - ADMIN_NAME=${ADMIN_NAME}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+   answer-mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: answer
+      MYSQL_USER: answer
+      MYSQL_PASSWORD: NjkvKZ4wUHM74Cg
+      TZ: Asia/Shanghai
+    volumes:
+      - ${APP_PATH}/db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

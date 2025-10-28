@@ -1,0 +1,27 @@
+services:
+  BT_SERVICE_NAME6:
+    image: sickcodes/docker-osx:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    devices:
+      - /dev/kvm
+    cap_add:
+      - ALL
+    environment:
+      INTERNAL_SSH_PORT: 24022
+      DISPLAY: ${DISPLAY:-:0.0}
+    stop_grace_period: 2m
+    ports:
+      - ${HOST_IP}:${SSH_PORT}:24022
+    volumes:
+      - /lib/modules:/lib/modules
+      - /dev:/dev
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${APP_PATH}/data:/home
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

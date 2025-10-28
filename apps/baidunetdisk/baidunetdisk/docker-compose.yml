@@ -1,0 +1,21 @@
+services:
+  BT_SERVICE_NAME6:
+    image: johngong/baidunetdisk:latest
+    container_name: baidunetdisk
+    environment:
+      - VNC_PASSWORD=${VNC_PASSWORD}
+    ports:
+      - ${HTTP_PORT}:5800
+      - ${VNC_PORT}:5900
+    volumes:
+      - ${APP_PATH}/data/baidunetdisk:/config
+      - ${APP_PATH}/data/download:/config/baidunetdiskdownload
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

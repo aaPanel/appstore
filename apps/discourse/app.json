@@ -1,0 +1,54 @@
+{
+    "appid": 46,
+    "appname": "discourse",
+    "apptitle": "Discourse",
+    "apptype": "BuildWebsite",
+    "appTypeCN": "建站",
+    "appversion": [
+        {"m_version":"3","s_version":["3.0"]}
+    ],
+    "appdesc": "Discourse 是一个功能强大的社区论坛系统，需要安装应用商店中的PostgreSQL和Redis",
+    "appstatus": 0,
+    "icon": "",
+    "sort": 47,
+    "home": "",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": [
+        {"appname":["postgresql"],"apptype":"Database","appTypeCN":"数据库服务","appDesc":"需要安装应用商店中的PostgreSQL","appversion":["16","15","14","13","12"]},
+        {"appname":["redis"],"apptype":"Middleware","appTypeCN":"中间件","appDesc":"需要安装应用商店中的Redis","appversion":["7","6"]}
+    ],
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+        {"attr":"web_http_port","name":"端口","type":"number","default":3000,"suffix":"","unit":""},
+        {"attr":"discourse_username","name":"管理员账号","type":"text","default":"admin","suffix":"建议保持默认","unit":""},
+        {"attr":"discourse_password","name":"管理员密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"discourse_email","name":"管理员邮箱","type":"text","default":"","suffix":"请输入有效邮箱，如：pgadmin@example.com","unit":""},
+        {"attr":"pgsql_database","name":"数据库名","type":"text","default":"discourse_db","suffix":"","unit":""},
+        {"attr":"pgsql_user","name":"数据库用户","type":"text","default":"discourse","suffix":"","unit":""},
+        {"attr":"pgsql_password","name":"数据库密码","type":"password","default":"","suffix":"","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"端口"},
+        {"key":"discourse_username","type":"text","default":"admin","desc":"管理员账号"},
+        {"key":"discourse_password","type":"password","default":"","desc":"管理员密码"},
+        {"key":"discourse_email","type":"text","default":"","desc":"管理员邮箱"},
+        {"key":"pgsql_database","type":"database","default":"","desc":"数据库名"},
+        {"key":"pgsql_user","type":"username","default":"","desc":"数据库用户"},
+        {"key":"pgsql_password","type":"pgsql_password","default":"","desc":"数据库密码"},
+        {"key":"redis_password","type":"redis_password","default":"","desc":"Redis密码"},
+        {"key":"domain_host","type":"domain_host","default":"","desc":"域名"},
+        {"key":"database_host","type":"db_host","default":null,"desc":"PostgreSQL的IP/服务"},
+        {"key":"cache_db_host","type":"cache_db_host","default":null,"desc":"Redis的IP/服务"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"}
+    ],
+    "volumes": {"discourse": {"type": "path", "desc": "discourse目录"}, "sidekiq": {"type": "path", "desc": "sidekiq目录"}}
+}

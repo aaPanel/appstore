@@ -1,0 +1,23 @@
+{
+  "name": "tailchat-plugin-wxpusher",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "moonrailgun",
+  "description": "Add support for wxpusher to notify user",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:web": "ministar buildPlugin all",
+    "build:web:watch": "ministar watchPlugin all"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.20",
+    "mini-star": "*",
+    "normalize-path": "^3.0.0",
+    "rollup-plugin-copy": "^3.4.0"
+  },
+  "dependencies": {
+    "got": "^11.8.3",
+    "tailchat-server-sdk": "*"
+  }
+}

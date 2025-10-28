@@ -1,0 +1,25 @@
+services:
+  BT_SERVICE_NAME6:
+    image: ossrs/srs:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    ports:
+      - ${HOST_IP}:${RTMP_PORT}:1935
+      - ${HOST_IP}:${FLV_PORT}:1985
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8080
+    volumes:
+      - ${APP_PATH}/etc:/etc/srs
+      - ${APP_PATH}/var:/var/srs
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

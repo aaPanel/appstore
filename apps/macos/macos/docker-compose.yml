@@ -1,0 +1,30 @@
+services:
+  BT_SERVICE_NAME6:
+    image: dockurr/macos
+    #    container_name: ${CONTAINER_NAME}
+    devices:
+      - /dev/kvm
+      - /dev/bus/usb
+    cap_add:
+      - ALL
+    environment:
+      VERSION: ${VERSION}
+      DISK_SIZE: ${DISK_SIZE}G
+      RAM_SIZE: ${RAM_SIZE}G
+      CPU_CORES: ${CPU_CORES}
+      ARGUMENTS: "-device usb-host,vendorid=0x1234,productid=0x1234"
+    stop_grace_period: 2m
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8006
+      - ${HOST_IP}:${MACOS_PORT}:5900/tcp
+      - ${HOST_IP}:${MACOS_PORT}:5900/udp
+    volumes:
+      - ${APP_PATH}/data:/storage
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

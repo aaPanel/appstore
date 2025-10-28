@@ -1,0 +1,31 @@
+services:
+  BT_SERVICE_NAME6:
+    image: rustdesk/rustdesk-server-pro-s6:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    environment:
+        - RELAY=${RUSTDESK_HOST_ADDR}:${RUSTDESK_PORT_HBBR}
+        - ENCRYPTED_ONLY=1
+    ports:
+        - ${HOST_IP}:${RUSTDESK_PORT_WEB}:21114
+        - ${HOST_IP}:${RUSTDESK_PORT_NAT}:21115
+        - ${HOST_IP}:${RUSTDESK_PORT_HBBS}:21116
+        - ${HOST_IP}:${RUSTDESK_PORT_HBBS}:21116/udp
+        - ${HOST_IP}:${RUSTDESK_PORT_HBBR}:21117
+        - ${HOST_IP}:${RUSTDESK_PORT_WEB_CLIENT_1}:21118
+        - ${HOST_IP}:${RUSTDESK_PORT_WEB_CLIENT_2}:21119
+    restart: always
+    volumes:
+        - ${APP_PATH}/data:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

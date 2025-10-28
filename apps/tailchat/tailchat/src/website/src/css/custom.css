@@ -1,0 +1,55 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/*
+* You can override the default Infima variables here.
+ * https://docusaurus.io/docs/styling-layout
+*/
+:root {
+  --ifm-color-primary: #4a638c;
+  --ifm-color-primary-dark: #43597e;
+  --ifm-color-primary-darker: #3f5477;
+  --ifm-color-primary-darkest: #344562;
+  --ifm-color-primary-light: #516d9a;
+  --ifm-color-primary-lighter: #5572a1;
+  --ifm-color-primary-lightest: #6782af;
+
+  --ifm-heading-font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+
+[data-theme="light"] {
+  --ifm-background-color: white;
+}
+
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html, body {
+  font-size: 16px;
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='light'] {
+  background-color: white;
+}
+
+.medium-zoom-image--opened {
+  z-index: var(--ifm-z-index-fixed);
+}
+
+table th {
+  /* 表头不换行 */
+  white-space: nowrap;
+}

@@ -1,0 +1,42 @@
+services:
+  # RustFS main service
+  rustfs:
+    image: rustfs/rustfs:${VERSION}
+    ports:
+      - "${HOST_IP}:${WEB_API_PORT}:9000" # S3 API port
+      - "${HOST_IP}:${WEB_HTTP_PORT}:9001" # Console port
+    environment:
+      - RUSTFS_VOLUMES=/data/rustfs0,/data/rustfs1,/data/rustfs2,/data/rustfs3
+      - RUSTFS_ADDRESS=0.0.0.0:9000
+      - RUSTFS_CONSOLE_ADDRESS=0.0.0.0:9001
+      - RUSTFS_CONSOLE_ENABLE=true
+      - RUSTFS_CORS_ALLOWED_ORIGINS=*
+      - RUSTFS_CONSOLE_CORS_ALLOWED_ORIGINS=*
+      - RUSTFS_ACCESS_KEY=${RUSTFS_USER}
+      - RUSTFS_SECRET_KEY=${RUSTFS_PASSWORD}
+      - RUSTFS_LOG_LEVEL=info
+    volumes:
+      - ${APP_PATH}/data/rustfs_data_0:/data/rustfs0
+      - ${APP_PATH}/data/rustfs_data_1:/data/rustfs1
+      - ${APP_PATH}/data/rustfs_data_2:/data/rustfs2
+      - ${APP_PATH}/data/rustfs_data_3:/data/rustfs3
+      - ${APP_PATH}/data/logs_data:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "sh", "-c",
+          "curl -f http://localhost:9000/health && curl -f http://localhost:9001/health"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+networks:
+  baota_net:
+    external: true

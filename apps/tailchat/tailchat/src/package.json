@@ -1,0 +1,96 @@
+{
+  "name": "tailchat",
+  "version": "1.11.6",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --kill-others --handle-input npm:dev:server npm:dev:web",
+    "dev:web": "cd client/web && pnpm dev",
+    "dev:server": "cd server && pnpm dev",
+    "dev:admin": "cd server/admin && pnpm dev",
+    "start:service": "cd server && pnpm start:service",
+    "start:admin": "cd server/admin && pnpm start",
+    "build": "concurrently npm:build:web npm:build:server npm:build:admin && cp -r client/web/dist/* server/dist/public",
+    "build:web": "cd client/web && pnpm build",
+    "build:server": "cd server && pnpm build && echo \"Install server side plugin:\" && pnpm run plugin:install com.msgbyte.tasks com.msgbyte.linkmeta com.msgbyte.github com.msgbyte.simplenotify com.msgbyte.topic com.msgbyte.agora com.msgbyte.wxpusher com.msgbyte.welcome com.msgbyte.iam com.msgbyte.discover com.msgbyte.livekit && mkdir -p ./dist/public && cp -r ./public/plugins ./dist/public && cp ./public/registry-be.json ./dist/public",
+    "build:admin": "cd server/admin && pnpm build",
+    "check:type": "concurrently npm:check:type:client npm:check:type:server",
+    "check:type:client": "cd client/web && tsc --noEmit",
+    "check:type:server": "cd server && tsc --noEmit",
+    "publish:all": "pnpm -r publish --registry=https://registry.npmjs.com/",
+    "website": "cd website && pnpm dev",
+    "preinstall": "npx only-allow pnpm",
+    "lint:fix": "eslint --fix './**/*.{ts,tsx}'",
+    "prepare": "husky install",
+    "release": "release-it",
+    "release:patch": "release-it -i patch"
+  },
+  "keywords": [],
+  "author": "moonrailgun <moonrailgun@gmail.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "concurrently": "^7.6.0",
+    "dayjs": "^1.11.7",
+    "esbuild": "^0.15.18",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "fs-extra": "^10.1.0",
+    "gulp-sort": "^2.0.0",
+    "husky": "^8.0.3",
+    "i18next-scanner": "^3.3.0",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "release-it": "^15.6.0",
+    "typescript": "^4.9.5",
+    "vinyl-fs": "^3.0.3"
+  },
+  "dependencies": {
+    "crc": "^3.8.0",
+    "lodash": "^4.17.21"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "acorn",
+        "ts-jest",
+        "@typegoose/typegoose",
+        "moleculer"
+      ]
+    },
+    "overrides": {
+      "redux": "4.2.1",
+      "@babel/runtime": "7.21.0",
+      "@types/react": "18.0.20",
+      "@types/node": "18.11.9",
+      "ts-node": "10.9.1",
+      "webpack": "5.75.0",
+      "react-router@^6.0.0": "6.11.0",
+      "react-router-dom@^6.0.0": "6.11.0",
+      "@typegoose/typegoose": "9.3.1",
+      "@tanstack/query-async-storage-persister": "4.32.6",
+      "@tanstack/react-query": "4.33.0",
+      "@tanstack/react-query-persist-client": "4.33.0",
+      "@tanstack/react-query-devtools": "4.33.0",
+      "typescript": "4.9.4",
+      "got": "11.8.3",
+      "zustand": "4.3.6",
+      "immer": "9.0.21",
+      "mongodb": "4.2.1",
+      "mongoose@~6.0.14": "6.1.1",
+      "mongoose@^6.0.0": "6.1.1",
+      "mongoose-findorcreate": "3.0.0"
+    },
+    "patchedDependencies": {
+      "moleculer@0.14.23": "patches/moleculer@0.14.23.patch",
+      "vite-express@0.8.0": "patches/vite-express@0.8.0.patch"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+services:
+  BT_SERVICE_NAME6:
+    image: mintplexlabs/anythingllm:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:3001
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      - STORAGE_DIR=/app/server/storage
+      - JWT_SECRET=${JWT_SECRET}
+      - LLM_PROVIDER=ollama
+      - OLLAMA_BASE_PATH=http://127.0.0.1:11434
+      - OLLAMA_MODEL_PREF=llama2
+      - OLLAMA_MODEL_TOKEN_LIMIT=4096
+      - EMBEDDING_ENGINE=ollama
+      - EMBEDDING_BASE_PATH=http://127.0.0.1:11434
+      - EMBEDDING_MODEL_PREF=nomic-embed-text:latest
+      - EMBEDDING_MODEL_MAX_CHUNK_LENGTH=8192
+      - VECTOR_DB=lancedb
+      - WHISPER_PROVIDER=local
+      - TTS_PROVIDER=native
+      - PASSWORDMINCHAR=8
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
+    
+    
+

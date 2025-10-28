@@ -1,0 +1,20 @@
+{
+  "name": "@plugins/com.msgbyte.topic",
+  "main": "src/index.tsx",
+  "version": "0.0.0",
+  "description": "为群组提供话题功能",
+  "private": true,
+  "scripts": {
+    "sync:declaration": "tailchat declaration github"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26",
+    "@types/lodash": "^4.14.191",
+    "react": "18.2.0",
+    "styled-components": "^5.3.6",
+    "zustand": "^4.3.6"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

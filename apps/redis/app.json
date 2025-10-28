@@ -1,0 +1,41 @@
+{
+    "appid": 5,
+    "appname": "redis",
+    "apptitle": "Redis",
+    "apptype": "Middleware",
+    "appTypeCN": "中间件",
+    "appversion": [
+        {"m_version":"7","s_version":["4.0","2.5","0.15"]},
+        {"m_version":"6","s_version":["2.14"]}
+    ],
+    "appdesc": "内存存储的数据结构服务器，可用作数据库，高速缓存和消息队列代理",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 5,
+    "home": "https://redis.io",
+    "help": "",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722408250,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"redis_port","name":"端口","type":"number","default":26739,"suffix":"","unit":""},
+        {"attr":"redis_password","name":"redis密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"redis_password","type":"password","default":null,"desc":"redis密码"},
+        {"key":"redis_port","type":"port","default":null,"desc":"redis端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "数据目录"}, "logs": {"type": "path", "desc": "日志目录"}, "redis.conf": {"type": "file", "desc": "配置文件"}}
+}

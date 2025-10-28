@@ -1,0 +1,61 @@
+services:
+  BT_SERVICE_NAME6:
+    image: justsong/one-api:${VERSION}
+    #    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    restart: always
+    command: --log-dir /app/logs
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:3000
+    volumes:
+      - ${APP_PATH}/data:/data
+      - ${APP_PATH}/logs:/app/logs
+    environment:
+      - SQL_DSN=oneapi:123456@tcp(db:3306)/one-api  # 修改此行，或注释掉以使用 SQLite 作为数据库
+      - REDIS_CONN_STRING=redis://redis
+      - SESSION_SECRET=nxfBPcCjzXrCZaQ2  # 修改为随机字符串
+      - TZ=Asia/Shanghai
+    depends_on:
+      - redis
+      - db
+    healthcheck:
+      test: [ "CMD-SHELL", "wget -q -O - http://localhost:3000/api/status | grep -o '\"success\":\\s*true' | awk -F: '{print $2}'" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+      
+  redis:
+    image: redis:latest
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  db:
+    image: mysql:8.2.0
+    restart: always
+    volumes:
+      - ${APP_PATH}/data/mysql:/var/lib/mysql  # 挂载目录，持久化存储
+    environment:
+      TZ: Asia/Shanghai   # 设置时区
+      MYSQL_ROOT_PASSWORD: 'OneAPI@justsong' # 设置 root 用户的密码
+      MYSQL_USER: oneapi   # 创建专用用户
+      MYSQL_PASSWORD: '123456'    # 设置专用用户密码
+      MYSQL_DATABASE: one-api   # 自动创建数据库
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

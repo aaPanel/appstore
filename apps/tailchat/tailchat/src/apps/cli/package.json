@@ -1,0 +1,87 @@
+{
+  "name": "tailchat-cli",
+  "version": "1.5.14",
+  "description": "A Command line interface of tailchat",
+  "bin": {
+    "tailchat": "./bin/cli"
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib",
+    "bin",
+    "templates"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ts-node ./src/index.ts",
+    "build": "rimraf -rf lib && tsc",
+    "prepare": "npm run build",
+    "release": "npm publish --registry https://registry.npmjs.com/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msgbyte/tailchat-cli.git"
+  },
+  "keywords": [
+    "tailchat"
+  ],
+  "author": "moonrailgun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msgbyte/tailchat-cli/issues"
+  },
+  "homepage": "https://github.com/msgbyte/tailchat-cli#readme",
+  "dependencies": {
+    "@types/dockerode": "^3.3.10",
+    "@types/pidusage": "^2.0.2",
+    "as-table": "^1.0.55",
+    "chalk": "4.1.2",
+    "crypto-random-string": "3.3.1",
+    "dockerode": "^3.3.4",
+    "dotenv": "^16.0.0",
+    "filesize": "^8.0.7",
+    "find-process": "^1.4.7",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.1.0",
+    "got": "11.8.5",
+    "ink": "^3.2.0",
+    "ink-tab": "^4.2.0",
+    "ink-text-input": "^4.0.3",
+    "inquirer": "^8.2.2",
+    "lodash": "^4.17.21",
+    "node-plop": "^0.26.3",
+    "nodemailer": "^6.7.2",
+    "ora": "5.4.1",
+    "p-all": "2.1.0",
+    "p-map": "^4.0.0",
+    "p-series": "2.1.0",
+    "pidusage": "^3.0.2",
+    "plop": "^3.0.5",
+    "pretty-ms": "7.0.1",
+    "react": "18.2.0",
+    "rimraf": "^3.0.2",
+    "socket.io-client": "^4.6.2",
+    "socket.io-msgpack-parser": "^3.0.2",
+    "spinnies": "^0.5.1",
+    "tailchat-server-sdk": "^0.0.12",
+    "update-notifier": "5.1.0",
+    "yargs": "^17.4.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/glob": "^8.0.0",
+    "@types/inquirer": "^8.2.1",
+    "@types/lodash": "^4.14.170",
+    "@types/node": "^18.13.0",
+    "@types/nodemailer": "^6.4.4",
+    "@types/react": "18.0.20",
+    "@types/spinnies": "^0.5.0",
+    "@types/update-notifier": "^6.0.1",
+    "@types/yargs": "^17.0.10",
+    "cross-env": "^7.0.3",
+    "tailchat-shared": "workspace:*",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}

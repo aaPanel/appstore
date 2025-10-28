@@ -1,0 +1,43 @@
+{
+    "appid": 185,
+    "appname": "npsc",
+    "apptitle": "NPS 客户端",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "支持tcp、udp、socks5、http等几乎所有流量转发，并带有功能强大的web管理端",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 186,
+    "home": "",
+    "help": "https://github.com/yisier/nps/blob/master/docs/bt.md",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1722308764,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"npsc_server","name":"服务地址","type":"text","default":"","suffix":"服务地址,例如：172.16.10.103:8024","unit":""},
+        {"attr":"npsc_key","name":"连接密钥","type":"text","default":"","suffix":"连接密钥,例如：275629d253,d84b6932a1","unit":""},
+        {"attr":"npsc_type","name":"连接方式","type":"text","default":"tcp","suffix":"tcp/kcp","unit":""},
+        {"attr":"tls_enable","name":"开启TLS","type":"checkbox","default":false,"suffix":"是否开启TLS","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"npsc_server","type":"text","default":null,"desc":"服务地址"},
+        {"key":"npsc_key","type":"text","default":null,"desc":"服务地址"},
+        {"key":"npsc_type","type":"text","default":null,"desc":"服务地址"},
+        {"key":"tls_enable","type":"text","default":null,"desc":"服务地址"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+    ],
+    "volumes": {"conf": {"type": "path", "desc": ""}}
+}
