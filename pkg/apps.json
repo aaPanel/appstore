@@ -11485,5 +11485,47 @@
     {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
   ],
   "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
+},
+{
+  "appid": 262,
+  "appname": "bililiverecorder",
+  "apptitle": "录播姬",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
+  "appversion": [
+    {"m_version":"latest","s_version":[]}
+  ],
+  "appdesc": "录播姬是一款专为B站直播设计的录制工具，能够自动抓取B站直播回放及弹幕。具有使用简单、主播开播后自动开始录制、同时录制多个直播间、自动修复直播服务器导致的各种问题等特点。此外，它还提供工具箱模式用于修复旧版录制的视频文件，采用纯C#实现无需依赖ffmpeg等第三方组件，完全开源。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 24,
+  "home": "https://github.com/BililiveRecorder/BililiveRecorder",
+  "help": "https://github.com/BililiveRecorder/BililiveRecorder/blob/dev/README_CN.md",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1722408250,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+    {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+    {"attr":"bililiverecorder_web_port","name":"Web管理端口","type":"number","default":2356,"suffix":"录播姬Web管理界面访问端口","unit":""},
+    {"attr":"brec_http_basic_user","name":"管理员用户名","type":"text","default":"admin","suffix":"Web管理界面登录用户名","unit":""},
+    {"attr":"brec_http_basic_pass","name":"管理员密码","type":"text","default":"password","suffix":"Web管理界面登录密码","unit":""},
+    {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+    {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+  ],
+  "env": [
+    {"key":"bililiverecorder_web_port","type":"port","default":2356,"desc":"Web管理端口"},
+    {"key":"brec_http_basic_user","type":"string","default":"admin","desc":"管理员用户名"},
+    {"key":"brec_http_basic_pass","type":"string","default":"password","desc":"管理员密码"},
+    {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+    {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+    {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+    {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+  ],
+  "volumes": {"data": {"type": "path", "desc": "录制视频存储目录"}}
 }
 ]
