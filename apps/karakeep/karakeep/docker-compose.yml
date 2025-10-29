@@ -1,0 +1,68 @@
+services:
+  karakeep-web:
+    image: ghcr.1ms.run/karakeep-app/karakeep:${VERSION:-release}
+    restart: always
+    volumes:
+      - ${APP_PATH}/data:/data
+    ports:
+      - "${HOST_IP}:${KARAKEEP_WEB_PORT}:3000"
+    environment:
+      MEILI_ADDR: http://karakeep-meilisearch:7700
+      BROWSER_WEB_URL: http://karakeep-chrome:9222
+      NEXTAUTH_SECRET: IAEpHnt/S0Pu5+huCidcqTdqlEwdaJK2e6FO7yqx4rqpwHTE
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+      #在这里填写AI大模型相关的配置
+      OPENAI_API_KEY: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      OPENAI_BASE_URL: https://ark.cn-beijing.volces.com/api/v3
+      INFERENCE_TEXT_MODEL: doubao-seed-1-6-lite-251015
+      INFERENCE_IMAGE_MODEL: doubao-seed-1-6-lite-251015
+      INFERENCE_LANG: 中文
+      INFERENCE_NUM_WORKERS: 5
+      INFERENCE_OUTPUT_SCHEMA: plain
+      DATA_DIR: /data # DON'T CHANGE THIS
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+
+  karakeep-chrome:
+    image: zenika/alpine-chrome:124
+    restart: always
+    command:
+      - --no-sandbox
+      - --disable-gpu
+      - --disable-dev-shm-usage
+      - --remote-debugging-address=0.0.0.0
+      - --remote-debugging-port=9222
+      - --hide-scrollbars
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+
+  karakeep-meilisearch:
+    image: getmeili/meilisearch:v1.13.3
+    restart: always
+    environment:
+      MEILI_NO_ANALYTICS: "true"
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+    volumes:
+      - ${APP_PATH}/data/meilisearch:/meili_data
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+
+networks:
+  default:
+    name: baota_net
+    external: true

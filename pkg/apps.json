@@ -11447,5 +11447,43 @@
     {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
   ],
   "volumes": {}
+},
+{
+  "appid": 261,
+  "appname": "karakeep",
+  "apptitle": "Karakeep",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
+  "appversion": [
+    {"m_version":"latest","s_version":[]}
+  ],
+  "appdesc": "一个可自托管的书签应用程序，支持链接、笔记和图像管理，具有基于AI的自动标记和全文搜索功能。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 23,
+  "home": "https://github.com/karakeep-app/karakeep",
+  "help": "https://github.com/karakeep-app/karakeep",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1722408250,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+    {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+    {"attr":"karakeep_web_port","name":"Web端口","type":"number","default":3000,"suffix":"Karakeep Web界面访问端口","unit":""},
+    {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+    {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+  ],
+  "env": [
+    {"key":"karakeep_web_port","type":"port","default":3000,"desc":"Web端口"},
+    {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+    {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+    {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+    {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+  ],
+  "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
 }
 ]
