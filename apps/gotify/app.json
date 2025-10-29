@@ -1,0 +1,44 @@
+{
+  "appid": 264,
+  "appname": "gotify",
+  "apptitle": "Gotify",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
+  "appversion": [
+    {"m_version": "latest","s_version": []}
+  ],
+  "appdesc": "Gotify是一个基于WebSocket的轻量级消息推送服务器。支持安卓/iOS客户端实时接收、网页端消息管理、REST API对接任意系统，全程数据掌握在自己服务器。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 24,
+  "home": "https://github.com/gotify/server",
+  "help": "https://github.com/gotify/server",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1761719326,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
+    {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
+    {"attr": "web_http_port", "name": "web端口", "type": "number", "default": 8385, "suffix": "Web访问端口", "unit": ""},
+    {"attr": "gotify_defaultuser_name", "name": "管理员账号", "type": "text", "default": "admin", "suffix": "默认管理员账号", "unit": ""},
+    {"attr": "gotify_defaultuser_pass", "name": "管理员密码", "type": "password", "default": "yourpassword", "suffix": "默认管理员密码", "unit": ""},
+    {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
+    {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+  ],
+  "env": [
+    {"key": "web_http_port", "type": "port", "default": 8385, "desc": "web端口"},
+    {"key": "gotify_defaultuser_name", "type": "string", "default": "admin", "desc": "管理员账号"},
+    {"key": "gotify_defaultuser_pass", "type": "string", "default": "yourpassword", "desc": "管理员密码"},
+    {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
+    {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
+    {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
+    {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
+  ],
+  "volumes": {
+    "data": {"type": "path", "desc": "应用数据目录"}
+  }
+}
