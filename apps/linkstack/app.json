@@ -1,0 +1,41 @@
+{
+  "appid": 267,
+  "appname": "linkstack",
+  "apptitle": "LinkStack",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
+  "appversion": [
+    {"m_version": "latest","s_version": []}
+  ],
+  "appdesc": "LinkStack 用于快速搭建个性化专业个人主页，在一个地方展示所有重要链接，几分钟即可在自己的服务器上部署。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 25,
+  "home": "https://github.com/LinkStackOrg/LinkStack",
+  "help": "https://github.com/LinkStackOrg/LinkStack",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1761798649,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
+    {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
+    {"attr": "linkstack_web_port", "name": "Web端口", "type": "number", "default": 6688, "suffix": "Web访问端口", "unit": ""},
+    {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
+    {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+  ],
+  "env": [
+    {"key":"version","type":"string","default":null,"desc":"版本号"},
+    {"key": "linkstack_web_port","type": "port","default": 6688,"desc": "Web端口"},
+    {"key": "app_path","type": "path","default": null,"desc": "应用数据目录"},
+    {"key": "host_ip","type": "string","default": null,"desc": "主机IP"},
+    {"key": "cpus","type": "number","default": null,"desc": "CPU核心数限制"},
+    {"key": "memory_limit","type": "number","default": null,"desc": "内存大小限制"}
+  ],
+  "volumes": {
+    "data": {"type": "path","desc": "应用数据目录"}
+  }
+}
