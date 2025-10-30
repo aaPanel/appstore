@@ -11649,8 +11649,8 @@
   "appid": 266,
   "appname": "dzzoffice",
   "apptitle": "DzzOffice",
-  "apptype": "Tools",
-  "appTypeCN": "实用工具",
+  "apptype": "Storage",
+  "appTypeCN": "存储/网盘",
   "appversion": [
     {"m_version":"latest","s_version":[]}
   ],
