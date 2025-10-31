@@ -6,6 +6,8 @@ import argparse
 from datetime import datetime
 from pathlib import Path
 
+import deploy
+
 
 def ts() -> str:
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -113,6 +115,8 @@ def process_all_icons(apps_dir: Path, icon_target_directory: Path, debug: bool, 
         zip_directory(icon_target_directory, pkg_dir / "dkapp_ico.zip", pkg_dir)
         if debug:
             ok(f"全部图标打包完成，共复制 {copied} 个图标")
+        #移除图标文件夹
+        shutil.rmtree(icon_target_directory)
     else:
         warn("未复制到任何图标，跳过打包")
 
@@ -315,6 +319,7 @@ def main():
 
     if args.cmd == 'package':
         process_apps(selected_apps=args.apps if args.apps else None, debug=args.debug)
+        deploy.main(args.apps)
     else:
         parser.print_help()
 
