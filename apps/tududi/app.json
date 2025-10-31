@@ -1,0 +1,48 @@
+{
+  "appid": 276,
+  "appname": "tududi",
+  "apptitle": "Tududi",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
+  "appversion": [
+    {
+      "m_version": "latest",
+      "s_version": []
+    }
+  ],
+  "appdesc": "一个轻量级的任务管理、笔记整理和项目跟踪工具，支持手机、平板、电脑三端同步操作。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 23,
+  "home": "https://github.com/chrisvel/tududi",
+  "help": "https://github.com/chrisvel/tududi",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1761894259,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
+    {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
+    {"attr": "tududi_web_port", "name": "Web端口", "type": "number", "default": 9292, "suffix": "Tududi Web界面访问端口", "unit": ""},
+    {"attr": "tududi_user_email", "name": "管理员邮箱", "type": "text", "default": "admin@yourdomain.com", "suffix": "管理员登录邮箱", "unit": ""},
+    {"attr": "tududi_user_password", "name": "管理员密码", "type": "password", "default": "YourStrongPassword", "suffix": "管理员登录密码", "unit": ""},
+    {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
+    {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+  ],
+  "env": [
+    {"key": "version", "type": "string", "default": "0.17", "desc": "版本号"},
+    {"key": "tududi_web_port", "type": "port", "default": 9292, "desc": "Web端口"},
+    {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
+    {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
+    {"key": "tududi_user_email", "type": "string", "default": "admin@yourdomain.com", "desc": "管理员邮箱"},
+    {"key": "tududi_user_password", "type": "string", "default": "YourStrongPassword", "desc": "管理员密码"},
+    {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
+    {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
+  ],
+  "volumes": {
+    "data": {"type": "path", "desc": "应用数据目录"}
+  }
+}
