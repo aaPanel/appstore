@@ -1,0 +1,25 @@
+services:
+  synctv:
+    image: synctvorg/synctv:latest
+    restart: always
+    ports:
+      - "${HOST_IP}:${SYNCTV_WEB_PORT}:8080"
+    volumes:
+      - ${APP_PATH}/data/data:/root/.synctv
+    environment:
+      - TZ=${TZ}
+      - SYNC_TV_PROXY=${SYNC_TV_PROXY}
+      - SYNC_TV_MAX_ROOMS=${SYNC_TV_MAX_ROOMS}
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
