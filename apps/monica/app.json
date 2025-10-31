@@ -1,0 +1,44 @@
+{
+  "appid": 277,
+  "appname": "monica",
+  "apptitle": "Monica",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
+  "appversion": [
+    {
+      "m_version": "latest",
+      "s_version": []
+    }
+  ],
+  "appdesc": "一款开源的个人社交关系管理工具，可以记录联系人的生日、纪念日、子女信息，每次通话/见面后的关键对话内容，未及时回复的重要事项提醒，以及统计与朋友的上次联系时间。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 24,
+  "home": "https://github.com/monicahq/monica",
+  "help": "https://github.com/monicahq/monica",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1761895197,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
+    {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
+    {"attr": "monica_web_port", "name": "Web端口", "type": "number", "default": 3780, "suffix": "Monica Web界面访问端口", "unit": ""},
+    {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
+    {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+  ],
+  "env": [
+    {"key": "version", "type": "string", "default": "3.3.1-fpm", "desc": "版本号"},
+    {"key": "monica_web_port", "type": "port", "default": 3780, "desc": "Web端口"},
+    {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
+    {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
+    {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
+    {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
+  ],
+  "volumes": {
+    "data": {"type": "path", "desc": "应用数据目录"}
+  }
+}
