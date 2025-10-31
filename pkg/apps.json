@@ -12185,7 +12185,7 @@
   "cpu": 0,
   "mem": 0,
   "disk": 10240,
-  "updateat": 1761898149,
+  "updateat": 1761898879,
   "installed": false,
   "reuse": true,
   "depend": null,
@@ -12202,6 +12202,45 @@
     {"key":"watchyourlan_web_port","type":"port","default":8840,"desc":"Web端口"},
     {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
     {"key":"iface","type":"string","default":"eth0","desc":"网络接口名称"},
+    {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+    {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+  ],
+  "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
+},
+{
+  "appid": 279,
+  "appname": "myspeed",
+  "apptitle": "MySpeed",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
+  "appversion": [
+    {"m_version":"latest","s_version":[]}
+  ],
+  "appdesc": "MySpeed是个能自动记录网络质量的Docker应用，不仅支持单次测速，还能像行车记录仪一样持续监控你的网络状态。当网络出问题时，它能通过微信、钉钉等即时通知你。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 23,
+  "home": "https://github.com/gnmyt/myspeed",
+  "help": "https://github.com/gnmyt/myspeed",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1761899041,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+    {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+    {"attr":"myspeed_web_port","name":"Web端口","type":"number","default":5216,"suffix":"MySpeed Web界面访问端口","unit":""},
+    {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+    {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+  ],
+  "env": [
+    {"key":"version","type":"string","default":null,"desc":"版本号"},
+    {"key":"myspeed_web_port","type":"port","default":5216,"desc":"Web端口"},
+    {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+    {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
     {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
     {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
   ],

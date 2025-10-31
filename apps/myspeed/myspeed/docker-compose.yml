@@ -1,0 +1,21 @@
+services:
+  myspeed:
+    image: germannewsmaker/myspeed:latest
+    ports:
+      - "${HOST_IP}:${MYSPEED_WEB_PORT}:5216"
+    volumes:
+      - ${APP_PATH}/data:/myspeed/data
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
