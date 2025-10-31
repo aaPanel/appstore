@@ -1,0 +1,47 @@
+{
+  "appid": 281,
+  "appname": "serpbear",
+  "apptitle": "SerpBear",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
+  "appversion": [
+    { "m_version": "latest", "s_version": [] }
+  ],
+  "appdesc": "开箱即用的SEO监控平台：1️⃣ 7×24小时自动监控关键词排名变动；2️⃣ 邮件/APP实时推送排名波动预警；3️⃣ 生成可视化报表分析流量变化趋势；4️⃣ 支持API对接第三方SEO工具。• 无限添加域名和关键词 • 每日/周/月邮件推送排名报告 • 原生支持CSV数据导出 • 内置API对接其他营销工具 • PWA渐进式网页应用（支持手机端）",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 22,
+  "home": "https://github.com/towfiqi/serpbear",
+  "help": "https://github.com/towfiqi/serpbear",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1761902895,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    { "attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": "" },
+    { "attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": "" },
+    { "attr": "serpbear_web_port", "name": "web端口", "type": "number", "default": 3377, "suffix": "", "unit": "" },
+    { "attr": "user", "name": "管理员用户", "type": "text", "default": "", "suffix": "", "unit": "" },
+    { "attr": "password", "name": "管理员密码", "type": "text", "default": "", "suffix": "", "unit": "" },
+    { "attr": "next_public_app_url", "name": "应用访问URL", "type": "text", "default": "http://127.0.0.1:3377", "suffix": "", "unit": "" },
+    { "attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": "" },
+    { "attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": "" }
+  ],
+  "env": [
+    { "key": "version", "type": "string", "default": null, "desc": "版本号" },
+    { "key": "serpbear_web_port", "type": "port", "default": 3377, "desc": "web端口" },
+    { "key": "app_path", "type": "path", "default": null, "desc": "应用数据目录" },
+    { "key": "host_ip", "type": "string", "default": null, "desc": "主机IP" },
+    { "key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制" },
+    { "key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制" },
+    { "key": "user", "type": "string", "default": null, "desc": "管理员用户" },
+    { "key": "password", "type": "string", "default": null, "desc": "管理员密码" },
+    { "key": "next_public_app_url", "type": "string", "default": "http://127.0.0.1:3377", "desc": "应用访问URL" }
+  ],
+  "volumes": {
+    "data": { "type": "path", "desc": "应用数据目录" }
+  }
+}
