@@ -5184,12 +5184,12 @@
   "appid": 98,
   "appname": "jellyfin",
   "apptitle": "Jellyfin",
-  "apptype": "Media",
-  "appTypeCN": "多媒体",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
   "appversion": [
     {"m_version":"latest","s_version":[]}
   ],
-  "appdesc": "Jellyfin 是一个开源的媒体服务器",
+  "appdesc": "Jellyfin 是一款开源媒体服务器，能自动抓取影视元数据生成精美海报墙。支持实时转码，手机平板电视都能流畅播放，让你的群晖NAS秒变家庭影院",
   "appstatus": 1,
   "icon": "",
   "sort": 98,
