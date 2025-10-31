@@ -1,0 +1,56 @@
+services:
+  ghostfolio:
+    image: ghostfolio/ghostfolio:latest
+    ports:
+      - "${HOST_IP}:${GHOSTFOLIO_WEB_PORT}:3333"
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - ghostfolio-postgres
+      - ghostfolio-redis
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  ghostfolio-postgres:
+    image: library/postgres:15-alpine
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ${APP_PATH}/data/postgres:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  ghostfolio-redis:
+    image: library/redis:alpine
+    restart: always
+    env_file:
+      - .env
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
