@@ -12045,5 +12045,44 @@
     {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
   ],
   "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
+},
+{
+  "appid": 275,
+  "appname": "daedalos",
+  "apptitle": "DaedalOS",
+  "apptype": "nas",
+  "appTypeCN": "Nas",
+  "appversion": [
+    {"m_version":"latest","s_version":[]}
+  ],
+  "appdesc": "DaedalOS 是一款用 JavaScript 打造的 Web 桌面系统，复刻 Windows 98 操作体验，内置 DOS 模拟器可运行 16/32 位 Windows 程序，支持从扫雷纸牌到《魔兽争霸2》，并可用 Winamp 播放本地音乐。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 22,
+  "home": "https://github.com/DustinBrett/daedalOS",
+  "help": "https://github.com/DustinBrett/daedalOS",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1761881808,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+    {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+    {"attr":"daedalos_web_port","name":"Web端口","type":"number","default":3471,"suffix":"","unit":""},
+    {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+    {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+  ],
+  "env": [
+    {"key":"version","type":"string","default":null,"desc":"版本号"},
+    {"key":"daedalos_web_port","type":"port","default":3471,"desc":"Web端口"},
+    {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+    {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+    {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+    {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+  ],
+  "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
 }
 ]
