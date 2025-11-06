@@ -1,23 +1,25 @@
 services:
-  BT_SERVICE_NAME6:
+  snailjob:
     image: xlsea/snail-job-panel:${VERSION}
-    #    container_name: ${CONTAINER_NAME}
+    container_name: ${CONTAINER_NAME}
     deploy:
       resources:
         limits:
           cpus: ${CPUS}
           memory: ${MEMORY_LIMIT}
     ports:
-      - ${HOST_IP}:${NETTY_PORT}:1788
+      - ${HOST_IP}:${NETTY_PORT}:17888
       - ${HOST_IP}:${WEB_HTTP_PORT}:8080
     volumes:
       - ${APP_PATH}/log:/snailjob/server/data/log/
     environment:
+      - TZ=Asia/Shanghai
       - SERVER_SERVLET_CONTEXT_PATH=/
       - SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.cj.jdbc.Driver
       - SPRING_DATASOURCE_USERNAME=${SNAILJOB_USER}
       - SPRING_DATASOURCE_PASSWORD=${SNAILJOB_PASSWORD}
       - SPRING_DATASOURCE_URL=jdbc:mysql://${SNAILJOB_HOST}:${SNAILJOB_PORT}/${SNAILJOB_NAME}?useSSL=false&characterEncoding=utf8&useUnicode=true
+      # 如果不需要执行 sql，请修改为 none；如果是 1.2.0 升级至 1.8.1，请修改为 /snailjob/server/sql/snail_job_mysql_update_1.2.0_1.8.1.sql
       - DATASOURCE_SQL_FILE=/snailjob/server/sql/snail_job_mysql.sql
     restart: always
     user: root
