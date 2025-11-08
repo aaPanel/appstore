@@ -5,6 +5,7 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
+        {"m_version":"1","s_version":["8.1"]},
         {"m_version":"1","s_version":["2.0"]}
     ],
     "appdesc": "一个灵活，可靠和快速的分布式任务重试和分布式任务调度平台",
