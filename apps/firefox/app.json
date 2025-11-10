@@ -1,0 +1,48 @@
+{
+    "appid": 284,
+    "appname": "firefox",
+    "apptitle": "Firefox浏览器",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {
+            "m_version": "latest",
+            "s_version": []
+        }
+    ],
+    "appdesc": "Mozilla Firefox 是由 Mozilla 基金会及其子公司 Mozilla Corporation 开发的免费开源网络浏览器。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 22,
+    "home": "https://github.com/jlesage/docker-firefox",
+    "help": "https://github.com/jlesage/docker-firefox",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1762744825,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
+        {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
+        {"attr": "firefox_vnc_port", "name": "VNC Web端口", "type": "number", "default": 5800, "suffix": "VNC Web界面访问端口", "unit": ""},
+        {"attr": "firefox_vnc_password", "name": "VNC密码", "type": "number", "default": "admin", "suffix": "VNC连接密码", "unit": ""},
+        {"attr": "install_font", "name": "安装中文字体", "type": "number", "default": "1", "suffix": "1安装 0不安装(安装字体需要等待一定时间)", "unit": ""},
+        {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
+        {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+    ],
+    "env": [
+        {"key": "version", "type": "string", "default": null, "desc": "版本号"},
+        {"key": "firefox_vnc_port", "type": "port", "default": 5800, "desc": "VNC Web端口"},
+        {"key": "firefox_vnc_password", "type": "string", "default": "", "desc": "VNC密码"},
+        {"key": "install_font", "type": "number", "default": "", "desc": "安装中文字体"},
+        {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
+        {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
+        {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
+        {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
+    ],
+    "volumes": {
+        "data": {"type": "path", "desc": "应用配置数据目录"}
+    }
+}

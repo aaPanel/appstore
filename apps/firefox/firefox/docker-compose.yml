@@ -1,0 +1,30 @@
+services:
+  firefox:
+    image: jlesage/firefox:latest
+    ports:
+      - "${HOST_IP}:${FIREFOX_VNC_PORT}:5800"
+#      - "${HOST_IP}:${FIREFOX_VNC_SERVER_PORT}:5900"
+    environment:
+      - TZ=Asia/Shanghai
+      - DISPLAY_WIDTH=1920
+      - DISPLAY_HEIGHT=1080
+      - KEEP_APP_RUNNING=1
+      - ENABLE_CJK_FONT=${INSTALL_FONT}
+      - VNC_PASSWORD=${VNC_PASSWORD}
+    volumes:
+      - ${APP_PATH}/data/config:/config:rw
+    shm_size: 2g
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT}"
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
