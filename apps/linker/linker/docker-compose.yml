@@ -1,0 +1,29 @@
+services:
+  linker:
+    image: snltty/linker
+    container_name: linker
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    privileged: true
+    network_mode: host
+    restart: always
+    tty: true
+    stdin_open: true
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - SNLTTY_LINKER_IS_BT=linker
+    volumes:
+      - ${APP_PATH}/configs:/app/configs
+      - ${APP_PATH}/logs:/app/logs
+    labels:
+      createdBy: "bt_apps"
+    #networks:
+    #  - baota_net
+
+#networks:
+#  baota_net:
+#    external: true
