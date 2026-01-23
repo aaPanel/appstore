@@ -26,15 +26,13 @@
         {"attr":"web_http_port","name":"web端口","type":"number","default":1081,"suffix":"","unit":""},
         {"attr":"SERVICE_PORT","name":"SERVICE端口","type":"number","default":9200,"suffix":"","unit":""},
         {"attr":"INFLUXDB_PORT","name":"INFLUXDB端口","type":"number","default":8086,"suffix":"","unit":""},
-        {"attr":"GUACD_PORT","name":"GUACD服务端口","type":"number","default":4822,"suffix":"","unit":""},
-        {"attr":"ADMINER_PORT","name":"管理端口","type":"number","default":8081,"suffix":"","unit":""}
+        {"attr":"GUACD_PORT","name":"GUACD服务端口","type":"number","default":4822,"suffix":"","unit":""}
     ],
     "env": [
         {"key":"version","type":"string","default":null,"desc":"版本号"},
         {"key":"web_http_port","type":"port","default":null,"desc":"SERVICE端口"},
         {"key":"SERVICE_PORT","type":"port","default":null,"desc":"INFLUXDB端口"},
         {"key":"INFLUXDB_PORT","type":"port","default":null,"desc":"GUACD服务端口"},
-        {"key":"ADMINER_PORT","type":"port","default":null,"desc":"管理端口"},
         {"key":"GUACD_PORT","type":"port","default":null,"desc":"GUACD服务端口"},
         {"key":"defaultUserName","type":"defaultUserName","default":"admin","desc":"用户名"},
         {"key":"defaultPassWord","type":"defaultPassWord","default":"admin","desc":"默认密码"},
