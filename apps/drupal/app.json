@@ -5,7 +5,7 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {"m_version":"10-apache","s_version":[]}
+        {"m_version":"10","s_version":["10.6.2-php8.4-fpm-trixie","10.6.2-php8.4-fpm-alpine3.23","10.6.2-php8.4-fpm-alpine3.22","10.6.2-php8.4-fpm-alpine","10.6.2-php8.4-fpm","10.6.2-php8.4-apache-trixie","10.6.2-php8.4-apache","10.6.2-php8.4","10.6.2-php8.3-fpm-trixie","10.6.2-php8.3-fpm-alpine3.23","10.6.2-php8.3-fpm-alpine3.22","10.6.2-php8.3-fpm-alpine","10.6.2-php8.3-fpm","10.6.2-php8.3-apache-trixie","10.6.2-php8.3-apache","10.6.2-php8.3","10.6.2-fpm-trixie","10.6.2-fpm-alpine3.23","10.6.2-fpm-alpine3.22","10.6.2-fpm-alpine","10.6.2-fpm","10.6.2-apache-trixie","10.6.2-apache","10.6.2","10.6-php8.4-fpm-trixie","10.6-php8.4-fpm-alpine3.23","10.6-php8.4-fpm-alpine3.22","10.6-php8.4-fpm-alpine","10.6-php8.4-fpm","10.6-php8.4-apache-trixie","10.6-php8.4-apache","10.6-php8.4","10.6-php8.3-fpm-trixie","10.6-php8.3-fpm-alpine3.23","10.6-php8.3-fpm-alpine3.22","10.6-php8.3-fpm-alpine","10.6-php8.3-fpm","10.6-php8.3-apache-trixie","10.6-php8.3-apache","10.6-php8.3","10.6-fpm-trixie","10.6-fpm-alpine3.23","10.6-fpm-alpine3.22","10.6-fpm-alpine","10.6-fpm","10.6-apache-trixie","10.6-apache","10.6","10.5.8-php8.4-fpm-trixie","10.5.8-php8.4-fpm-alpine3.23","10.5.8-php8.4-fpm-alpine3.22","10.5.8-php8.4-fpm-alpine","10.5.8-php8.4-fpm","10.5.8-php8.4-apache-trixie","10.5.8-php8.4-apache","10.5.8-php8.4","10.5.8-php8.3-fpm-trixie","10.5.8-php8.3-fpm-alpine3.23","10.5.8-php8.3-fpm-alpine3.22","10.5.8-php8.3-fpm-alpine","10.5.8-php8.3-fpm","10.5.8-php8.3-apache-trixie","10.5.8-php8.3-apache","10.5.8-php8.3","10.5.8-fpm-trixie","10.5.8-fpm-alpine3.23","10.5.8-fpm-alpine3.22","10.5.8-fpm-alpine","10.5.8-fpm","10.5.8-apache-trixie","10.5.8-apache","10.5.8","10.5-php8.4-fpm-trixie","10.5-php8.4-fpm-alpine3.23","10.5-php8.4-fpm-alpine3.22","10.5-php8.4-fpm-alpine","10.5-php8.4-fpm","10.5-php8.4-apache-trixie","10.5-php8.4-apache","10.5-php8.4","10.5-php8.3-fpm-trixie","10.5-php8.3-fpm-alpine3.23","10.5-php8.3-fpm-alpine3.22","10.5-php8.3-fpm-alpine","10.5-php8.3-fpm","10.5-php8.3-apache-trixie","10.5-php8.3-apache","10.5-php8.3","10.5-fpm-trixie","10.5-fpm-alpine3.23","10.5-fpm-alpine3.22","10.5-fpm-alpine","10.5-fpm","10.5-apache-trixie","10.5-apache","10.5","10-php8.4-fpm-trixie","10-php8.4-fpm-alpine3.23","10-php8.4-fpm-alpine3.22","10-php8.4-fpm-alpine"]}
     ],
     "appdesc": "一个免费的开源内容管理框架，用PHP编写",
     "appstatus": 1,
@@ -16,7 +16,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487743,
     "installed": false,
     "reuse": true,
     "depend": null,

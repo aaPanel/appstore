@@ -5,7 +5,17 @@
     "apptype": "MCP",
     "appTypeCN": "MCP服务",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"uvx","s_version":[]},
+        {"m_version":"base","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"deno","s_version":[]},
+        {"m_version":"sha-d0fac60","s_version":[]},
+        {"m_version":"sha-04ff7d6","s_version":[]},
+        {"m_version":"sha-447cd75","s_version":[]},
+        {"m_version":"sha-705e7cd","s_version":[]},
+        {"m_version":"sha-848c1cc","s_version":[]},
+        {"m_version":"3","s_version":["3.4.3-uvx","3.4.3","3.4.3-deno","3.4.2-uvx","3.4.2","3.4.2-deno","3.4.1-uvx","3.4.1","3.4.1-deno","3.4.0-uvx","3.4.0","3.4.0-deno","3.3.0-uvx","3.3.0","3.3.0-deno","3.2.0-uvx","3.2.0","3.2.0-deno","3.1.0-uvx","3.1.0","3.1.0-deno","3.0.1-uvx","3.0.1","3.0.1-deno","3.0.0-uvx","3.0.0","3.0.0-deno"]},
+        {"m_version":"2","s_version":["2.8.3-deno","2.8.3","2.8.3-uvx","v2.7.0","v2.6.0","v2.5.0","v2.4.0","v2.3.2"]}
     ],
     "appdesc": "基于SuperGateway的SSE服务建立一个MCPServer。仅支持NPX所启动的服务(仅适用于宝塔9.6.0以上版本)",
     "appstatus": 1,
@@ -16,7 +26,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1745225703,
+    "updateat": 1769487755,
     "installed": false,
     "reuse": true,
     "depend": null,

@@ -5,7 +5,10 @@
     "apptype": "AI",
     "appTypeCN": "AI/大模型",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"latest-arm64","s_version":[]},
+        {"m_version":"latest-amd64","s_version":[]},
+        {"m_version":"0","s_version":["v0.10.5","v0.10.5-arm64","v0.10.5-amd64","v0.10.5-ionet.2","v0.10.5-ionet.2-arm64","v0.10.5-ionet.2-amd64","v0.10.5-checkin.1","v0.10.5-checkin.1-arm64","v0.10.5-checkin.1-amd64","v0.10.5-bailian.2","v0.10.5-bailian.2-amd64","v0.10.5-bailian.2-arm64","v0.10.5-bailian.1","v0.10.5-bailian.1-arm64","v0.10.5-bailian.1-amd64","v0.10.5-ionet.1","v0.10.5-ionet.1-amd64","v0.10.5-ionet.1-arm64","v0.10.4","v0.10.4-arm64","v0.10.4-amd64","v0.10.3","v0.10.3-amd64","v0.10.3-arm64","v0.10.2","v0.10.2-amd64","v0.10.2-arm64","v0.10.1","v0.10.1-arm64","v0.10.1-amd64","v0.10.0","v0.10.0-amd64","v0.10.0-arm64","v0.9.28","v0.9.28-arm64","v0.9.28-amd64","v0.9.27-patch.1","v0.9.27-patch.1-arm64","v0.9.27-patch.1-amd64","v0.9.26","v0.9.26-arm64","v0.9.26-amd64","v0.9.25","v0.9.25-arm64","v0.9.25-amd64","v0.9.24","v0.9.24-arm64","v0.9.24-amd64","v0.9.23","v0.9.23-arm64","v0.9.23-amd64","v0.9.22-patch.1"]}
     ],
     "appdesc": "AI模型接口管理与分发系统，支持将多种大模型转为OpenAI格式调用",
     "appstatus": 1,
@@ -16,7 +19,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487759,
     "installed": false,
     "reuse": true,
     "depend": null,

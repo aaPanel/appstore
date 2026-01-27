@@ -5,8 +5,13 @@
     "apptype": "Middleware",
     "appTypeCN": "中间件",
     "appversion": [
-        {"m_version":"7","s_version":["4.0","2.5","0.15"]},
-        {"m_version":"6","s_version":["2.14"]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"bookworm","s_version":[]},
+        {"m_version":"alpine3.22","s_version":[]},
+        {"m_version":"alpine","s_version":[]},
+        {"m_version":"8","s_version":["8.4.0-bookworm","8.4.0","8.4-bookworm","8.4","8.2.3-bookworm","8.2.3","8.2-bookworm","8.2","8.0.5-bookworm","8.0.5","8.0-bookworm","8.0","8-bookworm","8","8.4.0-alpine3.22","8.4.0-alpine","8.4-alpine3.22","8.4-alpine","8-alpine3.22","8-alpine","8.0.5-alpine3.21","8.0.5-alpine","8.0-alpine3.21","8.0-alpine","8.2.3-alpine3.22","8.2.3-alpine","8.2-alpine3.22","8.2-alpine","8.2.2-bookworm","8.2.2","8.0.4-bookworm","8.0.4","8.2.2-alpine3.22","8.2.2-alpine","8.0.4-alpine3.21","8.0.4-alpine","8.2.1-bookworm","8.2.1","8.0.3-bookworm","8.0.3"]},
+        {"m_version":"7","s_version":["7.4.7-bookworm","7.4.7","7.4-bookworm","7.4","7.2.12-bookworm","7.2.12","7.2-bookworm","7.2","7-bookworm","7","7.4.7-alpine3.21","7.4.7-alpine","7.4-alpine3.21","7.4-alpine","7.2.12-alpine3.21","7.2.12-alpine","7.2-alpine3.21","7.2-alpine","7-alpine3.21","7-alpine","7.4.6-bookworm","7.4.6","7.2.11-bookworm","7.2.11","7.4.6-alpine3.21","7.4.6-alpine","7.2.11-alpine3.21","7.2.11-alpine","7.4.5-bookworm","7.4.5","7.2.10-bookworm","7.2.10"]},
+        {"m_version":"6","s_version":["6.2.21-bookworm","6.2.21","6.2-bookworm","6.2","6-bookworm","6","6.2.21-alpine3.21","6.2.21-alpine","6.2-alpine3.21","6.2-alpine","6-alpine3.21","6-alpine","6.2.20-bookworm","6.2.20","6.2.20-alpine3.21","6.2.20-alpine"]}
     ],
     "appdesc": "内存存储的数据结构服务器，可用作数据库，高速缓存和消息队列代理",
     "appstatus": 1,
@@ -17,7 +22,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722408250,
+    "updateat": 1769488477,
     "installed": false,
     "reuse": true,
     "depend": null,

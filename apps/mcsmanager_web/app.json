@@ -5,7 +5,8 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"10","s_version":["v10.12.2","v10.12.1","v10.12.0","v10.11.0","v10.10.3","v10.10.2","v10.10.1","v10.10.0","v10.9.0","v10.8.7","v10.8.6","v10.8.5","v10.8.4","v10.8.3","v10.8.2","v10.8.1","v10.8.0","v10.7.1","v10.7.0","v10.6.1","v10.6.0","v10.5.3","v10.5.2","v10.5.1","v10.5.0","v10.4.3","v10.4.2"]}
     ],
     "appdesc": "MCSManager 是一款开源、分布式、一键部署、支持 Minecraft 和 Steam 游戏服务器 的控制面板。",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722408250,
+    "updateat": 1769487755,
     "installed": false,
     "reuse": true,
     "depend": null,

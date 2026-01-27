@@ -5,7 +5,9 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"s6","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"2","s_version":["v2-s6","v2.56.0-s6","v2","v2.56.0","v2-arm64-s6","v2.56.0-arm64-s6","v2-amd64-s6","v2.56.0-amd64-s6","v2-armv7","v2.56.0-armv7","v2-arm64","v2.56.0-arm64","v2-armv6","v2.56.0-armv6","v2-amd64","v2.56.0-amd64","v2.55.0-s6","v2.55.0","v2.55.0-arm64-s6","v2.55.0-armv6","v2.55.0-amd64-s6","v2.55.0-armv7","v2.55.0-arm64","v2.55.0-amd64","v2.54.0-s6","v2.54.0","v2.54.0-arm64-s6","v2.54.0-armv7","v2.54.0-armv6","v2.54.0-arm64","v2.54.0-amd64-s6","v2.54.0-amd64","v2.53.1-s6","v2.53.1","v2.53.1-arm64-s6","v2.53.1-amd64-s6","v2.53.1-armv6","v2.53.1-armv7","v2.53.1-arm64","v2.53.1-amd64","v2.53.0-s6","v2.53.0","v2.53.0-arm64-s6","v2.53.0-amd64-s6","v2.53.0-armv6","v2.53.0-arm64","v2.53.0-armv7","v2.53.0-amd64","v2.52.0-s6","v2.52.0","v2.52.0-arm64-s6","v2.52.0-armv6","v2.52.0-amd64-s6","v2.52.0-arm64","v2.52.0-armv7","v2.52.0-amd64","v2.51.2-s6","v2.51.2","v2.51.2-arm64-s6","v2.51.2-amd64-s6","v2.51.2-arm64","v2.51.2-armv7","v2.51.2-armv6","v2.51.2-amd64","v2.51.1-s6","v2.51.1","v2.51.1-arm64-s6","v2.51.1-amd64-s6","v2.51.1-arm64","v2.51.1-armv7","v2.51.1-armv6","v2.51.1-amd64","v2.51.0-s6","v2.51.0","v2.51.0-arm64-s6","v2.51.0-armv7","v2.51.0-arm64","v2.51.0-armv6","v2.51.0-amd64-s6","v2.51.0-amd64","v2.50.0-s6","v2.50.0","v2.50.0-arm64-s6","v2.50.0-arm64","v2.50.0-armv7","v2.50.0-armv6","v2.50.0-amd64-s6","v2.50.0-amd64","v2.49.0-s6","v2.49.0","v2.49.0-arm64-s6","v2.49.0-amd64-s6","v2.49.0-arm64","v2.49.0-armv7","v2.49.0-armv6","v2.49.0-amd64","v2.48.2-s6","v2.48.2"]}
     ],
     "appdesc": "FileBrowser 是一个开源的在线文件管理系统",
     "appstatus": 1,
@@ -16,7 +18,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487744,
     "installed": false,
     "reuse": true,
     "depend": null,

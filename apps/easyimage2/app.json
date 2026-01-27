@@ -5,7 +5,12 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"latest_arm","s_version":[]},
+        {"m_version":"latest_arm64","s_version":[]},
+        {"m_version":"latest_amd64","s_version":[]},
+        {"m_version":"test","s_version":[]},
+        {"m_version":"2","s_version":["v2.8.6","v2.8.5","v2.8.4","v2.8.3-r4","v2.8.3-r3","v2.8.3-r2","v2.8.3-r1","v2.8.3","v2.8.2","v2.8.1-r3","v2.8.1-r2","v2.8.1","v2.8.1_arm64","v2.8.1_arm","v2.8.1_amd64","v2.8.0","v2.8.0_arm64","v2.8.0_arm","v2.8.0_amd64","v2.7.9-r1","v2.7.9-r1_arm64","v2.7.9-r1_arm","v2.7.9-r1_amd64","v2.7.9","v2.7.9_arm64","v2.7.9_arm","v2.7.9_amd64","v2.7.7","v2.7.7_arm","v2.7.7_arm64","v2.7.7_amd64","v2.7.6-r1","v2.7.6-r1_arm","v2.7.6-r1_arm64","v2.7.6-r1_amd64","v2.7.6","v2.7.6_arm64","v2.7.6_amd64","v2.7.6_arm","v2.7.5-r1","v2.7.5-r1_arm64","v2.7.5-r1_arm","v2.7.5-r1_amd64","v2.7.5","v2.7.5_arm64","v2.7.5_amd64","v2.7.5_arm","v2.7.4","v2.7.4_amd64","v2.7.4_arm","v2.7.4_arm64","v2.7.3","v2.7.3_arm","v2.7.3_amd64","v2.7.3_arm64","v2.7.1","v2.7.1_arm64","v2.7.1_arm","v2.7.1_amd64","v2.7.0","v2.7.0_amd64","v2.7.0_arm64","v2.7.0_arm","v2.6.9","v2.6.9_amd64","v2.6.9_arm","v2.6.9_arm64","v2.6.8","v2.6.8_arm","v2.6.8_amd64","v2.6.8_arm64","v2.6.7","v2.6.7_arm","v2.6.7_arm64","v2.6.7_amd64","2.6.6.9.1-other","2.6.6.9.1","2.6.6.9-other","2.6.6.9","2.6.6.8","2.6.6.8-other","2.6.6.7","2.6.6.7-other","2.6.6.6-other","2.6.6.6","2.6.6.5-arm64","2.6.6.5","2.6.6.4-arm64","2.6.6.4","2.6.6.2","2.6.6.1"]}
     ],
     "appdesc": "EasyImage2 是一个开源的图片处理工具",
     "appstatus": 1,
@@ -16,7 +21,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487743,
     "installed": false,
     "reuse": true,
     "depend": null,

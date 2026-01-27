@@ -5,7 +5,8 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"2","s_version":["2.14.1","2.14.0","2.13.0","2.12.0","2.11.0","2.10.0","2.9.0","2.8.0","2.7.0","2.6.0","2.5.0","2.4.0","2.3.0","2.2.0","2.1.0","2.0.0"]}
     ],
     "appdesc": "Jaeger 是一个开源的分布式跟踪系统",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487749,
     "installed": false,
     "reuse": true,
     "depend": null,

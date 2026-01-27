@@ -5,7 +5,8 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {"m_version":"9.7.5","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"9","s_version":["9","9.8","9.8.3","9.7.5"]}
     ],
     "appdesc": "UJCMS 是一款基于 Java 的企业级网站内容管理系统（Java CMS）",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1744189521,
+    "updateat": 1769488549,
     "installed": false,
     "reuse": true,
     "depend": null,

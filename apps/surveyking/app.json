@@ -5,7 +5,8 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"1","s_version":["v1.9.0","v1.8.2"]}
     ],
     "appdesc": "SurveyKing 是一个开源的在线调查问卷系统",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769488525,
     "installed": false,
     "reuse": true,
     "depend": [

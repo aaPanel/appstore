@@ -5,7 +5,8 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"0","s_version":["v0.15.0","v0.13.1","v0.9.12","v0.9.11","v0.9.6","v0.9","v0.7","v0.6","v0.5","v0.4"]}
     ],
     "appdesc": "一个简单强大的 Web 思维导图",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722408250,
+    "updateat": 1769488505,
     "installed": false,
     "reuse": true,
     "depend": null,

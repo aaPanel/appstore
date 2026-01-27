@@ -5,7 +5,10 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"new","s_version":[]},
+        {"m_version":"5","s_version":["v5"]},
+        {"m_version":"4","s_version":["4"]}
     ],
     "appdesc": "一款功能强大的问卷表单收集工具",
     "appstatus": 1,
@@ -16,7 +19,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769488535,
     "installed": false,
     "reuse": true,
     "depend": null,

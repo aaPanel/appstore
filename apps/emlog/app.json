@@ -5,7 +5,12 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"pro-latest-php7.4-apache","s_version":[]},
+        {"m_version":"pro-php8.3","s_version":[]},
+        {"m_version":"pro-php8.2","s_version":[]},
+        {"m_version":"pro-php8.1","s_version":[]},
+        {"m_version":"pro-php5.6","s_version":[]},
+        {"m_version":"pro-php7.4","s_version":[]}
     ],
     "appdesc": "轻量级开源博客和CMS建站系统，速度快、省资源、易上手，适合各种规模的站点搭建",
     "appstatus": 1,
@@ -16,7 +21,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487742,
     "installed": false,
     "reuse": true,
     "depend": [

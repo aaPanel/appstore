@@ -5,7 +5,10 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"nightly","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"2024","s_version":["2024.10.22-7ca5933","2024.5.13-a0bc346"]},
+        {"m_version":"2023","s_version":["2023.12.21-5ed3693","2023.11.2-7d94e11","2023.11.1-e164afb","2023.8.21-6f93cba","2023.8.16-9bd4ad4","2023.5.14-77f2efc","2023.4.23-92bd835","2023.4.14-dbad773","2023.4.14-2f0d239","2023.4.14-675ba8d","2023.4.14-474cae4","2023.4.13-023cc75","2023.4.13-dce9ff9"]}
     ],
     "appdesc": "IT Tools 是一个功能强大的IT工具集合",
     "appstatus": 1,
@@ -16,7 +19,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487749,
     "installed": false,
     "reuse": true,
     "depend": null,

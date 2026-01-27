@@ -5,7 +5,8 @@
     "apptype": "Middleware",
     "appTypeCN": "中间件",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"1","s_version":["1.8.9","1.8.8","1.8.7","1.8.6","1.8.5","1.8.4","1.8.3","1.8.2","1.8.1","1.7.2","1.8.0","1.7.1","1.7.0","1.6.3","1.6.1","1.6.0","1.5.0","1.4.2","1.4.1"]}
     ],
     "appdesc": "阿里云分布式系统的流量防卫兵，是一个开源的流量控制和熔断降级系统",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769488496,
     "installed": false,
     "reuse": true,
     "depend": null,

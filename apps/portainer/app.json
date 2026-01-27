@@ -5,8 +5,12 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
+        {"m_version":"alpine","s_version":[]},
+        {"m_version":"lts","s_version":[]},
         {"m_version":"latest","s_version":[]},
-        {"m_version":"2","s_version":["20.3"]}
+        {"m_version":"alpine-sts","s_version":[]},
+        {"m_version":"sts","s_version":[]},
+        {"m_version":"2","s_version":["2.33.6-alpine","2.33.6","2.33.6-linux-amd64-alpine","2.33.6-windows1809-amd64","2.33.6-linux-arm-alpine","2.33.6-linux-amd64","2.33.6-linux-ppc64le-alpine","2.33.6-linux-arm","2.33.6-windowsltsc2022-amd64","2.33.6-linux-ppc64le","2.33.6-linux-arm64-alpine","2.33.6-linux-arm64","2.37.0-alpine","2.37.0","2.37.0-windows1809-amd64","2.37.0-windowsltsc2022-amd64","2.37.0-windowsltsc2025-amd64","2.37.0-linux-arm64-alpine","2.37.0-linux-amd64-alpine","2.37.0-linux-arm-alpine","2.37.0-linux-arm64","2.37.0-linux-amd64","2.37.0-linux-arm","2.37.0-linux-ppc64le-alpine","2.37.0-linux-ppc64le","2.33.5-alpine","2.33.5","2.33.5-linux-ppc64le-alpine","2.33.5-linux-amd64-alpine","2.33.5-linux-ppc64le","2.33.5-linux-amd64","2.33.5-linux-arm-alpine","2.33.5-linux-arm","2.33.5-windows1809-amd64","2.33.5-linux-arm64-alpine","2.33.5-linux-arm64","2.33.5-windowsltsc2022-amd64","2.36.0-alpine","2.36.0","2.36.0-linux-ppc64le-alpine","2.36.0-windowsltsc2025-amd64","2.36.0-linux-ppc64le","2.36.0-linux-amd64-alpine","2.36.0-windowsltsc2022-amd64","2.36.0-linux-arm64-alpine","2.36.0-linux-arm-alpine","2.36.0-linux-amd64","2.36.0-linux-arm64","2.36.0-linux-arm","2.36.0-windows1809-amd64","2.33.4-alpine","2.33.4","2.33.4-linux-amd64-alpine","2.33.4-windowsltsc2022-amd64","2.33.4-linux-arm-alpine","2.33.4-linux-amd64","2.33.4-linux-ppc64le-alpine","2.33.4-linux-arm64-alpine","2.33.4-linux-arm","2.33.4-linux-ppc64le","2.33.4-linux-arm64","2.33.4-windows1809-amd64","2.33.3-alpine","2.33.3","2.33.3-linux-amd64-alpine","2.33.3-linux-arm-alpine","2.33.3-linux-amd64","2.33.3-linux-arm64-alpine","2.33.3-linux-arm","2.33.3-linux-arm64","2.33.3-windows1809-amd64","2.33.3-linux-ppc64le-alpine","2.33.3-windowsltsc2022-amd64","2.33.3-linux-ppc64le","2.35.0-alpine","2.35.0","2.35.0-linux-arm64-alpine","2.35.0-linux-arm-alpine","2.35.0-linux-arm64","2.35.0-windowsltsc2025-amd64","2.35.0-windows1809-amd64","2.35.0-windowsltsc2022-amd64","2.35.0-linux-arm","2.35.0-linux-amd64-alpine","2.35.0-linux-ppc64le-alpine","2.35.0-linux-amd64","2.35.0-linux-ppc64le","2.33.2-alpine","2.33.2","2.33.2-windows1809-amd64","2.33.2-linux-ppc64le-alpine","2.33.2-windowsltsc2022-amd64","2.33.2-linux-arm64-alpine","2.33.2-linux-amd64-alpine","2.33.2-linux-ppc64le"]}
     ],
     "appdesc": "Portainer 是一个开源的轻量级容器管理工具",
     "appstatus": 1,
@@ -17,7 +21,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487764,
     "installed": false,
     "reuse": true,
     "depend": null,

@@ -5,7 +5,8 @@
     "apptype": "DevOps",
     "appTypeCN": "DevOps",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"3","s_version":["3.87.2-alpine","3.87.2-ubi","3.87.2","3.86.3-alpine","3.86.3-ubi","3.86.3","3.85.1-alpine","3.85.1-ubi","3.85.1","3.84.2-alpine","3.84.2-ubi","3.84.2","3.88.0-alpine","3.88.0-ubi","3.88.0","3.87.1-alpine","3.87.1-ubi","3.87.1","3.87.0-alpine","3.87.0-ubi","3.87.0","3.86.2-alpine","3.86.2-java17-alpine","3.86.2-java17-ubi","3.86.2-ubi","3.86.2","3.86.0-alpine","3.86.0-java17-alpine","3.86.0-java17-ubi","3.86.0-ubi","3.86.0","3.85.0-alpine","3.85.0-java17-alpine","3.85.0-java17-ubi","3.85.0-ubi","3.85.0","3.84.1-alpine","3.84.1-java17-alpine","3.84.1-java17-ubi","3.84.1-ubi","3.84.1","3.84.0-alpine","3.84.0-java17-alpine","3.84.0-java17-ubi","3.84.0-ubi","3.84.0","3.83.2-alpine","3.83.2-java17-alpine","3.83.2-java17-ubi","3.83.2-ubi","3.83.2","3.82.1-alpine","3.82.1-java17-alpine","3.82.1-java17-ubi","3.82.1-ubi","3.82.1","3.83.1-alpine","3.83.1-java17-alpine","3.83.1-java17-ubi","3.83.1-ubi","3.83.1","3.78.3-alpine","3.78.3-java17-alpine","3.78.3-java17-ubi","3.78.3-ubi","3.78.3","3.83.0-alpine","3.83.0-java17-alpine","3.83.0-java17-ubi","3.83.0-ubi","3.83.0","3.82.0-alpine","3.82.0-java17-alpine","3.82.0-java17-ubi","3.82.0-ubi","3.82.0","3.81.1-alpine","3.81.1-java17-alpine","3.81.1-java17-ubi","3.81.1-ubi","3.81.1","3.81.0-alpine","3.81.0-java17-alpine","3.81.0-java17-ubi","3.81.0-ubi","3.81.0","3.80.0-alpine","3.80.0-java17-alpine","3.80.0-java17-ubi","3.80.0-ubi","3.80.0","3.79.1-alpine","3.79.1-java17-alpine","3.79.1-java17-ubi","3.79.1-ubi","3.79.1","3.79.0-alpine","3.79.0-java17-alpine","3.79.0-java17-ubi"]}
     ],
     "appdesc": "Nexus 一个用于管理和存储软件组件（如库、依赖项、插件和构建工件等）的仓库管理工具",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487759,
     "installed": false,
     "reuse": true,
     "depend": null,

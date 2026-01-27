@@ -5,7 +5,9 @@
     "apptype": "AI",
     "appTypeCN": "AI/大模型",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"rocm","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"0","s_version":["0.15.2-rocm","0.15.2","0.15.1","0.15.1-rocm","0.15.0","0.15.0-rocm","0.14.3","0.14.3-rocm","0.14.2-rocm","0.14.2","0.14.1","0.14.1-rocm","0.14.0-rocm","0.14.0","0.13.5-rocm","0.13.5","0.13.4","0.13.4-rocm","0.13.3","0.13.3-rocm","0.13.2-rocm","0.13.2","0.13.1-rocm","0.13.1","0.13.0-rocm","0.13.0"]}
     ],
     "appdesc": "AingDesk是一款开源免费，简单好用的AI助手，支持知识库、模型API、分享、联网搜索、智能体, 集成ollama，安装后可直接连接",
     "appstatus": 1,
@@ -16,7 +18,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487733,
     "installed": false,
     "reuse": true,
     "depend": null,

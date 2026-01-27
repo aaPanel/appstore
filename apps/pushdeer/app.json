@@ -5,10 +5,15 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {
-            "m_version": "latest",
-            "s_version": []
-        }
+        {"m_version":"lts-ubi9","s_version":[]},
+        {"m_version":"lts-ubi","s_version":[]},
+        {"m_version":"noble","s_version":[]},
+        {"m_version":"lts-noble","s_version":[]},
+        {"m_version":"lts","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"12","s_version":["12.1.2-noble","12.1.2","12.1-noble","12.1","12-noble","12","12.1.2-ubi10","12.1.2-ubi","12.1-ubi10","12.1-ubi","12-ubi10","12-ubi","12.0.2-ubi10","12.0.2-ubi","12.0-ubi10","12.0-ubi","12.0.2-noble","12.0.2","12.0-noble","12.0"]},
+        {"m_version":"11","s_version":["11.8.5-ubi9","11.8.5-ubi","11.8-ubi9","11.8-ubi","11.4.9-ubi9","11.4.9-ubi","11.4-ubi9","11.4-ubi","11-ubi9","11-ubi","11.8.5-noble","11.8.5","11.8-noble","11.8","11.4.9-noble","11.4.9","11.4-noble","11.4","11-noble","11","11.8.4-ubi9","11.8.4-ubi","11.8.4-noble","11.8.4","11.8.3-ubi9","11.8.3-ubi","11.4.8-ubi9","11.4.8-ubi","11.8.3-noble","11.8.3","11.4.8-noble","11.4.8"]},
+        {"m_version":"10","s_version":["10.6.24-ubi9","10.6.24-ubi","10.6-ubi9","10.6-ubi","10.11.15-ubi9","10.11.15-ubi","10.11-ubi9","10.11-ubi","10-ubi9","10-ubi","10.6.24-jammy","10.6.24","10.6-jammy","10.6","10.11.15-jammy","10.11.15","10.11-jammy","10.11","10-jammy","10","10.6.23-ubi9","10.6.23-ubi","10.11.14-ubi9","10.11.14-ubi","10.6.23-jammy","10.6.23"]}
     ],
     "appdesc": "开放源码的无App推送服务，iOS14+扫码即用。亦支持快应用/iOS和Mac客户端、Android客户端、自制设备。",
     "appstatus": 1,
@@ -19,26 +24,24 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1765525898,
+    "updateat": 1769487759,
     "installed": false,
     "reuse": true,
     "depend": null,
     "field": [
-        {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
-        {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
-        {"attr": "pushdeer_web_port", "name": "web端口", "type": "number", "default": 8800, "suffix": "", "unit": ""},
-        {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
-        {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"pushdeer_web_port","name":"web端口","type":"number","default":8800,"suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
     ],
     "env": [
-        {"key": "version", "type": "string", "default": null, "desc": "版本号"},
-        {"key": "pushdeer_web_port", "type": "port", "default": 8800, "desc": "web端口"},
-        {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
-        {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
-        {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
-        {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"pushdeer_web_port","type":"port","default":8800,"desc":"web端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
     ],
-    "volumes": {
-        "data": {"type": "path", "desc": "应用数据目录"}
-    }
+    "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
 }

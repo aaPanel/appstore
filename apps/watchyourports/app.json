@@ -5,7 +5,8 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"0","s_version":["0.1.2","0.1.1"]}
     ],
     "appdesc": "WatchYourPorts是一个端口监控工具，可以将端口数据导出到 InfluxDB2/Grafana 分析和可视化",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769488563,
     "installed": false,
     "reuse": true,
     "depend": null,

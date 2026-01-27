@@ -5,10 +5,13 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {
-            "m_version": "latest",
-            "s_version": []
-        }
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"26","s_version":["v26.01.1"]},
+        {"m_version":"25","s_version":["v25.12.5","v25.12.4","v25.12.3","v25.12.2","v25.12.1","v25.09.1","v25.07.2","v25.07.1","v25.06.2","v25.06.1","v25.04.1","v25.03.1","v25.02.2","v25.02.1"]},
+        {"m_version":"24","s_version":["v24.12.1","v24.11.1","v24.10.1","v24.09.1","v24.08.1","v24.07.1","v24.05.1","v24.04.1","v24.01.1"]},
+        {"m_version":"23","s_version":["v23.11.3","v23.11.2","v23.11.1","v23.08.2","v23.08.1","v23.06.1","v23.05.2","v23.05.1","v23.04.1","v23.03.1","v23.02.3","v23.02.2","v23.02.1","v23.01.1"]},
+        {"m_version":"22","s_version":["v22.12.2","v22.12.1","v22.10.4","v22.10.3","v22.10.2"]},
+        {"m_version":"1","s_version":["v1.18.0","v1.17.1","v1.17.0","v1.16.0","v1.15.0","v1.14.0","v1.13.0","v1.12.0","v1.11.0","v1.10.0","v1.9.1","v1.9.0","v1.8.0","v1.7.1","v1.7.0","v1.6.0","v1.5.1","v1.5.0","v1.4.1","v1.4.0","v1.3.1","v1.3.0","v1.2.0","v1.1.0","v1.0.2","v1.0.1","v1.0.0"]}
     ],
     "appdesc": "Mozilla Firefox 是由 Mozilla 基金会及其子公司 Mozilla Corporation 开发的免费开源网络浏览器。",
     "appstatus": 1,
@@ -19,30 +22,28 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1762744825,
+    "updateat": 1769487745,
     "installed": false,
     "reuse": true,
     "depend": null,
     "field": [
-        {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
-        {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
-        {"attr": "firefox_vnc_port", "name": "VNC Web端口", "type": "number", "default": 5800, "suffix": "VNC Web界面访问端口", "unit": ""},
-        {"attr": "vnc_password", "name": "VNC密码", "type": "number", "default": "admin", "suffix": "VNC连接密码", "unit": ""},
-        {"attr": "install_font", "name": "安装中文字体", "type": "number", "default": "1", "suffix": "1安装 0不安装(安装字体需要等待一定时间)", "unit": ""},
-        {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
-        {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"firefox_vnc_port","name":"VNC Web端口","type":"number","default":5800,"suffix":"VNC Web界面访问端口","unit":""},
+        {"attr":"vnc_password","name":"VNC密码","type":"number","default":"admin","suffix":"VNC连接密码","unit":""},
+        {"attr":"install_font","name":"安装中文字体","type":"number","default":"1","suffix":"1安装 0不安装(安装字体需要等待一定时间)","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
     ],
     "env": [
-        {"key": "version", "type": "string", "default": null, "desc": "版本号"},
-        {"key": "firefox_vnc_port", "type": "port", "default": 5800, "desc": "VNC Web端口"},
-        {"key": "vnc_password", "type": "string", "default": "", "desc": "VNC密码"},
-        {"key": "install_font", "type": "number", "default": "", "desc": "安装中文字体"},
-        {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
-        {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
-        {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
-        {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"firefox_vnc_port","type":"port","default":5800,"desc":"VNC Web端口"},
+        {"key":"vnc_password","type":"string","default":"","desc":"VNC密码"},
+        {"key":"install_font","type":"number","default":"","desc":"安装中文字体"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
     ],
-    "volumes": {
-        "data": {"type": "path", "desc": "应用配置数据目录"}
-    }
+    "volumes": {"data": {"type": "path", "desc": "应用配置数据目录"}}
 }

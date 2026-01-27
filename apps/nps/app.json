@@ -5,7 +5,9 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"master","s_version":[]},
+        {"m_version":"0","s_version":["v0.26.29","v0.26.28","v0.26.27","v0.26.26","v0.26.25","v0.26.24","v0.26.23","v0.26.22","v0.26.21","v0.26.20","v0.26.19","v0.26.18","v0.26.17","v0.27.01","v0.26.16.1","v0.26.16","v0.26.15","v0.26.14","v0.26.13"]}
     ],
     "appdesc": "一款轻量级、高性能、功能强大的内网穿透代理服务器",
     "appstatus": 1,
@@ -16,7 +18,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487760,
     "installed": false,
     "reuse": true,
     "depend": null,

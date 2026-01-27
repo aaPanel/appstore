@@ -5,7 +5,10 @@
     "apptype": "AI",
     "appTypeCN": "AI/大模型",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"qwen1.5-32b-v1","s_version":[]},
+        {"m_version":"qwen1.5-32b","s_version":[]},
+        {"m_version":"0","s_version":["v0.6.11-preview.7","v0.6.11-preview.6","v0.6.11-preview.5","v0.6.11-preview.4","v0.6.11-preview.3","v0.6.11-preview.1","v0.6.11-preview","v0.6.10","v0.6.4","v0.6.3","v0.6.2"]}
     ],
     "appdesc": "通过标准的 OpenAI API 格式访问所有的大模型，开箱即用",
     "appstatus": 1,
@@ -16,7 +19,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487761,
     "installed": false,
     "reuse": true,
     "depend": null,

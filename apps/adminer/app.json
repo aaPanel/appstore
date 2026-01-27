@@ -5,7 +5,11 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"standalone","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"fastcgi","s_version":[]},
+        {"m_version":"5","s_version":["5.4.1-standalone","5.4.1-fastcgi","5.4.1","5-standalone","5-fastcgi","5","5.4.0-standalone","5.4.0-fastcgi","5.4.0","5.3.0-fastcgi","5.3.0-standalone","5.3.0","5.2.1-standalone","5.2.1-fastcgi","5.2.1","5.1.0-standalone","5.1.0-fastcgi","5.1.0","5.0.6-standalone","5.0.6-fastcgi","5.0.6","5.0.5-standalone","5.0.5-fastcgi","5.0.5","5.0.4-fastcgi","5.0.4-standalone","5.0.4","5.0.2-standalone","5.0.2-fastcgi","5.0.2"]},
+        {"m_version":"4","s_version":["4.17.1-standalone","4.17.1-fastcgi","4.17.1","4-standalone","4-fastcgi","4","4.8.1-standalone","4.8.1-fastcgi","4.8.1","4.8.0-standalone","4.8.0-fastcgi","4.8.0","4.7.9-standalone","4.7.9-fastcgi","4.7.9","4.7-standalone","4.7-fastcgi","4.7","4.7.8-standalone","4.7.8-fastcgi","4.7.8","4.7.7-standalone","4.7.7-fastcgi","4.7.7","4.7.6-standalone","4.7.6-fastcgi","4.7.6","4.7.5-standalone","4.7.5-fastcgi","4.7.5","4.7.4-standalone","4.7.4-fastcgi","4.7.4","4.7.3-standalone","4.7.3-fastcgi","4.7.3","4.7.2-standalone","4.7.2-fastcgi","4.7.2","4.7.1-standalone","4.7.1-fastcgi","4.7.1","4.7.0-fastcgi","4.7.0","4.7.0-standalone","4.6","4.6.3","4.6-fastcgi","4.6.3-fastcgi","4.6-standalone","4.6.3-standalone","4.6.2-fastcgi","4.6.2","4.6.2-standalone","4.6.1-fastcgi","4.6.1","4.6.1-standalone","4.6.0-fastcgi","4.6.0","4.6.0-standalone","4.5-fastcgi","4.5.0-fastcgi","4.5","4.5.0","4.5-standalone","4.5.0-standalone","4.4-fastcgi"]}
     ],
     "appdesc": "一个功能强大的数据库管理工具",
     "appstatus": 1,
@@ -16,7 +20,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487733,
     "installed": false,
     "reuse": true,
     "depend": null,

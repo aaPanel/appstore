@@ -6,7 +6,8 @@
     "appTypeCN": "实用工具",
     "appversion": [
         {"m_version":"latest","s_version":[]},
-        {"m_version":"lite","s_version":[]}
+        {"m_version":"lite","s_version":[]},
+        {"m_version":"1","s_version":["1.7.3","1.7.2","1.7.1","1.7.0","1.6.3","1.6.2-lite","1.6.2"]}
     ],
     "appdesc": "一个强大的电视直播源更新工具，帮助用户自动更新并获取最新的 IPTV 直播源",
     "appstatus": 0,
@@ -17,7 +18,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487749,
     "installed": false,
     "reuse": true,
     "depend": null,

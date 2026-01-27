@@ -5,7 +5,16 @@
     "apptype": "Email",
     "appTypeCN": "邮件/邮局",
     "appversion": [
-        {"m_version":"1","s_version":["6.8","5.8"]}
+        {"m_version":"nightly","s_version":[]},
+        {"m_version":"latest-nonroot","s_version":[]},
+        {"m_version":"latest-apache-nonroot","s_version":[]},
+        {"m_version":"latest-fpm-nonroot","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"latest-apache","s_version":[]},
+        {"m_version":"latest-fpm","s_version":[]},
+        {"m_version":"latest-fpm-alpine-nonroot","s_version":[]},
+        {"m_version":"latest-fpm-alpine","s_version":[]},
+        {"m_version":"1","s_version":["1.6.12-apache-nonroot","1.6.x-apache-nonroot","1.6.12-fpm-nonroot","1.6.x-fpm-nonroot","1.6.12-apache","1.6.x-apache","1.6.12-fpm","1.6.x-fpm","1.6.12-fpm-alpine-nonroot","1.6.x-fpm-alpine-nonroot","1.6.12-fpm-alpine","1.6.x-fpm-alpine","1.5.11-fpm-alpine","1.5.x-fpm-alpine","1.6.11-apache-nonroot","1.6.11-fpm-nonroot","1.6.11-fpm","1.6.11-apache","1.6.11-fpm-alpine-nonroot","1.6.11-fpm-alpine","1.5.11-apache","1.5.x-apache","1.5.11-fpm","1.5.x-fpm","1.5.10-fpm","1.5.10-fpm-alpine","1.5.10-apache","1.6.10-apache","1.6.10-apache-nonroot","1.6.10-fpm-nonroot","1.6.10-fpm","1.6.10-fpm-alpine","1.6.10-fpm-alpine-nonroot","1.6.9-apache-nonroot","1.6.9-fpm-nonroot","1.6.9-fpm-alpine-nonroot","1.6.9-apache","1.6.9-fpm","1.6.9-fpm-alpine","1.5.9-apache","1.5.9-fpm","1.5.9-fpm-alpine","1.6.8-apache","1.6.8-fpm","1.6.8-fpm-alpine","1.5.8-apache","1.5.8-fpm","1.5.8-fpm-alpine","1.6.7-fpm","1.6.7-apache","1.5.7-apache","1.5.7-fpm","1.6.7-fpm-alpine","1.5.7-fpm-alpine","1.6.6-fpm","1.6.6-apache","1.6.6-fpm-alpine","1.5.6-fpm-alpine","1.5.6-fpm","1.5.6-apache","1.6.5-fpm-alpine","1.6.5-fpm","1.6.5-apache","1.5.5-fpm-alpine","1.5.5-fpm","1.5.5-apache","1.6.4-fpm","1.6.4-apache","1.6.4-fpm-alpine","1.6.3-fpm","1.6.3-apache","1.6.3-fpm-alpine","1.6.2-apache","1.6.2-fpm","1.6.2-fpm-alpine","1.6.1-fpm","1.6.1-apache","1.6.1-fpm-alpine","1.6.0-fpm","1.6.0-apache","1.6.0-fpm-alpine","1.5.3-fpm-alpine","1.5.3-fpm","1.5.3-apache","1.4.x-fpm-alpine","1.4.x-fpm","1.4.x-apache"]}
     ],
     "appdesc": "一个基于浏览器的多语言 IMAP 客户端，具有类似应用程序的用户界面",
     "appstatus": 1,
@@ -16,7 +25,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722408250,
+    "updateat": 1769488485,
     "installed": false,
     "reuse": true,
     "depend": [

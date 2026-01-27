@@ -5,10 +5,9 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {
-            "m_version": "latest",
-            "s_version": []
-        }
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"2","s_version":["2.8","2.8.11","2.8.10","2.8.9","2.8.8","2.8.7","2.8.6","2.8.5","2.8.4","2.8.3","2.8.2","2.8.1","2.8.0","2.7","2.7.0","2.6","2.6.1","2.6.0","2.5","2.5.8","2.5.7","2.5.6","2.5.5","2.5.4","2.5.3","2.5.2","2.5.1","2.5.0","2.4","2.4.5","2.4.4","2.4.3","2.4.2","2.4.1","2.4.0","2.3","2.3.1","2.3.0","2.2","2.2.5","2.2.4","2.2.3","2.2.2","2.2.1","2.2.0","2.1","2.1.1","2.1.0","2.0","2.0.1","2.0.0"]},
+        {"m_version":"1","s_version":["1.19","1.19.12","1.19.11","1.19.10","1.19.8","1.19.9","1.19.7","1.19.6","1.19.5","1.19.4","1.19.3","1.19.2","1.19.1","1.19.0","1.18","1.18.7","1.18.6","1.18.5","1.18.4","1.18.3"]}
     ],
     "appdesc": "专为现代Web设计的下一代论坛系统，自带社交网络集成、实时消息推送、多设备同步等黑科技。",
     "appstatus": 1,
@@ -19,26 +18,24 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1765525898,
+    "updateat": 1769487760,
     "installed": false,
     "reuse": true,
     "depend": null,
     "field": [
-        {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
-        {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
-        {"attr": "nodebb_web_port", "name": "web端口", "type": "number", "default": 4567, "suffix": "", "unit": ""},
-        {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
-        {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"nodebb_web_port","name":"web端口","type":"number","default":4567,"suffix":"","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
     ],
     "env": [
-        {"key": "version", "type": "string", "default": null, "desc": "版本号"},
-        {"key": "nodebb_web_port", "type": "port", "default": 4567, "desc": "web端口"},
-        {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
-        {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
-        {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
-        {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"nodebb_web_port","type":"port","default":4567,"desc":"web端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
     ],
-    "volumes": {
-        "data": {"type": "path", "desc": "应用数据目录"}
-    }
+    "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
 }

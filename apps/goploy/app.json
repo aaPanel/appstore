@@ -6,7 +6,7 @@
     "appTypeCN": "DevOps",
     "appversion": [
         {"m_version":"latest","s_version":[]},
-        {"m_version":"1","s_version":["17.3","17.2","17.1","17.0","16.3","16.1"]}
+        {"m_version":"1","s_version":["1.17.5","1.17.3","1.17.2","1.17.1","1.17.0","1.16.3","1.16.1"]}
     ],
     "appdesc": "Goploy是一个基于Go语言开发的持续集成工具",
     "appstatus": 1,
@@ -17,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769487747,
     "installed": false,
     "reuse": true,
     "depend": [
