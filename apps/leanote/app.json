@@ -5,7 +5,13 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"lite-arm","s_version":[]},
+        {"m_version":"nodb","s_version":[]},
+        {"m_version":"lite","s_version":[]},
+        {"m_version":"nodb-arm","s_version":[]},
+        {"m_version":"20220822","s_version":["20220822"]},
+        {"m_version":"2","s_version":["2.6.1-nodb","2.6.1","2.6","2.5"]}
     ],
     "appdesc": "一款富文本编辑器和Markdown编辑器",
     "appstatus": 1,
@@ -16,7 +22,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769477897,
     "installed": false,
     "reuse": true,
     "depend": null,

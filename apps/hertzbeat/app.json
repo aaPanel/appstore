@@ -5,7 +5,13 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"heads-new-tfss-cache2-0-gee29ada2b1-dirty-8190a3b6","s_version":[]},
+        {"m_version":"heads-new-tfss-cache2-0-gde603d4a2c-dirty-8190a3b6","s_version":[]},
+        {"m_version":"heads-new-tfss-cache-0-gde3c814e5d-dirty-8190a3b6","s_version":[]},
+        {"m_version":"heads-new-tfss-cache-0-g6094efcd4d-dirty-8190a3b6","s_version":[]},
+        {"m_version":"heads-new-tfss-cache-0-gd926a412b2","s_version":[]},
+        {"m_version":"1","s_version":["v1.122.13-enterprise-scratch","v1.122.13-enterprise","v1.134.0-enterprise-scratch","v1.134.0-enterprise","v1.134.0-scratch","v1.134.0","v1.110.28-enterprise-scratch","v1.110.28-enterprise","v1.122.13-enterprise-fips","v1.133.0-enterprise-scratch","v1.133.0-enterprise","v1.133.0-scratch","v1.133.0","v1.122.12-enterprise-fips","v1.122.12-enterprise-scratch","v1.122.12-enterprise","v1.110.27-enterprise-scratch","v1.110.27-enterprise","v1.122.11-enterprise-scratch","v1.122.11-enterprise","v1.132.0-enterprise-scratch","v1.132.0-enterprise","v1.132.0-scratch","v1.132.0","v1.122.11-enterprise-fips","v1.110.26-enterprise-scratch","v1.110.26-enterprise","v1.131.0-enterprise-scratch","v1.131.0-enterprise","v1.131.0-scratch","v1.131.0","v1.122.10-enterprise-fips","v1.122.10-enterprise-scratch","v1.122.10-enterprise","v1.110.25-enterprise-scratch","v1.110.25-enterprise","v1.130.0-enterprise-scratch","v1.130.0-enterprise","v1.130.0-scratch","v1.130.0","v1.122.9-enterprise-fips","v1.122.9-enterprise-scratch","v1.122.9-enterprise","v1.110.24-enterprise-scratch","v1.110.24-enterprise"]}
     ],
     "appdesc": "HertzBeat是一个易用友好的开源实时监控系统",
     "appstatus": 1,
@@ -16,7 +22,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769477847,
     "installed": false,
     "reuse": true,
     "depend": null,

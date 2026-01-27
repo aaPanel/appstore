@@ -5,10 +5,14 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {
-            "m_version": "latest",
-            "s_version": []
-        }
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"stable","s_version":[]},
+        {"m_version":"experimental","s_version":[]},
+        {"m_version":"5","s_version":["v5.34.0","v5.33.1","v5.33.0","v5.32.0","v5.31.0","v5.30.0","v5.29.0","v5.28.0","v5.27.2","v5.27.1","v5.27.0","v5.26.0","v5.25.2","v5.25.1","v5.25.0","v5.24.3","v5.24.2","v5.24.1","v5.24.0","v5.23.2","v5.23.1","v5.23.0","v5.22.0","v5.21.0","v5.20.0","v5.19.0","v5.18.1","v5.18.0","v5.17.0","v5.16.0","v5.15.0","v5.14.0","v5.13.1","v5.13.0","v5.12.1","v5.12.0","v5.11.0","v5.10.0","v5.9.0","v5.8.0","v5.7.0","v5.6.0","v5.5.1","v5.5.0","v5.4.0","v5.3.2","v5.3.1","v5.3.0","v5.2.0","v5.1.1","v5.1.0","v5.0.0"]},
+        {"m_version":"4","s_version":["v4.4.0","v4.3.2","v4.3.1","v4.3.0","v4.2.0","v4.1.0","v4.0.0"]},
+        {"m_version":"3","s_version":["v3.8.0","v3.7.0","v3.6.0","v3.5.0","v3.4.0","v3.3.6","v3.3.5","v3.3.4","v3.3.3","v3.3.2","v3.3.1","v3.3.0","v3.2.3","v3.2.2","v3.2.1","v3.2.0","v3.1.0","v3.0.0"]},
+        {"m_version":"2","s_version":["v2.9.0","v2.8.2","v2.8.1","v2.8.0","v2.7.0","v2.6.0","v2.5.0","v2.4.0","v2.3.0","v2.2.0","v2.1.0","v2.0.0"]},
+        {"m_version":"1","s_version":["v1.12.0","v1.11.2","v1.11.1","v1.11.0","v1.10.0","v1.9.2","v1.9.1","v1.9.0"]}
     ],
     "appdesc": "Gatus 是一款面向开发人员的健康仪表板，能让您使用 HTTP、ICMP、TCP 甚至 DNS 查询监控服务，并通过状态代码、响应时间、证书过期、正文等值的条件列表评估上述查询的结果。",
     "appstatus": 1,
@@ -19,26 +23,24 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1767060381,
+    "updateat": 1769477824,
     "installed": false,
     "reuse": true,
     "depend": null,
     "field": [
-        {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
-        {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
-        {"attr": "gatus_web_port", "name": "Web访问端口", "type": "number", "default": 8080, "suffix": "Gatus仪表板访问端口", "unit": ""},
-        {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
-        {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"gatus_web_port","name":"Web访问端口","type":"number","default":8080,"suffix":"Gatus仪表板访问端口","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
     ],
     "env": [
-        {"key": "version", "type": "string", "default": null, "desc": "版本号"},
-        {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
-        {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
-        {"key": "gatus_web_port", "type": "port", "default": 8080, "desc": "Web访问端口"},
-        {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
-        {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"gatus_web_port","type":"port","default":8080,"desc":"Web访问端口"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
     ],
-    "volumes": {
-        "data": {"type": "path", "desc": "应用数据目录"}
-    }
+    "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
 }

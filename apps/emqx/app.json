@@ -5,7 +5,10 @@
     "apptype": "Middleware",
     "appTypeCN": "中间件",
     "appversion": [
-        {"m_version":"5","s_version":["7.2","6.1"]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"latest-elixir","s_version":[]},
+        {"m_version":"6","s_version":["6.0.2","6.1.0","6.0.1","6.0","6.0.0","6.0.0-M2.202508","6.0.0-M1.202507-elixir","6.0.0-M1.202507"]},
+        {"m_version":"5","s_version":["5.8.9-elixir","5.8.9","5.9.2-elixir","5.9.2","5.10.2","5.10.2-elixir","5.10.1-elixir","5.10.1","5.8.8-elixir","5.8.8","5.8.7-elixir","5.8.7","5.9-elixir","5.9.1-elixir","5.9","5.9.1","5.10","5.10.0","5.10-elixir","5.10.0-elixir","5.9.0-elixir","5.9.0"]}
     ],
     "appdesc": "EMQX 是一款开源的大规模分布式 MQTT 消息服务器",
     "appstatus": 1,
@@ -16,7 +19,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722408250,
+    "updateat": 1769477785,
     "installed": false,
     "reuse": true,
     "depend": null,

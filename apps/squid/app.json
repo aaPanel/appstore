@@ -5,7 +5,11 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"edge","s_version":[]},
+        {"m_version":"6","s_version":["6.6-24.04_edge","6.13-25.04_edge","6.10-24.10_edge","6.1-23.10_edge"]},
+        {"m_version":"5","s_version":["5.2-22.04_edge","5.7-23.04_edge","5.6-22.10_edge"]},
+        {"m_version":"4","s_version":["4.10-20.04_edge","4.13-21.10_edge","4.13-21.04_edge"]}
     ],
     "appdesc": "是支持 HTTP、HTTPS、FTP 等协议的 Web 缓存代理",
     "appstatus": 1,
@@ -16,7 +20,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769478079,
     "installed": false,
     "reuse": true,
     "depend": null,

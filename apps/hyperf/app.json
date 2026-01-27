@@ -5,7 +5,8 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {"m_version":"8.1-alpine-v3.18-swoole","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"8","s_version":["8.4-alpine-vedge-swoole-slim","8.4-alpine-vedge-swoole-slim-v6","8.4-alpine-vedge-swoole-slim-v6.1","8.4-alpine-vedge-swoole-slim-v6.1.6","8.4-alpine-v3.22-swoole-slim","8.4-alpine-v3.22-swoole-slim-v6","8.4-alpine-v3.22-swoole-slim-v6.1","8.4-alpine-v3.22-swoole-slim-v6.1.6","8.4-alpine-v3.21-swoole-slim","8.4-alpine-v3.21-swoole-slim-v6","8.4-alpine-v3.21-swoole-slim-v6.1","8.4-alpine-v3.21-swoole-slim-v6.1.6","8.1-alpine-v3.16-swoole-slim","8.1-alpine-v3.16-swoole-slim-v6","8.1-alpine-v3.16-swoole-slim-v6.1","8.1-alpine-v3.16-swoole-slim-v6.1.6","8.4-alpine-vedge-swoole","8.4-alpine-vedge-swoole-v6","8.4-alpine-vedge-swoole-v6.1","8.4-alpine-vedge-swoole-v6.1.6","8.3-alpine-vedge-swoole-slim","8.3-alpine-vedge-swoole-slim-v6","8.3-alpine-vedge-swoole-slim-v6.1","8.3-alpine-v3.22-swoole-slim","8.3-alpine-vedge-swoole-slim-v6.1.6","8.3-alpine-v3.22-swoole-slim-v6","8.3-alpine-v3.22-swoole-slim-v6.1","8.3-alpine-v3.22-swoole-slim-v6.1.6","8.3-alpine-v3.21-swoole-slim","8.3-alpine-v3.21-swoole-slim-v6","8.3-alpine-v3.21-swoole-slim-v6.1","8.3-alpine-v3.21-swoole-slim-v6.1.6","8.2-alpine-v3.22-swoole-slim","8.2-alpine-v3.22-swoole-slim-v6","8.2-alpine-v3.22-swoole-slim-v6.1","8.2-alpine-v3.22-swoole-slim-v6.1.6","8.3-alpine-v3.20-swoole-slim","8.3-alpine-v3.20-swoole-slim-v6","8.3-alpine-v3.19-swoole-slim","8.3-alpine-v3.20-swoole-slim-v6.1","8.3-alpine-v3.19-swoole-slim-v6","8.3-alpine-v3.20-swoole-slim-v6.1.6","8.3-alpine-v3.19-swoole-slim-v6.1","8.3-alpine-v3.19-swoole-slim-v6.1.6","8.2-alpine-v3.21-swoole-slim","8.2-alpine-v3.21-swoole-slim-v6","8.2-alpine-v3.21-swoole-slim-v6.1","8.2-alpine-v3.21-swoole-slim-v6.1.6","8.2-alpine-v3.20-swoole-slim","8.2-alpine-v3.20-swoole-slim-v6","8.2-alpine-v3.19-swoole-slim","8.2-alpine-v3.19-swoole-slim-v6","8.2-alpine-v3.20-swoole-slim-v6.1","8.2-alpine-v3.19-swoole-slim-v6.1","8.2-alpine-v3.20-swoole-slim-v6.1.6","8.2-alpine-v3.19-swoole-slim-v6.1.6","8.1-alpine-v3.19-swoole-slim","8.1-alpine-v3.19-swoole-slim-v6","8.1-alpine-v3.19-swoole-slim-v6.1","8.1-alpine-v3.19-swoole-slim-v6.1.6","8.1-alpine-v3.17-swoole-slim","8.1-alpine-v3.17-swoole-slim-v6","8.1-alpine-v3.17-swoole-slim-v6.1","8.1-alpine-v3.17-swoole-slim-v6.1.6","8.1-alpine-v3.18-swoole-slim","8.1-alpine-v3.18-swoole-slim-v6","8.1-alpine-v3.18-swoole-slim-v6.1","8.1-alpine-v3.18-swoole-slim-v6.1.6","8.3-alpine-vedge-swoole-slim-v6.1.5","8.3-alpine-vedge-swoole","8.3-alpine-vedge-swoole-v6","8.3-alpine-vedge-swoole-v6.1","8.3-alpine-vedge-swoole-v6.1.6","8.2-alpine-v3.19-swoole","8.2-alpine-v3.19-swoole-v6","8.2-alpine-v3.19-swoole-v6.1","8.2-alpine-v3.19-swoole-v6.1.6","8.3-alpine-v3.22-swoole","8.3-alpine-v3.22-swoole-v6","8.3-alpine-v3.22-swoole-v6.1","8.3-alpine-v3.22-swoole-v6.1.6","8.3-alpine-v3.21-swoole","8.3-alpine-v3.21-swoole-v6","8.3-alpine-v3.21-swoole-v6.1","8.3-alpine-v3.21-swoole-v6.1.6","8.3-alpine-v3.20-swoole","8.3-alpine-v3.20-swoole-v6","8.3-alpine-v3.20-swoole-v6.1","8.3-alpine-v3.20-swoole-v6.1.6","8.4-alpine-v3.22-swoole","8.4-alpine-v3.22-swoole-v6","8.4-alpine-v3.22-swoole-v6.1","8.4-alpine-v3.22-swoole-v6.1.6","8.2-alpine-v3.21-swoole","8.2-alpine-v3.21-swoole-v6","8.2-alpine-v3.21-swoole-v6.1","8.2-alpine-v3.21-swoole-v6.1.6","8.2-alpine-v3.22-swoole","8.2-alpine-v3.22-swoole-v6"]}
     ],
     "appdesc": "Hyperf是一个基于Swoole的高性能PHP框架",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769483510,
     "installed": false,
     "reuse": true,
     "depend": null,

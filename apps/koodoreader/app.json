@@ -5,7 +5,8 @@
     "apptype": "Media",
     "appTypeCN": "多媒体",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"1","s_version":["1.6.6","1.6.5","1.6.3","1.6.2","1.6.1","1.6.0","1.5.9"]}
     ],
     "appdesc": "KooDo Reader 是一个现代的电子书管理器和阅读器",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769477891,
     "installed": false,
     "reuse": true,
     "depend": null,

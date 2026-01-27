@@ -5,7 +5,9 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"30","s_version":["030a897-b1.20221104.134554","030a897","030a897-b1.20221027.144442"]},
+        {"m_version":"1","s_version":["v1.6","v1.5","v1.4","v1.3"]}
     ],
     "appdesc": "一个基于云存储的网盘系统，用于自建私人网盘或企业网盘",
     "appstatus": 1,
@@ -16,7 +18,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769478156,
     "installed": false,
     "reuse": true,
     "depend": null,

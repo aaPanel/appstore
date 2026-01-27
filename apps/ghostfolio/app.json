@@ -1,41 +1,40 @@
 {
-  "appid": 280,
-  "appname": "ghostfolio",
-  "apptitle": "Ghostfolio",
-  "apptype": "nas",
-  "appTypeCN": "Nas",
-  "appversion": [
-    {"m_version": "latest", "s_version": []}
-  ],
-  "appdesc": "Ghostfolio是一款基于Web的资产看板工具，整合多平台交易数据并提供收益曲线、资产分布、风险分析等可视化报表，数据自托管。",
-  "appstatus": 1,
-  "icon": "",
-  "sort": 26,
-  "home": "https://github.com/ghostfolio/ghostfolio",
-  "help": "https://github.com/ghostfolio/ghostfolio",
-  "cpu": 0,
-  "mem": 0,
-  "disk": 10240,
-  "updateat": 1722408250,
-  "installed": false,
-  "reuse": true,
-  "depend": null,
-  "field": [
-    {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
-    {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
-    {"attr": "ghostfolio_web_port", "name": "Web端口", "type": "number", "default": 3333, "suffix": "Ghostfolio Web管理端口", "unit": ""},
-    {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
-    {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
-  ],
-  "env": [
-    {"key": "version", "type": "string", "default": null, "desc": "版本号"},
-    {"key": "ghostfolio_web_port", "type": "port", "default": 3333, "desc": "Web端口"},
-    {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
-    {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
-    {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
-    {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
-  ],
-  "volumes": {
-    "data": {"type": "path", "desc": "应用数据目录"}
-  }
+    "appid": 280,
+    "appname": "ghostfolio",
+    "apptitle": "Ghostfolio",
+    "apptype": "nas",
+    "appTypeCN": "Nas",
+    "appversion": [
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"2","s_version":["2.233.0","2","2.232.0","2.231.0","2.230.0","2.229.0","2.228.0","2.227.0","2.226.0","2.225.0","2.224.2","2.224.1","2.224.0","2.223.0","2.222.0","2.221.0","2.220.0","2.219.0","2.218.0","2.217.1","2.217.0","2.216.0","2.215.0","2.214.0","2.213.0","2.212.0","2.211.0","2.210.1","2.210.0","2.209.0","2.208.0","2.207.0","2.206.0","2.205.0","2.204.0","2.203.0","2.202.0","2.201.0","2.200.0","2.199.0","2.198.0","2.197.0","2.196.0","2.195.0","2.194.0","2.193.0","2.192.0","2.191.1","2.191.0","2.190.0","2.189.0","2.188.0","2.187.0","2.186.0","2.185.0","2.184.0","2.183.0","2.182.0","2.181.0","2.180.0","2.179.0","2.178.0","2.177.0","2.176.0","2.175.0","2.174.0","2.173.0","2.172.0","2.171.0","2.170.0","2.169.0","2.168.0","2.167.0","2.166.0","2.165.0","2.164.0","2.163.0","2.162.1","2.162.0","2.161.0","2.160.0","2.159.0","2.158.0","2.157.1"]}
+    ],
+    "appdesc": "Ghostfolio是一款基于Web的资产看板工具，整合多平台交易数据并提供收益曲线、资产分布、风险分析等可视化报表，数据自托管。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 26,
+    "home": "https://github.com/ghostfolio/ghostfolio",
+    "help": "https://github.com/ghostfolio/ghostfolio",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1769477829,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"ghostfolio_web_port","name":"Web端口","type":"number","default":3333,"suffix":"Ghostfolio Web管理端口","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"ghostfolio_web_port","type":"port","default":3333,"desc":"Web端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+    ],
+    "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
 }

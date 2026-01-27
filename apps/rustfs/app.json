@@ -5,7 +5,12 @@
     "apptype": "Storage",
     "appTypeCN": "存储/网盘",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"main","s_version":[]},
+        {"m_version":"latest-rockylinux9.3","s_version":[]},
+        {"m_version":"main-rockylinux9.3","s_version":[]},
+        {"m_version":"latest-ubuntu22.04","s_version":[]},
+        {"m_version":"main-ubuntu22.04","s_version":[]}
     ],
     "appdesc": "高性能分布式对象存储为MinIO的备选方案。",
     "appstatus": 1,
@@ -16,7 +21,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769478057,
     "installed": false,
     "reuse": true,
     "depend": null,

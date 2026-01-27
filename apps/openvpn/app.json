@@ -5,7 +5,9 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"edge","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"2","s_version":["2.4","2.3"]}
     ],
     "appdesc": "OpenVPN 是一个开源的VPN软件",
     "appstatus": 1,
@@ -16,7 +18,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769478011,
     "installed": false,
     "reuse": true,
     "depend": null,

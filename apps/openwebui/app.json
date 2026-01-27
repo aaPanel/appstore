@@ -5,7 +5,7 @@
     "apptype": "AI",
     "appTypeCN": "AI/大模型",
     "appversion": [
-        {"m_version":"main","s_version":[]}
+        {"m_version":"0","s_version":["0.3.23-ollama","v0.3.14-cuda","v0.3.17-cuda","v0.3.25","0.3.26","v0.3.25-cuda","0.3.20","0.3.25-cuda","v0.3.22","v0.3.17","v0.3.24-ollama","v0.3.14","v0.3.20-cuda","0.3.21","v0.3.23-ollama","v0.3.23-cuda","0.3.18","0.3.27-cuda","v0.3.22-cuda","0.3.24","0.3.25","v0.3.25-ollama","0.3.20-cuda","v0.3.26-cuda","v0.3.27","v0.3.27-ollama","v0.3.19","0.3.18-cuda","v0.3.17-ollama","v0.1.119-ollama","0.3.26-cuda","v0.3.20-ollama","0.3.25-ollama","0.3.27","0.3.4-cuda","v0.3.26-ollama","v0.3.23","v0.3.21-cuda","v0.3.18-cuda","0.3.19-ollama","v0.3.20","0.3.19","v0.3.16","0.3.16","0.3.17","0.3.20-ollama","0.3.24-cuda","0.3.12-ollama","v0.3.15","0.3.22","0.3.17-ollama","v0.3.21-ollama","v0.3.9-cuda","0.3.27-ollama","0.3.15","v0.3.21","v0.3.9-ollama","0.3.14-cuda","0.3.21-ollama","0.3.22-ollama","v0.3.24","v0.3.22-ollama","v0.3.26","v0.3.15-ollama","0.3.17-cuda","0.3.11-cuda","v0.3.11-cuda","0.3.5","v0.3.18-ollama","0.3.15-cuda","0.3.12-cuda","0.3.16-ollama","0.3.22-cuda","v0.3.27-cuda","v0.3.24-cuda","0.3.19-cuda","0.3.13","0.3.24-ollama","0.3.18-ollama","v0.3.18","v0.3.19-cuda","0.3.16-cuda","0.3.11-ollama","0.3.23-cuda","0.3.15-ollama","v0.3.16-ollama","0.3.23","0.3.11","0.3.7-ollama","v0.3.15-cuda","v0.3.8","0.3.8","0.3.14-ollama","v0.2.3-ollama","v0.3.3-ollama","v0.3.0","v0.3.12","v0.3.5-ollama","0.3.9-ollama","v0.3.10-ollama"]}
     ],
     "appdesc": "一个可扩展,功能丰富且用户友好的自托管WebUI,完全离线操作,支持Ollama",
     "appstatus": 1,
@@ -16,7 +16,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722408250,
+    "updateat": 1769478013,
     "installed": false,
     "reuse": true,
     "depend": null,

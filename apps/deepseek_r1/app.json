@@ -5,13 +5,9 @@
     "apptype": "AI",
     "appTypeCN": "AI/大模型",
     "appversion": [
-        {"m_version":"1.5b","s_version":[]},
-        {"m_version":"7b","s_version":[]},
-        {"m_version":"8b","s_version":[]},
-        {"m_version":"14b","s_version":[]},
-        {"m_version":"32b","s_version":[]},
-        {"m_version":"70b","s_version":[]},
-        {"m_version":"671b","s_version":[]}
+        {"m_version":"rocm","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"0","s_version":["0.15.2-rocm","0.15.2","0.15.1","0.15.1-rocm","0.15.0","0.15.0-rocm","0.14.3","0.14.3-rocm","0.14.2-rocm","0.14.2","0.14.1","0.14.1-rocm","0.14.0-rocm","0.14.0","0.13.5-rocm","0.13.5","0.13.4","0.13.4-rocm","0.13.3","0.13.3-rocm","0.13.2-rocm","0.13.2","0.13.1-rocm","0.13.1","0.13.0-rocm","0.13.0"]}
     ],
     "appdesc": "国内最新且很强大的推理AI模型(仅支持9.4.0以上面板安装,根据网络情况决定安装速度,无法安装请修复面板后卸载重装此应用)",
     "appstatus": 1,
@@ -22,7 +18,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722408250,
+    "updateat": 1769477755,
     "installed": false,
     "reuse": true,
     "depend": null,

@@ -5,7 +5,8 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"2","s_version":["v2.1.5","2.1.6"]}
     ],
     "appdesc": "一个专业的流式应用程序管理平台，其核心功能包括应用程序开发、调试、部署、运行",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769478084,
     "installed": false,
     "reuse": true,
     "depend": null,

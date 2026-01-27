@@ -5,7 +5,12 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"snyk-fix-08c85f17c94a7f00df6fb21e8ea1d10d","s_version":[]},
+        {"m_version":"snyk-fix-1841981ea4b1abcbc4c13e21d5d2997d","s_version":[]},
+        {"m_version":"snyk-fix-cdce4e324a2d5823c7c4fcd5e7bbee5b","s_version":[]},
+        {"m_version":"redis-commander-210","s_version":[]},
+        {"m_version":"read-only-mode","s_version":[]}
     ],
     "appdesc": "Redis-Commander 是一个基于Web的Redis管理工具",
     "appstatus": 1,
@@ -16,7 +21,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769478046,
     "installed": false,
     "reuse": true,
     "depend": [

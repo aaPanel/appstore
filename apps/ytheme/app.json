@@ -5,7 +5,8 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"1","s_version":["v1.2.4-public","v1.2.3-public","v1.2.2-public","v1.2.1-public","v1.1.1-public","v1.1.0-public"]}
     ],
     "appdesc": "源主题是一个优秀且功能强大、速度极快，易于管理、现代化的虚拟资源商城主题",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769478149,
     "installed": false,
     "reuse": true,
     "depend": null,

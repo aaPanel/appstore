@@ -5,7 +5,8 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"2","s_version":["2.0.2","2.0.1","2.0.0"]}
     ],
     "appdesc": "是一款基于Solon、Netty的内网穿透神器",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722408250,
+    "updateat": 1769477968,
     "installed": false,
     "reuse": true,
     "depend": null,

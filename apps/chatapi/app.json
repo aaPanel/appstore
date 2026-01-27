@@ -5,7 +5,9 @@
     "apptype": "AI",
     "appTypeCN": "AI/大模型",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"test","s_version":[]},
+        {"m_version":"0","s_version":["v0.5.4","v0.5.3","v0.5.2","v0.5.1","v0.5.0","v0.4.9","v0.4.8","v0.4.7","v0.4.6","v0.4.5","v0.4.4","v0.4.3","v0.4.2","v0.4.1","v0.4.0","v0.3.9","v0.3.8","v0.3.7","v0.3.6","v0.3.5"]}
     ],
     "appdesc": "接口聚合管理，我们致力于提供优质的API接入服务，让您可以轻松集成先进的AI模型至您的产品和服务",
     "appstatus": 1,
@@ -16,7 +18,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769477729,
     "installed": false,
     "reuse": true,
     "depend": null,

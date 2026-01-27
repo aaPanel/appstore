@@ -5,10 +5,8 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {
-            "m_version": "latest",
-            "s_version": []
-        }
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"1","s_version":["v1.4.2","v1.4.1","v1.4.0","v1.3.6","v1.3.5","v1.3.4","v1.3.3","v1.3.2","v1.3.1","v1.3.0","v1.2.3","v1.2.2","v1.2.1","v1.2.0","v1.1.9","v1.1.8","v1.1.7","v1.1.6","v1.1.5"]}
     ],
     "appdesc": "新一代的开源 AI CRM 系统，作为 Salesforce 的开源替代方案。",
     "appstatus": 1,
@@ -19,30 +17,28 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1765534155,
+    "updateat": 1769477745,
     "installed": false,
     "reuse": true,
     "depend": null,
     "field": [
-        {"attr": "domain", "name": "域名", "type": "textarea", "default": "", "suffix": "浏览器访问的域名,非必填", "unit": ""},
-        {"attr": "allow_access", "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": ""},
-        {"attr": "cordys_web_port", "name": "web端口", "type": "number", "default": 8081, "suffix": "", "unit": ""},
-        {"attr": "cordys_admin_port", "name": "MCP端口", "type": "number", "default": 8082, "suffix": "", "unit": ""},
-        {"attr": "default_admin", "name": "默认用户名", "type": "number", "default": "admin", "suffix": "在此修改无效", "unit": ""},
-        {"attr": "defaul_pwd", "name": "默认密码", "type": "number", "default": "CordysCRM", "suffix": "在此修改无效", "unit": ""},
-        {"attr": "cpus", "name": "cpu核心数限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用核心数为: ", "unit": ""},
-        {"attr": "memory_limit", "name": "内存限制", "type": "number", "default": 0, "suffix": "0为不限制,最大可用内存为: ", "unit": ""}
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+        {"attr":"cordys_web_port","name":"web端口","type":"number","default":8081,"suffix":"","unit":""},
+        {"attr":"cordys_admin_port","name":"MCP端口","type":"number","default":8082,"suffix":"","unit":""},
+        {"attr":"default_admin","name":"默认用户名","type":"number","default":"admin","suffix":"在此修改无效","unit":""},
+        {"attr":"defaul_pwd","name":"默认密码","type":"number","default":"CordysCRM","suffix":"在此修改无效","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
     ],
     "env": [
-        {"key": "version", "type": "string", "default": null, "desc": "版本号"},
-        {"key": "cordys_web_port", "type": "port", "default": 8081, "desc": "web端口"},
-        {"key": "cordys_admin_port", "type": "port", "default": 8082, "desc": "MCP端口"},
-        {"key": "app_path", "type": "path", "default": null, "desc": "应用数据目录"},
-        {"key": "host_ip", "type": "string", "default": null, "desc": "主机IP"},
-        {"key": "cpus", "type": "number", "default": null, "desc": "CPU核心数限制"},
-        {"key": "memory_limit", "type": "number", "default": null, "desc": "内存大小限制"}
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"cordys_web_port","type":"port","default":8081,"desc":"web端口"},
+        {"key":"cordys_admin_port","type":"port","default":8082,"desc":"MCP端口"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
     ],
-    "volumes": {
-        "data": {"type": "path", "desc": "应用数据目录"}
-    }
+    "volumes": {"data": {"type": "path", "desc": "应用数据目录"}}
 }

@@ -6,7 +6,7 @@
     "appTypeCN": "实用工具",
     "appversion": [
         {"m_version":"latest","s_version":[]},
-        {"m_version":"1","s_version":["2.0"]}
+        {"m_version":"1","s_version":["1.2.0"]}
     ],
     "appdesc": "免费开源、简单直观的数据库设计编辑器、数据建模器和SQL生成器",
     "appstatus": 1,
@@ -17,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769477772,
     "installed": false,
     "reuse": true,
     "depend": null,

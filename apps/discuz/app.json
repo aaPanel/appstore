@@ -5,7 +5,8 @@
     "apptype": "BuildWebsite",
     "appTypeCN": "建站",
     "appversion": [
-        {"m_version":"3","s_version":["4"]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"3","s_version":["v3.4"]}
     ],
     "appdesc": "Discuz 是一个功能强大的社区论坛系统",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769477767,
     "installed": false,
     "reuse": true,
     "depend": null,

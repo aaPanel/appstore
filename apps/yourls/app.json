@@ -5,7 +5,11 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"fpm-alpine","s_version":[]},
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"fpm","s_version":[]},
+        {"m_version":"apache","s_version":[]},
+        {"m_version":"1","s_version":["1.10.3-fpm-alpine","1.10-fpm-alpine","1-fpm-alpine","1.10.3-fpm","1.10.3-apache","1.10.3","1.10-fpm","1.10-apache","1.10","1-fpm","1-apache","1","1.10.2-fpm-alpine","1.10.2-fpm","1.10.2-apache","1.10.2","1.10.1-fpm","1.10.1-apache","1.10.1","1.10.1-fpm-alpine","1.10.0-fpm-alpine","1.10.0-fpm","1.10.0-apache","1.10.0","1.9.2-fpm","1.9.2-apache","1.9.2","1.9-fpm","1.9-apache","1.9","1.9.2-fpm-alpine","1.9-fpm-alpine","1.9.1-fpm-alpine","1.9.1-fpm","1.9.1-apache","1.9.1","1.8.2-fpm","1.8.2-apache","1.8.2","1.8-fpm","1.8-apache","1.8","1.8.2-fpm-alpine","1.8-fpm-alpine","1.8.1-fpm","1.8.1-apache","1.8.1","1.8.1-fpm-alpine","1.7.9-fpm-alpine","1.7-fpm-alpine","1.7.9-fpm","1.7.9-apache","1.7.9","1.7-fpm","1.7-apache","1.7","1.7.6-fpm-alpine","1.7.6-fpm","1.7.6-apache","1.7.6","1.7.5-fpm-alpine","1.7.5-fpm","1.7.5-apache","1.7.5","1.7.4-fpm-alpine","1.7.4-fpm","1.7.4-apache","1.7.4","1.7.3-fpm-alpine","1.7.3-fpm","1.7.3-apache","1.7.3","1.7.2-fpm-alpine","1.7.2-fpm","1.7.2","1.7.2-apache"]}
     ],
     "appdesc": "一组PHP脚本，创建自己的URL短链",
     "appstatus": 1,
@@ -16,7 +20,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769478148,
     "installed": false,
     "reuse": true,
     "depend": [

@@ -5,7 +5,8 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"4","s_version":["4.0.9-preview","4.0.8-preview","4.0.7-preview"]}
     ],
     "appdesc": "一款简单易用的堡垒机系统，具有小巧、易用的特点，支持 RDP/SSH/SFTP/VNC/Telnet[1] 协议的远程连接和审计管理",
     "appstatus": 1,
@@ -16,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769478093,
     "installed": false,
     "reuse": true,
     "depend": null,

@@ -5,7 +5,10 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"4","s_version":["4.1.0","4.1.0-SNAPSHOT","v4.0.0","v4.0.0-SNAPSHOT"]},
+        {"m_version":"3","s_version":["v3.6.0","v3.5.1","v3.5","v3.3.1","v3.3.0"]},
+        {"m_version":"2","s_version":["v2.2.2.1","v2.2.2","v2.2.1","v2.2.1-SNAPSHOT","v2.2.0","v2.2.0-SNAPSHOT","v2.1.2","v2.1.1","v2.1.0","v2.1.0-SNAPSHOT"]}
     ],
     "appdesc": "kkFileView为文件文档在线预览解决方案，基本支持主流办公文档的在线预览，如doc,docx,xls,xlsx,ppt,pptx,pdf,txt,zip,rar,图片,视频,音频等等",
     "appstatus": 1,
@@ -16,7 +19,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769477884,
     "installed": false,
     "reuse": true,
     "depend": null,

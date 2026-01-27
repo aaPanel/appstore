@@ -5,7 +5,13 @@
     "apptype": "Tools",
     "appTypeCN": "实用工具",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"latest","s_version":[]},
+        {"m_version":"bookworm","s_version":[]},
+        {"m_version":"alpine3.23","s_version":[]},
+        {"m_version":"alpine","s_version":[]},
+        {"m_version":"alpine3.22","s_version":[]},
+        {"m_version":"6","s_version":["6.14.0-bookworm","6.14.0-alpine3.23","6.14.0-alpine","6.14.0","6.14-bookworm","6.14-alpine3.23","6.14-alpine","6.14","6-bookworm","6-alpine3.23","6-alpine","6","6.13.2-bookworm","6.13.2-alpine3.23","6.13.2-alpine","6.13.2","6.13-bookworm","6.13-alpine3.23","6.13-alpine","6.13","6.13.1-bookworm","6.13.1-alpine3.23","6.13.1-alpine","6.13.1","6.12.1-bookworm","6.12.1","6.12-bookworm","6.12","6.12.1-alpine3.23","6.12.1-alpine","6.12-alpine3.23","6.12-alpine","6.12.0-bookworm","6.12.0","6.12.0-alpine3.23","6.12.0-alpine","6.11.0-bookworm","6.11.0-alpine3.23","6.11.0-alpine","6.11.0","6.11-bookworm","6.11-alpine3.23","6.11-alpine","6.11","6.10.3-bookworm","6.10.3","6.10-bookworm","6.10","6.10.3-alpine3.23","6.10.3-alpine","6.10-alpine3.23","6.10-alpine","6.10.2-bookworm","6.10.2-alpine3.23","6.10.2-alpine","6.10.2","6.10.1-bookworm","6.10.1","6.10.1-alpine3.23","6.10.1-alpine","6.10.0-bookworm","6.10.0-alpine3.23","6.10.0-alpine","6.10.0","6.9.3-alpine3.23","6.9.3-alpine","6.9-alpine3.23","6.9-alpine","6.9.3-bookworm","6.9.3-alpine3.22","6.9.3","6.9-bookworm","6.9-alpine3.22","6.9","6-alpine3.22","6.9.1-bookworm"]},
+        {"m_version":"5","s_version":["5.130.6-bookworm","5.130.6","5.130-bookworm","5.130","5-bookworm","5","5.130.6-alpine3.23","5.130.6-alpine","5.130-alpine3.23","5.130-alpine","5-alpine3.23","5-alpine","5.130.5-bookworm","5.130.5","5.130.5-alpine3.23","5.130.5-alpine","5.130.5-alpine3.22","5.130-alpine3.22","5-alpine3.22"]}
     ],
     "appdesc": "通过网络和电子邮件发布时事通讯，包括会员注册和订阅付款",
     "appstatus": 1,
@@ -16,7 +22,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722308764,
+    "updateat": 1769477827,
     "installed": false,
     "reuse": true,
     "depend": [
