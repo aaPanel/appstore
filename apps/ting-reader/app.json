@@ -1,5 +1,5 @@
 {
-    "appid": 999,
+    "appid": 297,
     "appname": "ting-reader",
     "apptitle": "Ting Reader",
     "apptype": "Media",
@@ -12,7 +12,7 @@
     "icon": "",
     "sort": 99,
     "home": "https://www.tingreader.cn",
-    "help": "https://www.tingreader.cn",
+    "help": "https://www.tingreader.cn/guide",
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
