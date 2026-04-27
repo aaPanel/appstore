@@ -37,7 +37,6 @@ services:
       - TZ=Asia/Shanghai
     volumes:
       - /etc/machine-id:/etc/machine-id
-      - /var/lib/dbus/machine-id:/var/lib/dbus/machine-id
       - ${APP_PATH}/license:/mnt/bizbot/license
       - ${APP_PATH}/config:/mnt/bizbot/config
       - ${APP_PATH}/logs:/mnt/bizbot/logs
