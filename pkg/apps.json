@@ -691,7 +691,7 @@
   "apptype": "AI",
   "appTypeCN": "AI/大模型",
   "appversion": [
-    {"m_version":"latest","s_version":[]}
+    {"m_version":"3.0","s_version":[]}
   ],
   "appdesc": "一站式AI助理服务，支持聊天、画图、翻译、搜索、阅读及智能体商店",
   "appstatus": 1,
@@ -8490,8 +8490,7 @@
   "appTypeCN": "建站",
   "appversion": [
     {"m_version":"latest","s_version":[]},
-    {"m_version":"v3","s_version":["1.0","0.0"]},
-    {"m_version":"v2","s_version":["3.0"]}
+    {"m_version":"v3","s_version":["2.0"]}
   ],
   "appdesc": "一套适合企业使用的开源支付系统，支持聚合支付场景",
   "appstatus": 1,
@@ -8502,7 +8501,7 @@
   "cpu": 0,
   "mem": 0,
   "disk": 10240,
-  "updateat": 1722408250,
+  "updateat": 1776862315,
   "installed": false,
   "reuse": true,
   "depend": null,
@@ -8512,6 +8511,7 @@
     {"attr":"web_http_port1","name":"支付网关端口","type":"number","default":19216,"suffix":"","unit":""},
     {"attr":"web_http_port2","name":"运营平台端口","type":"number","default":19217,"suffix":"","unit":""},
     {"attr":"web_http_port3","name":"商户系统端口","type":"number","default":19218,"suffix":"","unit":""},
+    {"attr":"image_registry","name":"镜像仓库地址","type":"text","default":"swr.cn-south-1.myhuaweicloud.com/jeepay","suffix":"默认华为云 SWR（国内推荐，免登录免加速器）；如需 Docker Hub 官方镜像请改为：jeequan","unit":""},
     {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
     {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
   ],
@@ -8520,6 +8520,7 @@
     {"key":"web_http_port1","type":"port","default":null,"desc":"支付网关端口"},
     {"key":"web_http_port2","type":"port","default":null,"desc":"运营平台端口"},
     {"key":"web_http_port3","type":"port","default":null,"desc":"商户系统端口"},
+    {"key":"image_registry","type":"string","default":null,"desc":"业务镜像仓库前缀"},
     {"key":"defaultUserName","type":"defaultUserName","default":"jeepay","desc":"用户名"},
     {"key":"defaultPassWord","type":"defaultPassWord","default":"jeepay123","desc":"默认密码"},
     {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
@@ -8527,7 +8528,7 @@
     {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
     {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
   ],
-  "volumes": {}
+  "volumes": {"jeepayhomes": {"type": "path", "desc": "Jeepay 数据目录（jeepayConfigs/mysql/redis/rocketmq/service/nginx 统一放在此）"}}
 },
 {
   "appid": 19,
@@ -12839,5 +12840,46 @@
     {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
   ],
   "volumes": {"nginxpulse_data": {"type": "path", "desc": "应用数据目录"}, "pgdata": {"type": "path", "desc": "内置 PostgreSQL 数据目录"}, "configs": {"type": "path", "desc": "初始化向导与配置文件目录"}, "logs": {"type": "path", "desc": "宿主机 Nginx 日志目录（只读挂载）"}}
+},
+{
+  "appid": 298,
+  "appname": "bizbot",
+  "apptitle": "BizBot",
+  "apptype": "AI",
+  "appTypeCN": "AI/大模型",
+  "appversion": [
+    {"m_version":"latest","s_version":[]}
+  ],
+  "appdesc": "BizBot AI业务员信息录入系统，支持知识库管理、全网检索、邮件自动化等功能",
+  "appstatus": 1,
+  "home": "",
+  "help": "",
+  "icon": "",
+  "sort": 0,
+  "updateat": 1776915722,
+  "reuse": true,
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "depend": null,
+  "field": [
+    {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+    {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+    {"attr":"gateway_port","name":"网关端口","type":"number","default":8085,"suffix":"BizBot网关端口(认证入口)","unit":""},
+    {"attr":"main_port","name":"主服务端口","type":"number","default":8089,"suffix":"BizBot主服务端口","unit":""},
+    {"attr":"cpus","name":"CPU核心数限制","type":"number","default":0,"suffix":"0为不限制","unit":""},
+    {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,单位MB","unit":"MB"},
+    {"attr":"jvm_memory","name":"JVM内存","type":"number","default":1024,"suffix":"Java虚拟机最大内存,单位MB","unit":"MB"}
+  ],
+  "env": [
+    {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+    {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+    {"key":"gateway_port","type":"port","default":null,"desc":"网关端口"},
+    {"key":"main_port","type":"port","default":null,"desc":"主服务端口"},
+    {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+    {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"},
+    {"key":"jvm_memory","type":"number","default":null,"desc":"JVM内存大小"}
+  ],
+  "volumes": {"license": {"type": "path", "desc": "授权文件目录"}, "config": {"type": "path", "desc": "配置文件目录"}, "logs": {"type": "path", "desc": "日志文件目录"}, "mysql": {"type": "path", "desc": "MySQL数据目录"}, "config.properties": {"type": "file", "desc": "配置文件"}}
 }
 ]

@@ -5,7 +5,7 @@
     "apptype": "AI",
     "appTypeCN": "AI/大模型",
     "appversion": [
-        {"m_version":"latest","s_version":[]}
+        {"m_version":"3.0","s_version":[]}
     ],
     "appdesc": "一站式AI助理服务，支持聊天、画图、翻译、搜索、阅读及智能体商店",
     "appstatus": 1,

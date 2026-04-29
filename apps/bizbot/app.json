@@ -1,5 +1,5 @@
 {
-  "appid": 200,
+  "appid": 298,
   "appname": "bizbot",
   "apptitle": "BizBot",
   "apptype": "AI",
@@ -11,19 +11,19 @@
   "appstatus": 1,
   "home": "",
   "help": "",
-  "updateat": 1745203200,
+  "icon": "",
+  "sort": 0,
+  "updateat": 1776915722,
   "reuse": true,
   "cpu": 0,
   "mem": 0,
   "disk": 10240,
   "depend": null,
-
   "field": [
     { "attr": "domain",           "name": "域名",           "type": "textarea",  "default": "",          "suffix": "浏览器访问的域名,非必填",                "unit": "" },
     { "attr": "allow_access",     "name": "允许外部访问",   "type": "checkbox",  "default": true,        "suffix": "允许直接通过主机IP+端口访问",            "unit": "" },
     { "attr": "gateway_port",     "name": "网关端口",       "type": "number",    "default": 8085,        "suffix": "BizBot网关端口(认证入口)",              "unit": "" },
     { "attr": "main_port",        "name": "主服务端口",     "type": "number",    "default": 8089,        "suffix": "BizBot主服务端口",                      "unit": "" },
-    { "attr": "mysql_port",       "name": "MySQL端口",      "type": "number",    "default": 3306,        "suffix": "MySQL数据库端口(内部使用)",             "unit": "" },
     { "attr": "cpus",             "name": "CPU核心数限制",  "type": "number",    "default": 0,           "suffix": "0为不限制",                             "unit": "" },
     { "attr": "memory_limit",     "name": "内存限制",       "type": "number",    "default": 0,           "suffix": "0为不限制,单位MB",                      "unit": "MB" },
     { "attr": "jvm_memory",       "name": "JVM内存",        "type": "number",    "default": 1024,        "suffix": "Java虚拟机最大内存,单位MB",              "unit": "MB" }
@@ -34,7 +34,6 @@
     { "key": "host_ip",           "type": "string",   "default": null,  "desc": "主机IP" },
     { "key": "gateway_port",      "type": "port",     "default": null,  "desc": "网关端口" },
     { "key": "main_port",         "type": "port",     "default": null,  "desc": "主服务端口" },
-    { "key": "mysql_port",        "type": "port",     "default": null,  "desc": "MySQL端口" },
     { "key": "cpus",              "type": "number",   "default": null,  "desc": "CPU核心数限制" },
     { "key": "memory_limit",      "type": "number",   "default": null,  "desc": "内存大小限制" },
     { "key": "jvm_memory",        "type": "number",   "default": null,  "desc": "JVM内存大小" }
@@ -44,6 +43,7 @@
     "license": { "type": "path", "desc": "授权文件目录" },
     "config":   { "type": "path", "desc": "配置文件目录" },
     "logs":     { "type": "path", "desc": "日志文件目录" },
-    "mysql":    { "type": "path", "desc": "MySQL数据目录" }
+    "mysql":    { "type": "path", "desc": "MySQL数据目录" },
+    "config.properties":    { "type": "file", "desc": "配置文件" }
   }
 }

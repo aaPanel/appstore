@@ -15,17 +15,37 @@ services:
       PHP_APP_URL: ${THINKCHAT_URL}
       PHP_DB_HOST: ${SERVICE_NAME}_mysql
       PHP_REDIS_HOST: ${SERVICE_NAME}_redis
+      PHP_SANDBOX_HOST: "http://${SERVICE_NAME}_sandbox:3000"
       #授权码
       PHP_LICENSE: ${API_KEY}
     volumes:
       - ${APP_PATH}/app/storage:/opt/htdocs/storage
     depends_on:
+      - topthink-sandbox
       - topthink-mysql
       - topthink-redis
     labels:
       createdBy: "bt_apps"
     networks:
       - baota_net
+      
+  topthink-sandbox:
+    image: registry.cn-shanghai.aliyuncs.com/topthink/sandbox:latest
+    privileged: true
+    environment:
+      - SANDBOX_DEFAULT_CPU=1
+      - SANDBOX_DEFAULT_MEMORY=2
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+      - ${APP_PATH}/app/sandbox:/var/lib/docker
+    cgroup: host
+    labels:
+      createdBy: "bt_apps"
+    restart: always
+    networks:
+      baota_net:
+        aliases:
+          - ${SERVICE_NAME}_sandbox
 
   topthink-redis:
     image: registry.cn-shanghai.aliyuncs.com/topopen/redis:latest

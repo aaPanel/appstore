@@ -6,8 +6,7 @@
     "appTypeCN": "建站",
     "appversion": [
         {"m_version":"latest","s_version":[]},
-        {"m_version":"v3","s_version":["1.0","0.0"]},
-        {"m_version":"v2","s_version":["3.0"]}
+        {"m_version":"v3","s_version":["2.0"]}
     ],
     "appdesc": "一套适合企业使用的开源支付系统，支持聚合支付场景",
     "appstatus": 1,
@@ -18,7 +17,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1722408250,
+    "updateat": 1776862315,
     "installed": false,
     "reuse": true,
     "depend": null,
@@ -28,6 +27,7 @@
         {"attr":"web_http_port1","name":"支付网关端口","type":"number","default":19216,"suffix":"","unit":""},
         {"attr":"web_http_port2","name":"运营平台端口","type":"number","default":19217,"suffix":"","unit":""},
         {"attr":"web_http_port3","name":"商户系统端口","type":"number","default":19218,"suffix":"","unit":""},
+        {"attr":"image_registry","name":"镜像仓库地址","type":"text","default":"swr.cn-south-1.myhuaweicloud.com/jeepay","suffix":"默认华为云 SWR（国内推荐，免登录免加速器）；如需 Docker Hub 官方镜像请改为：jeequan","unit":""},
         {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
         {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
     ],
@@ -36,6 +36,7 @@
         {"key":"web_http_port1","type":"port","default":null,"desc":"支付网关端口"},
         {"key":"web_http_port2","type":"port","default":null,"desc":"运营平台端口"},
         {"key":"web_http_port3","type":"port","default":null,"desc":"商户系统端口"},
+        {"key":"image_registry","type":"string","default":null,"desc":"业务镜像仓库前缀"},
         {"key":"defaultUserName","type":"defaultUserName","default":"jeepay","desc":"用户名"},
         {"key":"defaultPassWord","type":"defaultPassWord","default":"jeepay123","desc":"默认密码"},
         {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
@@ -43,5 +44,7 @@
         {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
         {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
     ],
-    "volumes": {}
+    "volumes": {
+        "jeepayhomes": {"type":"path","desc":"Jeepay 数据目录（jeepayConfigs/mysql/redis/rocketmq/service/nginx 统一放在此）"}
+    }
 }
