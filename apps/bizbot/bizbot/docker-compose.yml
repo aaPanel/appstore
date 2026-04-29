@@ -1,11 +1,11 @@
 services:
   mysql:
     image: xnx3/bizbot-mysql-auto:8.0
-    container_name: bizbot-mysql
+#    container_name: bizbot-mysql
     networks:
       - bizbot-network
-    ports:
-      - "${MYSQL_PORT:-3306}:3306"
+#    ports:
+#      - "${MYSQL_PORT:-3306}:3306"
     environment:
       - TZ=Asia/Shanghai
     volumes:
@@ -22,7 +22,7 @@ services:
 
   bizbot:
     image: xnx3/bizbot:latest
-    container_name: bizbot
+#    container_name: bizbot
     networks:
       - bizbot-network
     ports:
@@ -32,15 +32,14 @@ services:
       mysql:
         condition: service_healthy
     environment:
-      - DISPLAY=:99
       - JAVA_OPTS=-Xms512m -Xmx${JVM_MEMORY}m -XX:+UseG1GC
       - TZ=Asia/Shanghai
     volumes:
       - /etc/machine-id:/etc/machine-id
-      - ${APP_PATH}/license:/mnt/bizbot/license
-      - ${APP_PATH}/config:/mnt/bizbot/config
-      - ${APP_PATH}/logs:/mnt/bizbot/logs
-      - ${APP_PATH}/config/config.properties:/opt/bizexplore/config.properties
+      - ${APP_PATH}/license:/opt/bizexplore/config/license
+      - ${APP_PATH}/config:/opt/bizexplore/config
+      - ${APP_PATH}/logs:/opt/bizexplore/logs
+      - ${APP_PATH}/config.properties:/opt/bizexplore/config.properties
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8089/"]
       interval: 30s
