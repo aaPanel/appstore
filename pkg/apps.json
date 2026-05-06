@@ -12881,5 +12881,41 @@
     {"key":"jvm_memory","type":"number","default":null,"desc":"JVM内存大小"}
   ],
   "volumes": {"license": {"type": "path", "desc": "授权文件目录"}, "config": {"type": "path", "desc": "配置文件目录"}, "logs": {"type": "path", "desc": "日志文件目录"}, "mysql": {"type": "path", "desc": "MySQL数据目录"}, "config.properties": {"type": "file", "desc": "配置文件"}}
+},
+{
+  "appid": 299,
+  "appname": "mslx",
+  "apptitle": "MSLX",
+  "apptype": "Tools",
+  "appTypeCN": "实用工具",
+  "appversion": [
+    { "m_version": "1.3.7", "s_version": [] }
+  ],
+  "appdesc": "MSLX 是一款跨平台、多功能的服务端进程管理面板。不仅是搭建 Minecraft 服务器的利器，更能轻松托管各类控制台程序。原生支持 MC Java 版及基岩版自动化构建，内置 FRP 内网穿透。",
+  "appstatus": 1,
+  "home": "https://mslx.mslmc.cn",
+  "help": "https://mslx.mslmc.cn",
+  "updateat": 1776954290,
+  "reuse": true,
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "depend": null,
+  "field": [
+    { "attr": "panel_port",     "name": "外部访问端口", "type": "number",   "default": 1027, "suffix": "宿主机映射端口(容器内固定1027)", "unit": "" },
+    { "attr": "allow_access",   "name": "允许外部访问", "type": "checkbox", "default": true, "suffix": "允许直接通过主机IP+端口访问", "unit": "" },
+    { "attr": "cpus",           "name": "CPU核心限制",  "type": "number",   "default": 0,    "suffix": "0为不限制", "unit": "" },
+    { "attr": "memory_limit",   "name": "内存限制(MB)", "type": "number",   "default": 0,    "suffix": "0为不限制", "unit": "" }
+  ],
+  "env": [
+    { "key": "panel_port",     "type": "port",    "default": null, "desc": "外部访问端口" },
+    { "key": "app_path",       "type": "path",    "default": null, "desc": "应用数据目录" },
+    { "key": "host_ip",        "type": "string",  "default": null, "desc": "主机IP" },
+    { "key": "cpus",           "type": "number",  "default": null, "desc": "CPU核心数限制" },
+    { "key": "memory_limit",   "type": "number",  "default": null, "desc": "内存限制" }
+  ],
+  "volumes": {
+    "data": { "type": "path", "desc": "面板数据目录" }
+  }
 }
 ]

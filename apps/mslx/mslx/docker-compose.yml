@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mslx:
+    image: docker.mslmc.cn/xiaoyululu/mslx-daemon:latest
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}M
+          
+    ports:
+      # 服务面板端口映射
+      - "${HOST_IP}:${PANEL_PORT}:1027"
+      # Java版游戏端口预留
+      - "${HOST_IP}:25565-25585:25565-25585/tcp"
+      - "${HOST_IP}:25565-25585:25565-25585/udp"
+      # 基岩版游戏端口预留
+      - "${HOST_IP}:19132-19142:19132-19142/udp"
+      
+    # 数据挂载
+    volumes:
+      - "${APP_PATH}/data:/app/DaemonData"
+      
+    # 容器内部环境变量
+    environment:
+      - TZ=${TZ}
+      
+    # 宝塔必填标签
+    labels:
+      createdBy: "bt_apps"
