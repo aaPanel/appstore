@@ -1,0 +1,28 @@
+[
+    {
+        "dayMaxSize": 50000,
+        "domain": "localhost",
+        "maxCacheFileSize": 50000,
+        "maxCacheMemorySize": 100
+    },
+    {
+        "dayMaxSize": 3000,
+        "domain": "abc.zvo.cn",
+        "maxCacheFileSize": 50000,
+        "maxCacheMemorySize": 54545
+    },
+    {
+        "dayMaxSize": 3000,
+        "domain": "www.leimingyun.com",
+        "maxCacheFileSize": 50000,
+        "maxCacheMemorySize": 54545
+    }
+    ,
+    {
+        "dayMaxSize": 3000,
+        "domain": "unknow",
+        "maxCacheFileSize": 50000,
+        "maxCacheMemorySize": 54545
+    }
+    
+]
