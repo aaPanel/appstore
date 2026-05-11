@@ -1,0 +1,52 @@
+services:
+  translateservice:
+    image: xnx3/translate-service:latest
+    environment:
+      TZ: Asia/Shanghai
+      APP_RUNTIME_MODE: "container"
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:80
+    restart: unless-stopped
+    volumes:
+      # 配置文件
+      - ${APP_PATH}/config.properties:/mnt/service/config.properties
+      - ${APP_PATH}/domain.json:/mnt/service/domain.json
+      # 数据目录
+      - ${APP_PATH}/data:/mnt/service/data
+      - ${APP_PATH}/logs:/mnt/service/logs
+      - ${APP_PATH}/cache:/mnt/service/cache
+    depends_on:
+      redis:
+        condition: service_healthy
+    labels:
+      createdBy: "bt_apps"
+    privileged: true
+    networks:
+      - translate-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/index.do"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  redis:
+    image: xnx3/translate-service-redis:5.0
+    ports:
+      - ${HOST_IP}:${REDIS_PORT}:6379
+    restart: unless-stopped
+    volumes:
+      - ${APP_PATH}/redis-data:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - translate-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: redis-server --appendonly yes
+
+networks:
+  translate-network:
+    driver: bridge
