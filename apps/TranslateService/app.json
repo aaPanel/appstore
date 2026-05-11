@@ -1,5 +1,5 @@
 {
-  "appid": 200,
+  "appid": 300,
   "appname": "TranslateService",
   "apptitle": "TranslateService",
   "apptype": "AI",
@@ -11,6 +11,8 @@
   "appstatus": 1,
   "home": "https://translate.zvo.cn",
   "help": "https://translate.zvo.cn/391129.html",
+  "icon": "",
+  "sort": 0,
   "updateat": 1745107200,
   "reuse": true,
   "cpu": 0,
@@ -41,7 +43,7 @@
     "logs":   { "type": "path", "desc": "日志目录" },
     "cache":  { "type": "path", "desc": "缓存目录" },
     "redis-data": { "type": "path", "desc": "Redis数据目录" },
-    "config": { "type": "file", "desc": "配置文件" },
-    "domain": { "type": "file", "desc": "域名配置文件" }
+    "config.properties": { "type": "file", "desc": "配置文件" },
+    "domain.json": { "type": "file", "desc": "域名配置文件" }
   }
 }

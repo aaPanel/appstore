@@ -12920,5 +12920,44 @@
     {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
   ],
   "volumes": {"data": {"type": "path", "desc": "数据目录"}}
+},
+{
+  "appid": 300,
+  "appname": "TranslateService",
+  "apptitle": "TranslateService",
+  "apptype": "AI",
+  "appTypeCN": "AI/大模型",
+  "appversion": [
+    {"m_version":"1.0","s_version":[]}
+  ],
+  "appdesc": "私有化翻译服务，支持多语言翻译、大模型通道、缓存加速，可对接多种翻译引擎",
+  "appstatus": 1,
+  "home": "https://translate.zvo.cn",
+  "help": "https://translate.zvo.cn/391129.html",
+  "icon": "",
+  "sort": 0,
+  "updateat": 1745107200,
+  "reuse": true,
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "depend": null,
+  "field": [
+    {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问域名，非必填","unit":""},
+    {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+    {"attr":"web_http_port","name":"Web端口","type":"number","default":80,"suffix":"服务监听端口","unit":""},
+    {"attr":"redis_port","name":"Redis端口","type":"number","default":6379,"suffix":"Redis服务监听端口","unit":""},
+    {"attr":"cpus","name":"CPU核心数限制","type":"number","default":0,"suffix":"0为不限制，最大可用核心数为: ","unit":""},
+    {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制，最大可用内存为: ","unit":""}
+  ],
+  "env": [
+    {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+    {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+    {"key":"web_http_port","type":"port","default":null,"desc":"Web端口"},
+    {"key":"redis_port","type":"port","default":null,"desc":"Redis端口"},
+    {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+    {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+  ],
+  "volumes": {"data": {"type": "path", "desc": "数据目录"}, "logs": {"type": "path", "desc": "日志目录"}, "cache": {"type": "path", "desc": "缓存目录"}, "redis-data": {"type": "path", "desc": "Redis数据目录"}, "config.properties": {"type": "file", "desc": "配置文件"}, "domain.json": {"type": "file", "desc": "域名配置文件"}}
 }
 ]
