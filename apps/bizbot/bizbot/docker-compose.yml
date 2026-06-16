@@ -23,7 +23,7 @@ services:
       - wechat-data:/home/appuser/.xwechat
       - wechat-files:/home/appuser/Documents/xwechat_files
       - downloads:/home/appuser/Downloads
-      - ${VISBOT_APP_PATH}/personbot-data/skills/微信/skill.sqlite3:/opt/personbot/data/skills/微信/skill.sqlite3
+      - ${VISBOT_APP_PATH}/personbot-data/skills/wechat/skill.sqlite3:/opt/personbot/data/skills/wechat/skill.sqlite3
       - ${VISBOT_APP_PATH}/personbot-data/skills/whatsapp/skill.sqlite3:/opt/personbot/data/skills/whatsapp/skill.sqlite3
       - personbot-logs:/opt/personbot/logs
     restart: unless-stopped
