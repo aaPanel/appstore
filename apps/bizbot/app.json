@@ -1,5 +1,5 @@
 {
-  "appid": 200,
+  "appid": 298,
   "appname": "bizbot",
   "apptitle": "BizBot",
   "apptype": "AI",
@@ -9,6 +9,8 @@
   ],
   "appdesc": "BizBot AI业务员信息录入系统，支持知识库管理、全网检索、邮件自动化、VisBot微信通道和统一Nginx入口",
   "appstatus": 1,
+  "icon": "",
+  "sort": 0,
   "home": "",
   "help": "",
   "updateat": 1781346482,
@@ -27,8 +29,8 @@
     { "attr": "mysql_port", "name": "MySQL端口", "type": "number", "default": 3306, "suffix": "MySQL数据库端口(内部使用)", "unit": "" },
     { "attr": "visbot_rdp_host_port", "name": "VisBot远程桌面端口", "type": "number", "default": 3391, "suffix": "VisBot RDP远程桌面端口", "unit": "" },
     { "attr": "visbot_personbot_host_port", "name": "PersonBot接口端口", "type": "number", "default": 5173, "suffix": "PersonBot宿主机访问端口", "unit": "" },
+    { "attr": "visbot_personbot_container_port", "name": "PersonBot容器端口", "type": "number", "default": 18020, "suffix": "PersonBot容器端口", "unit": "" },
     { "attr": "visbot_web_host_port", "name": "VisBot Web端口", "type": "number", "default": 8030, "suffix": "VisBot Web服务端口", "unit": "" },
-    { "attr": "visbot_app_path", "name": "VisBot数据目录", "type": "text", "default": "/mnt/visbotubuntu", "suffix": "VisBot和PersonBot数据目录", "unit": "" },
     { "attr": "personbot_api_key", "name": "PersonBot API Key", "type": "text", "default": "CHANGE_ME_LOCAL_API_KEY_8020", "suffix": "PersonBot后台API Key,交付客户前建议改成客户专用值", "unit": "" },
     { "attr": "rdp_password", "name": "远程桌面密码", "type": "text", "default": "VisBot", "suffix": "如果底层VNC/RDP网关只支持8位密码,超过8位可能只识别前8位", "unit": "" },
     { "attr": "chrome_proxy", "name": "浏览器代理", "type": "text", "default": "", "suffix": "Chrome代理地址,不使用代理时留空", "unit": "" },
@@ -51,7 +53,6 @@
     { "key": "visbot_personbot_host_port", "type": "port", "default": 5173, "desc": "PersonBot接口端口" },
     { "key": "visbot_personbot_container_port", "type": "number", "default": 18020, "desc": "PersonBot容器端口" },
     { "key": "visbot_web_host_port", "type": "port", "default": 8030, "desc": "VisBot Web端口" },
-    { "key": "visbot_app_path", "type": "path", "default": "/mnt/visbotubuntu", "desc": "VisBot数据目录" },
     { "key": "personbot_api_key", "type": "string", "default": "CHANGE_ME_LOCAL_API_KEY_8020", "desc": "PersonBot API Key" },
     { "key": "rdp_password", "type": "string", "default": "VisBot", "desc": "VisBot远程桌面密码" },
     { "key": "chrome_proxy", "type": "string", "default": "", "desc": "VisBot浏览器代理" },
@@ -68,6 +69,8 @@
     "config": { "type": "path", "desc": "配置文件目录" },
     "logs": { "type": "path", "desc": "日志文件目录" },
     "mysql": { "type": "path", "desc": "MySQL数据目录" },
-    "visbotubuntu": { "type": "path", "desc": "VisBot数据目录" }
+    "visbotubuntu": { "type": "path", "desc": "VisBot数据目录" },
+    "personbot-data": { "type": "path", "desc": "personbot数据目录" },
+    "config.properties": { "type": "path", "desc": "配置文件" }
   }
 }

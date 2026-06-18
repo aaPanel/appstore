@@ -1,5 +1,5 @@
 services:
-  visbotubuntu:
+  visbot-ubuntu:
     image: xnx3/visbot-ubuntu:latest
     networks:
       - bizbot-network
@@ -23,8 +23,8 @@ services:
       - wechat-data:/home/appuser/.xwechat
       - wechat-files:/home/appuser/Documents/xwechat_files
       - downloads:/home/appuser/Downloads
-      - ${VISBOT_APP_PATH}/personbot-data/skills/wechat/skill.sqlite3:/opt/personbot/data/skills/wechat/skill.sqlite3
-      - ${VISBOT_APP_PATH}/personbot-data/skills/whatsapp/skill.sqlite3:/opt/personbot/data/skills/whatsapp/skill.sqlite3
+      - ${APP_PATH}/personbot-data/skills/wechat/skill.sqlite3:/opt/personbot/data/skills/wechat/skill.sqlite3
+      - ${APP_PATH}/personbot-data/skills/whatsapp/skill.sqlite3:/opt/personbot/data/skills/whatsapp/skill.sqlite3
       - personbot-logs:/opt/personbot/logs
     restart: unless-stopped
     labels:
@@ -94,11 +94,11 @@ services:
     depends_on:
       bizbot:
         condition: service_healthy
-      visbotubuntu:
+      visbot-ubuntu:
         condition: service_started
     environment:
       - PERSONBOT_API_KEY=${PERSONBOT_API_KEY:-CHANGE_ME_LOCAL_API_KEY_8020}
-      - PERSONBOT_CHANNEL_TASK_URL=http://visbotubuntu:${VISBOT_PERSONBOT_CONTAINER_PORT:-18020}/tasks/execute
+      - PERSONBOT_CHANNEL_TASK_URL=http://visbot-ubuntu:${VISBOT_PERSONBOT_CONTAINER_PORT:-18020}/tasks/execute
       - BIZBOT_SERVICE_FRAME_URL=/bizbot/html/simple/data_restore.html
       - BIZBOT_SERVICE_URL=/
     healthcheck:
