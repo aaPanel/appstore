@@ -8,8 +8,6 @@ services:
       - TZ=Asia/Shanghai
       - GIN_MODE=release
       - INSTALL_SOURCE=baota_app
-      - DATABASE_HOST=172.17.0.1
-      - REDIS_HOST=172.17.0.1
     volumes:
       - ${APP_PATH}/data/config/:/app/config/
     labels:
