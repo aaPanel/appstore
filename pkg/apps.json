@@ -243,7 +243,7 @@
   "apptype": "Tools",
   "appTypeCN": "实用工具",
   "appversion": [
-    {"m_version":"2.20.2","s_version":[]},
+    {"m_version":"2.21.0","s_version":[]},
     {"m_version":"2","s_version":["18.0","17.0","16.0","15.0"]}
   ],
   "appdesc": "支持Python3、JavaScript、Shell、Typescript 的定时任务管理平台",
