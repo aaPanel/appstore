@@ -1,0 +1,250 @@
+{
+  "appid": -1,
+  "appname": "modelgate",
+  "apptitle": "ModelGate",
+  "apptype": "AI",
+  "appTypeCN": "AI/大模型",
+  "appversion": [
+    {
+      "m_version": "latest",
+      "s_version": []
+    },
+    {
+      "m_version": "lite",
+      "s_version": []
+    }
+  ],
+  "appdesc": "多租户 LLM 网关 + 管理控制台。支持 OpenAI / Anthropic / Ollama / Responses 多协议自动转换，多渠道路由加权负载均衡与熔断，用户组级限流与配额，OIDC 单点登录，API Key 管理，请求日志与用量统计。Next.js + SQLite 单文件部署，Docker 一键启动，提供完整版与精简版两种构建制品。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 1,
+  "home": "https://cnb.cool/Bring/Project/Series/ModelGate",
+  "help": "https://cnb.cool/Bring/Project/Series/ModelGate",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1783333620,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {
+      "attr": "modelgate_edition",
+      "name": "版本说明",
+      "type": "text",
+      "default": "上方选择：latest 完整版 / lite 精简版",
+      "suffix": "仅说明，无需改动",
+      "unit": ""
+    },
+    {
+      "attr": "domain",
+      "name": "域名",
+      "type": "textarea",
+      "default": "",
+      "suffix": "选填，可使用绑定域名访问 Web 控制台",
+      "unit": ""
+    },
+    {
+      "attr": "allow_access",
+      "name": "允许外部访问",
+      "type": "checkbox",
+      "default": true,
+      "suffix": "允许 IP:端口 直接访问",
+      "unit": ""
+    },
+    {
+      "attr": "modelgate_http_port",
+      "name": "WEB端口",
+      "type": "number",
+      "default": 3000,
+      "suffix": "控制台访问端口",
+      "unit": ""
+    },
+    {
+      "attr": "jwt_access_secret",
+      "name": "Access 登录密钥",
+      "type": "password",
+      "default": "",
+      "suffix": "",
+      "unit": ""
+    },
+    {
+      "attr": "jwt_refresh_secret",
+      "name": "Refresh 续期密钥",
+      "type": "password",
+      "default": "",
+      "suffix": "",
+      "unit": ""
+    },
+    {
+      "attr": "jwt_access_expires_seconds",
+      "name": "Access 有效期",
+      "type": "number",
+      "default": 900,
+      "suffix": "短期登录有效期，默认 900 秒",
+      "unit": "秒"
+    },
+    {
+      "attr": "jwt_refresh_expires_seconds",
+      "name": "Refresh 有效期",
+      "type": "number",
+      "default": 604800,
+      "suffix": "保持登录有效期，默认 7 天",
+      "unit": "秒"
+    },
+    {
+      "attr": "auth_disabled",
+      "name": "免认证模式",
+      "type": "text",
+      "default": "0",
+      "suffix": "默认 0 为保持登录认证；1 为免认证",
+      "unit": ""
+    },
+    {
+      "attr": "modelgate_trusted_ip_headers",
+      "name": "客户端 IP 头",
+      "type": "text",
+      "default": "",
+      "suffix": "反代信任IP头，多值逗号分隔，如：X-Forwarded-For",
+      "unit": ""
+    },
+    {
+      "attr": "modelgate_gateway_debug",
+      "name": "网关调试",
+      "type": "text",
+      "default": "0",
+      "suffix": "默认 0 为关闭；1 为开启排障日志",
+      "unit": ""
+    },
+    {
+      "attr": "modelgate_jsonl_log_enabled",
+      "name": "JSONL 日志",
+      "type": "text",
+      "default": "0",
+      "suffix": "默认 0 为关闭；1 为开启请求日志",
+      "unit": ""
+    },
+    {
+      "attr": "modelgate_jsonl_log_path",
+      "name": "JSONL 路径",
+      "type": "text",
+      "default": "/app/data/request-logs.jsonl",
+      "suffix": "默认请求日志文件路径",
+      "unit": ""
+    },
+    {
+      "attr": "cpus",
+      "name": "CPU核心数限制",
+      "type": "number",
+      "default": 0,
+      "suffix": "0 为不限制，最大可用核心数：",
+      "unit": ""
+    },
+    {
+      "attr": "memory_limit",
+      "name": "内存限制",
+      "type": "number",
+      "default": 0,
+      "suffix": "0 为不限制，最大可用内存：",
+      "unit": "MB"
+    }
+  ],
+  "env": [
+    {
+      "key": "version",
+      "type": "string",
+      "default": null,
+      "desc": "版本号"
+    },
+    {
+      "key": "modelgate_http_port",
+      "type": "port",
+      "default": null,
+      "desc": "WEB端口"
+    },
+    {
+      "key": "jwt_access_secret",
+      "type": "password",
+      "default": null,
+      "desc": "JWT Access Token 密钥"
+    },
+    {
+      "key": "jwt_refresh_secret",
+      "type": "password",
+      "default": null,
+      "desc": "JWT Refresh Token 密钥"
+    },
+    {
+      "key": "jwt_access_expires_seconds",
+      "type": "string",
+      "default": null,
+      "desc": "Access Token 有效期"
+    },
+    {
+      "key": "jwt_refresh_expires_seconds",
+      "type": "string",
+      "default": null,
+      "desc": "Refresh Token 有效期"
+    },
+    {
+      "key": "auth_disabled",
+      "type": "string",
+      "default": null,
+      "desc": "关闭认证模式"
+    },
+    {
+      "key": "modelgate_trusted_ip_headers",
+      "type": "string",
+      "default": null,
+      "desc": "反代真实 IP 头"
+    },
+    {
+      "key": "modelgate_gateway_debug",
+      "type": "string",
+      "default": null,
+      "desc": "网关调试日志"
+    },
+    {
+      "key": "modelgate_jsonl_log_enabled",
+      "type": "string",
+      "default": null,
+      "desc": "JSONL 请求日志"
+    },
+    {
+      "key": "modelgate_jsonl_log_path",
+      "type": "string",
+      "default": null,
+      "desc": "JSONL 日志路径"
+    },
+    {
+      "key": "app_path",
+      "type": "path",
+      "default": null,
+      "desc": "应用数据目录"
+    },
+    {
+      "key": "host_ip",
+      "type": "string",
+      "default": null,
+      "desc": "主机IP"
+    },
+    {
+      "key": "cpus",
+      "type": "number",
+      "default": null,
+      "desc": "CPU核心数限制"
+    },
+    {
+      "key": "memory_limit",
+      "type": "number",
+      "default": null,
+      "desc": "内存限制"
+    }
+  ],
+  "volumes": {
+    "data": {
+      "type": "path",
+      "desc": "ModelGate 数据目录，SQLite gateway.db 写入此目录"
+    }
+  }
+}
