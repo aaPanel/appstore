@@ -291,6 +291,8 @@ services:
     image: registry.cn-hangzhou.aliyuncs.com/fastgpt/fastgpt:v4.15.1
     ports:
       - ${HOST_IP}:${HTTP_PORT}:3000
+    labels:
+        createdBy: "bt_apps"
     networks:
       - data
       - app
