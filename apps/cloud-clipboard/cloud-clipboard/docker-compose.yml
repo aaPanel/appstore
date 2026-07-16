@@ -1,0 +1,30 @@
+services:
+  BT_SERVICE_NAME6:
+    image: jonnyan404/cloud-clipboard:latest
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+      - CLIP_NO_AUTH=${CLIP_NO_AUTH}
+      - CLIP_HISTORY=${CLIP_HISTORY}
+      - CLIP_TEXT_SIZE=${CLIP_TEXT_SIZE}
+      - CLIP_FILE_SIZE=${CLIP_FILE_SIZE}
+      - CLIP_EXPIRE_TIME=${CLIP_EXPIRE_TIME}
+    ports:
+      - ${HOST_IP}:${CLOUD-CLIPBOARD_PORT}:9501
+    restart: always
+    volumes:
+      - ${APP_PATH}/data:/data
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
