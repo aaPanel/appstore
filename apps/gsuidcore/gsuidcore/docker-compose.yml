@@ -1,0 +1,27 @@
+services:
+  BT_SERVICE_NAME6:
+    image: docker.cnb.cool/gscore-mirror/gsuid_core:${VERSION}
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ${APP_PATH}/gscore_data:/gsuid_core/data
+      - ${APP_PATH}/gscore_plugins:/gsuid_core/gsuid_core/plugins
+      - gsuid_core_venv:/venv
+    ports:
+      - ${HOST_IP}:${WEB_HTTP_PORT}:8765
+    environment:
+      - PYTHONUNBUFFERED=1
+      - UV_DEFAULT_INDEX=${GSCORE_PYTHON_INDEX}
+      - UV_HTTP_TIMEOUT=${UV_HTTP_TIMEOUT}
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+volumes:
+  gsuid_core_venv:
+
+networks:
+  baota_net:
+    external: true
