@@ -302,5 +302,6 @@
   "nginxpulse",
   "bizbot",
   "zmark",
-  "TranslateService"
+  "TranslateService",
+  "gsuidcore"
 ]
