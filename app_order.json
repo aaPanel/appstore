@@ -30,6 +30,7 @@
   "domain_admin",
   "nginx_proxy_manager",
   "postgresql",
+  "postgresql_18",
   "rustdesk",
   "phpmyadmin",
   "uptime_kuma",
