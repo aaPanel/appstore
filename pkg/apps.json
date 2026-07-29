@@ -243,7 +243,7 @@
   "apptype": "Tools",
   "appTypeCN": "实用工具",
   "appversion": [
-    {"m_version":"2.20.2","s_version":[]},
+    {"m_version":"2.21.0","s_version":[]},
     {"m_version":"2","s_version":["18.0","17.0","16.0","15.0"]}
   ],
   "appdesc": "支持Python3、JavaScript、Shell、Typescript 的定时任务管理平台",
@@ -1289,6 +1289,48 @@
     {"m_version":"14","s_version":["12"]},
     {"m_version":"13","s_version":["15"]},
     {"m_version":"12","s_version":["19"]}
+  ],
+  "appdesc": "一种特性非常齐全的自由软件的对象-关系型数据库管理系统（ORDBMS）",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 16,
+  "home": "https://www.postgresql.org/",
+  "help": "",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1722408250,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+    {"attr":"postgres_port","name":"端口","type":"number","default":35432,"suffix":"postgresql服务端口","unit":""},
+    {"attr":"postgres_user","name":"用户","type":"text","default":"postgres","suffix":"postgresql的默认用户名","unit":""},
+    {"attr":"postgres_password","name":"密码","type":"password","default":"","suffix":"postgresql的默认密码","unit":""},
+    {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+    {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+  ],
+  "env": [
+    {"key":"version","type":"string","default":null,"desc":"版本号"},
+    {"key":"postgres_port","type":"port","default":null,"desc":"postgresql端口"},
+    {"key":"postgres_user","type":"password","default":null,"desc":"默认用户名"},
+    {"key":"postgres_password","type":"password","default":null,"desc":"默认密码"},
+    {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+    {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+    {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+    {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+  ],
+  "volumes": {"data": {"type": "path", "desc": "数据库目录"}}
+},
+{
+  "appid": 302,
+  "appname": "postgresql_18",
+  "apptitle": "PostgreSQL 18",
+  "apptype": "Database",
+  "appTypeCN": "数据库",
+  "appversion": [
+    {"m_version":"18","s_version":["4"]}
   ],
   "appdesc": "一种特性非常齐全的自由软件的对象-关系型数据库管理系统（ORDBMS）",
   "appstatus": 1,
@@ -10247,7 +10289,7 @@
   "apptype": "AI",
   "appTypeCN": "AI/大模型",
   "appversion": [
-    {"m_version":"4","s_version":["10.0"]}
+    {"m_version":"4","s_version":["15.1"]}
   ],
   "appdesc": "FastGPT 是一个基于 LLM 大语言模型的知识库问答系统，将智能对话与可视化编排完美结合，让 AI 应用开发变得简单自然。",
   "appstatus": 1,
@@ -12983,5 +13025,46 @@
     {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
   ],
   "volumes": {"data": {"type": "path", "desc": "数据目录"}, "logs": {"type": "path", "desc": "日志目录"}, "cache": {"type": "path", "desc": "缓存目录"}, "redis-data": {"type": "path", "desc": "Redis数据目录"}, "config.properties": {"type": "file", "desc": "配置文件"}, "domain.json": {"type": "file", "desc": "域名配置文件"}}
+},
+{
+  "appid": 301,
+  "appname": "gsuidcore",
+  "apptitle": "早柚核心",
+  "apptype": "AI",
+  "appTypeCN": "AI/大模型",
+  "appversion": [
+    {"m_version":"latest","s_version":[]}
+  ],
+  "appdesc": "原神/星铁/绝区零/鸣潮/终末地游戏的AI机器人核心框架，支持多平台接入与插件扩展。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 218,
+  "home": "https://docs.sayu-bot.com",
+  "help": "https://docs.sayu-bot.com/Started/DockerCore.html",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1722308764,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+    {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问，如果您设置了域名请不要勾选这里","unit":""},
+    {"attr":"web_http_port","name":"服务端口","type":"number","default":8765,"suffix":"","unit":""},
+    {"attr":"gscore_python_index","name":"PyPI镜像源","type":"text","default":"https://mirrors.aliyun.com/pypi/simple/","suffix":"国内推荐阿里云镜像，留空则使用官方源","unit":""},
+    {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+    {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+  ],
+  "env": [
+    {"key":"version","type":"string","default":null,"desc":"版本号"},
+    {"key":"web_http_port","type":"port","default":null,"desc":"服务端口"},
+    {"key":"gscore_python_index","type":"url","default":null,"desc":"PyPI镜像源"},
+    {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+    {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+    {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+    {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+  ],
+  "volumes": {"gscore_data": {"type": "path", "desc": "数据目录"}, "gscore_plugins": {"type": "path", "desc": "插件目录"}}
 }
 ]

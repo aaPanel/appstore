@@ -5,7 +5,7 @@
     "apptype": "AI",
     "appTypeCN": "AI/大模型",
     "appversion": [
-        {"m_version":"4","s_version":["10.0"]}
+        {"m_version":"4","s_version":["15.1"]}
     ],
     "appdesc": "FastGPT 是一个基于 LLM 大语言模型的知识库问答系统，将智能对话与可视化编排完美结合，让 AI 应用开发变得简单自然。",
     "appstatus": 1,
