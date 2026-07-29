@@ -1,6 +1,6 @@
 services:
   dwz-server:
-    image: docker.cnb.cool/mliev/open/dwz-server:latest
+    image: docker.cnb.cool/mliev/dwz/dwz-server:latest
     restart: always
     ports:
       - ${HOST_IP}:${HTTP_PORT}:8080
