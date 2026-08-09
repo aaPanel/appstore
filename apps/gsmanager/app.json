@@ -1,0 +1,117 @@
+{
+    "appid": -1,
+    "appname": "gsmanager",
+    "apptitle": "GSManager-游戏服务端一键部署面板",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {
+            "m_version": "latest",
+            "s_version": []
+        }
+    ],
+    "appdesc": "GameServerManager 3.0（简称GSM3）是一个基于现代化技术栈的游戏服务器管理平台，采用 React + TypeScript + Node.js 架构，专为简化游戏服务器的部署、管理和维护而设计。",
+    "appstatus": 1,
+    "home": "https://github.com/GSManagerXZ/GameServerManager",
+    "help": "http://docs.gsm.xiaozhuhouses.asia/",
+    "updateat": 1784968552,
+    "depend": null,
+    "field": [
+        {
+            "attr": "domain",
+            "name": "域名",
+            "type": "textarea",
+            "default": "",
+            "suffix": "浏览器访问的域名,非必填",
+            "unit": ""
+        },
+        {
+            "attr": "allow_access",
+            "name": "允许外部访问",
+            "type": "checkbox",
+            "default": true,
+            "suffix": "允许直接通过主机IP+端口访问",
+            "unit": ""
+        },
+        {
+            "attr": "gsm_web_port",
+            "name": "web管理端口",
+            "type": "number",
+            "default": 3001,
+            "suffix": "GSManager的web管理面板端口",
+            "unit": ""
+        },
+        {
+            "attr": "game_port",
+            "name": "游戏服务器端口",
+            "type": "number",
+            "default": 27015,
+            "suffix": "游戏服务端默认端口，可按需在面板中映射更多端口",
+            "unit": ""
+        },
+        {
+            "attr": "cpus",
+            "name": "cpu核心数限制",
+            "type": "number",
+            "default": 0,
+            "suffix": "0为不限制,最大可用核心数为: ",
+            "unit": ""
+        },
+        {
+            "attr": "memory_limit",
+            "name": "内存限制",
+            "type": "number",
+            "default": 0,
+            "suffix": "0为不限制,最大可用内存为: ",
+            "unit": ""
+        }
+    ],
+    "env": [
+        {
+            "key": "gsm_web_port",
+            "type": "port",
+            "default": null,
+            "desc": "web管理端口"
+        },
+        {
+            "key": "game_port",
+            "type": "port",
+            "default": null,
+            "desc": "游戏服务器端口"
+        },
+        {
+            "key": "app_path",
+            "type": "path",
+            "default": null,
+            "desc": "应用数据目录"
+        },
+        {
+            "key": "host_ip",
+            "type": "string",
+            "default": null,
+            "desc": "主机IP"
+        },
+        {
+            "key": "cpus",
+            "type": "number",
+            "default": null,
+            "desc": "CPU核心数限制"
+        },
+        {
+            "key": "memory_limit",
+            "type": "number",
+            "default": null,
+            "desc": "内存大小限制"
+        }
+    ],
+    "volumes": {
+        "game_data": {
+            "type": "path",
+            "desc": "Steam用户数据目录"
+        },
+        "game_file": {
+            "type": "path",
+            "desc": "游戏文件目录"
+        }
+    }
+}
