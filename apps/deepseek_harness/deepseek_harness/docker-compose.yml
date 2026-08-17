@@ -1,6 +1,6 @@
 services:
   BT_SERVICE_NAME6:
-    image: deepseek-harness:${VERSION}
+    image: btpanel/deepseek-harness:${VERSION}
     restart: always
     deploy:
       resources:

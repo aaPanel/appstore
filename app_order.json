@@ -304,5 +304,6 @@
   "bizbot",
   "zmark",
   "TranslateService",
-  "gsuidcore"
+  "gsuidcore",
+  "deepseek_harness"
 ]
