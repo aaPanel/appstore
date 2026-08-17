@@ -1,0 +1,21 @@
+services:
+  BT_SERVICE_NAME6:
+    image: deepseek-harness:${VERSION}
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    ports:
+      - ${HOST_IP}:${DSH_PORT}:3080
+    volumes:
+      - ${APP_PATH}/workspace:/workspace
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
