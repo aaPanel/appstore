@@ -1,6 +1,6 @@
 services:
   BT_SERVICE_NAME6:
-    image: btpanel/deepseek-harness:${VERSION}
+    image: docker.cnb.cool/btpanel/deepseek-harness:${VERSION}
     restart: always
     deploy:
       resources:
