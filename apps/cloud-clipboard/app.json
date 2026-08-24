@@ -1,0 +1,179 @@
+{
+    "appid": 301,
+    "appname": "cloud-clipboard",
+    "apptitle": "Cloud Clipboard",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {
+            "m_version": "latest",
+            "s_version": []
+        }
+    ],
+    "appdesc": "跨设备剪贴板同步工具，支持文本和文件传输",
+    "appstatus": 1,
+    "home": "https://github.com/TransparentLC/cloud-clipboard",
+    "help": "https://github.com/TransparentLC/cloud-clipboard",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1784186880,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {
+            "attr": "domain",
+            "name": "域名",
+            "type": "textarea",
+            "default": "",
+            "suffix": "浏览器访问的域名,非必填",
+            "unit": ""
+        },
+        {
+            "attr": "allow_access",
+            "name": "允许外部访问",
+            "type": "checkbox",
+            "default": true,
+            "suffix": "允许直接通过主机IP+端口访问",
+            "unit": ""
+        },
+        {
+            "attr": "cloud-clipboard_web_port",
+            "name": "Web端口",
+            "type": "number",
+            "default": 9501,
+            "suffix": "",
+            "unit": ""
+        },
+        {
+            "attr": "CLIP_NO_AUTH",
+            "name": "是否免密登录",
+            "type": "checkbox",
+            "default": "",
+            "suffix": "",
+            "unit": ""
+        },
+        {
+            "attr": "CLIP_HISTORY",
+            "name": "历史记录条数",
+            "type": "number",
+            "default": "100",
+            "suffix": "",
+            "unit": ""
+        },
+        {
+            "attr": "CLIP_TEXT_SIZE",
+            "name": "文本大小限制(字符)",
+            "type": "number",
+            "default": "8192",
+            "suffix": "",
+            "unit": ""
+        },
+        {
+            "attr": "CLIP_FILE_SIZE",
+            "name": "文件大小限制(MB)",
+            "type": "number",
+            "default": "10240",
+            "suffix": "",
+            "unit": ""
+        },
+        {
+            "attr": "CLIP_EXPIRE_TIME",
+            "name": "剪贴板过期时间",
+            "type": "textarea",
+            "default": "24h",
+            "suffix": "",
+            "unit": ""
+        },
+        {
+            "attr": "cpus",
+            "name": "cpu核心数限制",
+            "type": "number",
+            "default": 0,
+            "suffix": "0为不限制,最大可用核心数为: ",
+            "unit": ""
+        },
+        {
+            "attr": "memory_limit",
+            "name": "内存限制",
+            "type": "number",
+            "default": 0,
+            "suffix": "0为不限制,最大可用内存为: ",
+            "unit": ""
+        }
+    ],
+    "env": [
+        {
+            "key": "version",
+            "type": "string",
+            "default": null,
+            "desc": "版本号"
+        },
+        {
+            "key": "cloud-clipboard_web_port",
+            "type": "port",
+            "default": null,
+            "desc": "Web端口"
+        },
+        {
+            "key": "CLIP_NO_AUTH",
+            "type": "string",
+            "default": null,
+            "desc": "是否免密登录"
+        },
+        {
+            "key": "CLIP_HISTORY",
+            "type": "number",
+            "default": null,
+            "desc": "历史记录条数"
+        },
+        {
+            "key": "CLIP_TEXT_SIZE",
+            "type": "number",
+            "default": null,
+            "desc": "文本大小限制(字符)"
+        },
+        {
+            "key": "CLIP_FILE_SIZE",
+            "type": "number",
+            "default": null,
+            "desc": "文件大小限制(MB)"
+        },
+        {
+            "key": "CLIP_EXPIRE_TIME",
+            "type": "string",
+            "default": null,
+            "desc": "剪贴板过期时间"
+        },
+        {
+            "key": "app_path",
+            "type": "path",
+            "default": null,
+            "desc": "应用数据目录"
+        },
+        {
+            "key": "host_ip",
+            "type": "string",
+            "default": null,
+            "desc": "主机IP"
+        },
+        {
+            "key": "cpus",
+            "type": "number",
+            "default": null,
+            "desc": "CPU核心数限制"
+        },
+        {
+            "key": "memory_limit",
+            "type": "number",
+            "default": null,
+            "desc": "内存大小限制"
+        }
+    ],
+    "volumes": {
+        "data": {
+            "type": "path",
+            "desc": "数据目录"
+        }
+    }
+}
