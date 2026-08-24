@@ -1,0 +1,232 @@
+{
+  "appid": 304,
+  "appname": "sub2api",
+  "apptitle": "Sub2API",
+  "apptype": "AI",
+  "appTypeCN": "AI/大模型",
+  "appversion": [
+    {
+      "m_version": "latest",
+      "s_version": []
+    }
+  ],
+  "appdesc": "AI API 网关平台，用于分发和管理 AI 产品订阅配额。支持多种上游账号类型与 API Key 分发，提供 Token 级用量追踪和成本计算、智能账号调度与粘性会话、用户级和账号级并发控制、请求与 Token 速率限制，并内置 Web 管理后台及自助支付能力。采用 Go + Vue 架构，配套 PostgreSQL 与 Redis，通过 Docker Compose 一键部署。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 1,
+  "home": "https://github.com/Wei-Shaw/sub2api",
+  "help": "https://github.com/Wei-Shaw/sub2api/blob/main/README_CN.md",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1783865400,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {
+      "attr": "domain",
+      "name": "域名",
+      "type": "textarea",
+      "default": "",
+      "suffix": "选填，可使用绑定域名访问 Web 控制台",
+      "unit": ""
+    },
+    {
+      "attr": "allow_access",
+      "name": "允许外部访问",
+      "type": "checkbox",
+      "default": true,
+      "suffix": "允许直接通过服务器 IP + 端口访问",
+      "unit": ""
+    },
+    {
+      "attr": "server_port",
+      "name": "WEB端口",
+      "type": "number",
+      "default": 8080,
+      "suffix": "Web 控制台与 API 服务访问端口",
+      "unit": ""
+    },
+    {
+      "attr": "admin_email",
+      "name": "管理员邮箱",
+      "type": "text",
+      "default": "",
+      "suffix": "首次启动创建的管理员登录邮箱，必填",
+      "unit": ""
+    },
+    {
+      "attr": "admin_password",
+      "name": "管理员密码",
+      "type": "password",
+      "default": "",
+      "suffix": "首次启动创建的管理员登录密码，必填",
+      "unit": ""
+    },
+    {
+      "attr": "postgres_user",
+      "name": "数据库用户",
+      "type": "text",
+      "default": "sub2api",
+      "suffix": "PostgreSQL 数据库用户名，默认 sub2api",
+      "unit": ""
+    },
+    {
+      "attr": "postgres_password",
+      "name": "数据库密码",
+      "type": "password",
+      "default": "",
+      "suffix": "留空由宝塔自动生成，也可手动填写",
+      "unit": ""
+    },
+    {
+      "attr": "postgres_db",
+      "name": "数据库名",
+      "type": "text",
+      "default": "sub2api",
+      "suffix": "PostgreSQL 数据库名称，默认 sub2api",
+      "unit": ""
+    },
+    {
+      "attr": "redis_password",
+      "name": "Redis 密码",
+      "type": "password",
+      "default": "",
+      "suffix": "留空由宝塔自动生成，也可手动填写",
+      "unit": ""
+    },
+    {
+      "attr": "jwt_seed",
+      "name": "JWT 密钥",
+      "type": "password",
+      "default": "",
+      "suffix": "留空自动生成，用于登录令牌签名",
+      "unit": ""
+    },
+    {
+      "attr": "totp_seed",
+      "name": "TOTP 密钥",
+      "type": "password",
+      "default": "",
+      "suffix": "留空自动生成，用于两步验证数据加密",
+      "unit": ""
+    },
+    {
+      "attr": "cpus",
+      "name": "CPU核心数限制",
+      "type": "number",
+      "default": 0,
+      "suffix": "0 为不限制，最大可用核心数：",
+      "unit": ""
+    },
+    {
+      "attr": "memory_limit",
+      "name": "内存限制",
+      "type": "number",
+      "default": 0,
+      "suffix": "0 为不限制，最大可用内存：",
+      "unit": "MB"
+    }
+  ],
+  "env": [
+    {
+      "key": "version",
+      "type": "string",
+      "default": null,
+      "desc": "版本号"
+    },
+    {
+      "key": "server_port",
+      "type": "port",
+      "default": null,
+      "desc": "Sub2API WEB端口"
+    },
+    {
+      "key": "admin_email",
+      "type": "string",
+      "default": null,
+      "desc": "管理员邮箱"
+    },
+    {
+      "key": "admin_password",
+      "type": "string",
+      "default": null,
+      "desc": "管理员密码（用户填写）"
+    },
+    {
+      "key": "postgres_user",
+      "type": "string",
+      "default": null,
+      "desc": "PostgreSQL 用户"
+    },
+    {
+      "key": "postgres_password",
+      "type": "password",
+      "default": null,
+      "desc": "PostgreSQL 密码"
+    },
+    {
+      "key": "postgres_db",
+      "type": "string",
+      "default": null,
+      "desc": "PostgreSQL 数据库名"
+    },
+    {
+      "key": "redis_password",
+      "type": "password",
+      "default": null,
+      "desc": "Redis 密码"
+    },
+    {
+      "key": "jwt_seed",
+      "type": "password",
+      "default": null,
+      "desc": "JWT 随机种子（安装时自动生成）"
+    },
+    {
+      "key": "totp_seed",
+      "type": "password",
+      "default": null,
+      "desc": "TOTP 随机种子（安装时自动生成）"
+    },
+    {
+      "key": "app_path",
+      "type": "path",
+      "default": null,
+      "desc": "应用数据目录"
+    },
+    {
+      "key": "host_ip",
+      "type": "string",
+      "default": null,
+      "desc": "主服务监听地址"
+    },
+    {
+      "key": "cpus",
+      "type": "number",
+      "default": null,
+      "desc": "Sub2API 主服务 CPU 核心数限制"
+    },
+    {
+      "key": "memory_limit",
+      "type": "number",
+      "default": null,
+      "desc": "Sub2API 主服务内存限制"
+    }
+  ],
+  "volumes": {
+    "data": {
+      "type": "path",
+      "desc": "Sub2API 运行数据和日志"
+    },
+    "postgres_data": {
+      "type": "path",
+      "desc": "PostgreSQL 数据目录"
+    },
+    "redis_data": {
+      "type": "path",
+      "desc": "Redis 持久化数据目录"
+    }
+  }
+}
