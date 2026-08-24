@@ -1,0 +1,124 @@
+services:
+  BT_SERVICE_NAME6:
+    image: ghcr.io/wei-shaw/sub2api:${VERSION}
+    restart: unless-stopped
+    ulimits:
+      nofile:
+        soft: 100000
+        hard: 100000
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    ports:
+      - ${HOST_IP}:${SERVER_PORT}:8080
+    volumes:
+      - ${APP_PATH}/data:/app/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      AUTO_SETUP: "true"
+      SERVER_HOST: "0.0.0.0"
+      SERVER_PORT: "8080"
+      SERVER_MODE: "release"
+      RUN_MODE: "standard"
+      DATABASE_HOST: "postgres"
+      DATABASE_PORT: "5432"
+      DATABASE_USER: ${POSTGRES_USER}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+      DATABASE_DBNAME: ${POSTGRES_DB}
+      DATABASE_SSLMODE: "disable"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_DB: "0"
+      ADMIN_EMAIL: ${ADMIN_EMAIL:?请填写管理员邮箱}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?请填写管理员密码}
+      JWT_EXPIRE_HOUR: "24"
+      JWT_SEED: ${JWT_SEED}
+      TOTP_SEED: ${TOTP_SEED}
+      TZ: "Asia/Shanghai"
+    command:
+      - /bin/sh
+      - -c
+      - |
+        export JWT_SECRET="$$(printf '%s' "$$JWT_SEED" | sha256sum | cut -d ' ' -f 1)"
+        export TOTP_ENCRYPTION_KEY="$$(printf '%s' "$$TOTP_SEED" | sha256sum | cut -d ' ' -f 1)"
+        exec /app/sub2api
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-T", "5", "-O", "/dev/null", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - sub2api-network
+      - baota_net
+
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    ulimits:
+      nofile:
+        soft: 100000
+        hard: 100000
+    volumes:
+      - ${APP_PATH}/postgres_data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGDATA: /var/lib/postgresql/data
+      TZ: "Asia/Shanghai"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - sub2api-network
+
+  redis:
+    image: redis:8-alpine
+    restart: unless-stopped
+    ulimits:
+      nofile:
+        soft: 100000
+        hard: 100000
+    volumes:
+      - ${APP_PATH}/redis_data:/data
+      - /etc/localtime:/etc/localtime:ro
+    command: >-
+      sh -c 'redis-server --save 60 1 --appendonly yes --appendfsync everysec
+      ${REDIS_PASSWORD:+--requirepass "$$REDIS_PASSWORD"}'
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDISCLI_AUTH: ${REDIS_PASSWORD}
+      TZ: "Asia/Shanghai"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - sub2api-network
+
+networks:
+  sub2api-network:
+    driver: bridge
+  baota_net:
+    external: true
