@@ -1,0 +1,37 @@
+volumes:
+  gsm3_data:
+    driver: local
+services:
+  gsmanager:
+    image: xiaozhu674/gameservermanager:latest
+    user: root
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    ports:
+      - ${HOST_IP}:${GSM_WEB_PORT}:3001
+      - ${HOST_IP}:${GAME_PORT}:27015
+    volumes:
+      - ${APP_PATH}/game_data:/home/steam/.config
+      - ${APP_PATH}/game_data:/home/steam/.local
+      - ${APP_PATH}/game_file:/home/steam/games
+      - ${APP_PATH}/game_data:/root/.config
+      - ${APP_PATH}/game_data:/root/.local
+      - ${APP_PATH}/game_file:/root/steam/games
+      - gsm3_data:/root/server/data
+    environment:
+      - TZ=Asia/Shanghai
+      - SERVER_PORT=3001
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
