@@ -305,5 +305,6 @@
   "zmark",
   "TranslateService",
   "gsuidcore",
-  "deepseek_harness"
+  "deepseek_harness",
+  "libredb_studio"
 ]

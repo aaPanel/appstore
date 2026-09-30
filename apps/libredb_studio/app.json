@@ -1,0 +1,119 @@
+{
+    "appid": 304,
+    "appname": "libredb_studio",
+    "apptitle": "LibreDB Studio",
+    "apptype": "Tools",
+    "appTypeCN": "实用工具",
+    "appversion": [
+        {
+            "m_version": "latest",
+            "s_version": []
+        },
+        {
+            "m_version": "0",
+            "s_version": [
+                "17.0",
+                "16.2"
+            ]
+        }
+    ],
+    "appdesc": "LibreDB Studio 是一款基于浏览器的自托管数据库 IDE，采用 MIT 开源协议，支持 PostgreSQL、MySQL、MongoDB、Redis、ClickHouse 等 18 种数据库引擎，内置 OIDC 单点登录、RBAC 权限与查询审计日志。首次启动时管理员密码会输出到容器日志。",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 22,
+    "home": "https://github.com/libredb/libredb-studio",
+    "help": "https://libredb.org",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1788788805,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {
+            "attr": "domain",
+            "name": "域名",
+            "type": "textarea",
+            "default": "",
+            "suffix": "浏览器访问的域名,非必填",
+            "unit": ""
+        },
+        {
+            "attr": "allow_access",
+            "name": "允许外部访问",
+            "type": "checkbox",
+            "default": true,
+            "suffix": "允许直接通过主机IP+端口访问",
+            "unit": ""
+        },
+        {
+            "attr": "libredb_studio_web_port",
+            "name": "Web端口",
+            "type": "number",
+            "default": 8980,
+            "suffix": "LibreDB Studio Web 管理端口",
+            "unit": ""
+        },
+        {
+            "attr": "cpus",
+            "name": "cpu核心数限制",
+            "type": "number",
+            "default": 0,
+            "suffix": "0为不限制,最大可用核心数为: ",
+            "unit": ""
+        },
+        {
+            "attr": "memory_limit",
+            "name": "内存限制",
+            "type": "number",
+            "default": 0,
+            "suffix": "0为不限制,最大可用内存为: ",
+            "unit": ""
+        }
+    ],
+    "env": [
+        {
+            "key": "version",
+            "type": "string",
+            "default": null,
+            "desc": "版本号"
+        },
+        {
+            "key": "libredb_studio_web_port",
+            "type": "port",
+            "default": 8980,
+            "desc": "Web端口"
+        },
+        {
+            "key": "app_path",
+            "type": "path",
+            "default": null,
+            "desc": "应用数据目录"
+        },
+        {
+            "key": "host_ip",
+            "type": "string",
+            "default": null,
+            "desc": "主机IP"
+        },
+        {
+            "key": "cpus",
+            "type": "number",
+            "default": null,
+            "desc": "CPU核心数限制"
+        },
+        {
+            "key": "memory_limit",
+            "type": "number",
+            "default": null,
+            "desc": "内存大小限制"
+        }
+    ],
+    "volumes": {
+        "data": {
+            "type": "path",
+            "desc": "应用数据目录"
+        }
+    }
+}
