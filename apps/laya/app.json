@@ -7,7 +7,7 @@
     "appversion": [
         {"m_version":"latest","s_version":[]}
     ],
-    "appdesc": "Laya 是自托管的结构化决策模型，提供兼容 Jev 的 HTTP API。首次请求会下载模型文件。",
+    "appdesc": "Laya 是自托管的多语言决策模型（非自回归 System 1 决策引擎），单次前向传播输出结构化决策结果，提供兼容 Jev 的 HTTP API。",
     "appstatus": 1,
     "icon": "",
     "sort": 0,
@@ -16,7 +16,7 @@
     "cpu": 0,
     "mem": 0,
     "disk": 10240,
-    "updateat": 1790568660,
+    "updateat": 1791796420,
     "installed": false,
     "reuse": true,
     "depend": null,

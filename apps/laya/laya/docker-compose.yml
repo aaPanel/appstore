@@ -1,13 +1,45 @@
 services:
   BT_SERVICE_NAME6:
     image: docker.cnb.cool/btpanel/sync/laya:${VERSION}
-    command: ["laya-serve"]
+    command:
+      - python
+      - -c
+      - |
+        import os, subprocess, sys, urllib.error, urllib.request
+
+        def hf_reachable():
+            try:
+                urllib.request.urlopen(
+                    "https://huggingface.co/api/models/convaiinnovations/laya", timeout=6)
+            except urllib.error.HTTPError:
+                return True  # 有 HTTP 响应即视为可达
+            except OSError:
+                return False
+            return True
+
+        # 网络访问不到 huggingface.co：改从可访问的 ModelScope 预取模型后再启动服务。
+        # HF 可达时保持原行为（首个请求按需下载），不做任何额外动作。
+        if hf_reachable():
+            print("huggingface.co 可达：模型将在首次请求时按需下载", file=sys.stderr, flush=True)
+        else:
+            print("huggingface.co 不可达：改从 ModelScope 预取模型（约 1.4 GB，仅首次）",
+                  file=sys.stderr, flush=True)
+            subprocess.call([
+                "timeout", "1800", "python", "/opt/laya/prefetch_modelscope.py",
+                "--model", "english,multilingual", "--revision", "master",
+                "--cache-dir", "/home/laya/.cache/huggingface/hub",
+            ])
+
+        os.execvp("laya-serve", ["laya-serve"])
     init: true
     restart: unless-stopped
     ports:
       - "${HOST_IP}:${WEB_HTTP_PORT}:8000"
     environment:
       LAYA_API_KEY: ${LAYA_API_KEY}
+      # 默认(1)会在启动时构建全部 checkpoint，内存占用大，失败还会导致退出重启；
+      # 置 0 改为首次请求时按需加载（模型文件已由上面的预取步骤准备好）
+      LAYA_PRELOAD: "0"
     volumes:
       - model-cache:/home/laya/.cache/huggingface
     deploy:
@@ -15,6 +47,13 @@ services:
         limits:
           cpus: ${CPUS}
           memory: ${MEMORY_LIMIT}
+    healthcheck:
+      # 首次启动可能要先从 ModelScope 下载模型（约 1.4 GB），此后服务数秒内就绪
+      test: ["CMD", "python", "-c", "import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:' + os.environ.get('LAYA_PORT', '8000') + '/health', timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 1800s
     labels:
       createdBy: "bt_apps"
     networks:
