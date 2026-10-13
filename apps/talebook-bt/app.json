@@ -1,0 +1,40 @@
+{
+  "appid": 0,
+  "appname": "talebook",
+  "apptitle": "TaleBook",
+  "apptype": "Tools",
+  "appTypeCN": "实用工具",
+  "appversion": [
+    { "m_version": "latest", "s_version": [] }
+  ],
+  "appdesc": "基于 Calibre 的个人电子书管理系统，支持在线阅读、OPDS、多用户、元数据管理、书源导入、邮件推送",
+  "appstatus": 1,
+  "home": "https://github.com/talebook/talebook",
+  "help": "https://github.com/talebook/talebook/blob/master/document/README.zh_CN.md",
+  "updateat": 1752027587,
+  "reuse": true,
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "depend": null,
+  "field": [
+    { "attr": "web_http_port",  "name": "Web 端口",    "type": "number",   "default": 8080,   "suffix": "",                "unit": "" },
+    { "attr": "allow_access",   "name": "允许外部访问", "type": "checkbox", "default": true,   "suffix": "允许直接通过主机IP+端口访问", "unit": "" },
+    { "attr": "puid",           "name": "PUID",         "type": "number",   "default": 1000,   "suffix": "容器内运行用户ID",  "unit": "" },
+    { "attr": "pgid",           "name": "PGID",         "type": "number",   "default": 1000,   "suffix": "容器内运行用户组ID", "unit": "" },
+    { "attr": "timezone",       "name": "时区",         "type": "text",     "default": "Asia/Shanghai", "suffix": "",     "unit": "" }
+  ],
+  "env": [
+    { "key": "app_path",         "type": "path",    "default": null, "desc": "应用数据目录" },
+    { "key": "host_ip",          "type": "string",  "default": null, "desc": "主机IP" },
+    { "key": "cpus",             "type": "number",  "default": null, "desc": "CPU核心数限制" },
+    { "key": "memory_limit",     "type": "number",  "default": null, "desc": "内存大小限制" },
+    { "key": "web_http_port",    "type": "port",    "default": null, "desc": "Web端口" },
+    { "key": "puid",             "type": "number",  "default": null, "desc": "用户ID" },
+    { "key": "pgid",             "type": "number",  "default": null, "desc": "用户组ID" },
+    { "key": "timezone",         "type": "string",  "default": null, "desc": "时区" }
+  ],
+  "volumes": {
+    "data": { "type": "path", "desc": "数据目录（书库、设置、日志等）" }
+  }
+}
