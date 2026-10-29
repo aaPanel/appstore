@@ -238,7 +238,7 @@
   "appversion": [
     {"m_version":"latest","s_version":[]}
   ],
-  "appdesc": "LLMPod是开源的大模型推理服务平台，支持NVIDIA GPU与昇腾NPU的节点接入、一键部署大模型，支持多租户的API网关 + vLLM/Sglang一件部署推理引擎推理引擎。让自有算力，成为你业务上可用的模型API，三步即可部署你的大模型:1.注册GPU节点,2.添加模型文件,3.一键部署（支持llamacpp、vllm、sglang）,4.在网关中创建APIKEY在你的业务场景中使用",
+  "appdesc": "LLMPod是开源的大模型推理部署管理平台，多租户API网关、一键部署大模型，让算力快速成为模型API。",
   "appstatus": 1,
   "icon": "",
   "sort": 0,
