@@ -75,7 +75,7 @@ services:
       LLMPOD_ADMIN_USER: ${LLMPOD_ADMIN_USER:-}
       LLMPOD_ADMIN_PASSWORD: ${LLMPOD_ADMIN_PASSWORD:-}
       LLMPOD_DOCS_ENABLED: "false"
-      LLMPOD_CORS_ORIGINS: "[]"
+      LLMPOD_CORS_ORIGINS: ${LLMPOD_CORS_ORIGINS:-["*"]}
       LLMPOD_TOKEN_EXPIRE_SECONDS: "86400"
       LLMPOD_TOKEN_KEY_PREFIX: "llmpod:token:"
       LLMPOD_GPU_FLUSH_INTERVAL: "10"
@@ -89,6 +89,7 @@ services:
       - "${HOST_IP}:${WEB_HTTP_PORT}:${WEB_HTTP_PORT}"
     volumes:
       - ${APP_PATH}/data:/app/data
+      - /etc/machine-id:/etc/host-machine-id:ro
       # 模型仓库（local 源上传/文件服务下发根）；容器内路径固定为 /data/models
       - ${MODEL_HOST_DIR:-${APP_PATH}/models}:/data/models
     depends_on:
