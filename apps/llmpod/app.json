@@ -1,0 +1,51 @@
+{
+    "appid": 305,
+    "appname": "llmpod",
+    "apptitle": "LLMPod",
+    "apptype": "AI",
+    "appTypeCN": "AI/大模型",
+    "appversion": [
+        {"m_version":"latest","s_version":[]}
+    ],
+    "appdesc": "LLMPod是开源的大模型推理服务平台，支持NVIDIA GPU与昇腾NPU的节点接入、一键部署大模型，支持多租户的API网关 + vLLM/Sglang一件部署推理引擎推理引擎。让自有算力，成为你业务上可用的模型API，三步即可部署你的大模型:1.注册GPU节点,2.添加模型文件,3.一键部署（支持llamacpp、vllm、sglang）,4.在网关中创建APIKEY在你的业务场景中使用",
+    "appstatus": 1,
+    "icon": "",
+    "sort": 0,
+    "home": "https://llmpod.ai",
+    "help": "https://docs.llmpod.ai/",
+    "cpu": 0,
+    "mem": 0,
+    "disk": 10240,
+    "updateat": 1793199902,
+    "installed": false,
+    "reuse": true,
+    "depend": null,
+    "field": [
+        {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问管理端的域名,非必填","unit":""},
+        {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"GPU节点通常在其它机器上，需经IP+端口访问管理端，建议保持开启","unit":""},
+        {"attr":"web_http_port","name":"管理端端口","type":"number","default":18080,"suffix":"管理端 Web 界面端口","unit":""},
+        {"attr":"proxy_api_port","name":"API网关端口","type":"number","default":18090,"suffix":"OpenAI/Anthropic兼容接口的调用端口","unit":""},
+        {"attr":"llmpod_admin_user","name":"管理员账号","type":"text","default":"admin","suffix":"首次启动创建的超级管理员账号","unit":""},
+        {"attr":"llmpod_admin_password","name":"管理员密码","type":"password","default":"","suffix":"","unit":""},
+        {"attr":"llmpod_node_manager_ip","name":"接入节点访问IP","type":"text","default":"","suffix":"必填·本机的内网/公网IP（GPU节点机要能访问到）","unit":""},
+        {"attr":"model_host_dir","name":"模型文件目录","type":"text","default":"","suffix":"宿主机现有模型文件的目录,下载模型时也会存放在此","unit":""},
+        {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+        {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+    ],
+    "env": [
+        {"key":"version","type":"string","default":null,"desc":"版本号"},
+        {"key":"web_http_port","type":"port","default":null,"desc":"管理端端口"},
+        {"key":"proxy_api_port","type":"port","default":null,"desc":"API网关端口"},
+        {"key":"llmpod_admin_user","type":"string","default":null,"desc":"管理员账号"},
+        {"key":"llmpod_admin_password","type":"password","default":null,"desc":"管理员密码"},
+        {"key":"llmpod_node_manager_ip","type":"string","default":null,"desc":"节点连接地址"},
+        {"key":"model_host_dir","type":"string","default":null,"desc":"模型仓库目录"},
+        {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+        {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+        {"key":"cpus","type":"number","default":null,"desc":"cpu核心数限制"},
+        {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
+    ],
+    "volumes": {
+        "data": {"type": "path", "desc": "应用数据目录（数据库/Redis/管理端数据）"}
+    }
+}

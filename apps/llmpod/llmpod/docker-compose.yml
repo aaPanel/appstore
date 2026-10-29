@@ -1,0 +1,153 @@
+# LLMPod —— AI 推理网关与 GPU 集群编排平台
+#
+# 本编排只部署"管理端"：控制面（webserver，含管理界面）+ 数据面（proxyserver，
+# OpenAI/Anthropic 兼容 API 网关）+ 内置 PostgreSQL/Redis。GPU 推理节点运行在
+# 其它机器上（需要 GPU 驱动与 docker.sock），装好后在管理端"节点"页生成引导
+# 命令到节点机执行即可接入，文档见 https://docs.llmpod.ai/ 。
+#
+# 端口约定：管理端/API 网关的对外端口与容器内监听端口保持一致（应用按该端口
+# 推导对外访问地址），映射两端使用同一个变量。
+services:
+  llmpod-postgres:
+    image: postgres:16.3
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-}
+      POSTGRES_DB: llmpod
+    volumes:
+      - ${APP_PATH}/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "127.0.0.1", "-p", "5432", "-q", "-U", "postgres"]
+      start_period: 20s
+      interval: 10s
+      retries: 10
+      timeout: 5s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  llmpod-redis:
+    image: redis:7.4.0
+    restart: always
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}"]
+    volumes:
+      - ${APP_PATH}/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      start_period: 10s
+      interval: 10s
+      retries: 10
+      timeout: 5s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  # 控制面 + 管理界面。首次启动自动建库；管理员账号取自
+  # LLMPOD_ADMIN_USER/LLMPOD_ADMIN_PASSWORD（仅首次建库生效），密码留空则随机
+  # 生成并写入 /app/data/admin_credentials（宿主机 ${APP_PATH}/data 下可查）。
+  llmpod-webserver:
+    image: docker.cnb.cool/btpanel/llmpod:${VERSION}
+    restart: unless-stopped
+    command: ["webserver"]
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    environment:
+      LLMPOD_PG_HOST: llmpod-postgres
+      LLMPOD_PG_PORT: "5432"
+      LLMPOD_PG_USER: postgres
+      LLMPOD_PG_PASSWORD: ${POSTGRES_PASSWORD:-}
+      LLMPOD_PG_DATABASE: llmpod
+      LLMPOD_REDIS_HOST: llmpod-redis
+      LLMPOD_REDIS_PORT: "6379"
+      LLMPOD_REDIS_PASSWORD: ${REDIS_PASSWORD:-}
+      LLMPOD_WEBSERVER_HOST: "0.0.0.0"
+      LLMPOD_WEBSERVER_PORT: ${WEB_HTTP_PORT}
+      LLMPOD_PROXY_PORT: ${PROXY_API_PORT}
+      # 管理端在线调试要调 API 网关：分容器部署走服务名，不落 .env
+      LLMPOD_PROXY_INTERNAL_URL: http://llmpod-proxyserver:${PROXY_API_PORT}
+      LLMPOD_MANAGER_WS_PATH: "/ws/node"
+      LLMPOD_ADMIN_USER: ${LLMPOD_ADMIN_USER:-}
+      LLMPOD_ADMIN_PASSWORD: ${LLMPOD_ADMIN_PASSWORD:-}
+      LLMPOD_DOCS_ENABLED: "false"
+      LLMPOD_CORS_ORIGINS: "[]"
+      LLMPOD_TOKEN_EXPIRE_SECONDS: "86400"
+      LLMPOD_TOKEN_KEY_PREFIX: "llmpod:token:"
+      LLMPOD_GPU_FLUSH_INTERVAL: "10"
+      LLMPOD_GPU_STALE_TIMEOUT: "120"
+      # 本机对外地址：节点机用它反连管理端（裸 IP/域名，或 wss:// 反代地址）。
+      # 留空 = localhost，仅同机节点可用；多机部署必填。
+      LLMPOD_NODE_MANAGER_IP: ${LLMPOD_NODE_MANAGER_IP:-}
+      # 网关指标抓取地址走容器网络内的服务名
+      LLMPOD_METRICS_SCRAPE_TARGETS: http://llmpod-proxyserver:${PROXY_API_PORT}/metrics
+    ports:
+      - "${HOST_IP}:${WEB_HTTP_PORT}:${WEB_HTTP_PORT}"
+    volumes:
+      - ${APP_PATH}/data:/app/data
+      # 模型仓库（local 源上传/文件服务下发根）；容器内路径固定为 /data/models
+      - ${MODEL_HOST_DIR:-${APP_PATH}/models}:/data/models
+    depends_on:
+      llmpod-postgres:
+        condition: service_healthy
+      llmpod-redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:${WEB_HTTP_PORT}/health || exit 1"]
+      start_period: 30s
+      interval: 15s
+      retries: 10
+      timeout: 5s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+  # 数据面：OpenAI/Anthropic 兼容 API 网关。与 webserver 同镜像、command 区分
+  # 角色，跳过建库；调用日志正文与 webserver 共享 ${APP_PATH}/data 目录。
+  llmpod-proxyserver:
+    image: docker.cnb.cool/btpanel/llmpod:${VERSION}
+    restart: unless-stopped
+    command: ["proxyserver"]
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    environment:
+      LLMPOD_PG_HOST: llmpod-postgres
+      LLMPOD_PG_PORT: "5432"
+      LLMPOD_PG_USER: postgres
+      LLMPOD_PG_PASSWORD: ${POSTGRES_PASSWORD:-}
+      LLMPOD_PG_DATABASE: llmpod
+      LLMPOD_REDIS_HOST: llmpod-redis
+      LLMPOD_REDIS_PORT: "6379"
+      LLMPOD_REDIS_PASSWORD: ${REDIS_PASSWORD:-}
+      LLMPOD_PROXY_HOST: "0.0.0.0"
+      LLMPOD_PROXY_PORT: ${PROXY_API_PORT}
+      LLMPOD_TOKEN_KEY_PREFIX: "llmpod:token:"
+    ports:
+      - "${HOST_IP}:${PROXY_API_PORT}:${PROXY_API_PORT}"
+    volumes:
+      - ${APP_PATH}/data:/app/data
+    depends_on:
+      llmpod-webserver:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:${PROXY_API_PORT}/health || exit 1"]
+      start_period: 15s
+      interval: 15s
+      retries: 10
+      timeout: 5s
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true
