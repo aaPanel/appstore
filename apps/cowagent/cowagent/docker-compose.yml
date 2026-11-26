@@ -1,0 +1,38 @@
+services:
+  cowagent:
+    image: zhayujie/cowagent:latest
+    security_opt:
+      - seccomp:unconfined
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    ports:
+      - ${HOST_IP}:${COWAGENT_WEB_PORT}:9899
+    environment:
+      COW_LANG: 'auto'
+      CHANNEL_TYPE: ''
+      MODEL: ''
+      WEB_HOST: '0.0.0.0'
+      WEB_PASSWORD: ${WEB_PASSWORD:?请填写控制台访问密码}
+      AGENT: 'True'
+      # 容器本身就是隔离边界，Agent 在容器内以完全权限运行
+      AGENT_PERMISSION_MODE: 'full-access'
+      AGENT_MAX_CONTEXT_TOKENS: 200000
+      AGENT_MAX_CONTEXT_TURNS: 30
+      AGENT_MAX_STEPS: 100
+      SELF_EVOLUTION_ENABLED: 'True'
+      COW_DATA_DIR: '/home/agent/.cow'
+    volumes:
+      - ${APP_PATH}/cow:/home/agent/cow
+      - ${APP_PATH}/cow-data:/home/agent/.cow
+    restart: always
+    labels:
+      createdBy: "bt_apps"
+    networks:
+      - baota_net
+
+networks:
+  baota_net:
+    external: true

@@ -13146,5 +13146,47 @@
     {"key":"memory_limit","type":"number","default":null,"desc":"内存限制"}
   ],
   "volumes": {}
+},
+{
+  "appid": 305,
+  "appname": "cowagent",
+  "apptitle": "CowAgent",
+  "apptype": "AI",
+  "appTypeCN": "AI/大模型",
+  "appversion": [
+    {"m_version":"latest","s_version":[]},
+    {"m_version":"2","s_version":["2.2"]}
+  ],
+  "appdesc": "开源 Personal Agent，属于你自己的超级 AI 助理：能规划任务、调用工具与 Skills、拥有长期记忆与知识库，支持多 Agent 团队；可接入微信、企业微信、飞书、钉钉、QQ 等通道，并支持 OpenAI、Claude、DeepSeek、Qwen、GLM、Kimi 等主流模型。",
+  "appstatus": 1,
+  "icon": "",
+  "sort": 0,
+  "home": "https://github.com/zhayujie/CowAgent",
+  "help": "https://docs.cowagent.ai/zh/guide/manual-install#docker-%E9%83%A8%E7%BD%B2%EF%BC%88docker-compose-yml%EF%BC%89",
+  "cpu": 0,
+  "mem": 0,
+  "disk": 10240,
+  "updateat": 1795657000,
+  "installed": false,
+  "reuse": true,
+  "depend": null,
+  "field": [
+    {"attr":"domain","name":"域名","type":"textarea","default":"","suffix":"浏览器访问的域名,非必填","unit":""},
+    {"attr":"allow_access","name":"允许外部访问","type":"checkbox","default":true,"suffix":"允许直接通过主机IP+端口访问","unit":""},
+    {"attr":"cowagent_web_port","name":"Web 控制台端口","type":"number","default":9899,"suffix":"CowAgent Web 控制台端口，容器内为 9899","unit":""},
+    {"attr":"web_password","name":"控制台访问密码","type":"string","default":"","suffix":"必填。CowAgent 具备文件、终端等系统级操作能力，对外开放时必须设置密码","unit":""},
+    {"attr":"cpus","name":"cpu核心数限制","type":"number","default":0,"suffix":"0为不限制,最大可用核心数为: ","unit":""},
+    {"attr":"memory_limit","name":"内存限制","type":"number","default":0,"suffix":"0为不限制,最大可用内存为: ","unit":""}
+  ],
+  "env": [
+    {"key":"version","type":"string","default":null,"desc":"版本号"},
+    {"key":"cowagent_web_port","type":"port","default":null,"desc":"Web 控制台端口"},
+    {"key":"web_password","type":"string","default":null,"desc":"控制台访问密码"},
+    {"key":"app_path","type":"path","default":null,"desc":"应用数据目录"},
+    {"key":"host_ip","type":"string","default":null,"desc":"主机IP"},
+    {"key":"cpus","type":"number","default":null,"desc":"CPU核心数限制"},
+    {"key":"memory_limit","type":"number","default":null,"desc":"内存大小限制"}
+  ],
+  "volumes": {"cow": {"type": "path", "desc": "工作空间：技能、记忆、知识库、mcp.json"}, "cow-data": {"type": "path", "desc": "数据目录：config.json、运行日志、凭据"}}
 }
 ]

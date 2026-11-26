@@ -306,5 +306,6 @@
   "TranslateService",
   "gsuidcore",
   "deepseek_harness",
-  "laya"
+  "laya",
+  "cowagent"
 ]
