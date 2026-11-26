@@ -23,13 +23,13 @@ services:
       MYSQL_HOST: orion-mysql
       MYSQL_PORT: ${MYSQL_PORT:-3306}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-orion_visor}
-      MYSQL_USER: ${MYSQL_USER:-root}
+      MYSQL_USER: ${MYSQL_USER:-orion}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-Data@123456}
       REDIS_HOST: orion-redis
       REDIS_PASSWORD: ${REDIS_PASSWORD:-Data@123456}
       REDIS_DATABASE: ${REDIS_DATABASE:-0}
       REDIS_DATA_VERSION: ${REDIS_DATA_VERSION:-1}
-      INFLUXDB_ENABLED: false
+      INFLUXDB_ENABLED: true
       INFLUXDB_HOST: orion-influxdb
       INFLUXDB_PORT: ${INFLUXDB_PORT:-8086}
       INFLUXDB_ORG: ${INFLUXDB_ORG:-orion-visor}
@@ -40,10 +40,20 @@ services:
       GUACD_DRIVE_PATH: ${GUACD_DRIVE_PATH:-/drive}
       SECRET_KEY: ${SECRET_KEY:-uQeacXV8b3isvKLK}
       API_EXPOSE_TOKEN: ${API_EXPOSE_TOKEN:-pmqeHOyZaumHm0Wt}
+      API_IP_HEADERS: ${API_IP_HEADERS:-X-Forwarded-For,X-Real-IP}
+      # 这里需要改为具体的服务地址 (宿主机ip)
+      API_HOST: ${HOST_IP}
+      # 若 API_HOST 不满足, 可以修改这里 http://<ip>:<port>/orion-visor/api
+      API_URL: ${API_URL:-}
       API_CORS: ${API_CORS:-true}
       DEMO_MODE: ${DEMO_MODE:-false}
     volumes:
       - ${APP_PATH}/service/root-orion:/root/orion
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    restart: unless-stopped
     healthcheck:
       test: [ "CMD", "curl", "http://127.0.0.1:9200/orion-visor/api/server/bootstrap/health" ]
       interval: 15s
@@ -127,6 +137,8 @@ services:
       timeout: 5s
       retries: 10
       start_period: 10s
+    labels:
+      createdBy: "bt_apps"
     networks:
       - baota_net
 
@@ -149,18 +161,6 @@ services:
       timeout: 5s
       retries: 10
       start_period: 10s
-    networks:
-      - baota_net
-
-  orion-adminer:
-    image: registry.cn-hangzhou.aliyuncs.com/orionsec/orion-visor-adminer:latest
-    ports:
-      - ${HOST_IP}:${ADMINER_PORT}:8080
-    environment:
-      ADMINER_DEFAULT_SERVER: ${MYSQL_HOST:-mysql}
-    depends_on:
-      orion-mysql:
-        condition: service_healthy
     labels:
       createdBy: "bt_apps"
     networks:
@@ -169,5 +169,3 @@ services:
 networks:
   baota_net:
     external: true
-
-
